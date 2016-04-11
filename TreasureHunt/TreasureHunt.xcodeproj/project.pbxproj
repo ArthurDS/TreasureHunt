@@ -13,10 +13,11 @@
 		BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */; };
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
 		BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */; };
-		BE8CE8341CBBC8C700E49630 /* LocationTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */; };
-		BE8CE8361CBBC8DB00E49630 /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */; };
-		BE8CE8381CBBC8FA00E49630 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */; };
 		BE8CE83B1CBBCB2B00E49630 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE83A1CBBCB2B00E49630 /* LocationManager.swift */; };
+		BEC512461CBBDDB4000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512421CBBDDB4000B0DFB /* AddLocationViewController.swift */; };
+		BEC512471CBBDDB4000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512431CBBDDB4000B0DFB /* LocationDetailTableViewController.swift */; };
+		BEC512481CBBDDB4000B0DFB /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512441CBBDDB4000B0DFB /* LocationTableViewCell.swift */; };
+		BEC512491CBBDDB4000B0DFB /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512451CBBDDB4000B0DFB /* LocationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		BE72F6411CBBBED500976D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE72F6441CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE72F6461CBBBED500976D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewTableViewController.swift; sourceTree = "<group>"; };
-		BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
-		BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BE8CE83A1CBBCB2B00E49630 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BEC512421CBBDDB4000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		BEC512431CBBDDB4000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
+		BEC512441CBBDDB4000B0DFB /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		BEC512451CBBDDB4000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
-				BE72F64C1CBBC82E00976D47 /* Person+CoreDataProperties.swift */,
-				BE72F64D1CBBC82E00976D47 /* Person.swift */,
-				BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */,
-				BE72F64F1CBBC82E00976D47 /* Location.swift */,
 			);
 			name = CoreData;
 			path = ..;
@@ -92,7 +90,10 @@
 		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */,
+				BEC512421CBBDDB4000B0DFB /* AddLocationViewController.swift */,
+				BEC512431CBBDDB4000B0DFB /* LocationDetailTableViewController.swift */,
+				BEC512441CBBDDB4000B0DFB /* LocationTableViewCell.swift */,
+				BEC512451CBBDDB4000B0DFB /* LocationTableViewController.swift */,
 				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 			);
 			name = ViewControllers;
@@ -170,14 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8CE8341CBBC8C700E49630 /* LocationTableViewTableViewController.swift in Sources */,
-				BE8CE8381CBBC8FA00E49630 /* AddLocationViewController.swift in Sources */,
-				BE8CE8361CBBC8DB00E49630 /* LocationDetailTableViewController.swift in Sources */,
+				BEC512471CBBDDB4000B0DFB /* LocationDetailTableViewController.swift in Sources */,
+				BEC512491CBBDDB4000B0DFB /* LocationTableViewController.swift in Sources */,
+				BEC512461CBBDDB4000B0DFB /* AddLocationViewController.swift in Sources */,
 				BE8CE83B1CBBCB2B00E49630 /* LocationManager.swift in Sources */,
+				BEC512481CBBDDB4000B0DFB /* LocationTableViewCell.swift in Sources */,
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
-				BE72F6531CBBC82E00976D47 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
