@@ -13,17 +13,14 @@
 		BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */; };
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
 		BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */; };
-		BE72F6501CBBC82E00976D47 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64C1CBBC82E00976D47 /* Person+CoreDataProperties.swift */; };
-		BE72F6511CBBC82E00976D47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64D1CBBC82E00976D47 /* Person.swift */; };
-		BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */; };
-		BE72F6531CBBC82E00976D47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64F1CBBC82E00976D47 /* Location.swift */; };
-		BEC5124B1CBBDF69000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5124A1CBBDF69000B0DFB /* LocationDetailTableViewController.swift */; };
-		BEC5124E1CBBDFA1000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5124C1CBBDFA1000B0DFB /* AddLocationViewController.swift */; };
-		BEC5124F1CBBDFA1000B0DFB /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5124D1CBBDFA1000B0DFB /* LocationTableViewController.swift */; };
-		BEC512511CBBDFA9000B0DFB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512501CBBDFA9000B0DFB /* LocationManager.swift */; };
-		BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */; };
-		BECE3C781CBBD6A10011AFC6 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */; };
-		BECE3C7A1CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */; };
+		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
+		BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */; };
+		BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */; };
+		BEC5125A1CBBE188000B0DFB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512541CBBE188000B0DFB /* LocationManager.swift */; };
+		BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */; };
+		BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */; };
+		BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */; };
+		BEC5125F1CBBE196000B0DFB /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,17 +32,14 @@
 		BE72F6411CBBBED500976D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE72F6441CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE72F6461CBBBED500976D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE72F64C1CBBC82E00976D47 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BE72F64D1CBBC82E00976D47 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BE72F64F1CBBC82E00976D47 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		BEC5124A1CBBDF69000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
-		BEC5124C1CBBDFA1000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
-		BEC5124D1CBBDFA1000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
-		BEC512501CBBDFA9000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
-		BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
+		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
+		BEC512541CBBE188000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
+		BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +57,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
+				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
 				BE72F6351CBBBED500976D47 /* Products */,
 			);
@@ -78,11 +74,11 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
-				BEC512501CBBDFA9000B0DFB /* LocationManager.swift */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
 				BE72F63B1CBBBED500976D47 /* Main.storyboard */,
+				BEC512541CBBE188000B0DFB /* LocationManager.swift */,
 				BE72F6411CBBBED500976D47 /* Assets.xcassets */,
 				BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */,
 				BE72F6461CBBBED500976D47 /* Info.plist */,
@@ -102,12 +98,12 @@
 		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BEC5124C1CBBDFA1000B0DFB /* AddLocationViewController.swift */,
-				BEC5124D1CBBDFA1000B0DFB /* LocationTableViewController.swift */,
-				BEC5124A1CBBDF69000B0DFB /* LocationDetailTableViewController.swift */,
-				BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */,
-				BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */,
-				BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */,
+				BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */,
+				BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */,
+				BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */,
+				BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */,
+				BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */,
+				BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */,
 				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 			);
 			name = ViewControllers;
@@ -185,20 +181,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE72F6511CBBC82E00976D47 /* Person.swift in Sources */,
-				BE72F6501CBBC82E00976D47 /* Person+CoreDataProperties.swift in Sources */,
-				BECE3C7A1CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift in Sources */,
-				BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */,
-				BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */,
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
+				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
+				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
+				BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */,
+				BEC5125A1CBBE188000B0DFB /* LocationManager.swift in Sources */,
+				BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */,
+				BEC5125F1CBBE196000B0DFB /* DescriptionTableViewCell.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
-				BEC5124E1CBBDFA1000B0DFB /* AddLocationViewController.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
-				BECE3C781CBBD6A10011AFC6 /* DescriptionTableViewCell.swift in Sources */,
-				BEC512511CBBDFA9000B0DFB /* LocationManager.swift in Sources */,
-				BEC5124B1CBBDF69000B0DFB /* LocationDetailTableViewController.swift in Sources */,
-				BE72F6531CBBC82E00976D47 /* Location.swift in Sources */,
-				BEC5124F1CBBDFA1000B0DFB /* LocationTableViewController.swift in Sources */,
+				BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
