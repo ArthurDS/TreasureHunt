@@ -79,6 +79,16 @@
 			path = TreasureHunt;
 			sourceTree = "<group>";
 		};
+		BE8CE8391CBBC91500E49630 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */,
+				BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */,
+				BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +317,7 @@
 				BE72F64B1CBBBED500976D47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
