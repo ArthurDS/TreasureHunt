@@ -9,6 +9,8 @@
 import UIKit
 
 class LocationTableViewTableViewController: UITableViewController {
+    
+    let locationManager = LocationManager.sharedManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
