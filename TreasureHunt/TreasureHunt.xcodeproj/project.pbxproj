@@ -18,6 +18,8 @@
 		BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */; };
 		BE72F6531CBBC82E00976D47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64F1CBBC82E00976D47 /* Location.swift */; };
 		BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */; };
+		BECE3C781CBBD6A10011AFC6 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */; };
+		BECE3C7A1CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE72F64F1CBBC82E00976D47 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */,
+				BECE3C791CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift */,
+				BECE3C771CBBD6A10011AFC6 /* DescriptionTableViewCell.swift */,
 				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 			);
 			name = ViewControllers;
@@ -173,11 +179,13 @@
 			files = (
 				BE72F6511CBBC82E00976D47 /* Person.swift in Sources */,
 				BE72F6501CBBC82E00976D47 /* Person+CoreDataProperties.swift in Sources */,
+				BECE3C7A1CBBD6C00011AFC6 /* UploadedImageViewTableViewCell.swift in Sources */,
 				BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */,
 				BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */,
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
+				BECE3C781CBBD6A10011AFC6 /* DescriptionTableViewCell.swift in Sources */,
 				BE72F6531CBBC82E00976D47 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
