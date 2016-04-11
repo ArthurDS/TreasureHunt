@@ -64,25 +64,36 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
-				BE8CE8391CBBC91500E49630 /* ViewControllers */,
+				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
+				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
-				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 				BE72F63B1CBBBED500976D47 /* Main.storyboard */,
 				BE8CE83A1CBBCB2B00E49630 /* LocationManager.swift */,
 				BE72F6411CBBBED500976D47 /* Assets.xcassets */,
 				BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */,
 				BE72F6461CBBBED500976D47 /* Info.plist */,
-				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
 			);
 			path = TreasureHunt;
 			sourceTree = "<group>";
 		};
-		BE8CE8391CBBC91500E49630 /* ViewControllers */ = {
+		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */,
-				BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */,
-				BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */,
+				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
+				BE72F64C1CBBC82E00976D47 /* Person+CoreDataProperties.swift */,
+				BE72F64D1CBBC82E00976D47 /* Person.swift */,
+				BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */,
+				BE72F64F1CBBC82E00976D47 /* Location.swift */,
+			);
+			name = CoreData;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */,
+				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
+				BE72F6531CBBC82E00976D47 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +338,8 @@
 				BE72F63F1CBBBED500976D47 /* TreasureHunt.xcdatamodel */,
 			);
 			currentVersion = BE72F63F1CBBBED500976D47 /* TreasureHunt.xcdatamodel */;
-			path = TreasureHunt.xcdatamodeld;
+			name = TreasureHunt.xcdatamodeld;
+			path = TreasureHunt/TreasureHunt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
