@@ -17,6 +17,7 @@
 		BE72F6511CBBC82E00976D47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64D1CBBC82E00976D47 /* Person.swift */; };
 		BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */; };
 		BE72F6531CBBC82E00976D47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F64F1CBBC82E00976D47 /* Location.swift */; };
+		BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BE72F64D1CBBC82E00976D47 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BE72F64F1CBBC82E00976D47 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,6 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
-				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
 				BE72F6351CBBBED500976D47 /* Products */,
 			);
@@ -65,13 +66,13 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
+				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
-				BE72F6391CBBBED500976D47 /* ViewController.swift */,
 				BE72F63B1CBBBED500976D47 /* Main.storyboard */,
 				BE72F6411CBBBED500976D47 /* Assets.xcassets */,
 				BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */,
 				BE72F6461CBBBED500976D47 /* Info.plist */,
-				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
 			);
 			path = TreasureHunt;
 			sourceTree = "<group>";
@@ -79,12 +80,23 @@
 		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
 				BE72F64C1CBBC82E00976D47 /* Person+CoreDataProperties.swift */,
 				BE72F64D1CBBC82E00976D47 /* Person.swift */,
 				BE72F64E1CBBC82E00976D47 /* Location+CoreDataProperties.swift */,
 				BE72F64F1CBBC82E00976D47 /* Location.swift */,
 			);
 			name = CoreData;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BECE3C751CBBD2110011AFC6 /* LocationTableViewCell.swift */,
+				BE72F6391CBBBED500976D47 /* ViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +173,7 @@
 			files = (
 				BE72F6511CBBC82E00976D47 /* Person.swift in Sources */,
 				BE72F6501CBBC82E00976D47 /* Person+CoreDataProperties.swift in Sources */,
+				BECE3C761CBBD2110011AFC6 /* LocationTableViewCell.swift in Sources */,
 				BE72F6521CBBC82E00976D47 /* Location+CoreDataProperties.swift in Sources */,
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
@@ -326,7 +339,8 @@
 				BE72F63F1CBBBED500976D47 /* TreasureHunt.xcdatamodel */,
 			);
 			currentVersion = BE72F63F1CBBBED500976D47 /* TreasureHunt.xcdatamodel */;
-			path = TreasureHunt.xcdatamodeld;
+			name = TreasureHunt.xcdatamodeld;
+			path = TreasureHunt/TreasureHunt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
