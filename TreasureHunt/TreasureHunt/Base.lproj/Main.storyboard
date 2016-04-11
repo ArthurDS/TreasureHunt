@@ -16,7 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87450987099999999" green="0.93333339689999995" blue="0.61176472900000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.83921575550000005" green="0.96078437569999997" blue="0.86274516580000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
