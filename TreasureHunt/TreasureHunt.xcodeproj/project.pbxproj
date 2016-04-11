@@ -13,6 +13,7 @@
 		BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */; };
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
 		BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */; };
+		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
 		BE8CE8341CBBC8C700E49630 /* LocationTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */; };
 		BE8CE8361CBBC8DB00E49630 /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */; };
 		BE8CE8381CBBC8FA00E49630 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */; };
@@ -27,6 +28,7 @@
 		BE72F6411CBBBED500976D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE72F6441CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE72F6461CBBBED500976D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE8CE8331CBBC8C700E49630 /* LocationTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewTableViewController.swift; sourceTree = "<group>"; };
 		BE8CE8351CBBC8DB00E49630 /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
 		BE8CE8371CBBC8FA00E49630 /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
+				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
 				BE72F6351CBBBED500976D47 /* Products */,
 			);
@@ -275,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";

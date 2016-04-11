@@ -7,21 +7,36 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class AddLocationViewController: UIViewController {
 
+class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
+
+    @IBOutlet weak var locationTextField: UILabel!
+    @IBOutlet weak var MyLocationView: MKMapView!
+    var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+         if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+           // self.locationTextField.text =   
+        }
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        
+        let myLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        print("\(myLocation)")
+    }
+}
     /*
     // MARK: - Navigation
 
@@ -32,4 +47,4 @@ class AddLocationViewController: UIViewController {
     }
     */
 
-}
+
