@@ -9,6 +9,8 @@
 import UIKit
 
 class AddLocationViewController: UIViewController {
+    
+        let locationManager = LocationManager.sharedManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
