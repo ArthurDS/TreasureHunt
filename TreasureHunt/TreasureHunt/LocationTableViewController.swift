@@ -99,12 +99,13 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "locationCell"){
-        let cell = sender as! UITableViewCell
-       let indexPath = self.tableView.indexPathForCell(cell)
-        let locationDetailVC  = segue.destinationViewController as! LocationDetailTableViewController
-        let location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
-        locationDetailVC.location = location        }
-    }
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell)
+            let locationDetailVC  = segue.destinationViewController as! LocationDetailTableViewController
+            let location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
+            locationDetailVC.location = location        }
+
+            }
     
     func getFetchedResultController() -> NSFetchedResultsController {
         fetchedResultController = NSFetchedResultsController(fetchRequest: taskFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
