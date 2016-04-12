@@ -14,7 +14,7 @@ class LocationDetailTableViewController: UITableViewController {
     var location: Location!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       // self.title = locationManager.description
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
