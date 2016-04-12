@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class LocationDetailTableViewController: UITableViewController {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
-    var location: Location!
+
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var mapLocationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.title = locationManager.description
@@ -22,6 +28,8 @@ class LocationDetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,6 +46,11 @@ class LocationDetailTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+
+    
+
+
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
