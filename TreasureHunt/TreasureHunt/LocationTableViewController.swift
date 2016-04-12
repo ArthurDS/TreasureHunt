@@ -12,8 +12,10 @@ import CoreData
 class LocationTableViewTableViewController: UITableViewController,NSFetchedResultsControllerDelegate {
     
     let locationManager = LocationManager.sharedManager
-    var managedObjectContext: NSManagedObjectContext? = nil
-    var _fetchedResultsController: NSFetchedResultsController? = nil
+    
+    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
 
     let names = ["Kristof"]
 
@@ -96,27 +98,29 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
 
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let indexPath = self.tableView.indexPathForSelectedRow{
-//            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
-//            (segue.destinationViewController as! LocationDetailTableViewController).location = object
-//        }
-    }
-    
-//            let locationDetailVC = segue.destinationViewController as! LocationDetailTableViewController
-//            let selectedLocation = self.locationManager.currentLocation[indexPath.row]
-//            locationDetailVC.location = Location(entity: "Location", insertIntoManagedObjectContext: context)
-    
-    var fetchedResultsController: NSFetchedResultsController {
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
+        if (segue.identifier == "locationCell"){
+        let cell = sender as! UITableViewCell
+       let indexPath = self.tableView.indexPathForCell(cell)
+        let locationDetailVC : LocationDetailTableViewController = segue.destinationViewController as! LocationDetailTableViewController
+        let location : Location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
+        locationDetailVC.location = location
         }
-        
-        let fetchRequest = NSFetchRequest()
-        // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: self.managedObjectContext!)
-        fetchRequest.entity = entity
-        
-        return _fetchedResultsController!
     }
+    
+    func getFetchedResultController() -> NSFetchedResultsController {
+        fetchedResultController = NSFetchedResultsController(fetchRequest: taskFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultController
+    }
+    
+    
+    func taskFetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: "Location")
+        
+        
+        return fetchRequest
+    }
+
+
+    
 
 }

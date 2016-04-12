@@ -24,8 +24,7 @@
                                 <rect key="frame" x="20" y="518" width="90" height="30"/>
                                 <state key="normal" title="Add Location"/>
                                 <connections>
-                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llO-3x-7bD"/>
-                                    <action selector="addLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V79-6p-ePF"/>
+                                    <action selector="addLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iZg-KK-YSp"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZvD-A6-eR2">
@@ -50,9 +49,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="MyLocationView" destination="D7Q-xP-9jU" id="KUo-y4-UFK"/>
-                        <outlet property="locationDescriptionTextField" destination="ZvD-A6-eR2" id="2ND-rH-gSW"/>
                         <outlet property="locationTextField" destination="11e-oT-MBr" id="Wb7-F4-M5o"/>
-                        <outlet property="summaryTextField" destination="ZvD-A6-eR2" id="GJB-2Z-6bT"/>
+                        <outlet property="summaryTextField" destination="ZvD-A6-eR2" id="mnV-e6-LzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
