@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 
-class LocationManager: NSObject {
+class LocationManager: NSManagedObject {
     
 static let sharedManager = LocationManager()
-    
-    
 
+    
+    
 }
