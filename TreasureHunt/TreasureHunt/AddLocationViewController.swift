@@ -12,77 +12,30 @@ import MapKit
 import CoreLocation
 
 
-class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
+class AddLocationViewController: UIViewController {
 
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    
-    @IBOutlet weak var locationDescriptionTextField: UITextField!
-
-    
-    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    var nItem:Location? = nil
-
-    
-    var locationManager: CLLocationManager!
+    var locationManager = LocationManager.sharedManager
     override func viewDidLoad() {
         super.viewDidLoad()
-         if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-           // self.locationTextField.text =   
-        }
+        MyLocationView.showsUserLocation = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        
-        let myLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        print("\(myLocation)")
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadAnnotations()
     }
     
-    
-    @IBAction func addButtonPressed(sender: AnyObject) {
+    func loadAnnotations() {
+        self.MyLocationView.removeAnnotations(self.MyLocationView.annotations)
         
-        if nItem == nil
-        {
-            let context = self.context
-            let ent = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
-            
-            let nItem = Location(entity: ent!, insertIntoManagedObjectContext: context)
-            nItem.summary = locationDescriptionTextField.text!
-
-            
-            do {
-                //try context.save()
-                try nItem.managedObjectContext?.save()
-            } catch _ {
             }
-        } else {
-            
-            nItem!.summary = locationDescriptionTextField.text!
-
-            do {
-                //try context.save()
-                try nItem!.managedObjectContext?.save()
-            } catch _ {
-            }
-        }
-        
-        navigationController!.popViewControllerAnimated(true)
-        
-        
-    }
-
-    }
     
-
+}
     /*
     // MARK: - Navigatio n
 
