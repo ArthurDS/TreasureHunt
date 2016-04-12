@@ -57,10 +57,8 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
             let ent = NSEntityDescription.entityForName("Geocache", inManagedObjectContext: context)
             
             let nItem = Location(entity: ent!, insertIntoManagedObjectContext: context)
-            nItem.name = name.text!
-            nItem.desc = descriptio.text!
-            nItem.latitude = Double(latitude.text!)
-            nItem.longitude = Double(longitude.text!)
+            nItem.summary = locationDescriptionTextField.text!
+
             
             do {
                 //try context.save()
@@ -69,10 +67,8 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
             }
         } else {
             
-            nItem!.name = nam.text!
-            nItem!.desc = descriptio.text!
-            nItem!.latitude = Double(latitude.text!)
-            nItem!.longitude = Double(longitude.text!)
+            nItem!.summary = locationDescriptionTextField.text!
+
             do {
                 //try context.save()
                 try nItem!.managedObjectContext?.save()
@@ -87,7 +83,7 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
 
     }
     
-}
+
     /*
     // MARK: - Navigatio n
 
