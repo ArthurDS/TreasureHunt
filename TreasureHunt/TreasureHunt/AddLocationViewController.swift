@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import MapKit
 import CoreLocation
 
@@ -15,6 +16,16 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
 
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
+    
+    @IBOutlet weak var locationDescriptionTextField: UITextField!
+    
+    @IBOutlet weak var locationNameTextField: UITextField!
+    
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var nItem:Geocache? = nil
+
+    
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +47,46 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
         let myLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
         print("\(myLocation)")
     }
+    
+    
+    @IBAction func addButtonPressed(sender: AnyObject) {
+        
+        if nItem == nil
+        {
+            let context = self.context
+            let ent = NSEntityDescription.entityForName("Geocache", inManagedObjectContext: context)
+            
+            let nItem = Geocache(entity: ent!, insertIntoManagedObjectContext: context)
+            nItem.name = nam.text!
+            nItem.desc = descriptio.text!
+            nItem.latitude = Double(latitude.text!)
+            nItem.longitude = Double(longitude.text!)
+            
+            do {
+                //try context.save()
+                try nItem.managedObjectContext?.save()
+            } catch _ {
+            }
+        } else {
+            
+            nItem!.name = nam.text!
+            nItem!.desc = descriptio.text!
+            nItem!.latitude = Double(latitude.text!)
+            nItem!.longitude = Double(longitude.text!)
+            do {
+                //try context.save()
+                try nItem!.managedObjectContext?.save()
+            } catch _ {
+            }
+        }
+        
+        navigationController!.popViewControllerAnimated(true)
+        
+        
+    }
+
+    }
+    
 }
     /*
     // MARK: - Navigatio n
