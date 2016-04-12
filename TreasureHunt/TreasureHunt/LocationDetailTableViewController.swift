@@ -85,7 +85,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         } else {
             v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             
-            v!.image = UIImage(named:"icon")
+            v!.image = UIImage(named:"icon.png")
         }
         
         return v
