@@ -13,6 +13,6 @@ class LocationManager: NSObject {
     
 static let sharedManager = LocationManager()
     
-    
+     
 
 }
