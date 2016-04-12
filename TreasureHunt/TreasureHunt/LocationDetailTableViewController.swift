@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import MapKit
 
-class LocationDetailTableViewController: UITableViewController {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     let locationManager = LocationManager.sharedManager
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var currentLocation = CLLocationCoordinate2D(latitude:58.850669599999996, longitude: 5.724442499999999)
+    
+    var mapLocationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            mapLocationManager = CLLocationManager()
+            mapLocationManager.delegate = self
+            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+            mapLocationManager.requestAlwaysAuthorization()
+            mapLocationManager.startUpdatingLocation()
+        }    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
