@@ -23,7 +23,7 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var nItem:Geocache? = nil
+    var nItem:Location? = nil
 
     
     var locationManager: CLLocationManager!
@@ -56,8 +56,8 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
             let context = self.context
             let ent = NSEntityDescription.entityForName("Geocache", inManagedObjectContext: context)
             
-            let nItem = Geocache(entity: ent!, insertIntoManagedObjectContext: context)
-            nItem.name = nam.text!
+            let nItem = Location(entity: ent!, insertIntoManagedObjectContext: context)
+            nItem.name = name.text!
             nItem.desc = descriptio.text!
             nItem.latitude = Double(latitude.text!)
             nItem.longitude = Double(longitude.text!)
