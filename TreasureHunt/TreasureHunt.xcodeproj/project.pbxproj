@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE1CC7FD1CBBE4B600E5FDC9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */; };
 		BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6371CBBBED500976D47 /* AppDelegate.swift */; };
-		BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6391CBBBED500976D47 /* ViewController.swift */; };
 		BE72F63D1CBBBED500976D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F63B1CBBBED500976D47 /* Main.storyboard */; };
 		BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */; };
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
@@ -25,12 +25,14 @@
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
 		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
+		BECE3C861CBCFE0C0011AFC6 /* uploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
+		BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE72F6391CBBBED500976D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE72F63C1CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE72F63F1CBBBED500976D47 /* TreasureHunt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TreasureHunt.xcdatamodel; sourceTree = "<group>"; };
 		BE72F6411CBBBED500976D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uploadImageViewController.swift; path = ../uploadImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
+				BE1CC7FD1CBBE4B600E5FDC9 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
+				BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */,
 				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
 				BE72F6351CBBBED500976D47 /* Products */,
@@ -82,6 +87,7 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
@@ -116,7 +122,7 @@
 				BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */,
 				BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */,
 				BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */,
-				BE72F6391CBBBED500976D47 /* ViewController.swift */,
+				BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -194,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */,
-				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
+				BECE3C861CBCFE0C0011AFC6 /* uploadImageViewController.swift in Sources */,
 				BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */,
 				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
 				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
@@ -319,12 +325,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -332,12 +341,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
