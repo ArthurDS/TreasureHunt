@@ -50,13 +50,7 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
 
-        
-        let name = names[indexPath.row]
-        
-        cell.personNameLabel.text = name
-        cell.descriptionLabel.text = name
-        
-        
+
         return cell
     }
  

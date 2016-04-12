@@ -7,37 +7,12 @@
 //
 
 import UIKit
-import CoreLocation
+import CoreData
 
 
-class LocationManager: NSObject ,CLLocationManagerDelegate{
+class LocationManager: NSManagedObject {
     
 static let sharedManager = LocationManager()
-    private let locationManager = CLLocationManager()
-    
-    private(set) var currentLocation = CLLocationCoordinate2D(latitude:0, longitude: 0)
-    
-    private override init() {
-        
-        super.init()
-        
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.NotDetermined) {
-            locationManager.requestAlwaysAuthorization()
-        }
-
-        locationManager.startUpdatingLocation()
-        
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        
-        self.currentLocation = newLocation.coordinate
-    }
 
     
-     
-
 }
