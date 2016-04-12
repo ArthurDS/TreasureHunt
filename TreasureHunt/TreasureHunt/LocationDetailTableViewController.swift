@@ -50,6 +50,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         anotation.coordinate = location
         anotation.title = "Kristof Renotte"
         anotation.subtitle = "op 50m van uw locatie"
+    
         mapView.addAnnotation(anotation)
     }
     
@@ -74,22 +75,32 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
 
-    func mapView(mapView: MKMapView,
-                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if (annotation is MKUserLocation) { return nil }
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let reuseID = "chest"
-        var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+
         
-        if v != nil {
-            v!.annotation = annotation
-        } else {
-            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            
-            v!.image = UIImage(named:"icon")
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
         }
         
-        return v
+        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+        
+        // Reuse the annotation if possible
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "icon.png")
+            annotationView!.rightCalloutAccessoryView = detailButton
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
     }
 
 
