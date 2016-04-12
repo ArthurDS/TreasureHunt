@@ -44,13 +44,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-du-2jk">
-                                <rect key="frame" x="213" y="518" width="85" height="30"/>
-                                <state key="normal" title="Take Picture"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGY-Ek-rST">
+                                <rect key="frame" x="224" y="518" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk2-y6-TD9"/>
-                                    <action selector="addLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dFt-Ra-7gC"/>
-                                    <segue destination="xNk-Mc-ryx" kind="show" id="G5q-iz-WY9"/>
+                                    <segue destination="xNk-Mc-ryx" kind="show" id="uyc-Ox-7Q4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -66,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1214" y="440"/>
         </scene>
-        <!--Picture View Controller-->
+        <!--Upload Image View Controller-->
         <scene sceneID="wZ7-e5-knW">
             <objects>
-                <viewController id="xNk-Mc-ryx" customClass="PictureViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xNk-Mc-ryx" customClass="uploadImageViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="989-LD-tNh"/>
                         <viewControllerLayoutGuide type="bottom" id="TGb-eN-iA3"/>
@@ -78,9 +76,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNU-vh-Mi3">
-                                <rect key="frame" x="20" y="72" width="280" height="441"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chf-mS-BhU">
                                 <rect key="frame" x="20" y="530" width="113" height="30"/>
                                 <constraints>
@@ -88,20 +83,26 @@
                                 </constraints>
                                 <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="useCamera:" destination="xNk-Mc-ryx" eventType="touchUpInside" id="tFL-OV-M5q"/>
+                                    <action selector="takePicture:" destination="xNk-Mc-ryx" eventType="touchUpInside" id="duN-XF-qcW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AR1-8I-bWg">
                                 <rect key="frame" x="187" y="530" width="113" height="30"/>
                                 <state key="normal" title="Album"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9U-2b-Z2U">
+                                <rect key="frame" x="20" y="64" width="280" height="458"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" startsMediaSession="YES" adjustable="YES" allowsDirectInteraction="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KIi-Sw-f2m"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="PictureImageView" destination="BNU-vh-Mi3" id="5D3-ts-tlW"/>
-                        <outlet property="useCamera" destination="Chf-mS-BhU" id="3Je-Fg-DkU"/>
+                        <outlet property="currentImage" destination="Q9U-2b-Z2U" id="EVa-OJ-xLi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEA-Hw-myF" userLabel="First Responder" sceneMemberID="firstResponder"/>
