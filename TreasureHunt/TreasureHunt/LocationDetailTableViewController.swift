@@ -13,6 +13,7 @@ import CoreLocation
 class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+    var location: Location!
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,38 +21,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881582, longitude: 4.711865)
-        
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
-        
-        mapView.setRegion(theRegion, animated: true)
-        
-        var anotation = MKPointAnnotation()
-        anotation.coordinate = location
-        anotation.title = "Kristof Renotte"
-        anotation.subtitle = "op 50m van uw locatie"
-        mapView.addAnnotation(anotation)
-        
-        
-        if (CLLocationManager.locationServicesEnabled())
-        {
-            mapLocationManager = CLLocationManager()
-            mapLocationManager.delegate = self
-            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-            mapLocationManager.requestAlwaysAuthorization()
-            mapLocationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        self.mapView.setRegion(region, animated: true)
+        //self.title = location.summary
     }
 
     
