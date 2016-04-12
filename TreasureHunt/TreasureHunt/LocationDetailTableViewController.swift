@@ -74,8 +74,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
 
-    func mapView(mapView: MKMapView!,
-                 viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation is MKUserLocation) { return nil }
         
         let reuseID = "chest"
@@ -86,7 +86,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         } else {
             v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             
-            v!.image = UIImage(named:"icon.png")
+            v!.image = UIImage(named:"icon")
         }
         
         return v
