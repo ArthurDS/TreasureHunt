@@ -13,6 +13,7 @@ import CoreLocation
 class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+    var location: Location!
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,12 +21,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.title = locationManager.description
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.title = location.summary
     }
 
     

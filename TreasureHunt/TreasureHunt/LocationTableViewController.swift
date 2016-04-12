@@ -13,7 +13,7 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
     
     let locationManager = LocationManager.sharedManager
     
-    var managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
 
@@ -101,10 +101,9 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
         if (segue.identifier == "locationCell"){
         let cell = sender as! UITableViewCell
        let indexPath = self.tableView.indexPathForCell(cell)
-        let locationDetailVC : LocationDetailTableViewController = segue.destinationViewController as! LocationDetailTableViewController
-        let location : Location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
-        locationDetailVC.location = location
-        }
+        let locationDetailVC  = segue.destinationViewController as! LocationDetailTableViewController
+        let location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
+        locationDetailVC.location = location        }
     }
     
     func getFetchedResultController() -> NSFetchedResultsController {
