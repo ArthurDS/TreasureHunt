@@ -13,6 +13,7 @@ import CoreLocation
 class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+    var location: Location!
 
     @IBOutlet weak var mapView: MKMapView!
     
