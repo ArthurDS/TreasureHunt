@@ -7,21 +7,55 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class LocationDetailTableViewController: UITableViewController {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var mapLocationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881582, longitude: 4.711865)
+        
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+        
+        mapView.setRegion(theRegion, animated: true)
+        
+        var anotation = MKPointAnnotation()
+        anotation.coordinate = location
+        anotation.title = "Kristof Renotte"
+        anotation.subtitle = "op 50m van uw locatie"
+        mapView.addAnnotation(anotation)
+        
+        
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            mapLocationManager = CLLocationManager()
+            mapLocationManager.delegate = self
+            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+            mapLocationManager.requestAlwaysAuthorization()
+            mapLocationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.mapView.setRegion(region, animated: true)
     }
 
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,6 +72,11 @@ class LocationDetailTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+
+    
+
+
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

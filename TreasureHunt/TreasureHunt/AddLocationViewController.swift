@@ -12,19 +12,39 @@ import MapKit
 import CoreLocation
 
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    var locationManager = LocationManager.sharedManager
+    
+    @IBOutlet weak var summaryTextField: UITextField!
+    
+    var newItem:Location? = nil
+    
+      let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    var locationManager: CLLocationManager!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyLocationView.showsUserLocation = true
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadAnnotations()
@@ -35,7 +55,51 @@ class AddLocationViewController: UIViewController {
         
             }
     
-}
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.MyLocationView.setRegion(region, animated: true)
+    }
+
+    
+
+
+    
+    @IBAction func addLocationButton(sender: AnyObject) {
+        if newItem == nil
+        {
+            let context = self.context
+            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
+            
+            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
+            newItem.summary = summaryTextField.text!
+            
+            do {
+                //try context.save()
+                try newItem.managedObjectContext?.save()
+            } catch _ {
+            }
+        } else {
+            
+            newItem!.summary = summaryTextField.text!
+           
+            do {
+                //try context.save()
+                try newItem!.managedObjectContext?.save()
+            } catch _ {
+            }
+        }
+        
+        navigationController!.popViewControllerAnimated(true)
+        
+        
+    }
+
+    }
+
     /*
     // MARK: - Navigatio n
 
