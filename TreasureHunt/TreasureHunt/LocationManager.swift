@@ -14,6 +14,5 @@ class LocationManager: NSManagedObject {
     
 static let sharedManager = LocationManager()
 
-
     
 }
