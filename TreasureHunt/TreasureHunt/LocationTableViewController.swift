@@ -46,8 +46,6 @@ class LocationTableViewTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
 
         
-        let name = names[indexPath.row]
-        
         cell.personNameLabel.text = name
         cell.descriptionLabel.text = name
         
