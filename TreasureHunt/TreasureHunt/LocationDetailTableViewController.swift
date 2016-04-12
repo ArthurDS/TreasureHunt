@@ -21,40 +21,39 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881582, longitude: 4.711865)
-        
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
-        
-        mapView.setRegion(theRegion, animated: true)
-        
-        var anotation = MKPointAnnotation()
-        anotation.coordinate = location
-        anotation.title = "Kristof Renotte"
-        anotation.subtitle = "op 50m van uw locatie"
-        mapView.addAnnotation(anotation)
-        
-        
-        if (CLLocationManager.locationServicesEnabled())
-        {
+        if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
             mapLocationManager.requestAlwaysAuthorization()
             mapLocationManager.startUpdatingLocation()
+            setAnotation()
         }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
         
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        self.mapView.setRegion(region, animated: true)
-    }
 
+        
+        
+        
+    }
     
+    func setAnotation() {
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
+        
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+        
+        
+        mapView.setRegion(theRegion, animated: true)
+        
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = location
+        anotation.title = "Kristof Renotte"
+        anotation.subtitle = "op 50m van uw locatie"
+        mapView.addAnnotation(anotation)
+    }
+    
+
+
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,7 +73,23 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
 
-    
+    func mapView(mapView: MKMapView!,
+                 viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if (annotation is MKUserLocation) { return nil }
+        
+        let reuseID = "chest"
+        var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+        
+        if v != nil {
+            v!.annotation = annotation
+        } else {
+            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            
+            v!.image = UIImage(named:"icon")
+        }
+        
+        return v
+    }
 
 
 
