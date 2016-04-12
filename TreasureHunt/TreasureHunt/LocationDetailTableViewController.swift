@@ -8,29 +8,54 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+    var location: Location!
 
     @IBOutlet weak var mapView: MKMapView!
-    
-    var currentLocation = CLLocationCoordinate2D(latitude:58.850669599999996, longitude: 5.724442499999999)
     
     var mapLocationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if (CLLocationManager.locationServicesEnabled())
-        {
+        
+        if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
             mapLocationManager.requestAlwaysAuthorization()
             mapLocationManager.startUpdatingLocation()
-        }    }
+            setAnotation()
+        }
+        
 
+        
+        
+        
+    }
+    
+    func setAnotation() {
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
+        
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+        
+        
+        mapView.setRegion(theRegion, animated: true)
+        
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = location
+        anotation.title = "Kristof Renotte"
+        anotation.subtitle = "op 50m van uw locatie"
+        mapView.addAnnotation(anotation)
+    }
+    
+
+
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,6 +72,27 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+
+    func mapView(mapView: MKMapView!,
+                 viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if (annotation is MKUserLocation) { return nil }
+        
+        let reuseID = "chest"
+        var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+        
+        if v != nil {
+            v!.annotation = annotation
+        } else {
+            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            
+            v!.image = UIImage(named:"icon.png")
+        }
+        
+        return v
+    }
+
+
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
