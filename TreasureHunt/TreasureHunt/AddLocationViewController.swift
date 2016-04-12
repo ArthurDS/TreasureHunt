@@ -11,31 +11,29 @@ import MapKit
 import CoreLocation
 
 
-class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
+class AddLocationViewController: UIViewController {
 
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    var locationManager: CLLocationManager!
+    var locationManager = LocationManager.sharedManager
     override func viewDidLoad() {
         super.viewDidLoad()
-         if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-           // self.locationTextField.text =   
-        }
+        MyLocationView.showsUserLocation = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        
-        let myLocation = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        print("\(myLocation)")
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadAnnotations()
     }
+    
+    func loadAnnotations() {
+        self.MyLocationView.removeAnnotations(self.MyLocationView.annotations)
+        
+            }
+    
 }
     /*
     // MARK: - Navigatio n
