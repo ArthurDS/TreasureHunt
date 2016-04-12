@@ -9,11 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
-class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate ,NSFetchedResultsControllerDelegate{
     
     let locationManager = LocationManager.sharedManager
     var location: Location!
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,8 +24,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if mapLocationManager == nil {
+                if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -31,9 +33,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             setAnotation()
         }
         
-
-        
-        
+    
+               
         
     }
     
@@ -65,17 +66,16 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+        return 0   }
     
 
-    func mapView(mapView: MKMapView!,
-                 viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation is MKUserLocation) { return nil }
         
         let reuseID = "chest"
