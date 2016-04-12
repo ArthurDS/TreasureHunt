@@ -18,8 +18,7 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var MyLocationView: MKMapView!
     
     @IBOutlet weak var locationDescriptionTextField: UITextField!
-    
-    @IBOutlet weak var locationNameTextField: UITextField!
+
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
@@ -54,7 +53,7 @@ class AddLocationViewController: UIViewController,CLLocationManagerDelegate {
         if nItem == nil
         {
             let context = self.context
-            let ent = NSEntityDescription.entityForName("Geocache", inManagedObjectContext: context)
+            let ent = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
             
             let nItem = Location(entity: ent!, insertIntoManagedObjectContext: context)
             nItem.summary = locationDescriptionTextField.text!
