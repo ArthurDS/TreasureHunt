@@ -20,6 +20,7 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MyLocationView.showsUserLocation = true
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

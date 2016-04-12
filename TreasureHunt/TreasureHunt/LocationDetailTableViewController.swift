@@ -11,7 +11,7 @@ import UIKit
 class LocationDetailTableViewController: UITableViewController {
     
     let locationManager = LocationManager.sharedManager
-
+    var location: Location!
     override func viewDidLoad() {
         super.viewDidLoad()
 
