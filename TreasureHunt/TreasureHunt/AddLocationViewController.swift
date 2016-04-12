@@ -48,8 +48,6 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadAnnotations()
-        
-       
     }
     
     func loadAnnotations() {
