@@ -15,7 +15,7 @@ class LocationManager: NSObject ,CLLocationManagerDelegate{
 static let sharedManager = LocationManager()
     private let locationManager = CLLocationManager()
     
-    private(set) var currentLocation = CLLocationCoordinate2D(latitude:58.850669599999996, longitude: 5.724442499999999)
+    private(set) var currentLocation = CLLocationCoordinate2D(latitude:0, longitude: 0)
     
     private override init() {
         
@@ -23,6 +23,11 @@ static let sharedManager = LocationManager()
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        let status = CLLocationManager.authorizationStatus()
+        if(status == CLAuthorizationStatus.NotDetermined) {
+            locationManager.requestAlwaysAuthorization()
+        }
+
         locationManager.startUpdatingLocation()
         
     }
