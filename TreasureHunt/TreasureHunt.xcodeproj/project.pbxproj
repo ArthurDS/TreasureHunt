@@ -21,6 +21,10 @@
 		BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */; };
 		BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */; };
 		BEC5125F1CBBE196000B0DFB /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */; };
+		BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7B1CBCDBB80011AFC6 /* Location.swift */; };
+		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
+		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
+		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
 		BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		BECE3C7B1CBCDBB80011AFC6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,10 @@
 		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				BECE3C7B1CBCDBB80011AFC6 /* Location.swift */,
+				BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */,
+				BECE3C7D1CBCDBB80011AFC6 /* Person.swift */,
+				BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */,
 				BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */,
 			);
 			name = CoreData;
@@ -181,14 +193,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */,
 				BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */,
+				BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */,
 				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
 				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
 				BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */,
 				BEC5125A1CBBE188000B0DFB /* LocationManager.swift in Sources */,
 				BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */,
 				BEC5125F1CBBE196000B0DFB /* DescriptionTableViewCell.swift in Sources */,
+				BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
+				BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
 				BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */,
 			);

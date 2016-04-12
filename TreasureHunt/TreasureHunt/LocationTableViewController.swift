@@ -11,6 +11,8 @@ import UIKit
 class LocationTableViewTableViewController: UITableViewController {
     
     let locationManager = LocationManager.sharedManager
+    
+    let names = ["Kristof"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +33,25 @@ class LocationTableViewTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
 
-        // Configure the cell...
-
+        
+        let name = names[indexPath.row]
+        
+        cell.personNameLabel.text = name
+        cell.descriptionLabel.text = name
+        
+        
         return cell
     }
  
