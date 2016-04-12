@@ -16,6 +16,13 @@ class AddLocationViewController: UIViewController {
 
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
+    
+    @IBOutlet weak var summaryTextField: UITextField!
+    
+    var newItem:Location? = nil
+    
+      let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     var locationManager = LocationManager.sharedManager
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +43,38 @@ class AddLocationViewController: UIViewController {
         
             }
     
-}
+    @IBAction func addLocationButton(sender: AnyObject) {
+        if newItem == nil
+        {
+            let context = self.context
+            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
+            
+            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
+            newItem.summary = summaryTextField.text!
+            
+            do {
+                //try context.save()
+                try newItem.managedObjectContext?.save()
+            } catch _ {
+            }
+        } else {
+            
+            newItem!.summary = summaryTextField.text!
+           
+            do {
+                //try context.save()
+                try newItem!.managedObjectContext?.save()
+            } catch _ {
+            }
+        }
+        
+        navigationController!.popViewControllerAnimated(true)
+        
+        
+    }
+
+    }
+
     /*
     // MARK: - Navigatio n
 

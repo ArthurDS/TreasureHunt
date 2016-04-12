@@ -38,6 +38,6 @@ static let sharedManager = LocationManager()
     }
 
     
-    
+     
 
 }
