@@ -21,11 +21,18 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     
+    
+    
+   
+
+    
     var mapLocationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                if mapLocationManager == nil {
+        
+        
+        if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -40,6 +47,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
     func setAnotation() {
+        
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
         let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
@@ -77,6 +85,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
     }
     
+ 
 
 
   
@@ -94,8 +103,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0   
-}
+        return 3
+    }
     
 
     func mapView(mapView: MKMapView,
@@ -128,10 +137,10 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
 
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
-        let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell
 
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DescriptionTableViewCell
+      
         // Configure the cell...
 
         return cell
