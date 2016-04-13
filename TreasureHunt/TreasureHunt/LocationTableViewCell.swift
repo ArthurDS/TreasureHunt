@@ -14,6 +14,7 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var uploadedPictureImageView: UIImageView!
     
+    @IBOutlet weak var datumLabel: UILabel!
     
     
     

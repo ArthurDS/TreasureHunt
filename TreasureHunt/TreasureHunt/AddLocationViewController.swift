@@ -12,6 +12,7 @@ import MapKit
 import CoreLocation
 import CloudKit
 import MobileCoreServices
+import QuartzCore
 
 
 class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
@@ -19,7 +20,8 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
     @IBOutlet weak var summaryTextField: UITextField!
-    
+    var imageURL: NSURL?
+
     var newItem:Location? = nil
     // var locationArray : [Location] = []
     //    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -74,7 +76,24 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         let identifier = NSUUID().UUIDString //format cle unique
         let locID = CKRecordID(recordName : identifier)
         let locRecord = CKRecord(recordType: "Location", recordID: locID)
+        // set summary in CK
         locRecord.setObject(summaryTextField.text, forKey: "summary")
+        // set latitude en longitude in CK
+        locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
+        locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
+        // set Image in CK
+        if let url = imageURL {
+            let imageAsset = CKAsset(fileURL: url)
+            locRecord.setObject(imageAsset, forKey: "photo")
+        }
+        else {
+            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+            let imageAsset = CKAsset(fileURL: fileURL!)
+            locRecord.setObject(imageAsset, forKey: "photo")
+        }
+        //timeStamp in CK
+         locRecord.setObject(NSDate(), forKey: "timestamp")
+
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
