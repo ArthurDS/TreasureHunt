@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import CloudKit
+import MobileCoreServices
 
 
 class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
@@ -88,23 +89,6 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
             })
         })
-        
-        if newItem == nil
-        {
-            let context = self.context
-            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
-            
-            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
-            newItem.summary = summaryTextField.text!
-            
-            do {
-                //try context.save()
-                try newItem.managedObjectContext?.save()
-            } catch _ {
-                
-            }
-            
-        }
     }
     
     var cameraUI: UIImagePickerController! = UIImagePickerController()
