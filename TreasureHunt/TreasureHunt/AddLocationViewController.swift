@@ -72,7 +72,7 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     
     
-    
+    //Add data in CK
     
     @IBAction func addLocationButton(sender: AnyObject) {
         if summaryTextField.text == "" {
