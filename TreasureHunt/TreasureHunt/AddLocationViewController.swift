@@ -13,12 +13,15 @@ import CoreLocation
 import CloudKit
 
 
-class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
     
     @IBOutlet weak var summaryTextField: UITextField!
+    
+    @IBOutlet weak var currentImage: UIImageView!
+
     
     var newItem:Location? = nil
    // var locationArray : [Location] = []
@@ -38,7 +41,7 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
-         
+        
     }
         
     
