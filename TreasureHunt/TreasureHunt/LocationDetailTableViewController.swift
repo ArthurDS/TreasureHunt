@@ -140,7 +140,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DescriptionTableViewCell
-        cell.distanceTextField.text = self.distance
+      
         // Configure the cell...
 
         return cell
