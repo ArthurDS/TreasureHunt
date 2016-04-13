@@ -17,11 +17,12 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     let locationManager = LocationManager.sharedManager
     var location: Location!
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
+    var isInitialized = false
 
     @IBOutlet weak var mapView: MKMapView!
     
     var mapLocationManager: CLLocationManager!
+    var myLocations: [CLLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             mapLocationManager.requestAlwaysAuthorization()
             mapLocationManager.startUpdatingLocation()
             setAnotation()
+ 
+            mapView.showsUserLocation = true
         }
         
     
@@ -39,40 +42,45 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !isInitialized {
+            // Here is called only once
+            isInitialized = true
+            
+            let userLocation: CLLocation = locations[0]
+            let latitude = userLocation.coordinate.latitude
+            let longitude = userLocation.coordinate.longitude
+            let latDelta: CLLocationDegrees = 0.01
+            let lonDelta: CLLocationDegrees = 0.01
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+
+            self.mapView.setRegion(region, animated: true)
+            self.mapView.showsUserLocation = true
+        }
+    }
+    
     func setAnotation() {
-        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+
         
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
         var currentLocation = CLLocation!()
+        currentLocation = locManager.location
+        print(currentLocation)
         
-        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized){
-            
-            currentLocation = locManager.location
-            
-        }
-        
-        let startLocation:CLLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
-        
-      
-        let meters:CLLocationDistance = currentLocation.distanceFromLocation(startLocation) / 1000
-        
-        
-        
-        
-        mapView.setRegion(theRegion, animated: true)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
+
+
         
         let anotation = MKPointAnnotation()
         anotation.coordinate = location
         anotation.title = "Kristof Renotte"
-        anotation.subtitle = "op \(meters) km van uw locatie"
+        anotation.subtitle = "op 20 km van uw locatie"
     
         mapView.addAnnotation(anotation)
-        
-        
+
         
         
     }
@@ -98,33 +106,33 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 }
     
 
-    func mapView(mapView: MKMapView,
-                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-
-        
-        if annotation.isKindOfClass(MKUserLocation) {
-            return nil
-        }
-        
-        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
-        
-        // Reuse the annotation if possible
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
-        
-        if annotationView == nil
-        {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            annotationView!.canShowCallout = true
-            annotationView!.image = UIImage(named: "icon.png")
-            annotationView!.rightCalloutAccessoryView = detailButton
-        }
-        else
-        {
-            annotationView!.annotation = annotation
-        }
-        
-        return annotationView
-    }
+//    func mapView(mapView: MKMapView,
+//                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//
+//        
+//        if annotation.isKindOfClass(MKUserLocation) {
+//            return nil
+//        }
+//        
+//        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+//        
+//        // Reuse the annotation if possible
+//        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
+//        
+//        if annotationView == nil
+//        {
+//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//            annotationView!.canShowCallout = true
+//            annotationView!.image = UIImage(named: "icon")
+//            annotationView!.rightCalloutAccessoryView = detailButton
+//        }
+//        else
+//        {
+//            annotationView!.annotation = annotation
+//        }
+//        
+//        return annotationView
+//    }
 
 
 
