@@ -24,7 +24,7 @@ class LocationTableViewTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // fetchNotes()
+         fetchLocation()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -46,16 +46,74 @@ class LocationTableViewTableViewController: UITableViewController{
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return  1 //self.locArray.count
+        return  self.locArray.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
-
-
+        let locRecord : CKRecord = locArray[indexPath.row]
+        cell.descriptionLabel.text = locRecord.valueForKey("summary") as? String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
+        cell.datumLabel.text = dateFormatter.stringFromDate(locRecord.valueForKey("timestamp") as! NSDate)
+   
+        //cell.uploadedPictureImageView?.image = locRecord.valueForKey("photo") as? UIImage
         return cell
     }
+    
+    
+    func fetchLocation() {//location opvragen
+        
+        let container = CKContainer.defaultContainer()
+        
+        let publicDatabase = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(value: true) //
+        
+        
+        
+        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
+        
+        
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            
+            if error != nil {
+                
+                print(error)
+                
+            }
+                
+            else {
+                
+                print(results)
+                
+                self.locArray = results!
+                
+                // self.arrNotes.append(result as! CKRecord)
+                
+                
+                
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    self.tableView.reloadData()
+                    
+                    self.tableView.hidden = false
+                    
+                })
+                
+            }
+            
+        }
+        
+        
+        
+    }
+    
+
  
         /*
     // Override to support conditional editing of the table view.
