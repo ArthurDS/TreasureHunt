@@ -38,6 +38,7 @@
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
+		BEC512541CBBE188000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = TreasureHunt/LocationManager.swift; sourceTree = "<group>"; };
 		BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				BEC512541CBBE188000B0DFB /* LocationManager.swift */,
 				BECE3C7B1CBCDBB80011AFC6 /* Location.swift */,
 				BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */,
 				BECE3C7D1CBCDBB80011AFC6 /* Person.swift */,
