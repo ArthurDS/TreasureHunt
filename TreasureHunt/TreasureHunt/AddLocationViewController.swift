@@ -17,19 +17,13 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    
     @IBOutlet weak var summaryTextField: UITextField!
-    
-    @IBOutlet weak var currentImage: UIImageView!
-
     
     var newItem:Location? = nil
     
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var locationManager: CLLocationManager!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +37,6 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         }
         
     }
-        
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,13 +62,9 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         self.MyLocationView.setRegion(region, animated: true)
     }
     
-    
-    
-    
-    
     @IBAction func addLocationButton(sender: AnyObject) {
         
-                if newItem == nil
+        if newItem == nil
         {
             let context = self.context
             let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
@@ -114,8 +102,6 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         self.presentCamera()
     }
     
-    
-    
     func presentCamera()
     {
         
@@ -133,25 +119,19 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         }
         else
         {
-            // error msg
         }
     }
-    
-    //Mark- UIImagePickerController Delegate
     
     func imagePickerControllerDidCancel(picker:UIImagePickerController)
     {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
         {
-            // Access the uncropped image from info dictionary
-            
-            //            var imageToSave: UIImage = info.objectForKey(UIImagePickerControllerOriginalImage) as UIImage
-            var imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage //same but with different way
+
+            let imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             UIImageWriteToSavedPhotosAlbum(imageToSave1, nil, nil, nil)
             
@@ -164,7 +144,7 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     func savedImageAlert() {
         
-        var alert:UIAlertView = UIAlertView()
+        let alert:UIAlertView = UIAlertView()
         alert.title = "Saved!"
         alert.message = "Your picture was saved to Camera Roll"
         alert.delegate = self
