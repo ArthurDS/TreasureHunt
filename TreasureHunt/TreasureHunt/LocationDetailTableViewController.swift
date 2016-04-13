@@ -18,7 +18,10 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     var location: Location!
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-
+    
+    
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     
     
@@ -30,6 +33,9 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.mapView.delegate = self
         
         
         if mapLocationManager == nil {
@@ -106,7 +112,6 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         return 3
     }
     
-
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
         
@@ -123,8 +128,13 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             annotationView!.canShowCallout = true
-            annotationView!.image = UIImage(named: "icon.png")
+            annotationView!.image = UIImage(named: "icon")
+            
+            
             annotationView!.rightCalloutAccessoryView = detailButton
+            
+            
+            
         }
         else
         {
@@ -133,9 +143,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         return annotationView
     }
-
-
-
+    
+ 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell
