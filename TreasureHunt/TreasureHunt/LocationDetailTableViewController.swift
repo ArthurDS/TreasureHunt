@@ -107,8 +107,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
 
-    func mapView(mapView: MKMapView,
-                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
         
         if annotation.isKindOfClass(MKUserLocation) {
@@ -138,8 +137,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DescriptionTableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
+        let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell
       
         // Configure the cell...
 
