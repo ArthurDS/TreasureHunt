@@ -28,7 +28,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-2D-rLR">
-                                        <rect key="frame" x="191" y="349" width="115" height="105"/>
+                                        <rect key="frame" x="173" y="348" width="115" height="105"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
