@@ -17,10 +17,16 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     
+    
+    
+   
+
+    
     var mapLocationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
@@ -38,6 +44,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
     func setAnotation() {
+        
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
         
@@ -53,6 +60,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         mapView.addAnnotation(anotation)
     }
     
+ 
 
 
   
@@ -65,12 +73,12 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
     
 
@@ -94,15 +102,15 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
 
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DescriptionTableViewCell
+        cell.distanceTextField.text = self.distance
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

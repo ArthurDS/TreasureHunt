@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE1CC7FD1CBBE4B600E5FDC9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */; };
 		BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6371CBBBED500976D47 /* AppDelegate.swift */; };
 		BE72F63A1CBBBED500976D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6391CBBBED500976D47 /* ViewController.swift */; };
 		BE72F63D1CBBBED500976D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F63B1CBBBED500976D47 /* Main.storyboard */; };
@@ -15,6 +14,7 @@
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
 		BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */; };
 		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
+		BE9CFC8C1CBD2CC100E0EFE7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9CFC8B1CBD2CC100E0EFE7 /* CloudKit.framework */; };
 		BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */; };
 		BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */; };
 		BEC5125A1CBBE188000B0DFB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512541CBBE188000B0DFB /* LocationManager.swift */; };
@@ -30,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
-		BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE72F6391CBBBED500976D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		BE72F6441CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE72F6461CBBBED500976D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BE9CFC8B1CBD2CC100E0EFE7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
 		BEC512541CBBE188000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
-				BE1CC7FD1CBBE4B600E5FDC9 /* CloudKit.framework in Frameworks */,
+				BE9CFC8C1CBD2CC100E0EFE7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +69,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
-				BE1CC7FC1CBBE4B600E5FDC9 /* CloudKit.framework */,
+				BE9CFC8B1CBD2CC100E0EFE7 /* CloudKit.framework */,
 				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
 				BE72F6351CBBBED500976D47 /* Products */,

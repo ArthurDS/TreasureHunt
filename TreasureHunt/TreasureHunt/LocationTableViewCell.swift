@@ -14,6 +14,9 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var uploadedPictureImageView: UIImageView!
     
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +27,5 @@ class LocationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
