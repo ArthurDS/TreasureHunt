@@ -43,6 +43,8 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         }
         
     }
+        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,7 +75,8 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     
     @IBAction func addLocationButton(sender: AnyObject) {
-        if newItem == nil
+        
+                if newItem == nil
         {
             let context = self.context
             let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)

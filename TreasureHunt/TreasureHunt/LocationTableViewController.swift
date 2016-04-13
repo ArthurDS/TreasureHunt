@@ -97,7 +97,8 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
             let indexPath = self.tableView.indexPathForCell(cell)
             let locationDetailVC  = segue.destinationViewController as! LocationDetailTableViewController
             let location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
-            locationDetailVC.location = location        }
+            locationDetailVC.location = location
+        }
 
             }
     
