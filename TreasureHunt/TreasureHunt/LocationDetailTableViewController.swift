@@ -9,11 +9,15 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
-class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate ,NSFetchedResultsControllerDelegate{
+
     
     let locationManager = LocationManager.sharedManager
     var location: Location!
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -37,9 +41,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             setAnotation()
         }
         
-
-        
-        
+    
+               
         
     }
     
@@ -47,8 +50,25 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.01 , 0.01)
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
-        
         let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+        
+        let locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        var currentLocation = CLLocation!()
+        
+        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized){
+            
+            currentLocation = locManager.location
+            
+        }
+        
+        let startLocation:CLLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
+        
+      
+        let meters:CLLocationDistance = currentLocation.distanceFromLocation(startLocation) / 1000
+        
+        
         
         
         mapView.setRegion(theRegion, animated: true)
@@ -56,8 +76,13 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         let anotation = MKPointAnnotation()
         anotation.coordinate = location
         anotation.title = "Kristof Renotte"
-        anotation.subtitle = "op 50m van uw locatie"
+        anotation.subtitle = "op \(meters) km van uw locatie"
+    
         mapView.addAnnotation(anotation)
+        
+        
+        
+        
     }
     
  
@@ -82,22 +107,32 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     
 
-    func mapView(mapView: MKMapView!,
-                 viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if (annotation is MKUserLocation) { return nil }
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+
         
-        let reuseID = "chest"
-        var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
-        
-        if v != nil {
-            v!.annotation = annotation
-        } else {
-            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            
-            v!.image = UIImage(named:"icon.png")
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
         }
         
-        return v
+        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+        
+        // Reuse the annotation if possible
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "icon.png")
+            annotationView!.rightCalloutAccessoryView = detailButton
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
     }
 
 
@@ -157,4 +192,13 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     */
 
+}
+
+extension CLLocationCoordinate2D {
+    
+    func distanceInMetersFrom(otherCoord : CLLocationCoordinate2D) -> CLLocationDistance {
+        let firstLoc = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let secondLoc = CLLocation(latitude: otherCoord.latitude, longitude: otherCoord.longitude)
+        return firstLoc.distanceFromLocation(secondLoc)
+    }
 }
