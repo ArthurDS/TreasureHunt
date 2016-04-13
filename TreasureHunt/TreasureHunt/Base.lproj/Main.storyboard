@@ -126,7 +126,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPN-d2-I5N">
-                                    <rect key="frame" x="8" y="8" width="304" height="208"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="216"/>
                                 </mapView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -28,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE72F63C1CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
-				BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
@@ -331,7 +329,7 @@
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeansmits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -346,7 +344,7 @@
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeansmits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

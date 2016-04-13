@@ -13,15 +13,15 @@ import CoreLocation
 
 
 class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
     
     @IBOutlet weak var summaryTextField: UITextField!
     
     var newItem:Location? = nil
-    
-      let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+   // var locationArray : [Location] = []
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var locationManager: CLLocationManager!
     
@@ -37,8 +37,10 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
-
+         
     }
+        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +55,7 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     func loadAnnotations() {
         self.MyLocationView.removeAnnotations(self.MyLocationView.annotations)
         
-            }
+    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
@@ -63,51 +65,70 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         
         self.MyLocationView.setRegion(region, animated: true)
     }
-
     
-
-
+    
+    
+    
     
     @IBAction func addLocationButton(sender: AnyObject) {
-        if newItem == nil
+        
+                if newItem == nil
         {
             let context = self.context
             let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
             
-            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
-            newItem.summary = summaryTextField.text!
-            
-            do {
-                //try context.save()
-                try newItem.managedObjectContext?.save()
-            } catch _ {
-            }
-        } else {
-            
-            newItem!.summary = summaryTextField.text!
-           
-            do {
-                //try context.save()
-                try newItem!.managedObjectContext?.save()
-            } catch _ {
+            let loc = NSManagedObject(entity:  entity!,insertIntoManagedObjectContext: context)
+            let lat = locationManager.location?.coordinate.latitude
+            let long = locationManager.location?.coordinate.longitude
+            loc.setValue(self.locationTextField.text, forKey: "summary")
+            loc.setValue(lat, forKey: "lattitude")
+            loc.setValue(long, forKey: "longitude")
+            locationTextField.text = ("\(lat) & \(long)")
+                print("\(lat!) & \(long!)")
+            do{
+                try context.save()
+                //5
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
             }
         }
         
-        navigationController!.popViewControllerAnimated(true)
-        
-        
-    }
+}
+}
 
-    }
+//            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
+//            newItem.summary = summaryTextField.text!
+//
+//            do {
+//                //try context.save()
+//                try newItem.managedObjectContext?.save()
+//            } catch _ {
+//            }
+//        } else {
+//
+//            newItem!.summary = summaryTextField.text!
+//
+//            do {
+//                //try context.save()
+//                try newItem!.managedObjectContext?.save()
+//            } catch _ {
+//            }
+//        }
+//
+//        navigationController!.popViewControllerAnimated(true)
+//
 
-    /*
-    // MARK: - Navigatio n
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+/*
+ // MARK: - Navigatio n
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 

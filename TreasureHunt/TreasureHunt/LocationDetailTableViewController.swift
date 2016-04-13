@@ -9,21 +9,15 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
-extension CLLocationCoordinate2D {
-    
-    func distanceInMetersFrom(otherCoord : CLLocationCoordinate2D) -> CLLocationDistance {
-        let firstLoc = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        let secondLoc = CLLocation(latitude: otherCoord.latitude, longitude: otherCoord.longitude)
-        return firstLoc.distanceFromLocation(secondLoc)
-    }
-    
-}
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate ,NSFetchedResultsControllerDelegate{
 
-class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
     var location: Location!
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -31,8 +25,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if mapLocationManager == nil {
+                if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -41,9 +34,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             setAnotation()
         }
         
-
-        
-        
+    
+               
         
     }
     
@@ -102,12 +94,12 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
-    }
+        return 0   
+}
     
 
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
         
         if annotation.isKindOfClass(MKUserLocation) {
@@ -191,4 +183,13 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
     }
     */
 
+}
+
+extension CLLocationCoordinate2D {
+    
+    func distanceInMetersFrom(otherCoord : CLLocationCoordinate2D) -> CLLocationDistance {
+        let firstLoc = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let secondLoc = CLLocation(latitude: otherCoord.latitude, longitude: otherCoord.longitude)
+        return firstLoc.distanceFromLocation(secondLoc)
+    }
 }

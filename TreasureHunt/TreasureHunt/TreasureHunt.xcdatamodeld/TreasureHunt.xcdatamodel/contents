@@ -14,7 +14,7 @@
         <relationship name="location" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Location" positionX="160" positionY="-37" width="128" height="118"/>
         <element name="Person" positionX="-236" positionY="-153" width="173" height="103"/>
-        <element name="Location" positionX="-54" positionY="-9" width="128" height="118"/>
     </elements>
 </model>
