@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE720E8C1CBE353000300C77 /* TakePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */; };
 		BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6371CBBBED500976D47 /* AppDelegate.swift */; };
 		BE72F63D1CBBBED500976D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F63B1CBBBED500976D47 /* Main.storyboard */; };
 		BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE72F63E1CBBBED500976D47 /* TreasureHunt.xcdatamodeld */; };
@@ -24,11 +25,11 @@
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
 		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
-		BECE3C861CBCFE0C0011AFC6 /* uploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
+		BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePicturesViewController.swift; path = ../TakePicturesViewController.swift; sourceTree = "<group>"; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE72F63C1CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,7 +40,7 @@
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
-		BEC512541CBBE188000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = TreasureHunt/LocationManager.swift; sourceTree = "<group>"; };
+		BEC512541CBBE188000B0DFB /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImageViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uploadImageViewController.swift; path = ../uploadImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				BE1CC7FB1CBBE4B200E5FDC9 /* TreasureHunt.entitlements */,
+				BEC512541CBBE188000B0DFB /* LocationManager.swift */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
@@ -98,7 +99,6 @@
 		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BEC512541CBBE188000B0DFB /* LocationManager.swift */,
 				BECE3C7B1CBCDBB80011AFC6 /* Location.swift */,
 				BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */,
 				BECE3C7D1CBCDBB80011AFC6 /* Person.swift */,
@@ -112,13 +112,13 @@
 		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */,
 				BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */,
 				BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */,
 				BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */,
 				BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */,
 				BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */,
 				BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */,
-				BECE3C851CBCFE0C0011AFC6 /* uploadImageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 				TargetAttributes = {
 					BE72F6331CBBBED500976D47 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = EM9G5GUZUW;
+						DevelopmentTeam = 35KRN646PX;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 0;
@@ -201,9 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */,
-				BECE3C861CBCFE0C0011AFC6 /* uploadImageViewController.swift in Sources */,
 				BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */,
 				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
+				BE720E8C1CBE353000300C77 /* TakePicturesViewController.swift in Sources */,
 				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
 				BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */,
 				BEC5125A1CBBE188000B0DFB /* LocationManager.swift in Sources */,
