@@ -87,11 +87,11 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             let imageAsset = CKAsset(fileURL: url)
             locRecord.setObject(imageAsset, forKey: "photo")
         }
-        else {
-            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
-            let imageAsset = CKAsset(fileURL: fileURL!)
-            locRecord.setObject(imageAsset, forKey: "photo")
-        }
+//        else {
+//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+//            let imageAsset = CKAsset(fileURL: fileURL!)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
         //timeStamp in CK
          locRecord.setObject(NSDate(), forKey: "timestamp")
 

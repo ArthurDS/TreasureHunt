@@ -15,6 +15,11 @@ class LocationTableViewTableViewController: UITableViewController{
     
     let locationManager = LocationManager.sharedManager
     var locArray: [CKRecord] = []
+    
+    
+    
+    
+    
 
     //var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -24,12 +29,17 @@ class LocationTableViewTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.reloadData()
+        
          fetchLocation()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
