@@ -65,7 +65,11 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         let startLocation:CLLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
         
+      
         let meters:CLLocationDistance = currentLocation.distanceFromLocation(startLocation) / 1000
+        
+        
+        
         
         mapView.setRegion(theRegion, animated: true)
         
