@@ -61,14 +61,15 @@ class LocationTableViewTableViewController: UITableViewController{
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
         let locRecord : CKRecord = locArray[indexPath.row]
         cell.descriptionLabel.text = locRecord.valueForKey("summary") as? String
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
         cell.datumLabel.text = dateFormatter.stringFromDate(locRecord.valueForKey("timestamp") as! NSDate)
-   
-        //cell.uploadedPictureImageView?.image = locRecord.valueForKey("photo") as? UIImage
+        cell.uploadedPictureImageView?.image = locRecord.valueForKey("photo") as? UIImage
+        
         return cell
     }
     
