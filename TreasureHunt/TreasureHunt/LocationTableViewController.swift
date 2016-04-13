@@ -7,21 +7,24 @@
 //
 
 import UIKit
-import CoreData
+//import CoreData
+import CloudKit
 
-class LocationTableViewTableViewController: UITableViewController,NSFetchedResultsControllerDelegate {
+class LocationTableViewTableViewController: UITableViewController{
+//NSFetchedResultsControllerDelegate {
     
     let locationManager = LocationManager.sharedManager
-    
-    var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var locArray: [CKRecord] = []
 
-    var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
+    //var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    //var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
 
     let names = ["Kristof"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       // fetchNotes()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,7 +46,7 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return  1 //self.locArray.count
     }
 
     
@@ -54,8 +57,7 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
         return cell
     }
  
-
-    /*
+        /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -91,31 +93,6 @@ class LocationTableViewTableViewController: UITableViewController,NSFetchedResul
     */
 
    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "locationCell"){
-            let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell)
-            let locationDetailVC  = segue.destinationViewController as! LocationDetailTableViewController
-            let location = fetchedResultController.objectAtIndexPath(indexPath!) as! Location
-            locationDetailVC.location = location
-        }
-
-            }
-    
-    func getFetchedResultController() -> NSFetchedResultsController {
-        fetchedResultController = NSFetchedResultsController(fetchRequest: taskFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        return fetchedResultController
-    }
-    
-    
-    func taskFetchRequest() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest(entityName: "Location")
-        
-        
-        return fetchRequest
-    }
-
-
-    
+   
 
 }

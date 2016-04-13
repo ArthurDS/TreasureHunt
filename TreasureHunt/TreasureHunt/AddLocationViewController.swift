@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import CoreData
+//import CoreData
 import MapKit
 import CoreLocation
+import CloudKit
 
 
 class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -21,10 +22,10 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     var newItem:Location? = nil
    // var locationArray : [Location] = []
-    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
+//    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+//    
     var locationManager: CLLocationManager!
-    
+ 
     
     
     override func viewDidLoad() {
@@ -71,31 +72,60 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     
     @IBAction func addLocationButton(sender: AnyObject) {
-        
-                if newItem == nil
-        {
-            let context = self.context
-            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
-            
-            let loc = NSManagedObject(entity:  entity!,insertIntoManagedObjectContext: context)
-            let lat = locationManager.location?.coordinate.latitude
-            let long = locationManager.location?.coordinate.longitude
-            loc.setValue(self.locationTextField.text, forKey: "summary")
-            loc.setValue(lat, forKey: "lattitude")
-            loc.setValue(long, forKey: "longitude")
-            locationTextField.text = ("\(lat) & \(long)")
-                print("\(lat!) & \(long!)")
-            do{
-                try context.save()
-                //5
-                
-            } catch let error as NSError  {
-                print("Could not save \(error), \(error.userInfo)")
-            }
+        if summaryTextField.text == "" {
+            return
         }
+        let identifier = NSUUID().UUIDString //format cle unique
+        let locID = CKRecordID(recordName : identifier)
+        let locRecord = CKRecord(recordType: "Location", recordID: locID)
+        locRecord.setObject(summaryTextField.text, forKey: "summary")
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
+        publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
+            if (error != nil) {
+                print(error)
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+               // self.viewWait.hidden = true
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+            })
+        })
+    }
+    
+    
+    
 }
-}
+
+
+
+
+// coreData
+//                if newItem == nil
+//        {
+//            let context = self.context
+//            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
+//
+//            let loc = NSManagedObject(entity:  entity!,insertIntoManagedObjectContext: context)
+//            let lat = locationManager.location?.coordinate.latitude
+//            let long = locationManager.location?.coordinate.longitude
+//            loc.setValue(self.locationTextField.text, forKey: "summary")
+//            loc.setValue(lat, forKey: "lattitude")
+//            loc.setValue(long, forKey: "longitude")
+//            locationTextField.text = ("\(lat) & \(long)")
+//                print("\(lat!) & \(long!)")
+//            do{
+//                try context.save()
+//                //5
+//                
+//            } catch let error as NSError  {
+//                print("Could not save \(error), \(error.userInfo)")
+//            }
+//        }
+//        
+//}
+
 
 //            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
 //            newItem.summary = summaryTextField.text!
