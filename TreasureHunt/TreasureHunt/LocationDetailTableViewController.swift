@@ -57,7 +57,11 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         let startLocation:CLLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
         
+      
         let meters:CLLocationDistance = currentLocation.distanceFromLocation(startLocation) / 1000
+        
+        
+        
         
         mapView.setRegion(theRegion, animated: true)
         
@@ -126,7 +130,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DescriptionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell
 
         // Configure the cell...
 
