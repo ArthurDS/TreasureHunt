@@ -21,12 +21,19 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     
+    
+    
+   
+
+    
     var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                if mapLocationManager == nil {
+        
+        
+        if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -85,6 +92,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
     }
     
+ 
 
 
   
@@ -102,8 +110,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0   
-}
+        return 3
+    }
     
 
 //    func mapView(mapView: MKMapView,
@@ -136,10 +144,10 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 
 
 
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell
-
+      
         // Configure the cell...
 
         return cell

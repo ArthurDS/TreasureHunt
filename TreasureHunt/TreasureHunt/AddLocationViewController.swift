@@ -10,22 +10,20 @@ import UIKit
 import CoreData
 import MapKit
 import CoreLocation
+import MobileCoreServices
 
 
-class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    
     @IBOutlet weak var summaryTextField: UITextField!
     
     var newItem:Location? = nil
-   // var locationArray : [Location] = []
+    
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var locationManager: CLLocationManager!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +35,8 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
-         
-    }
         
-    
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,60 +62,96 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         self.MyLocationView.setRegion(region, animated: true)
     }
     
-    
-    
-    
-    
     @IBAction func addLocationButton(sender: AnyObject) {
         
-                if newItem == nil
+        if newItem == nil
         {
             let context = self.context
             let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
             
-            let loc = NSManagedObject(entity:  entity!,insertIntoManagedObjectContext: context)
-            let lat = locationManager.location?.coordinate.latitude
-            let long = locationManager.location?.coordinate.longitude
-            loc.setValue(self.locationTextField.text, forKey: "summary")
-            loc.setValue(lat, forKey: "lattitude")
-            loc.setValue(long, forKey: "longitude")
-            locationTextField.text = ("\(lat) & \(long)")
-                print("\(lat!) & \(long!)")
-            do{
-                try context.save()
-                //5
-                
-            } catch let error as NSError  {
-                print("Could not save \(error), \(error.userInfo)")
+            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
+            newItem.summary = summaryTextField.text!
+            
+            do {
+                //try context.save()
+                try newItem.managedObjectContext?.save()
+            } catch _ {
+            }
+        } else {
+            
+            newItem!.summary = summaryTextField.text!
+            
+            do {
+                //try context.save()
+                try newItem!.managedObjectContext?.save()
+            } catch _ {
             }
         }
         
+        navigationController!.popViewControllerAnimated(true)
+        
+        
+    }
+    
+    
+    var cameraUI: UIImagePickerController! = UIImagePickerController()
+    
+    //--- Take Photo from Camera ---//
+    @IBAction func takePhotoFromCamera(sender: AnyObject)
+    {
+        self.presentCamera()
+    }
+    
+    func presentCamera()
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        {
+            print("Button capture")
+            
+            cameraUI = UIImagePickerController()
+            cameraUI.delegate = self
+            cameraUI.sourceType = UIImagePickerControllerSourceType.Camera;
+            cameraUI.mediaTypes = [kUTTypeImage as String]
+            cameraUI.allowsEditing = false
+            
+            self.presentViewController(cameraUI, animated: true, completion: nil)
+        }
+        else
+        {
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker:UIImagePickerController)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
+        {
+
+            let imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            UIImageWriteToSavedPhotosAlbum(imageToSave1, nil, nil, nil)
+            
+            self.savedImageAlert()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }
+        
+    }
+    
+    func savedImageAlert() {
+        
+        let alert:UIAlertView = UIAlertView()
+        alert.title = "Saved!"
+        alert.message = "Your picture was saved to Camera Roll"
+        alert.delegate = self
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+    }
 }
-}
-
-//            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
-//            newItem.summary = summaryTextField.text!
-//
-//            do {
-//                //try context.save()
-//                try newItem.managedObjectContext?.save()
-//            } catch _ {
-//            }
-//        } else {
-//
-//            newItem!.summary = summaryTextField.text!
-//
-//            do {
-//                //try context.save()
-//                try newItem!.managedObjectContext?.save()
-//            } catch _ {
-//            }
-//        }
-//
-//        navigationController!.popViewControllerAnimated(true)
-//
-
-
 
 /*
  // MARK: - Navigatio n
