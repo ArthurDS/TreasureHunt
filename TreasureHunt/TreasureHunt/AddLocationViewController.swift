@@ -159,8 +159,7 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             }
             else {
                 let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
-                let imageAsset = CKAsset(fileURL: fileURL!)
-                locRecord.setObject(imageAsset, forKey: "photo")
+                
                 
             }
             self.savedImageAlert()
