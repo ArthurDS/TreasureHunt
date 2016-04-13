@@ -17,18 +17,13 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
-    
     @IBOutlet weak var summaryTextField: UITextField!
     
-    @IBOutlet weak var currentImage: UIImageView!
-
-    
     var newItem:Location? = nil
-   // var locationArray : [Location] = []
-//    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-//    
+    // var locationArray : [Location] = []
+    //    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    //
     var locationManager: CLLocationManager!
- 
     
     
     override func viewDidLoad() {
@@ -43,8 +38,6 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         }
         
     }
-        
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,11 +63,10 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         self.MyLocationView.setRegion(region, animated: true)
     }
     
-    
-    
     //Add data in CK
     
     @IBAction func addLocationButton(sender: AnyObject) {
+        
         if summaryTextField.text == "" {
             return
         }
@@ -85,20 +77,93 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
+        
         publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
             if (error != nil) {
                 print(error)
             }
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-               // self.viewWait.hidden = true
+                // self.viewWait.hidden = true
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
             })
         })
+        
+        if newItem == nil
+        {
+            let context = self.context
+            let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: context)
+            
+            let newItem = Location(entity: entity!, insertIntoManagedObjectContext: context)
+            newItem.summary = summaryTextField.text!
+            
+            do {
+                //try context.save()
+                try newItem.managedObjectContext?.save()
+            } catch _ {
+                
+            }
+            
+        }
     }
     
+    var cameraUI: UIImagePickerController! = UIImagePickerController()
     
+    //--- Take Photo from Camera ---//
+    @IBAction func takePhotoFromCamera(sender: AnyObject)
+    {
+        self.presentCamera()
+    }
     
+    func presentCamera()
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        {
+            print("Button capture")
+            
+            cameraUI = UIImagePickerController()
+            cameraUI.delegate = self
+            cameraUI.sourceType = UIImagePickerControllerSourceType.Camera;
+            cameraUI.mediaTypes = [kUTTypeImage as String]
+            cameraUI.allowsEditing = false
+            
+            self.presentViewController(cameraUI, animated: true, completion: nil)
+        }
+        else
+        {
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker:UIImagePickerController)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
+        {
+            
+            let imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            UIImageWriteToSavedPhotosAlbum(imageToSave1, nil, nil, nil)
+            
+            self.savedImageAlert()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }
+        
+    }
+    
+    func savedImageAlert() {
+        
+        let alert:UIAlertView = UIAlertView()
+        alert.title = "Saved!"
+        alert.message = "Your picture was saved to Camera Roll"
+        alert.delegate = self
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+    }
 }
 
 
@@ -121,12 +186,12 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
 //            do{
 //                try context.save()
 //                //5
-//                
+//
 //            } catch let error as NSError  {
 //                print("Could not save \(error), \(error.userInfo)")
 //            }
 //        }
-//        
+//
 //}
 
 
