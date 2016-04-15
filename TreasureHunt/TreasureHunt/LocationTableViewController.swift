@@ -15,6 +15,11 @@ class LocationTableViewTableViewController: UITableViewController{
     
     let locationManager = LocationManager.sharedManager
     var locArray: [CKRecord] = []
+    
+    
+    
+    
+    
 
     //var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
