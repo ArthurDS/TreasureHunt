@@ -73,7 +73,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     // name -> globale let string
                     // object -> self
                     // userinfo -> dictionary met info (e.g. locRecord)
-                    let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["info" : locRecord])
+                    let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["record" : locRecord])
                     
                     notificationCenter.postNotification(notification)
                 }

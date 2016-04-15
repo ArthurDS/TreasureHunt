@@ -34,6 +34,12 @@ class LocationTableViewTableViewController: UITableViewController{
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.locationWasAdded(_:)), name: LocationManagerDidAddLocation, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +74,10 @@ class LocationTableViewTableViewController: UITableViewController{
         return cell
     }
     
+    func locationWasAdded(notification: NSNotification) {
+        self.locArray.append(notification.userInfo!["record"]! as! CKRecord)
+        self.tableView.reloadData()
+    }
     
     func fetchLocation() {//location opvragen
         
