@@ -81,52 +81,12 @@ class LocationTableViewTableViewController: UITableViewController{
     
     func fetchLocation() {//location opvragen
         
-        let container = CKContainer.defaultContainer()
-        
-        let publicDatabase = container.publicCloudDatabase
-        
-        let predicate = NSPredicate(value: true) //
-        
-        
-        
-        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
-        
-        
-        
-        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
-            
-            if error != nil {
-                
-                print(error)
-                
+        locationManager.fetchAllLocations({(records, error) in
+            if error == nil {
+                self.locArray = records!
+                self.tableView.reloadData()
             }
-                
-            else {
-                
-                print("==================\(results)")
-                
-                self.locArray = results!
-                
-                // self.arrNotes.append(result as! CKRecord)
-                
-                
-                
-                
-                
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    
-                    self.tableView.reloadData()
-                    
-                    self.tableView.hidden = false
-                    
-                })
-                
-            }
-            
-        }
-        
-        
-        
+        })
     }
     
 
