@@ -33,6 +33,9 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         super.viewDidLoad()
         
         
+        self.mapView.delegate = self
+        
+        
         if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
             mapLocationManager.delegate = self
@@ -133,6 +136,9 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             annotationView!.canShowCallout = true
             annotationView!.image = UIImage(named: "annotation_pin")
             annotationView!.rightCalloutAccessoryView = detailButton
+            
+            
+            
         }
         else
         {
@@ -141,9 +147,8 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         return annotationView
     }
-
-
-
+    
+ 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! DescriptionTableViewCell

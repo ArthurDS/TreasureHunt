@@ -24,9 +24,12 @@
                                         <rect key="frame" x="225" y="456" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="takePhotoFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T22-Ea-xA6"/>
+                                            <action selector="pickPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MsZ-7E-0w6"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-2D-rLR">
+                                        <rect key="frame" x="191" y="349" width="115" height="105"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -62,6 +65,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="MyLocationView" destination="D7Q-xP-9jU" id="KUo-y4-UFK"/>
+                        <outlet property="locationImage" destination="nI7-2D-rLR" id="BeK-Xi-WqK"/>
                         <outlet property="locationTextField" destination="11e-oT-MBr" id="Wb7-F4-M5o"/>
                         <outlet property="summaryTextField" destination="ZvD-A6-eR2" id="mnV-e6-LzU"/>
                     </connections>
@@ -178,24 +182,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJj-Uh-48R">
-                                            <rect key="frame" x="8" y="8" width="171" height="47"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-yl-Clh">
-                                            <rect key="frame" x="8" y="54" width="171" height="46"/>
+                                            <rect key="frame" x="8" y="69" width="171" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEx-zX-YJN">
                                             <rect key="frame" x="200" y="0.0" width="112" height="110"/>
+                                            <color key="backgroundColor" red="0.7754945339" green="1" blue="0.05291232966" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJj-Uh-48R">
+                                            <rect key="frame" x="8" y="8" width="171" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Datum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-HO-618">
+                                            <rect key="frame" x="8" y="44" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="datumLabel" destination="cX6-HO-618" id="566-s7-I4k"/>
                                     <outlet property="descriptionLabel" destination="GDi-yl-Clh" id="bda-RW-MB9"/>
                                     <outlet property="personNameLabel" destination="vJj-Uh-48R" id="B7y-5x-tFK"/>
                                     <outlet property="uploadedPictureImageView" destination="wEx-zX-YJN" id="fDy-jR-DhJ"/>

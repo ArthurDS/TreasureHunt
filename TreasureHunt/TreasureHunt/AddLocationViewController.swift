@@ -12,23 +12,34 @@ import MapKit
 import CoreLocation
 import CloudKit
 import MobileCoreServices
+import QuartzCore
 
 
-class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate {
+class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate {
     
+    @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var MyLocationView: MKMapView!
     @IBOutlet weak var summaryTextField: UITextField!
     
-    var newItem:Location? = nil
+    let tempImageName = "temp_image.jpg"
+
+    var imageURL: NSURL?
+    
+    let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
+
+var newItem:Location? = nil
     // var locationArray : [Location] = []
     //    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     //
     var locationManager: CLLocationManager!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         if (CLLocationManager.locationServicesEnabled())
         {
             locationManager = CLLocationManager()
@@ -38,6 +49,14 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             locationManager.startUpdatingLocation()
         }
         
+    }
+    
+
+    
+    
+    func dismissKeyboard() {
+
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +73,8 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         self.MyLocationView.removeAnnotations(self.MyLocationView.annotations)
         
     }
+    
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
@@ -74,7 +95,24 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         let identifier = NSUUID().UUIDString //format cle unique
         let locID = CKRecordID(recordName : identifier)
         let locRecord = CKRecord(recordType: "Location", recordID: locID)
+        // set summary in CK
         locRecord.setObject(summaryTextField.text, forKey: "summary")
+        // set latitude en longitude in CK
+        locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
+        locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
+        // set Image in CK
+//        if let url = imageURL {
+//            let imageAsset = CKAsset(fileURL: url)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
+//        else {
+//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+//            let imageAsset = CKAsset(fileURL: fileURL!)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
+        //timeStamp in CK
+         locRecord.setObject(NSDate(), forKey: "timestamp")
+
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
@@ -87,9 +125,18 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 // self.viewWait.hidden = true
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                if self.summaryTextField != "" {
+                self.navigationController!.popViewControllerAnimated(true)
+                    self.savedNoteAlert()
+                    
+                }
+
             })
         })
     }
+    
+    // Take and save a picture
     
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
@@ -119,24 +166,97 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
         }
     }
     
-    func imagePickerControllerDidCancel(picker:UIImagePickerController)
-    {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    
+    @IBAction func pickPhoto(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            //access a la libairie de ton device
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.allowsEditing = false
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
-        {
+    func setPhoto() {
+        
+        if let url = imageURL {
             
-            let imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let identifier = NSUUID().UUIDString
+            let photoID = CKRecordID(recordName: identifier)
+            let pictureRecord = CKRecord(recordType: "Location", recordID: photoID)
             
-            UIImageWriteToSavedPhotosAlbum(imageToSave1, nil, nil, nil)
-            
-            self.savedImageAlert()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            let imageAsset = CKAsset(fileURL: url)
+            pictureRecord.setObject(imageAsset, forKey: "photo")
             
         }
         
+    }
+    
+    func saveImageLocally() { //om een file aanmaken
+        
+        let imageData: NSData = UIImageJPEGRepresentation(locationImage.image!, 0.8)!
+        
+        let path = documentsDirectoryPath.stringByAppendingString(tempImageName)
+        
+        imageURL = NSURL(fileURLWithPath: path)
+        
+        imageData.writeToURL(imageURL!, atomically: true)
+    }
+    
+    
+//    func imagePickerControllerDidCancel(picker:UIImagePickerController)
+//    {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        if(picker.sourceType == UIImagePickerControllerSourceType.Camera)
+//        {
+//            
+//            let imageToSave1: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+//            
+//            UIImageWriteToSavedPhotosAlbum(imageToSave1, nil, nil, nil)
+//            
+//            let imageData = UIImageJPEGRepresentation(imageToSave1, 1)
+//            let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+//            let documentDirectory = paths[0] as String
+//            let myFilePath = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("photo")
+//            
+//            let asset = CKAsset(fileURL: myFilePath)
+//            
+//            let identifier = NSUUID().UUIDString //format cle unique
+//            let locID = CKRecordID(recordName : identifier)
+//            let locRecord = CKRecord(recordType: "Location", recordID: locID)
+//            
+//            var imageURL: NSURL?
+//            
+//            if let url = imageURL {
+//                let imageAsset = CKAsset(fileURL: url)
+//                locRecord.setObject(imageAsset, forKey: "photo")
+//            }
+//            else {
+//                let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+//                
+//                
+//            }
+//            self.savedImageAlert()
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//            
+//            
+//        }
+//        
+//    }
+    
+    func savedNoteAlert() {
+        
+        let alert: UIAlertView = UIAlertView()
+        alert.title = "Gone"
+        alert.message = "Your location has been sent"
+        alert.delegate = self
+        alert.addButtonWithTitle("Ok")
+        alert.show()
     }
     
     func savedImageAlert() {
@@ -213,4 +333,22 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
  }
  */
 
+extension AddLocationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        locationImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        locationImage.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        saveImageLocally()// pour utilser cloudkit
+        
+        locationImage.hidden = false
+
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
 
