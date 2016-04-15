@@ -83,18 +83,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="phT-AP-hN8">
-                            <rect key="frame" x="0.0" y="64" width="320" height="241"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="267"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPN-d2-I5N">
                                     <rect key="frame" x="8" y="8" width="304" height="208"/>
                                 </mapView>
+                                <segmentedControl contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="N7x-Zm-rRR">
+                                    <rect key="frame" x="36" y="224" width="247" height="29"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <segments>
+                                        <segment title="ON FOOT"/>
+                                        <segment title="BY CAR"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="segmentedControlClicked:" destination="7Ou-Nr-vlP" eventType="valueChanged" id="xqY-9X-bRz"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="77" id="wdl-kw-wZS" customClass="DescriptionTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="333" width="320" height="77"/>
+                                <rect key="frame" x="0.0" y="359" width="320" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wdl-kw-wZS" id="zxk-9U-lLg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
@@ -127,7 +138,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="1NI-Sc-WcT" customClass="UploadedImageViewTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="410" width="320" height="161"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="161"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1NI-Sc-WcT" id="Xxf-wA-4wY">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
@@ -135,7 +146,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="VET-ry-iLY" customClass="UploadedImageViewTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="571" width="320" height="161"/>
+                                <rect key="frame" x="0.0" y="597" width="320" height="161"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VET-ry-iLY" id="g3G-6y-kOW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
@@ -160,6 +171,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="BPN-d2-I5N" id="Sm6-rk-QfL"/>
+                        <outlet property="segmentedControl" destination="N7x-Zm-rRR" id="qkL-fg-o98"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3TH-xR-zxm" userLabel="First Responder" sceneMemberID="firstResponder"/>

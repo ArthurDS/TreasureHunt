@@ -13,6 +13,8 @@ import CloudKit
 
 class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let locationManager = LocationManager.sharedManager
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -21,7 +23,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
 //    let userLocationLongitude = Double()
     
     @IBOutlet weak var mapView: MKMapView!
-    
+
     
     var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
@@ -32,6 +34,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         
         self.mapView.delegate = self
         
+
         
         if mapLocationManager == nil {
             mapLocationManager = CLLocationManager()
@@ -44,33 +47,96 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             mapView.showsUserLocation = true
         }
         
-        let request = MKDirectionsRequest()
-
-       
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
-        request.requestsAlternateRoutes = false
-        request.transportType = .Walking
-        
-        let directions = MKDirections(request: request)
-        
-        directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
-            guard let unwrappedResponse = response else { return }
-            
-            for route in unwrappedResponse.routes {
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
-        }
+//        let request = MKDirectionsRequest()
+//
+//       
+//        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+//        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+//        request.requestsAlternateRoutes = false
+//        
+//        
+//        
+//        let directions = MKDirections(request: request)
+//        
+//        directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+//            guard let unwrappedResponse = response else { return }
+//            
+//            for route in unwrappedResponse.routes {
+//                self.mapView.addOverlay(route.polyline)
+//                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//            }
+//        }
     }
 
-    
+    @IBAction func segmentedControlClicked(sender: AnyObject) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let request = MKDirectionsRequest()
+            
+            
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+            request.requestsAlternateRoutes = false
+             request.transportType = .Walking
+            
+            
+            let directions = MKDirections(request: request)
+            
+            directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+                guard let unwrappedResponse = response else { return }
+                
+                for route in unwrappedResponse.routes {
+                    self.mapView.addOverlay(route.polyline)
+                    self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                }
+            }
+
+           
+        } else {
+            let request = MKDirectionsRequest()
+            
+            
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+            request.requestsAlternateRoutes = false
+            request.transportType = .Automobile
+            
+            
+            let directions = MKDirections(request: request)
+            
+            directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+                guard let unwrappedResponse = response else { return }
+                
+                for route in unwrappedResponse.routes {
+                    self.mapView.addOverlay(route.polyline)
+                    self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                }
+            }
+
+            
+        
+
+            
+        }
+
+    }
+
+ 
     
 func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    
     let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-    renderer.strokeColor = UIColor.blackColor()
-    renderer.lineWidth = 1.5
-    renderer.alpha = 0.5
+    
+    if segmentedControl.selectedSegmentIndex == 0 {
+        renderer.strokeColor = UIColor.blackColor()
+        renderer.lineWidth = 1.5
+        renderer.alpha = 1
+    } else {
+        renderer.strokeColor = UIColor.redColor()
+        renderer.lineWidth = 1.5
+        renderer.alpha = 1
+    }
+    
     return renderer
 }
 
