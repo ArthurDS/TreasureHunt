@@ -73,12 +73,41 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     // name -> globale let string
                     // object -> self
                     // userinfo -> dictionary met info (e.g. locRecord)
-                    let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["info" : locRecord])
+                    let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["record" : locRecord])
                     
                     notificationCenter.postNotification(notification)
                 }
             })
         })
+    }
+    
+    func fetchAllLocations(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
+        
+        
+        //location opvragen
+        
+        let container = CKContainer.defaultContainer()
+        
+        let publicDatabase = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(value: true) // used to filter: true -> show all
+        
+        
+        
+        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
+        
+        
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completionHandler(records: results, error: error)
+                })
+            
+        }
+        
+        
+        
     }
     
 }

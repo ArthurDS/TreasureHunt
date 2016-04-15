@@ -34,6 +34,12 @@ class LocationTableViewTableViewController: UITableViewController{
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.locationWasAdded(_:)), name: LocationManagerDidAddLocation, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,55 +74,19 @@ class LocationTableViewTableViewController: UITableViewController{
         return cell
     }
     
+    func locationWasAdded(notification: NSNotification) {
+        self.locArray.append(notification.userInfo!["record"]! as! CKRecord)
+        self.tableView.reloadData()
+    }
     
     func fetchLocation() {//location opvragen
         
-        let container = CKContainer.defaultContainer()
-        
-        let publicDatabase = container.publicCloudDatabase
-        
-        let predicate = NSPredicate(value: true) //
-        
-        
-        
-        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
-        
-        
-        
-        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
-            
-            if error != nil {
-                
-                print(error)
-                
+        locationManager.fetchAllLocations({(records, error) in
+            if error == nil {
+                self.locArray = records!
+                self.tableView.reloadData()
             }
-                
-            else {
-                
-                print("==================\(results)")
-                
-                self.locArray = results!
-                
-                // self.arrNotes.append(result as! CKRecord)
-                
-                
-                
-                
-                
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    
-                    self.tableView.reloadData()
-                    
-                    self.tableView.hidden = false
-                    
-                })
-                
-            }
-            
-        }
-        
-        
-        
+        })
     }
     
 
