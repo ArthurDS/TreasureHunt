@@ -20,7 +20,6 @@ class LocationTableViewTableViewController: UITableViewController{
 
     //var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
 
-    let names = ["Kristof"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +53,7 @@ class LocationTableViewTableViewController: UITableViewController{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
         let locRecord : CKRecord = locArray[indexPath.row]
+        print("*****************\(locRecord)")
         cell.descriptionLabel.text = locRecord.valueForKey("summary") as? String
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
@@ -88,7 +88,7 @@ class LocationTableViewTableViewController: UITableViewController{
                 
             else {
                 
-                print(results)
+                print("==================\(results)")
                 
                 self.locArray = results!
                 
@@ -151,7 +151,19 @@ class LocationTableViewTableViewController: UITableViewController{
     }
     */
 
-   
-   
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//            let indexPath = self.tableView.indexPathForSelectedRow
+//            let locRecord : CKRecord = locArray[indexPath!.row]
+//            let userLatitude = locRecord.valueForKey("lattitude") as? Double
+//            let userLongitude = locRecord.valueForKey("longitude") as? Double
+//            let detailViewController = segue.destinationViewController as! LocationDetailTableViewController
+//
+//    
+//        }
+    
+
 
 }

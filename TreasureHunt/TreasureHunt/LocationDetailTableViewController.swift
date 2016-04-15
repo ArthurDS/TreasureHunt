@@ -9,21 +9,18 @@
 import UIKit
 import MapKit
 import CoreLocation
-import CoreData
+import CloudKit
 
-class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate ,NSFetchedResultsControllerDelegate{
+class LocationDetailTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     let locationManager = LocationManager.sharedManager
-    var location: Location!
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var isInitialized = false
+//    let userLocationLattitude = Double()
+//    let userLocationLongitude = Double()
     
     @IBOutlet weak var mapView: MKMapView!
-    
-    
-    
-    
     
     
     var mapLocationManager: CLLocationManager!
@@ -47,10 +44,36 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
             mapView.showsUserLocation = true
         }
         
+        let request = MKDirectionsRequest()
+
+       
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+        request.requestsAlternateRoutes = false
+        request.transportType = .Walking
         
+        let directions = MKDirections(request: request)
         
-        
+        directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+            
+            for route in unwrappedResponse.routes {
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
     }
+
+    
+    
+func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+    renderer.strokeColor = UIColor.blackColor()
+    renderer.lineWidth = 1.5
+    renderer.alpha = 0.5
+    return renderer
+}
+
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !isInitialized {
@@ -90,9 +113,6 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         anotation.subtitle = "op 20 km van uw locatie"
         
         mapView.addAnnotation(anotation)
-        
-        
-        
     }
     
     
@@ -116,9 +136,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         return 3
     }
     
-
-    func mapView(mapView: MKMapView,
-                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
         
         if annotation.isKindOfClass(MKUserLocation) {
@@ -134,7 +152,7 @@ class LocationDetailTableViewController: UITableViewController, CLLocationManage
         {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             annotationView!.canShowCallout = true
-            annotationView!.image = UIImage(named: "annotation_pin")
+            annotationView!.image = UIImage(named: "icon")
             annotationView!.rightCalloutAccessoryView = detailButton
             
             
