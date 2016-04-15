@@ -20,3 +20,5 @@ extension Person {
     @NSManaged var location: NSSet?
 
 }
+
+
