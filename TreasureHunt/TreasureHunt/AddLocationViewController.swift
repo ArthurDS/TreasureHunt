@@ -96,6 +96,7 @@ var newItem:Location? = nil
         let myPath =  bezier4Path.CGPath
         
         loader = WavesLoader.createLoaderWithPath(path: myPath)
+        loader.loaderColor = UIColor.greenColor()
 
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddLocationViewController.dismissKeyboard))
@@ -120,8 +121,7 @@ var newItem:Location? = nil
             return
         }
         
-        loader.loaderColor = UIColor.greenColor()
-        loader.progress = 0.1
+
         loader.showLoader()
         
 
