@@ -66,6 +66,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE1ACCA51CC0DA9B005D941A /* DesignFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DesignFiles;
+			sourceTree = "<group>";
+		};
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +94,7 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BE1ACCA51CC0DA9B005D941A /* DesignFiles */,
 				BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
@@ -118,8 +126,8 @@
 			children = (
 				BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */,
 				BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */,
-				BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */,
 				BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */,
+				BEC5125E1CBBE196000B0DFB /* DescriptionTableViewCell.swift */,
 				BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */,
 				BEC512561CBBE188000B0DFB /* LocationTableViewController.swift */,
 				BEC512571CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift */,
