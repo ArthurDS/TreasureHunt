@@ -29,6 +29,7 @@ class LocationTableViewTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
          fetchLocation()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,6 +59,9 @@ class LocationTableViewTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         return  self.locArray.count
     }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100.0
+    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -69,8 +73,8 @@ class LocationTableViewTableViewController: UITableViewController{
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
         cell.datumLabel.text = dateFormatter.stringFromDate(locRecord.valueForKey("timestamp") as! NSDate)
+   
         cell.uploadedPictureImageView?.image = locRecord.valueForKey("photo") as? UIImage
-        
         return cell
     }
     
@@ -81,12 +85,49 @@ class LocationTableViewTableViewController: UITableViewController{
     
     func fetchLocation() {//location opvragen
         
-        locationManager.fetchAllLocations({(records, error) in
-            if error == nil {
-                self.locArray = records!
-                self.tableView.reloadData()
+        let container = CKContainer.defaultContainer()
+        
+        let publicDatabase = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(value: true) //
+        
+        
+        
+        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
+        
+        
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            
+            if error != nil {
+                
+                print(error)
+                
             }
-        })
+                
+            else {
+                
+                print(results)
+                
+                self.locArray = results!
+               // self.locArray.append(results)
+                
+                
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    
+                    
+                    self.tableView.hidden = false
+                    
+                    
+                    self.tableView.reloadData()
+
+                })
+                
+            }
+        
     }
     
 
@@ -141,4 +182,5 @@ class LocationTableViewTableViewController: UITableViewController{
     
 
 
+}
 }

@@ -166,7 +166,56 @@ var newItem:Location? = nil
     
     //Add data in CK
     
-        // Take and save a picture
+    @IBAction func addLocationButton(sender: AnyObject) {
+        
+        if summaryTextField.text == "" {
+            return
+        }
+        let identifier = NSUUID().UUIDString //format cle unique
+        let locID = CKRecordID(recordName : identifier)
+        let locRecord = CKRecord(recordType: "Location", recordID: locID)
+        // set summary in CK
+        locRecord.setObject(summaryTextField.text, forKey: "summary")
+        // set latitude en longitude in CK
+        locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
+        locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
+        // set Image in CK
+//        if let url = imageURL {
+//            let imageAsset = CKAsset(fileURL: url)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
+//        else {
+//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+//            let imageAsset = CKAsset(fileURL: fileURL!)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
+        //timeStamp in CK
+         locRecord.setObject(NSDate(), forKey: "timestamp")
+
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
+        
+        
+        publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
+            if (error != nil) {
+                print(error)
+            }
+            
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                // self.viewWait.hidden = true
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                if self.summaryTextField != "" {
+                self.navigationController!.popViewControllerAnimated(true)
+                    
+                }
+
+            })
+        })
+    }
+    
+    // Take and save a picture
     
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
