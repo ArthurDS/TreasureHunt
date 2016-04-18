@@ -41,7 +41,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let identifier = NSUUID().UUIDString //format cle unique
         let locID = CKRecordID(recordName : identifier)
         
-        let locRecord = CKRecord(recordType: "Location", recordID: locID)
+        let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
         
         // set summary in CK
         locRecord.setObject(summary, forKey: "summary")
@@ -95,7 +95,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         
         
-        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
+        let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
         
         
         
