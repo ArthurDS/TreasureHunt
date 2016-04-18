@@ -95,8 +95,7 @@ class LocationTableViewTableViewController: UITableViewController{
                 print(results)
                 
                 self.locArray = results!
-                
-                self.tableView.reloadData()
+               // self.locArray.append(results)
                 
                 
                 
@@ -107,6 +106,9 @@ class LocationTableViewTableViewController: UITableViewController{
                     
                     self.tableView.hidden = false
                     
+                    
+                    self.tableView.reloadData()
+
                 })
                 
             }
