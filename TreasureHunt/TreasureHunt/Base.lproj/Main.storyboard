@@ -29,6 +29,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-2D-rLR">
                                         <rect key="frame" x="191" y="349" width="115" height="105"/>
+                                        <color key="backgroundColor" red="1" green="0.93148298214218073" blue="0.206299446271762" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae3-6Y-BdQ">
                                         <rect key="frame" x="20" y="456" width="90" height="30"/>

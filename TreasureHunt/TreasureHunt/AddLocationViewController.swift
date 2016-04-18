@@ -129,6 +129,7 @@ var newItem:Location? = nil
         LocationManager.sharedManager.addLocation(summary: self.summaryTextField.text!, imageURL: self.imageURL, completionHandler: {(record, error) in
             
             self.loader.removeLoader()
+            self.navigationController?.popViewControllerAnimated(true)
         })
     }
     

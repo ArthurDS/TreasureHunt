@@ -54,6 +54,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         if let url = imageURL {
             let imageAsset = CKAsset(fileURL: url)
             locRecord.setObject(imageAsset, forKey: "photo")
+            
         }
         
         //timeStamp in CK
@@ -75,7 +76,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     // userinfo -> dictionary met info (e.g. locRecord)
                     let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["record" : locRecord])
                     
-                    notificationCenter.postNotification(notification)
+                    
+notificationCenter.postNotification(notification)
+                    
                 }
             })
         })
@@ -105,11 +108,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 })
             
         }
-        
-        
-        
     }
-    
 }
 
 
