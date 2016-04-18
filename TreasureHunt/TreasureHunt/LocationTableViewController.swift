@@ -127,7 +127,7 @@ class LocationTableViewTableViewController: UITableViewController{
                 })
                 
             }
-        })
+        
     }
     
 
@@ -182,4 +182,5 @@ class LocationTableViewTableViewController: UITableViewController{
     
 
 
+}
 }

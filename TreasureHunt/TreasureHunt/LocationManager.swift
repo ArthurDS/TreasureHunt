@@ -47,9 +47,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locRecord.setObject(summary, forKey: "summary")
         
         // set latitude en longitude in CK
-        locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
-        locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
-        
+       //locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
+       // locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
+        let loc = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+        locRecord.setObject(loc, forKey: "location")
         // set Image in CK
         if let url = imageURL {
             let imageAsset = CKAsset(fileURL: url)
