@@ -13,7 +13,7 @@ import CoreLocation
 import CloudKit
 import MobileCoreServices
 import QuartzCore
-
+import FillableLoaders
 
 class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate {
     
@@ -26,6 +26,13 @@ class AddLocationViewController: UIViewController, CLLocationManagerDelegate, MK
 
     var imageURL: NSURL?
     
+    //// Bezier Drawing
+    
+    
+ 
+   
+
+    
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
 
 var newItem:Location? = nil
@@ -33,11 +40,66 @@ var newItem:Location? = nil
     //    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     //
     var locationManager: CLLocationManager!
+    var loader: WavesLoader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let bezier4Path = UIBezierPath()
+        bezier4Path.moveToPoint(CGPoint(x: 117.5, y: 34.56))
+        bezier4Path.addCurveToPoint(CGPoint(x: 110, y: 39.82), controlPoint1: CGPoint(x: 114.11, y: 34.56), controlPoint2: CGPoint(x: 111.2, y: 36.73))
+        bezier4Path.addCurveToPoint(CGPoint(x: 109.47, y: 41.96), controlPoint1: CGPoint(x: 109.74, y: 40.5), controlPoint2: CGPoint(x: 109.56, y: 41.21))
+        bezier4Path.addCurveToPoint(CGPoint(x: 110.42, y: 41.52), controlPoint1: CGPoint(x: 109.77, y: 41.79), controlPoint2: CGPoint(x: 110.09, y: 41.64))
+        bezier4Path.addCurveToPoint(CGPoint(x: 116.7, y: 41), controlPoint1: CGPoint(x: 112.08, y: 41), controlPoint2: CGPoint(x: 113.62, y: 41))
+        bezier4Path.addLineToPoint(CGPoint(x: 118.3, y: 41))
+        bezier4Path.addCurveToPoint(CGPoint(x: 124.31, y: 41.46), controlPoint1: CGPoint(x: 121.38, y: 41), controlPoint2: CGPoint(x: 122.92, y: 41))
+        bezier4Path.addLineToPoint(CGPoint(x: 124.58, y: 41.52))
+        bezier4Path.addCurveToPoint(CGPoint(x: 125.53, y: 41.96), controlPoint1: CGPoint(x: 124.91, y: 41.64), controlPoint2: CGPoint(x: 125.23, y: 41.79))
+        bezier4Path.addCurveToPoint(CGPoint(x: 117.5, y: 34.56), controlPoint1: CGPoint(x: 125.04, y: 37.79), controlPoint2: CGPoint(x: 121.63, y: 34.56))
+        bezier4Path.closePath()
+        bezier4Path.moveToPoint(CGPoint(x: 117.5, y: 49))
+        bezier4Path.addCurveToPoint(CGPoint(x: 115.08, y: 49.97), controlPoint1: CGPoint(x: 116.56, y: 49), controlPoint2: CGPoint(x: 115.71, y: 49.37))
+        bezier4Path.addCurveToPoint(CGPoint(x: 114.74, y: 50.35), controlPoint1: CGPoint(x: 114.96, y: 50.09), controlPoint2: CGPoint(x: 114.84, y: 50.22))
+        bezier4Path.addCurveToPoint(CGPoint(x: 114, y: 52.5), controlPoint1: CGPoint(x: 114.28, y: 50.94), controlPoint2: CGPoint(x: 114, y: 51.69))
+        bezier4Path.addCurveToPoint(CGPoint(x: 116, y: 55.66), controlPoint1: CGPoint(x: 114, y: 53.9), controlPoint2: CGPoint(x: 114.82, y: 55.1))
+        bezier4Path.addCurveToPoint(CGPoint(x: 116, y: 61), controlPoint1: CGPoint(x: 116, y: 57.73), controlPoint2: CGPoint(x: 116, y: 61))
+        bezier4Path.addLineToPoint(CGPoint(x: 119, y: 61))
+        bezier4Path.addCurveToPoint(CGPoint(x: 119, y: 55.66), controlPoint1: CGPoint(x: 119, y: 61), controlPoint2: CGPoint(x: 119, y: 57.73))
+        bezier4Path.addCurveToPoint(CGPoint(x: 121, y: 52.5), controlPoint1: CGPoint(x: 120.18, y: 55.1), controlPoint2: CGPoint(x: 121, y: 53.9))
+        bezier4Path.addCurveToPoint(CGPoint(x: 117.5, y: 49), controlPoint1: CGPoint(x: 121, y: 50.57), controlPoint2: CGPoint(x: 119.43, y: 49))
+        bezier4Path.closePath()
+        bezier4Path.moveToPoint(CGPoint(x: 129, y: 43))
+        bezier4Path.addCurveToPoint(CGPoint(x: 128.64, y: 46), controlPoint1: CGPoint(x: 129, y: 44.04), controlPoint2: CGPoint(x: 128.87, y: 45.04))
+        bezier4Path.addCurveToPoint(CGPoint(x: 129, y: 51.7), controlPoint1: CGPoint(x: 129, y: 47.46), controlPoint2: CGPoint(x: 129, y: 48.98))
+        bezier4Path.addLineToPoint(CGPoint(x: 129, y: 55.3))
+        bezier4Path.addCurveToPoint(CGPoint(x: 128.54, y: 61.31), controlPoint1: CGPoint(x: 129, y: 58.38), controlPoint2: CGPoint(x: 129, y: 59.92))
+        bezier4Path.addLineToPoint(CGPoint(x: 128.48, y: 61.58))
+        bezier4Path.addCurveToPoint(CGPoint(x: 124.58, y: 65.48), controlPoint1: CGPoint(x: 127.82, y: 63.39), controlPoint2: CGPoint(x: 126.39, y: 64.82))
+        bezier4Path.addCurveToPoint(CGPoint(x: 118.3, y: 66), controlPoint1: CGPoint(x: 122.92, y: 66), controlPoint2: CGPoint(x: 121.38, y: 66))
+        bezier4Path.addLineToPoint(CGPoint(x: 116.7, y: 66))
+        bezier4Path.addCurveToPoint(CGPoint(x: 110.69, y: 65.54), controlPoint1: CGPoint(x: 113.62, y: 66), controlPoint2: CGPoint(x: 112.08, y: 66))
+        bezier4Path.addLineToPoint(CGPoint(x: 110.42, y: 65.48))
+        bezier4Path.addCurveToPoint(CGPoint(x: 106.52, y: 61.58), controlPoint1: CGPoint(x: 108.61, y: 64.82), controlPoint2: CGPoint(x: 107.18, y: 63.39))
+        bezier4Path.addCurveToPoint(CGPoint(x: 106, y: 55.3), controlPoint1: CGPoint(x: 106, y: 59.92), controlPoint2: CGPoint(x: 106, y: 58.38))
+        bezier4Path.addLineToPoint(CGPoint(x: 106, y: 51.7))
+        bezier4Path.addCurveToPoint(CGPoint(x: 106.36, y: 46), controlPoint1: CGPoint(x: 106, y: 48.85), controlPoint2: CGPoint(x: 106, y: 47.32))
+        bezier4Path.addCurveToPoint(CGPoint(x: 106, y: 43), controlPoint1: CGPoint(x: 106.13, y: 45.04), controlPoint2: CGPoint(x: 106, y: 44.04))
+        bezier4Path.addCurveToPoint(CGPoint(x: 106.91, y: 38.31), controlPoint1: CGPoint(x: 106, y: 41.34), controlPoint2: CGPoint(x: 106.32, y: 39.75))
+        bezier4Path.addCurveToPoint(CGPoint(x: 110.95, y: 33.13), controlPoint1: CGPoint(x: 107.77, y: 36.21), controlPoint2: CGPoint(x: 109.18, y: 34.42))
+        bezier4Path.addCurveToPoint(CGPoint(x: 111.29, y: 32.9), controlPoint1: CGPoint(x: 111.06, y: 33.05), controlPoint2: CGPoint(x: 111.17, y: 32.98))
+        bezier4Path.addCurveToPoint(CGPoint(x: 117.5, y: 31), controlPoint1: CGPoint(x: 113.08, y: 31.7), controlPoint2: CGPoint(x: 115.21, y: 31))
+        bezier4Path.addCurveToPoint(CGPoint(x: 129, y: 43), controlPoint1: CGPoint(x: 123.85, y: 31), controlPoint2: CGPoint(x: 129, y: 36.37))
+        bezier4Path.closePath()
+        UIColor.grayColor().setFill()
+        bezier4Path.fill()
+        
+        let myPath =  bezier4Path.CGPath
+        
+        loader = WavesLoader.createLoaderWithPath(path: myPath)
+        loader.loaderColor = UIColor.greenColor()
+
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddLocationViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         if (CLLocationManager.locationServicesEnabled())
@@ -51,8 +113,24 @@ var newItem:Location? = nil
         
     }
     
-
     
+    
+    
+    @IBAction func addLocationButtonPressed(sender: AnyObject) {
+        guard !self.summaryTextField.text!.isEmpty else {
+            return
+        }
+        
+
+        loader.showLoader()
+        
+
+        
+        LocationManager.sharedManager.addLocation(summary: self.summaryTextField.text!, imageURL: self.imageURL, completionHandler: {(record, error) in
+            
+            self.loader.removeLoader()
+        })
+    }
     
     func dismissKeyboard() {
 

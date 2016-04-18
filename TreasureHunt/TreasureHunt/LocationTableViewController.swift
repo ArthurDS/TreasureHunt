@@ -15,12 +15,16 @@ class LocationTableViewTableViewController: UITableViewController{
     
     let locationManager = LocationManager.sharedManager
     var locArray: [CKRecord] = []
+    
+    
+    
+    
+    
 
     //var managedObjectContext : NSManagedObjectContext!//(UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     //var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
 
-    let names = ["Kristof"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,12 @@ class LocationTableViewTableViewController: UITableViewController{
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.locationWasAdded(_:)), name: LocationManagerDidAddLocation, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +68,7 @@ class LocationTableViewTableViewController: UITableViewController{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath) as! LocationTableViewCell
         let locRecord : CKRecord = locArray[indexPath.row]
+        print("*****************\(locRecord)")
         cell.descriptionLabel.text = locRecord.valueForKey("summary") as? String
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy, hh:mm"
@@ -67,6 +78,10 @@ class LocationTableViewTableViewController: UITableViewController{
         return cell
     }
     
+    func locationWasAdded(notification: NSNotification) {
+        self.locArray.append(notification.userInfo!["record"]! as! CKRecord)
+        self.tableView.reloadData()
+    }
     
     func fetchLocation() {//location opvragen
         
@@ -112,11 +127,7 @@ class LocationTableViewTableViewController: UITableViewController{
                 })
                 
             }
-            
-        }
-        
-        
-        
+        })
     }
     
 
@@ -156,7 +167,19 @@ class LocationTableViewTableViewController: UITableViewController{
     }
     */
 
-   
-   
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//            let indexPath = self.tableView.indexPathForSelectedRow
+//            let locRecord : CKRecord = locArray[indexPath!.row]
+//            let userLatitude = locRecord.valueForKey("lattitude") as? Double
+//            let userLongitude = locRecord.valueForKey("longitude") as? Double
+//            let detailViewController = segue.destinationViewController as! LocationDetailTableViewController
+//
+//    
+//        }
+    
+
 
 }
