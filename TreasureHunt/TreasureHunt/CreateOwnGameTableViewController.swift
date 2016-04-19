@@ -44,6 +44,11 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     func addQuestionViewControllerSavePressed(viewController: CreateOwnGameDetailsViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        
+        return UITableViewCellEditingStyle.Delete
+    }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

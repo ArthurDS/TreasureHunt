@@ -16,13 +16,17 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     @IBOutlet weak var mapView: MKMapView!
     
+    
+    @IBOutlet weak var destinationLabel: UILabel!
+    
+    
     var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
     
     let location = CLLocationManager()
     
     var isInitialized = false
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +115,43 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        
+        let latestLocation: AnyObject = locations[locations.count - 1]
+        
+        let getLat: CLLocationDegrees = latestLocation.coordinate.latitude
+        let getLon: CLLocationDegrees = latestLocation.coordinate.longitude
+        
+        let getMovedMapCenter: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
+        
+        let myBuddysLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
+       let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation) / 1000
+        
+        
+        let martelarenpleinlocation = CLLocation(latitude: 50.88162, longitude: 4.715218)
+        let distanceMartelarenplein = getMovedMapCenter.distanceFromLocation(martelarenpleinlocation) / 1000
+        
+        
+        let fonduehuisjelocation = CLLocation(latitude: 50.881282, longitude: 4.705740)
+         let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
+        
+        if (Double(distances) < 5) {
+            
+            destinationLabel.text =   "Eindbestemming bereikt!" }  //  staat nu in textfield;  zou in tableview moeten
+            
+        else if(Double(distanceMartelarenplein)  < 5)  {
+            
+            destinationLabel.text =   "Eindbestemming bereikt!"}
+            
+        else if(Double(distanceFonduehuisje)  < 5)  {
+            
+            destinationLabel.text =   "Eindbestemming bereikt!"}
+            
+        else {
+            
+            destinationLabel.text =  String(format: "De afstand tot de eindbestemming bedraagt %.01fkm", distances)
+        }
+        
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -147,7 +188,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath)
         
-
+        
+        
+        
+        
         
         return cell
     }
@@ -235,7 +279,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             if segue.identifier == "riddleID" {
                 let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
-
+                
             }
         }
         

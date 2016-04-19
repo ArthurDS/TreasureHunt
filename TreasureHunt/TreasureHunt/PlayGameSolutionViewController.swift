@@ -20,6 +20,9 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    var timer = 60
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +42,9 @@ class PlayGameSolutionViewController: UIViewController {
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         
-        fillTheLabels()
+        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+
+fillTheLabels()
     
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
@@ -56,7 +61,16 @@ class PlayGameSolutionViewController: UIViewController {
     
         
     }
-
+    
+    func countdown() {
+        timerLabel.text = String(timer)
+        timer -= 1
+        
+        if timer <= 0 {
+            timerLabel.text = "Verloren"
+        
+        }
+    }
     /*
     // MARK: - Navigation
 
