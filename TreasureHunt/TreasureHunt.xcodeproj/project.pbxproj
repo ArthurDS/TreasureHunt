@@ -31,7 +31,23 @@
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
 		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
+		BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; };
+		BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEEEFD041CC64B9600A7467D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B0E2A27BA626B6DB4F316D5 /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +78,7 @@
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BEEEFD011CC64B9600A7467D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +90,7 @@
 				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
 				BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */,
 				217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */,
+				BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +128,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
+				BEEEFD011CC64B9600A7467D /* Mapbox.framework */,
 				BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */,
 				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
@@ -184,6 +203,7 @@
 				BE72F6321CBBBED500976D47 /* Resources */,
 				8094B5D52844A629019EA1C0 /* Embed Pods Frameworks */,
 				14750E137FCB9BAACDF85848 /* Copy Pods Resources */,
+				BEEEFD041CC64B9600A7467D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -433,6 +453,10 @@
 				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -450,6 +474,10 @@
 				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

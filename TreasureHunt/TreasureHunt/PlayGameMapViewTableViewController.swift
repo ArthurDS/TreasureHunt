@@ -67,7 +67,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         currentLocation = locManager.location
         print(currentLocation)
         
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 100, longitude: 100.711865)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
         
         
         
