@@ -21,6 +21,7 @@
 		BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6411CBBBED500976D47 /* Assets.xcassets */; };
 		BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */; };
 		BE7569141CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */; };
+		BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */; };
 		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
 		BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */; };
 		BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */; };
@@ -32,7 +33,23 @@
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
 		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
+		BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; };
+		BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEEEFD041CC64B9600A7467D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B0E2A27BA626B6DB4F316D5 /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,6 +70,7 @@
 		BE72F6441CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE72F6461CBBBED500976D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameDetailsViewController.swift; sourceTree = "<group>"; };
+		BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameTableViewController.swift; sourceTree = "<group>"; };
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +82,7 @@
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BEEEFD011CC64B9600A7467D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +94,7 @@
 				BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */,
 				BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */,
 				217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */,
+				BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +124,7 @@
 				BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */,
 				BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */,
 				BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */,
+				BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */,
 				BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */,
 				BE336B101CC6184400B2BFDB /* Game.swift */,
 			);
@@ -113,6 +134,7 @@
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
+				BEEEFD011CC64B9600A7467D /* Mapbox.framework */,
 				BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */,
 				BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */,
 				BE72F6361CBBBED500976D47 /* TreasureHunt */,
@@ -187,6 +209,7 @@
 				BE72F6321CBBBED500976D47 /* Resources */,
 				8094B5D52844A629019EA1C0 /* Embed Pods Frameworks */,
 				14750E137FCB9BAACDF85848 /* Copy Pods Resources */,
+				BEEEFD041CC64B9600A7467D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +343,7 @@
 				BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
 				BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */,
+				BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */,
 				BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +461,10 @@
 				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -454,6 +482,10 @@
 				CODE_SIGN_ENTITLEMENTS = TreasureHunt/TreasureHunt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

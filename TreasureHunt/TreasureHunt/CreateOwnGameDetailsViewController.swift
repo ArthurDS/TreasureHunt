@@ -20,6 +20,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
     
     
     var imageURL: NSURL?
+    var delegate: addQuestionViewControllerDelegatee?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +113,18 @@ class CreateOwnGameDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func CancelButtonWasPressed(sender: AnyObject) {
+        
+        self.delegate?.addQuestionViewControllerCancelPressedViewController(self)
+    }
+    @IBAction func saveButtonWasPressed(sender: AnyObject) {
+        
+        self.delegate?.addQuestionViewControllerSavePressed(self)
+    
+    }
+    
+    
+    
     //    func setPhoto() {
     //
     //        if let url = imageURL {
@@ -170,3 +183,11 @@ extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, U
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+protocol addQuestionViewControllerDelegatee {
+    
+    func addQuestionViewControllerSavePressed(viewController: CreateOwnGameDetailsViewController)
+    
+    func addQuestionViewControllerCancelPressedViewController(viewController: CreateOwnGameDetailsViewController)
+}
+
