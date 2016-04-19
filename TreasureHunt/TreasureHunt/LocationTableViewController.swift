@@ -107,7 +107,7 @@ class LocationTableViewTableViewController: UITableViewController{
         
         
         
-        let query = CKQuery(recordType: "Location", predicate: predicate)//maak een cloudKit Query
+        let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
         
         
         
