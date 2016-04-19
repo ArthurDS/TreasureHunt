@@ -276,6 +276,9 @@
                                 <state key="normal" title="Create game">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bMb-cm-v62" kind="show" id="vzW-27-3YO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -372,10 +375,10 @@
             </objects>
             <point key="canvasLocation" x="278" y="1145"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Own Game Details View Controller-->
         <scene sceneID="OS2-8k-oZJ">
             <objects>
-                <viewController id="Ypf-2x-IHU" sceneMemberID="viewController">
+                <viewController id="Ypf-2x-IHU" customClass="CreateOwnGameDetailsViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V8a-uy-0zE"/>
                         <viewControllerLayoutGuide type="bottom" id="wod-Lt-Jdl"/>
@@ -388,8 +391,11 @@
                                 <rect key="frame" x="53" y="72" width="212" height="117"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
-                                <rect key="frame" x="40" y="184" width="240" height="43"/>
+                                <rect key="frame" x="39" y="184" width="240" height="43"/>
                                 <state key="normal" title="Add Image"/>
+                                <connections>
+                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="dO7-Ca-ZYy"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ML1-jN-N12">
                                 <rect key="frame" x="91" y="401" width="168" height="30"/>
@@ -413,17 +419,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
-                                <rect key="frame" x="267" y="400" width="51" height="31"/>
-                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
                                 <rect key="frame" x="267" y="439" width="51" height="31"/>
+                                <connections>
+                                    <action selector="AnswerSwitch2ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="1Px-hE-ugr"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
                                 <rect key="frame" x="267" y="476" width="51" height="31"/>
+                                <connections>
+                                    <action selector="AnswerSwitch3ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="nOD-NM-bKQ"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
                                 <rect key="frame" x="267" y="517" width="51" height="31"/>
+                                <connections>
+                                    <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3u-xC-8Zn">
                                 <rect key="frame" x="11" y="405" width="69" height="21"/>
@@ -460,10 +472,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
+                                <rect key="frame" x="267" y="400" width="51" height="31"/>
+                                <connections>
+                                    <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="AnswerSwitch1" destination="yuF-N6-umm" id="ls4-ZM-1pp"/>
+                        <outlet property="AnswerSwitch2" destination="1gx-NJ-iEN" id="uL9-ZG-5Rf"/>
+                        <outlet property="AnswerSwitch3" destination="WlC-X6-kzq" id="EIq-st-e4y"/>
+                        <outlet property="AnswerSwitch4" destination="Ww6-1C-saK" id="8ho-jv-Kpz"/>
+                        <outlet property="locationImage" destination="HTJ-IY-UqM" id="Scl-qP-nOi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
