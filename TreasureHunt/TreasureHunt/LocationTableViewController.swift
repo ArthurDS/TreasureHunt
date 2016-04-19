@@ -16,8 +16,9 @@ class LocationTableViewTableViewController: UITableViewController{
     let locationManager = LocationManager.sharedManager
     var locArray: [CKRecord] = []
     
+    @IBOutlet weak var progressView: UIBarButtonItem!
     
-    
+    var timer = NSTimer()
     
     
 
@@ -81,6 +82,19 @@ class LocationTableViewTableViewController: UITableViewController{
     func locationWasAdded(notification: NSNotification) {
         self.locArray.append(notification.userInfo!["record"]! as! CKRecord)
         self.tableView.reloadData()
+    }
+    
+    var counter:Int = 0 {
+        didSet {
+            let fractionalProgress = Float(counter) / 100.0
+            let animated = counter != 0
+            
+        }
+    }
+    
+    @IBAction func startProgressButton(sender: AnyObject) {
+        
+        
     }
     
     func fetchLocation() {//location opvragen

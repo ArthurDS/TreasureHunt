@@ -195,7 +195,6 @@ var newItem:Location? = nil
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
-        
         publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
             if (error != nil) {
                 print(error)
@@ -282,6 +281,8 @@ var newItem:Location? = nil
         imageURL = NSURL(fileURLWithPath: path)
         
         imageData.writeToURL(imageURL!, atomically: true)
+        
+        
     }
     
     
