@@ -10,6 +10,8 @@
 		217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */; };
 		BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */; };
 		BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */; };
+		BE336B091CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */; };
+		BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */; };
 		BE47099A1CBE443C00B395DC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4709991CBE443C00B395DC /* LocationManager.swift */; };
 		BE720E8C1CBE353000300C77 /* TakePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */; };
 		BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE72F6371CBBBED500976D47 /* AppDelegate.swift */; };
@@ -36,6 +38,8 @@
 		BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
 		BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
+		BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameMapViewTableViewController.swift; sourceTree = "<group>"; };
+		BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameSolutionViewController.swift; sourceTree = "<group>"; };
 		BE4709991CBE443C00B395DC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = TreasureHunt/LocationManager.swift; sourceTree = "<group>"; };
 		BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePicturesViewController.swift; path = ../TakePicturesViewController.swift; sourceTree = "<group>"; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE336B071CC60F3D00B2BFDB /* NewViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */,
+				BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */,
+				BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */,
+			);
+			name = NewViewControllers;
+			sourceTree = "<group>";
+		};
 		BE72F62B1CBBBED500976D47 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +127,7 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BE336B071CC60F3D00B2BFDB /* NewViewControllers */,
 				BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */,
 				BECE3C741CBBD1A00011AFC6 /* ViewControllers */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
@@ -142,7 +157,6 @@
 		BECE3C741CBBD1A00011AFC6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */,
 				BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */,
 				BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */,
 				BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */,
@@ -285,6 +299,7 @@
 				BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */,
 				BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */,
 				BE47099A1CBE443C00B395DC /* LocationManager.swift in Sources */,
+				BE336B091CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift in Sources */,
 				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
 				BE720E8C1CBE353000300C77 /* TakePicturesViewController.swift in Sources */,
 				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
@@ -296,6 +311,7 @@
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,
 				BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
+				BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */,
 				BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

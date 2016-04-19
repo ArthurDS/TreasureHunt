@@ -273,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="-136" y="465"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Play Game Map View Table View Controller-->
         <scene sceneID="fOE-s1-fV8">
             <objects>
-                <tableViewController id="vvK-kd-vBj" sceneMemberID="viewController">
+                <tableViewController id="vvK-kd-vBj" customClass="PlayGameMapViewTableViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pm8-2V-DUM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
-                                <rect key="frame" x="53" y="72" width="212" height="104"/>
+                                <rect key="frame" x="53" y="72" width="212" height="117"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
                                 <rect key="frame" x="40" y="184" width="240" height="43"/>
@@ -448,10 +448,10 @@
             </objects>
             <point key="canvasLocation" x="680" y="1145"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Game Solution View Controller-->
         <scene sceneID="vZm-eM-3vO">
             <objects>
-                <viewController id="woW-it-Dac" sceneMemberID="viewController">
+                <viewController id="woW-it-Dac" customClass="PlayGameSolutionViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mGt-Nn-07I"/>
                         <viewControllerLayoutGuide type="bottom" id="SOU-gB-gv8"/>
