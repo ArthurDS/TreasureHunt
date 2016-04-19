@@ -16,7 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.9098, green: 0.8784, blue: 0.7255, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor(red: 0, green:0, blue: 0, alpha: 1.0)
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor(red: 0.9098, green: 0.8784, blue: 0.7255, alpha: 1.0)
+        
+        
+        
+        // use UITableViewCell.appearance() to configure
+        // the default appearance of all UITableViewCells in your app
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+
         return true
     }
 
