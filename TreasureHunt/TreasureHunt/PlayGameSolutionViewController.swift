@@ -9,11 +9,7 @@
 import UIKit
 
 class PlayGameSolutionViewController: UIViewController {
-    
-    var game: Game!
-    
 
-    
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var gameDescriptionLabel: UILabel!
     

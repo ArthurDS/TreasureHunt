@@ -13,7 +13,6 @@ import CoreLocation
 
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-    var gameArray:[Game] = []
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -28,11 +27,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let game1Answers = Answer(answer_description: ["kat": true, "hond": false, "leeuw": false, "paard": false])
-        let game1Riddles = Riddles(answer: [game1Answers], photo: "kat", summary: "Welk dier zegt miauw", timestamp: NSDate())
-        let game1 = Game(title: "TestGame", riddles: [game1Riddles])
-        
-        gameArray.append(game1)
+
+    
         
         self.mapView.delegate = self
         
@@ -65,7 +61,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         locManager.requestWhenInUseAuthorization()
         var currentLocation = CLLocation!()
         currentLocation = locManager.location
-        print(currentLocation)
         
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
         
@@ -144,14 +139,14 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return game1.riddles.count
+        return 1
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath)
         
-        cell.textLabel?.text = game1.title
+
         
         return cell
     }
@@ -239,7 +234,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             if segue.identifier == "riddleID" {
                 let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
-                playGameViewController.game = sender as! Game
+
             }
         }
         
