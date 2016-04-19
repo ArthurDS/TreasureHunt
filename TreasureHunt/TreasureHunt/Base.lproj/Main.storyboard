@@ -164,7 +164,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3TH-xR-zxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="1123"/>
+            <point key="canvasLocation" x="3237" y="1123"/>
         </scene>
         <!--Location Table View Table View Controller-->
         <scene sceneID="Odt-Sw-buT">
@@ -333,10 +333,10 @@
             </objects>
             <point key="canvasLocation" x="278" y="465"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Create Own Game Table View Controller-->
         <scene sceneID="evV-8q-iml">
             <objects>
-                <tableViewController id="8mZ-Ho-Ww5" sceneMemberID="viewController">
+                <tableViewController id="8mZ-Ho-Ww5" customClass="CreateOwnGameTableViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FoN-dJ-Gd7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +364,7 @@
                     <navigationItem key="navigationItem" id="buS-sM-NCd">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="95U-DY-SnP">
                             <connections>
-                                <segue destination="Ypf-2x-IHU" kind="show" id="F5X-kI-QoT"/>
+                                <segue destination="oLr-7s-F5G" kind="show" id="F5X-kI-QoT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -388,15 +388,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
-                                <rect key="frame" x="53" y="72" width="212" height="117"/>
+                                <rect key="frame" x="53" y="72" width="212" height="158"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
-                                <rect key="frame" x="39" y="184" width="240" height="43"/>
-                                <state key="normal" title="Add Image"/>
-                                <connections>
-                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="dO7-Ca-ZYy"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ML1-jN-N12">
                                 <rect key="frame" x="91" y="401" width="168" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -413,12 +406,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lqa-O1-Qaw">
-                                <rect key="frame" x="112" y="235" width="188" height="128"/>
+                                <rect key="frame" x="91" y="259" width="188" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
+                                <rect key="frame" x="267" y="400" width="51" height="31"/>
+                                <connections>
+                                    <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
+                                </connections>
+                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
                                 <rect key="frame" x="267" y="439" width="51" height="31"/>
                                 <connections>
@@ -462,7 +461,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riddle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
-                                <rect key="frame" x="18" y="246" width="71" height="21"/>
+                                <rect key="frame" x="10" y="273" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -472,15 +471,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
-                                <rect key="frame" x="267" y="400" width="51" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
+                                <rect key="frame" x="40" y="222" width="240" height="43"/>
+                                <state key="normal" title="Add Image"/>
                                 <connections>
-                                    <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
+                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="dO7-Ca-ZYy"/>
                                 </connections>
-                            </switch>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4oy-qE-uYn">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Y4e-qD-yds">
+                            <connections>
+                                <action selector="CancelButtonWasPressed:" destination="Ypf-2x-IHU" id="sBG-2c-LSO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="koi-XA-D4W">
+                            <connections>
+                                <action selector="saveButtonWasPressed:" destination="Ypf-2x-IHU" id="8jp-Qx-sSU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="AnswerSwitch1" destination="yuF-N6-umm" id="ls4-ZM-1pp"/>
@@ -492,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="680" y="1145"/>
+            <point key="canvasLocation" x="1088" y="1145"/>
         </scene>
         <!--Play Game Solution View Controller-->
         <scene sceneID="vZm-eM-3vO">
@@ -606,6 +618,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQA-Sc-D1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-136" y="1145"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bkA-nt-Exq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oLr-7s-F5G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DKx-4l-pUm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ypf-2x-IHU" kind="relationship" relationship="rootViewController" id="fJy-id-QwC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TPd-vg-Rus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="1145"/>
         </scene>
     </scenes>
     <resources>
