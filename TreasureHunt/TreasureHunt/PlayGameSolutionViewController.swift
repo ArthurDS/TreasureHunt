@@ -14,18 +14,19 @@ class PlayGameSolutionViewController: UIViewController {
 
     @IBOutlet weak var answerButton1: UIButton!
     
-    @IBOutlet weak var answerButton2: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    var timer = 60
     
     @IBOutlet weak var answerButton3: UIButton!
     
     @IBOutlet weak var answerButton4: UIButton!
     
-    @IBOutlet weak var timerLabel: UILabel!
-    var timer = 60
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+
+fillTheLabels()
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -42,9 +43,7 @@ class PlayGameSolutionViewController: UIViewController {
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
-
-fillTheLabels()
+        fillTheLabels()
     
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
