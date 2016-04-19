@@ -304,7 +304,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xLI-zx-lfN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" id="xLI-zx-lfN">
                                 <rect key="frame" x="0.0" y="316" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLI-zx-lfN" id="4PT-Pa-MXL">
@@ -322,6 +322,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="jT6-4D-7ex" id="eKg-CP-K7X"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -513,6 +516,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="gameDescriptionLabel" destination="6pR-Im-csb" id="uLT-mR-eEw"/>
+                        <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoM-aH-a0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

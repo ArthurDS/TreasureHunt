@@ -9,18 +9,34 @@
 import UIKit
 
 class PlayGameSolutionViewController: UIViewController {
+    
+    var game: Game!
+    
 
+    
+    @IBOutlet weak var locationImageView: UIImageView!
+    @IBOutlet weak var gameDescriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        fillTheLabels()
+    
+
+
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func fillTheLabels() {
+    
+        
+    }
 
     /*
     // MARK: - Navigation

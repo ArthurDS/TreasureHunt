@@ -7,89 +7,242 @@
 //
 
 import UIKit
+import MapKit
+import CloudKit
+import CoreLocation
 
-class PlayGameMapViewTableViewController: UITableViewController {
+class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    var gameArray:[Game] = []
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var mapLocationManager: CLLocationManager!
+    var myLocations: [CLLocation] = []
+    
+    let location = CLLocationManager()
+    
+    var isInitialized = false
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let game1Answers = Answer(answer_description: ["kat": true, "hond": false, "leeuw": false, "paard": false])
+        let game1Riddles = Riddles(answer: [game1Answers], photo: "kat", summary: "Welk dier zegt miauw", timestamp: NSDate())
+        let game1 = Game(title: "TestGame", riddles: [game1Riddles])
+        
+        gameArray.append(game1)
+        
+        self.mapView.delegate = self
+        
+        if mapLocationManager == nil {
+            mapLocationManager = CLLocationManager()
+            mapLocationManager.delegate = self
+            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+            mapLocationManager.requestAlwaysAuthorization()
+            mapLocationManager.startUpdatingLocation()
+            setAnotation()
+            
+            mapView.showsUserLocation = true
+        }
+        
+        walkingRoute()
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    
+    func setAnotation() {
+        
+        
+        let locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        var currentLocation = CLLocation!()
+        currentLocation = locManager.location
+        print(currentLocation)
+        
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 100, longitude: 100.711865)
+        
+        
+        
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = location
+        anotation.title = "Kristof Renotte"
+        anotation.subtitle = "op 20 km van uw locatie"
+        
+        mapView.addAnnotation(anotation)
+    }
+    
+    
+    
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
+        
+        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+        
+        // Reuse the annotation if possible
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "icon")
+            annotationView!.rightCalloutAccessoryView = detailButton
+            
+            
+            
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        
+        renderer.strokeColor = UIColor.blackColor()
+        renderer.lineWidth = 1.5
+        renderer.alpha = 1
+        
+        return renderer
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return game1.riddles.count
     }
-
-    /*
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = game1.title
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func walkingRoute() {
+        let request = MKDirectionsRequest()
+        
+        
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+        request.requestsAlternateRoutes = false
+        request.transportType = .Walking
+        
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+            
+            for route in unwrappedResponse.routes {
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+        
+        func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if !isInitialized {
+                // Here is called only once
+                isInitialized = true
+                
+                let userLocation: CLLocation = locations[0]
+                let latitude = userLocation.coordinate.latitude
+                let longitude = userLocation.coordinate.longitude
+                let latDelta: CLLocationDegrees = 0.01
+                let lonDelta: CLLocationDegrees = 0.01
+                let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+                let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+                
+                self.mapView.setRegion(region, animated: true)
+                self.mapView.showsUserLocation = true
+            }
+        }
+        
+        /*
+         // Override to support conditional editing of the table view.
+         override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+         // Return false if you do not want the specified item to be editable.
+         return true
+         }
+         */
+        
+        /*
+         // Override to support editing the table view.
+         override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+         if editingStyle == .Delete {
+         // Delete the row from the data source
+         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         } else if editingStyle == .Insert {
+         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+         }
+         }
+         */
+        
+        /*
+         // Override to support rearranging the table view.
+         override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+         
+         }
+         */
+        
+        /*
+         // Override to support conditional rearranging of the table view.
+         override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+         // Return false if you do not want the item to be re-orderable.
+         return true
+         }
+         */
+        
+        
+        // MARK: - Navigation
+        
+        // In a storyboard-based application, you will often want to do a little preparation before navigation
+        func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            
+            if segue.identifier == "riddleID" {
+                let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
+                playGameViewController.game = sender as! Game
+            }
+        }
+        
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
