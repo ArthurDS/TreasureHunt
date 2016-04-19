@@ -136,7 +136,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         if (Double(distances) < 5) {
             
-            destinationLabel.text =   "Eindbestemming bereikt!" }
+            destinationLabel.text =   "Eindbestemming bereikt!" }  //  staat nu in textfield;  zou in tableview moeten
             
         else if(Double(distanceMartelarenplein)  < 5)  {
             
