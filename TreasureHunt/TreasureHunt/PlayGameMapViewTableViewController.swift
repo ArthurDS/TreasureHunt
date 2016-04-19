@@ -27,7 +27,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        let image = UIImage(named: "sherlockmini")
+        navigationItem.titleView = UIImageView(image: image)
     
         
         self.mapView.delegate = self

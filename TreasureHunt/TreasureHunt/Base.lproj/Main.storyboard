@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E53-71-kch">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aXx-wP-ZjQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2590" y="430"/>
+            <point key="canvasLocation" x="3122" y="430"/>
         </scene>
         <!--Location Detail Table View Controller-->
         <scene sceneID="50c-Iy-TOU">
@@ -231,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLS-qq-G4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173" y="430"/>
+            <point key="canvasLocation" x="2705" y="430"/>
         </scene>
         <!--Start Game View Controller-->
         <scene sceneID="z8t-4w-FbH">
@@ -246,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-W6-EpV">
-                                <rect key="frame" x="0.0" y="64" width="696" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="696" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzA-jL-WuW">
                                 <rect key="frame" x="0.0" y="456" width="194" height="128"/>
@@ -266,7 +266,7 @@
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vvK-kd-vBj" kind="show" id="qjR-6b-bpm"/>
+                                    <segue destination="p2g-fS-Pd2" kind="show" id="qjR-6b-bpm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cya-cP-gsn">
@@ -303,20 +303,48 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="pm8-2V-DUM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="mdg-si-bt2">
                             <rect key="frame" x="0.0" y="64" width="320" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="71" id="xLI-zx-lfN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="71" id="xLI-zx-lfN" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLI-zx-lfN" id="4PT-Pa-MXL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image92" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-1y-A8B">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Old Town Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU3-9u-eaU">
+                                            <rect key="frame" x="63" y="10" width="197" height="29"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="21"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efF-wY-8k2">
+                                            <rect key="frame" x="64" y="33" width="197" height="29"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="oYN-DW-XgZ">
+                                            <rect key="frame" x="33" y="17" width="30" height="15"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-UN-5x2">
+                                            <rect key="frame" x="260" y="17" width="30" height="15"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="gameTitleLabel" destination="efF-wY-8k2" id="V5Y-d8-0L2"/>
+                                    <outlet property="locationTitleLabel" destination="eU3-9u-eaU" id="TRH-Vu-uFp"/>
+                                    <outlet property="riddleCellBackground" destination="CpW-1y-A8B" id="HX5-Tc-Xnx"/>
+                                    <outlet property="signLeft" destination="oYN-DW-XgZ" id="TcR-Tu-fJu"/>
+                                    <outlet property="signRight" destination="Cez-UN-5x2" id="emf-vW-LYk"/>
                                     <segue destination="woW-it-Dac" kind="show" id="nMQ-zt-RY1"/>
                                 </connections>
                             </tableViewCell>
@@ -326,6 +354,7 @@
                             <outlet property="delegate" destination="vvK-kd-vBj" id="eG4-Ub-04x"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="UQj-YS-WdO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="mdg-si-bt2" id="Dn1-uY-LgO"/>
@@ -333,7 +362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="465"/>
+            <point key="canvasLocation" x="810" y="465"/>
         </scene>
         <!--Create Own Game Table View Controller-->
         <scene sceneID="evV-8q-iml">
@@ -520,49 +549,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wd-OZ-25X">
-                                <rect key="frame" x="20" y="72" width="287" height="157"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20150516_555778654c3bb" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-aj-Gwa">
+                                <rect key="frame" x="0.0" y="64" width="320" height="509"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="7wd-OZ-25X">
+                                <rect key="frame" x="25" y="86" width="271" height="157"/>
                                 <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pR-Im-csb">
-                                <rect key="frame" x="20" y="237" width="287" height="157"/>
-                                <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
-                                <rect key="frame" x="20" y="417" width="118" height="49"/>
-                                <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg3-h3-KFD">
-                                <rect key="frame" x="189" y="480" width="118" height="49"/>
-                                <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="26" y="443" width="130" height="45"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
+                                <state key="normal" title="Butcher">
+                                    <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdk-Uw-zoG">
-                                <rect key="frame" x="189" y="417" width="118" height="49"/>
-                                <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="166" y="443" width="130" height="45"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
+                                <state key="normal" title="Farmer">
+                                    <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcx-lv-3JW">
-                                <rect key="frame" x="20" y="480" width="118" height="49"/>
-                                <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="26" y="499" width="130" height="45"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
+                                <state key="normal" title="Blacksmith">
+                                    <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG">
+                                <rect key="frame" x="26" y="253" width="270" height="174"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="&quot;T">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="32" name="Baskerville"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">he drunk widow in black left the bar when she felt two devilish eyes watching her. When she turned her head she saw the eyes of the seventh statue on the second row looking at here, it's eyes glowing red. What is the profession of this statue again dear Watson?"   </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="Baskerville"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="EtJ-gV-0Kv">
+                                <rect key="frame" x="5" y="64" width="73" height="62"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="XAP-Wr-tlY">
+                                <rect key="frame" x="247" y="200" width="73" height="62"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg3-h3-KFD">
+                                <rect key="frame" x="166" y="499" width="130" height="45"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
+                                <state key="normal" title="Fisherman">
+                                    <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gameDescriptionLabel" destination="6pR-Im-csb" id="uLT-mR-eEw"/>
+                        <outlet property="answerButton1" destination="1HT-8D-kNZ" id="Nfy-iD-SID"/>
+                        <outlet property="answerButton2" destination="Pdk-Uw-zoG" id="myi-7I-yU0"/>
+                        <outlet property="answerButton3" destination="Hcx-lv-3JW" id="Un5-OA-ZW5"/>
+                        <outlet property="answerButton4" destination="Wg3-h3-KFD" id="rUJ-LN-Pwy"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoM-aH-a0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="465"/>
+            <point key="canvasLocation" x="1221" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AcC-l0-B2s">
@@ -581,26 +648,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6d-yE-JKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="430"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2eV-ds-G6v">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E53-71-kch" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4WG-pX-hIR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aXx-wP-ZjQ" kind="relationship" relationship="rootViewController" id="aXy-8a-xzz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sBs-X9-gDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-540" y="465"/>
+            <point key="canvasLocation" x="2259" y="430"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OjU-2X-9ha">
@@ -639,9 +687,32 @@
             </objects>
             <point key="canvasLocation" x="680" y="1145"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SWW-Su-AxD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p2g-fS-Pd2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jlG-HO-pv4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vvK-kd-vBj" kind="relationship" relationship="rootViewController" id="uW8-Zf-Vrr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zf4-JN-LYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="465"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="20150516_555778654c3bb" width="730" height="1095"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
+        <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
+        <image name="sign" width="30" height="15"/>
+        <image name="sign2" width="30" height="15"/>
+        <image name="tape" width="195" height="138"/>
     </resources>
 </document>
