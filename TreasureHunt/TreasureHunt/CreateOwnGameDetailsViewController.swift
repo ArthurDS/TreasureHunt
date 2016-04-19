@@ -20,7 +20,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
     
     
     var imageURL: NSURL?
-    var delegate: addQuestionViewControllerDelegatee? = nil
+    var delegate: addQuestionViewControllerDelegatee?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,11 +13,15 @@ class PlayGameSolutionViewController: UIViewController {
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var gameDescriptionLabel: UILabel!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    var timer = 60
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        fillTheLabels()
+        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+
+fillTheLabels()
     
 
 
@@ -33,7 +37,16 @@ class PlayGameSolutionViewController: UIViewController {
     
         
     }
-
+    
+    func countdown() {
+        timerLabel.text = String(timer)
+        timer -= 1
+        
+        if timer <= 0 {
+            timerLabel.text = "Verloren"
+        
+        }
+    }
     /*
     // MARK: - Navigation
 
