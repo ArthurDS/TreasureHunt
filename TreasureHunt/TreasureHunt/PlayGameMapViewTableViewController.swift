@@ -15,33 +15,29 @@ import CoreLocation
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
-    var riddleArray: [CKRecord] = []
     
     @IBOutlet weak var mapView: MKMapView!
-    
-    
     @IBOutlet weak var destinationLabel: UILabel!
-    
     
     var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
-    
+    var riddleArray: [CKRecord] = []
     let location = CLLocationManager()
-    
     var isInitialized = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchLocation()
-//        self.locationManager.fetchAllLocations { (records, error) in
-//            <#code#>
-//        }
-        //fetchAllLocations()
+
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
         
+
+        mapAnotation()
+        walkingRoute()
         
+ }
+    func mapAnotation() {
         self.mapView.delegate = self
         
         if mapLocationManager == nil {
@@ -55,19 +51,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             mapView.showsUserLocation = true
         }
         
-        walkingRoute()
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    
     func setAnotation() {
-        
         
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -140,7 +126,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         return self.riddleArray.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
@@ -152,21 +137,16 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         // Game
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
         
-        
-        
-        
         return cell
     }
     
     func walkingRoute() {
         let request = MKDirectionsRequest()
         
-        
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
         request.requestsAlternateRoutes = false
         request.transportType = .Walking
-        
         
         let directions = MKDirections(request: request)
         
@@ -178,9 +158,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
-    
-        
-        func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             if !isInitialized {
                 // Here is called only once
                 isInitialized = true
@@ -200,64 +178,40 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         }
     }
     
-    
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             
             if segue.identifier == "riddleID" {
                 let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
                 let indexPAth = tableView.indexPathForSelectedRow
                 let recordSelected : CKRecord = riddleArray[(indexPAth?.row)!]
                 playGameViewController.ridlleRecord = recordSelected
-                
             }
         }
+    
+    
     
     func fetchLocation() {//location opvragen
         
         let container = CKContainer.defaultContainer()
-        
         let publicDatabase = container.publicCloudDatabase
-        
         let predicate = NSPredicate(value: true) //
-        
-        
-        
         let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
         
-        
-        
         publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
-            
             if error != nil {
-                
                 print(error)
-                
             }
-                
             else {
-                
                 print(results)
                 
                 self.riddleArray = results!
-                // self.locArray.append(results)
-                
-                
-                
-                
+               
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    
-                    
-                    
                     self.tableView.hidden = false
-                    
-                    
                     self.tableView.reloadData()
                     
                 })
-                
             }
-            
-            
         }
     }
 }

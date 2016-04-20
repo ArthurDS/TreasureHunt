@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3122" y="430"/>
+            <point key="canvasLocation" x="3654" y="430"/>
         </scene>
         <!--Location Detail Table View Controller-->
         <scene sceneID="50c-Iy-TOU">
@@ -231,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLS-qq-G4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="430"/>
+            <point key="canvasLocation" x="3237" y="430"/>
         </scene>
         <!--Start Game View Controller-->
         <scene sceneID="z8t-4w-FbH">
@@ -345,7 +345,7 @@
                                     <outlet property="riddleCellBackground" destination="CpW-1y-A8B" id="HX5-Tc-Xnx"/>
                                     <outlet property="signLeft" destination="oYN-DW-XgZ" id="TcR-Tu-fJu"/>
                                     <outlet property="signRight" destination="Cez-UN-5x2" id="emf-vW-LYk"/>
-                                    <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="nMQ-zt-RY1"/>
+                                    <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="zDM-Sh-9gB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -362,7 +362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="465"/>
+            <point key="canvasLocation" x="680" y="465"/>
         </scene>
         <!--Create Own Game Table View Controller-->
         <scene sceneID="evV-8q-iml">
@@ -401,6 +401,9 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="WFM-uN-c7r" id="X9B-xk-Bcw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyk-3q-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -640,6 +643,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GHb-Ew-kPh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="answerButton1" destination="1HT-8D-kNZ" id="Nfy-iD-SID"/>
@@ -654,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoM-aH-a0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="465"/>
+            <point key="canvasLocation" x="1118" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AcC-l0-B2s">
@@ -673,7 +677,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6d-yE-JKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2259" y="430"/>
+            <point key="canvasLocation" x="2791" y="430"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OjU-2X-9ha">
