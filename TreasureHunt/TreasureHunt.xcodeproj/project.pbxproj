@@ -35,6 +35,7 @@
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
 		BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; };
 		BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEEEFD061CC661A000A7467D /* RiddleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +84,7 @@
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BEEEFD011CC64B9600A7467D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiddleTableViewCell.swift; sourceTree = "<group>"; };
 		F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
 				BE72F63B1CBBBED500976D47 /* Main.storyboard */,
+				BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */,
 				BE72F6411CBBBED500976D47 /* Assets.xcassets */,
 				BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */,
 				BE72F6461CBBBED500976D47 /* Info.plist */,
@@ -334,6 +337,7 @@
 				BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */,
 				BE720E8C1CBE353000300C77 /* TakePicturesViewController.swift in Sources */,
 				BEC5125D1CBBE188000B0DFB /* UploadedImageViewTableViewCell.swift in Sources */,
+				BEEEFD061CC661A000A7467D /* RiddleTableViewCell.swift in Sources */,
 				BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */,
 				BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */,
 				BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */,
