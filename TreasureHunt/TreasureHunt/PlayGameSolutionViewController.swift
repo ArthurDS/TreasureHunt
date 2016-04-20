@@ -28,18 +28,20 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     @IBOutlet weak var handsImage: UIImageView!
     
+    let locationManager = LocationManager.sharedManager
+    var ridlleRecord : CKRecord!
+    
     var clock = NSTimer()
-    var timer = 60
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
         
-        clock = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
-        
-        fillTheLabels()
-        
+
+fillTheLabels()
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -67,7 +69,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 8
+            animate.duration = 100
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
@@ -116,7 +118,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
 
-        self.presentViewController(alert, animated: true, completion: nil)    }
+        self.presentViewController(alert, animated: true, completion: nil)
+
+    }
     /*
      // MARK: - Navigation
      
