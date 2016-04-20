@@ -22,7 +22,7 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
-    var timer = 10
+    var timer = 2
     
     @IBOutlet weak var handsImage: UIImageView!
     
@@ -97,14 +97,16 @@ class PlayGameSolutionViewController: UIViewController {
     }
     
     func timesupAlert() {
-        let alert: UIAlertView = UIAlertView()
-        alert.title = "Watson:"
-        alert.message = "Unfortunately, the time is up sir"
-        alert.delegate = self
-        alert.addButtonWithTitle("Shut up WaRson")
-        alert.show()
+        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunatly your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
         
-    }
+        let yourImage = UIImage(named: "catson")
+        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+
+        self.presentViewController(alert, animated: true, completion: nil)    }
     /*
      // MARK: - Navigation
      
