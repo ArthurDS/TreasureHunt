@@ -125,31 +125,31 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let getMovedMapCenter: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
         
         let myBuddysLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
-       let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation) / 1000
+       let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation)
         
         
-        let martelarenpleinlocation = CLLocation(latitude: 50.88162, longitude: 4.715218)
-        let distanceMartelarenplein = getMovedMapCenter.distanceFromLocation(martelarenpleinlocation) / 1000
-        
-        
-        let fonduehuisjelocation = CLLocation(latitude: 50.881282, longitude: 4.705740)
-         let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
+//        let martelarenpleinlocation = CLLocation(latitude: 50.88162, longitude: 4.715218)
+//        let distanceMartelarenplein = getMovedMapCenter.distanceFromLocation(martelarenpleinlocation) / 1000
+//        
+//        
+//        let fonduehuisjelocation = CLLocation(latitude: 50.881282, longitude: 4.705740)
+//         let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
         
         if (Double(distances) < 5) {
             
             destinationLabel.text =   "Eindbestemming bereikt!" }  //  staat nu in textfield;  zou in tableview moeten
             
-        else if(Double(distanceMartelarenplein)  < 5)  {
-            
-            destinationLabel.text =   "Eindbestemming bereikt!"}
-            
-        else if(Double(distanceFonduehuisje)  < 5)  {
-            
-            destinationLabel.text =   "Eindbestemming bereikt!"}
+//        else if(Double(distanceMartelarenplein)  < 5)  {
+//            
+//            destinationLabel.text =   "Eindbestemming bereikt!"}
+//            
+//        else if(Double(distanceFonduehuisje)  < 5)  {
+//            
+//            destinationLabel.text =   "Eindbestemming bereikt!"}
             
         else {
             
-            destinationLabel.text =  String(format: "De afstand tot de eindbestemming bedraagt %.01fkm", distances)
+            destinationLabel.text =  String(format: "De afstand tot de eindbestemming bedraagt %.01f meter", distances)
         }
         
     }
