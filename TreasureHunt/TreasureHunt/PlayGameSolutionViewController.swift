@@ -27,10 +27,13 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     
     var ridlleRecord : CKRecord!
-    var clock = NSTimer()
+    
     var context: CIContext!
     var currentFilter: CIFilter!
+    
     let image = UIImage(named: "sherlockmini")
+    
+    var clock = NSTimer()
     var timer = 2
     let kAnimationKey = "rotation"
 
@@ -48,7 +51,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         createButtons()
         rotateClock()
         makePictureOld()
-        
     }
     
     
@@ -94,15 +96,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         if timer > 0 {
             timerLabel.text = String(timer)
             timer -= 1
-            
         }
         else {
             
             clock.invalidate()
             timesupAlert()
             self.navigationController?.popViewControllerAnimated(true)
-            
-            
         }
     }
     
