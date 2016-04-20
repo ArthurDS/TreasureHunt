@@ -18,15 +18,17 @@ class CreateOwnGameDetailsViewController: UIViewController {
     @IBOutlet weak var AnswerSwitch3: UISwitch!
     @IBOutlet weak var AnswerSwitch4: UISwitch!
     
-    
     var imageURL: NSURL?
     var delegate: addQuestionViewControllerDelegatee?
+    
+    var context: CIContext!
+    var currentFilter: CIFilter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
+        context = CIContext(options: nil)
+        currentFilter = CIFilter(name: "CISepiaTone")    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,9 +65,6 @@ class CreateOwnGameDetailsViewController: UIViewController {
         }
     }
     
- 
-    
-    
     @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
         if AnswerSwitch1.on {
             AnswerSwitch2.setOn(false, animated: true)
@@ -84,7 +83,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
             AnswerSwitch4.setOn(false, animated: true)
         }
         else {
-          AnswerSwitch1.setOn(true, animated: true)
+            AnswerSwitch1.setOn(true, animated: true)
         }
     }
     @IBAction func AnswerSwitch3ValueChanged(sender: AnyObject) {
@@ -183,12 +182,25 @@ extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, U
         locationImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         locationImage.contentMode = UIViewContentMode.ScaleAspectFit
         
-        //        saveImageLocally()// pour utilser cloudkit
+        
+        let newImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let imageContentMode = UIViewContentMode.ScaleAspectFit
+        
+        let beginImage = CIImage(image: newImage!)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
         locationImage.hidden = false
-        
-        
         dismissViewControllerAnimated(true, completion: nil)
+        
+        applyProcessing()
+    }
+    
+    func applyProcessing() {
+        
+        let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
+        let processedImage = UIImage(CGImage: cgimg)
+        
+        locationImage.image = processedImage
     }
 }
 
