@@ -230,6 +230,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             }
         }
     
+    
+    
     func fetchLocation() {//location opvragen
         
         let container = CKContainer.defaultContainer()
