@@ -332,18 +332,18 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efF-wY-8k2">
-                                            <rect key="frame" x="64" y="33" width="197" height="29"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="oYN-DW-XgZ">
                                             <rect key="frame" x="33" y="17" width="30" height="15"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-UN-5x2">
                                             <rect key="frame" x="260" y="17" width="30" height="15"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efF-wY-8k2">
+                                            <rect key="frame" x="63" y="33" width="197" height="29"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -352,7 +352,7 @@
                                     <outlet property="riddleCellBackground" destination="CpW-1y-A8B" id="HX5-Tc-Xnx"/>
                                     <outlet property="signLeft" destination="oYN-DW-XgZ" id="TcR-Tu-fJu"/>
                                     <outlet property="signRight" destination="Cez-UN-5x2" id="emf-vW-LYk"/>
-                                    <segue destination="woW-it-Dac" kind="show" id="nMQ-zt-RY1"/>
+                                    <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="nMQ-zt-RY1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -560,11 +560,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20150516_555778654c3bb" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-aj-Gwa">
+                                <rect key="frame" x="0.0" y="64" width="320" height="509"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="7wd-OZ-25X">
                                 <rect key="frame" x="25" y="86" width="271" height="157"/>
                                 <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG" userLabel="summaryLabel">
                                 <rect key="frame" x="26" y="235" width="270" height="174"/>
                                 <attributedString key="attributedText">
                                     <fragment content="&quot;T">
@@ -597,9 +600,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20150516_555778654c3bb" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-aj-Gwa">
-                                <rect key="frame" x="0.0" y="64" width="320" height="509"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
                                 <rect key="frame" x="26" y="412" width="130" height="45"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -642,6 +642,7 @@
                         <outlet property="answerButton3" destination="Hcx-lv-3JW" id="Un5-OA-ZW5"/>
                         <outlet property="answerButton4" destination="Wg3-h3-KFD" id="rUJ-LN-Pwy"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
+                        <outlet property="summaryLabel" destination="k43-7E-6HG" id="gii-M0-rb5"/>
                         <outlet property="timerLabel" destination="r1G-HQ-wuk" id="qTS-UV-d0r"/>
                     </connections>
                 </viewController>
