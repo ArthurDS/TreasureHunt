@@ -22,6 +22,8 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    var timer = 10
+    
     @IBOutlet weak var handsImage: UIImageView!
     
     var clock = NSTimer()
@@ -29,9 +31,11 @@ class PlayGameSolutionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
-
-fillTheLabels()
+        
+        clock = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
+        
+        fillTheLabels()
+        
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -59,7 +63,7 @@ fillTheLabels()
         
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 4
+            animate.duration = 8
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
