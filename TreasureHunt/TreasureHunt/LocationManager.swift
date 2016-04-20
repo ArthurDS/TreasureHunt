@@ -15,14 +15,16 @@ import MobileCoreServices
 import QuartzCore
 
 let LocationManagerDidAddLocation = "LocationManagerDidAddLocation"
+let LocationManagerDidUpdateLocation = "locationManagerDidUpdateLocation"
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     static let sharedManager = LocationManager()
     
     var locationManager: CLLocationManager!
-    //let riddleRecord = CKRecord(recordType: "Riddles")
-   // var ref = CKReference(record: <#T##CKRecord#>, action: <#T##CKReferenceAction#>)
+    
+    var userLocation: CLLocation!
+    
     private override init() {
         super.init()
         
@@ -112,6 +114,42 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         
     }
+
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
+        
+        
+        self.userLocation = locations.last
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notification = NSNotification(name: LocationManagerDidUpdateLocation, object: self)
+        notificationCenter.postNotification(notification)
+        
+        
+        
     }
+    
+    
+    
+    func isNearRecord(record: CKRecord) -> Bool {
+        
+     
+        let recordLocation = record["location"] as! CLLocation
+        
+
+        let distance = userLocation.distanceFromLocation(recordLocation)
+        
+        let result = distance < 1000 ? true : false
+        
+        
+        return result
+        
+
+        
+        }
+        
+        
+        // 
+        
+    
+}
 
 
