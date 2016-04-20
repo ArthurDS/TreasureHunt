@@ -15,11 +15,15 @@ class PlayGameSolutionViewController: UIViewController {
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
-    var timer = 60
+ 
+    @IBOutlet weak var answerButton2: UIButton!
     
     @IBOutlet weak var answerButton3: UIButton!
     
     @IBOutlet weak var answerButton4: UIButton!
+    
+    
+    var timer = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +35,9 @@ fillTheLabels()
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         
-//        answerButton2.layer.cornerRadius = 20
-//        answerButton2.layer.borderWidth = 2
-//        answerButton2.layer.borderColor = UIColor.blackColor().CGColor
+        answerButton2.layer.cornerRadius = 20
+        answerButton2.layer.borderWidth = 2
+        answerButton2.layer.borderColor = UIColor.blackColor().CGColor
         
         answerButton3.layer.cornerRadius = 20
         answerButton3.layer.borderWidth = 2
