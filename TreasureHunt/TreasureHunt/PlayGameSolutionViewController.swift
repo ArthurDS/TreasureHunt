@@ -24,7 +24,7 @@ class PlayGameSolutionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
 
 fillTheLabels()
         answerButton1.layer.cornerRadius = 20
