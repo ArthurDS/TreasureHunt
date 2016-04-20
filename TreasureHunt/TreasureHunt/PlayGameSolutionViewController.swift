@@ -25,11 +25,14 @@ class PlayGameSolutionViewController: UIViewController {
     @IBOutlet weak var handsImage: UIImageView!
     
     var clock = NSTimer()
+    var timer = 60
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
+        
 
 fillTheLabels()
         answerButton1.layer.cornerRadius = 20
@@ -59,7 +62,7 @@ fillTheLabels()
         
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 4
+            animate.duration = 100
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
@@ -99,7 +102,7 @@ fillTheLabels()
         alert.title = "Watson:"
         alert.message = "Unfortunately, the time is up sir"
         alert.delegate = self
-        alert.addButtonWithTitle("Shut up WaRson")
+        alert.addButtonWithTitle("Shut up Watson")
         alert.show()
         
     }

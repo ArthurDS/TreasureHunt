@@ -452,26 +452,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
                                 <rect key="frame" x="267" y="400" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999732347608" blue="0.32135042690602345" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
                                 <rect key="frame" x="267" y="439" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch2ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="1Px-hE-ugr"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
                                 <rect key="frame" x="267" y="476" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch3ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="nOD-NM-bKQ"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
+                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
                                 <rect key="frame" x="267" y="517" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
                                 </connections>
@@ -592,7 +596,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-HQ-wuk">
                                 <rect key="frame" x="26" y="514" width="67" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
@@ -627,11 +631,11 @@
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
-                                <rect key="frame" x="199" y="472" width="97" height="97"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
-                                <rect key="frame" x="199" y="473" width="97" height="97"/>
+                                <rect key="frame" x="113" y="471" width="97" height="97"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
+                                <rect key="frame" x="113" y="471" width="97" height="97"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -733,6 +737,7 @@
         <image name="hands" width="174" height="174"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
+        <image name="sherlockhat" width="1000" height="1000"/>
         <image name="sign" width="30" height="15"/>
         <image name="sign2" width="30" height="15"/>
         <image name="tape" width="195" height="138"/>

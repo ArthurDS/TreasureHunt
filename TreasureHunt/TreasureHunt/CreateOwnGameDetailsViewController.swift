@@ -25,7 +25,6 @@ class CreateOwnGameDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allSwitchesOff()
         // Do any additional setup after loading the view.
     }
     
@@ -64,13 +63,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
         }
     }
     
-    func allSwitchesOff() {
-        AnswerSwitch1.setOn(true, animated: true)
-        AnswerSwitch2.setOn(false, animated: true)
-        AnswerSwitch3.setOn(false, animated: true)
-        AnswerSwitch4.setOn(false, animated: true)
-    }
-    
+ 
     
     
     @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
