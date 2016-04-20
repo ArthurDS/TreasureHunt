@@ -65,17 +65,22 @@ class CreateOwnGameDetailsViewController: UIViewController {
     }
     
     func allSwitchesOff() {
-        AnswerSwitch1.setOn(false, animated: true)
+        AnswerSwitch1.setOn(true, animated: true)
         AnswerSwitch2.setOn(false, animated: true)
         AnswerSwitch3.setOn(false, animated: true)
         AnswerSwitch4.setOn(false, animated: true)
     }
+    
+    
     
     @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
         if AnswerSwitch1.on {
             AnswerSwitch2.setOn(false, animated: true)
             AnswerSwitch3.setOn(false, animated: true)
             AnswerSwitch4.setOn(false, animated: true)
+        }
+        else {
+            AnswerSwitch2.setOn(true, animated: true)
         }
     }
     
@@ -85,6 +90,9 @@ class CreateOwnGameDetailsViewController: UIViewController {
             AnswerSwitch3.setOn(false, animated: true)
             AnswerSwitch4.setOn(false, animated: true)
         }
+        else {
+          AnswerSwitch1.setOn(true, animated: true)
+        }
     }
     @IBAction func AnswerSwitch3ValueChanged(sender: AnyObject) {
         if AnswerSwitch3.on {
@@ -92,12 +100,18 @@ class CreateOwnGameDetailsViewController: UIViewController {
             AnswerSwitch1.setOn(false, animated: true)
             AnswerSwitch4.setOn(false, animated: true)
         }
+        else {
+            AnswerSwitch1.setOn(true, animated: true)
+        }
     }
     @IBAction func AnswerSwitch4ValueChanged(sender: AnyObject) {
         if AnswerSwitch4.on {
             AnswerSwitch2.setOn(false, animated: true)
             AnswerSwitch3.setOn(false, animated: true)
             AnswerSwitch1.setOn(false, animated: true)
+        }
+        else {
+            AnswerSwitch1.setOn(true, animated: true)
         }
     }
     
@@ -121,7 +135,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
     @IBAction func saveButtonWasPressed(sender: AnyObject) {
         
         self.delegate?.addQuestionViewControllerSavePressed(self)
-    
+        
     }
     
     
