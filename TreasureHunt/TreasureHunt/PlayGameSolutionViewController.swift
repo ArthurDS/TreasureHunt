@@ -78,6 +78,8 @@ class PlayGameSolutionViewController: UIViewController {
             
             clock.invalidate()
             timesupAlert()
+            self.navigationController?.popViewControllerAnimated(true)
+
             
         }
     }

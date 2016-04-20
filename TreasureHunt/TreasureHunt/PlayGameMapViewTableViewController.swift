@@ -149,7 +149,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
         else {
             
-            destinationLabel.text =  String(format: "De afstand tot de eindbestemming bedraagt %.01fkm", distances)
         }
         
     }
