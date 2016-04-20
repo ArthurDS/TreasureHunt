@@ -1,6 +1,6 @@
 //
 //  PlayGameSolutionViewController.swift
-//  
+//
 //
 //  Created by Jean Smits on 19/04/16.
 //
@@ -9,26 +9,27 @@
 import UIKit
 
 class PlayGameSolutionViewController: UIViewController {
-
+    
     @IBOutlet weak var locationImageView: UIImageView!
-
+    
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
- 
+    
     @IBOutlet weak var answerButton2: UIButton!
     
     @IBOutlet weak var answerButton3: UIButton!
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var handsImage: UIImageView!
     
-    var timer = 60
+    var clock = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
 
 fillTheLabels()
         answerButton1.layer.cornerRadius = 20
@@ -48,11 +49,23 @@ fillTheLabels()
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         
         fillTheLabels()
-    
+        
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-
+        
         // Do any additional setup after loading the view.
+        
+        let kAnimationKey = "rotation"
+        
+        if handsImage.layer.animationForKey(kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = 4
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(M_PI * 10.0)
+            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,27 +74,41 @@ fillTheLabels()
     }
     
     func fillTheLabels() {
-    
+        
         
     }
     
     func countdown() {
-        timerLabel.text = String(timer)
-        timer -= 1
-        
-        if timer <= 0 {
-            timerLabel.text = "Verloren"
-        
+        if timer > 0 {
+            timerLabel.text = String(timer)
+            timer -= 1
+            
+        }
+        else {
+            
+            clock.invalidate()
+            timesupAlert()
+            
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func timesupAlert() {
+        let alert: UIAlertView = UIAlertView()
+        alert.title = "Watson:"
+        alert.message = "Unfortunately, the time is up sir"
+        alert.delegate = self
+        alert.addButtonWithTitle("Shut up WaRson")
+        alert.show()
+        
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
