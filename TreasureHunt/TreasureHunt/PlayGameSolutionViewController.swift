@@ -87,7 +87,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     func fillTheLabels() {
         let img = ridlleRecord.valueForKey("photo") as? CKAsset
         self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
-        self.locationImageView?.contentMode = UIViewContentMode.ScaleAspectFit
+
+        self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
