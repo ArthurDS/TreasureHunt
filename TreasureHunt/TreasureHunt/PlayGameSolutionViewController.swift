@@ -34,7 +34,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     let image = UIImage(named: "sherlockmini")
     
     var clock = NSTimer()
-    var timer = 2
+    var timer = 60
     let kAnimationKey = "rotation"
 
     
@@ -47,7 +47,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationItem.titleView = UIImageView(image: image)
-
+        
+        fillTheLabels()
         createButtons()
         rotateClock()
         makePictureOld()
