@@ -10,38 +10,62 @@ import UIKit
 import CloudKit
 
 class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate {
-
-    @IBOutlet weak var locationImageView: UIImageView!
-
-    @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var answerButton1: UIButton!
     
+    let locationManager = LocationManager.sharedManager
+    
+    @IBOutlet weak var locationImageView: UIImageView!
+    
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
-    
     @IBOutlet weak var answerButton3: UIButton!
-    
     @IBOutlet weak var answerButton4: UIButton!
-    
-    var timer = 2
     
     @IBOutlet weak var handsImage: UIImageView!
     
-    let locationManager = LocationManager.sharedManager
+    
     var ridlleRecord : CKRecord!
     
+    var context: CIContext!
+    var currentFilter: CIFilter!
+    
+    let image = UIImage(named: "sherlockmini")
+    
     var clock = NSTimer()
-
+    var timer = 2
+    let kAnimationKey = "rotation"
 
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         
         clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
-        
+        context = CIContext(options: nil)
+        currentFilter = CIFilter(name: "CISepiaTone")
+        navigationItem.titleView = UIImageView(image: image)
 
-fillTheLabels()
+        createButtons()
+        rotateClock()
+        makePictureOld()
+    }
+    
+    
+    func rotateClock() {
+        if handsImage.layer.animationForKey(kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = 100
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(M_PI * 10.0)
+            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+        }
+    }
+    
+    func createButtons() {
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -57,30 +81,6 @@ fillTheLabels()
         answerButton4.layer.cornerRadius = 20
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
-        
-        fillTheLabels()
-        
-        let image = UIImage(named: "sherlockmini")
-        navigationItem.titleView = UIImageView(image: image)
-        
-        // Do any additional setup after loading the view.
-        
-        let kAnimationKey = "rotation"
-        
-        if handsImage.layer.animationForKey(kAnimationKey) == nil {
-            let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 100
-            animate.repeatCount = Float.infinity
-            animate.fromValue = 0.0
-            animate.toValue = Float(M_PI * 10.0)
-            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
-        }
-
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func fillTheLabels() {
@@ -96,15 +96,12 @@ fillTheLabels()
         if timer > 0 {
             timerLabel.text = String(timer)
             timer -= 1
-            
         }
         else {
             
             clock.invalidate()
             timesupAlert()
             self.navigationController?.popViewControllerAnimated(true)
-
-            
         }
     }
     
@@ -117,10 +114,31 @@ fillTheLabels()
         alert.view.addSubview(imageView)
         alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
-
+        
         self.presentViewController(alert, animated: true, completion: nil)
-
+        
     }
+    
+    func makePictureOld() {
+        
+        let imgRecord = ridlleRecord.valueForKey("photo") as? CKAsset
+        let img = UIImage(contentsOfFile: imgRecord!.fileURL.path!)
+        let beginImage = CIImage(image: img!)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        applyProcessing()
+        
+    }
+    
+    func applyProcessing() {
+    
+        let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
+        let processedImage = UIImage(CGImage: cgimg)
+        
+        locationImageView.image = processedImage
+    
+    }
+    
+    
     /*
      // MARK: - Navigation
      
