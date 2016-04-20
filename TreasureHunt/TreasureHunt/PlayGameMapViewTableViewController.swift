@@ -119,48 +119,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         return annotationView
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        
-        let latestLocation: AnyObject = locations[locations.count - 1]
-        
-        let getLat: CLLocationDegrees = latestLocation.coordinate.latitude
-        let getLon: CLLocationDegrees = latestLocation.coordinate.longitude
-        
-        let getMovedMapCenter: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
-        
-        let myBuddysLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
-        let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation) / 1000
-        
-        
-        let martelarenpleinlocation = CLLocation(latitude: 50.88162, longitude: 4.715218)
-        let distanceMartelarenplein = getMovedMapCenter.distanceFromLocation(martelarenpleinlocation) / 1000
-        
-        
-        let fonduehuisjelocation = CLLocation(latitude: 50.881282, longitude: 4.705740)
-        let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
-        
-        if (Double(distances) < 5) {
-            
-//            destinationLabel.text =   "Eindbestemming bereikt!" 
-        }  //  staat nu in textfield;  zou in tableview moeten
-            
-//        else if(Double(distanceMartelarenplein)  < 5)  {
-//            
-//            destinationLabel.text =   "Eindbestemming bereikt!"}
-//            
-//        else if(Double(distanceFonduehuisje)  < 5)  {
-//            
-//            destinationLabel.text =   "Eindbestemming bereikt!"}
-            
-        else {
-            
-        }
-        
-    }
-    
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
