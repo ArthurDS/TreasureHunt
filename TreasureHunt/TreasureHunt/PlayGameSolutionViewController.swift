@@ -22,18 +22,16 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
-    var timer = 10
+    @IBOutlet weak var handsImage: UIImageView!
     
     var clock = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        clock = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
-        
-        fillTheLabels()
-        
+        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
+
+fillTheLabels()
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -56,6 +54,18 @@ class PlayGameSolutionViewController: UIViewController {
         navigationItem.titleView = UIImageView(image: image)
         
         // Do any additional setup after loading the view.
+        
+        let kAnimationKey = "rotation"
+        
+        if handsImage.layer.animationForKey(kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = 4
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(M_PI * 10.0)
+            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
