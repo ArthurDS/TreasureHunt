@@ -11,8 +11,11 @@ import MapKit
 import CloudKit
 import CoreLocation
 
+
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    let locationManager = LocationManager.sharedManager
+    var riddleArray: [CKRecord] = []
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,10 +33,14 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchLocation()
+//        self.locationManager.fetchAllLocations { (records, error) in
+//            <#code#>
+//        }
+        //fetchAllLocations()
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-    
+        
         
         self.mapView.delegate = self
         
@@ -125,7 +132,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let getMovedMapCenter: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
         
         let myBuddysLocation = CLLocation(latitude: 50.881581, longitude: 4.711865)
-       let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation) / 1000
+        let distances = getMovedMapCenter.distanceFromLocation(myBuddysLocation) / 1000
         
         
         let martelarenpleinlocation = CLLocation(latitude: 50.88162, longitude: 4.715218)
@@ -133,19 +140,19 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
         let fonduehuisjelocation = CLLocation(latitude: 50.881282, longitude: 4.705740)
-         let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
+        let distanceFonduehuisje = getMovedMapCenter.distanceFromLocation(fonduehuisjelocation) / 1000
         
         if (Double(distances) < 5) {
             
             destinationLabel.text =   "Eindbestemming bereikt!" }  //  staat nu in textfield;  zou in tableview moeten
             
-        else if(Double(distanceMartelarenplein)  < 5)  {
-            
-            destinationLabel.text =   "Eindbestemming bereikt!"}
-            
-        else if(Double(distanceFonduehuisje)  < 5)  {
-            
-            destinationLabel.text =   "Eindbestemming bereikt!"}
+//        else if(Double(distanceMartelarenplein)  < 5)  {
+//            
+//            destinationLabel.text =   "Eindbestemming bereikt!"}
+//            
+//        else if(Double(distanceFonduehuisje)  < 5)  {
+//            
+//            destinationLabel.text =   "Eindbestemming bereikt!"}
             
         else {
             
@@ -171,14 +178,20 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.riddleArray.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath)
         
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
+        let ridRecord : CKRecord = riddleArray[indexPath.row]
+        let  location = ridRecord.valueForKey("location")
+        //let lat = location?.coordinate.latitude
+        //let long = location?.coordinate.longitude
+        cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
+        // Game
+        cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
         
         
         
@@ -206,6 +219,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
+    
         
         func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             if !isInitialized {
@@ -225,54 +239,71 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 self.mapView.showsUserLocation = true
             }
         }
-        
-        /*
-         // Override to support conditional editing of the table view.
-         override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-         // Return false if you do not want the specified item to be editable.
-         return true
-         }
-         */
-        
-        /*
-         // Override to support editing the table view.
-         override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-         if editingStyle == .Delete {
-         // Delete the row from the data source
-         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-         } else if editingStyle == .Insert {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-         }
-         }
-         */
-        
-        /*
-         // Override to support rearranging the table view.
-         override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-         
-         }
-         */
-        
-        /*
-         // Override to support conditional rearranging of the table view.
-         override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-         // Return false if you do not want the item to be re-orderable.
-         return true
-         }
-         */
-        
-        
-        // MARK: - Navigation
-        
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
-        func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
+    
+    
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             
             if segue.identifier == "riddleID" {
                 let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
+                let indexPAth = tableView.indexPathForSelectedRow
+                let recordSelected : CKRecord = riddleArray[(indexPAth?.row)!]
+                playGameViewController.ridlleRecord = recordSelected
                 
             }
         }
+    
+    func fetchLocation() {//location opvragen
+        
+        let container = CKContainer.defaultContainer()
+        
+        let publicDatabase = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(value: true) //
         
         
+        
+        let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
+        
+        
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            
+            if error != nil {
+                
+                print(error)
+                
+            }
+                
+            else {
+                
+                print(results)
+                
+                self.riddleArray = results!
+                // self.locArray.append(results)
+                
+                
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    
+                    
+                    self.tableView.hidden = false
+                    
+                    
+                    self.tableView.reloadData()
+                    
+                })
+                
+            }
+            
+            
+        }
     }
 }
+
+
+
+
+       

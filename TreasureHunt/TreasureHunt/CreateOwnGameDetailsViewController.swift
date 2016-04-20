@@ -123,6 +123,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
     @IBAction func CancelButtonWasPressed(sender: AnyObject) {
         
         self.delegate?.addQuestionViewControllerCancelPressedViewController(self)
+        
     }
     @IBAction func saveButtonWasPressed(sender: AnyObject) {
         

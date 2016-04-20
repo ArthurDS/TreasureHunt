@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CloudKit
 
-class PlayGameSolutionViewController: UIViewController {
-    
+class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate {
+
     @IBOutlet weak var locationImageView: UIImageView!
-    
+
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -22,7 +24,8 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
-    @IBOutlet weak var handsImage: UIImageView!
+    let locationManager = LocationManager.sharedManager
+    var ridlleRecord : CKRecord!
     
     var clock = NSTimer()
     var timer = 60
@@ -77,7 +80,11 @@ fillTheLabels()
     }
     
     func fillTheLabels() {
-        
+        let img = ridlleRecord.valueForKey("photo") as? CKAsset
+        self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
+       self.locationImageView?.contentMode = UIViewContentMode.ScaleAspectFit
+       
+        self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
     }
     
@@ -106,14 +113,5 @@ fillTheLabels()
         alert.show()
         
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
+
+
