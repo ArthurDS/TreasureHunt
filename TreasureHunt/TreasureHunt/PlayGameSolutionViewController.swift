@@ -47,7 +47,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationItem.titleView = UIImageView(image: image)
-
+        
+        fillTheLabels()
         createButtons()
         rotateClock()
         makePictureOld()
@@ -86,8 +87,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     func fillTheLabels() {
         let img = ridlleRecord.valueForKey("photo") as? CKAsset
         self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
-       self.locationImageView?.contentMode = UIViewContentMode.ScaleAspectFill
-       
+
+        self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
+        
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
     }
