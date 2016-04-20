@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CloudKit
 
-class PlayGameSolutionViewController: UIViewController {
-    
+class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate {
+
     @IBOutlet weak var locationImageView: UIImageView!
-    
+
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -27,6 +29,8 @@ class PlayGameSolutionViewController: UIViewController {
     @IBOutlet weak var handsImage: UIImageView!
     
     var clock = NSTimer()
+    var timer = 60
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +82,11 @@ class PlayGameSolutionViewController: UIViewController {
     }
     
     func fillTheLabels() {
-        
+        let img = ridlleRecord.valueForKey("photo") as? CKAsset
+        self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
+       self.locationImageView?.contentMode = UIViewContentMode.ScaleAspectFit
+       
+        self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
     }
     
@@ -92,6 +100,8 @@ class PlayGameSolutionViewController: UIViewController {
             
             clock.invalidate()
             timesupAlert()
+            self.navigationController?.popViewControllerAnimated(true)
+
             
         }
     }
