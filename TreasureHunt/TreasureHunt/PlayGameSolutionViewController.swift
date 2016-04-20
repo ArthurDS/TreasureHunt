@@ -1,6 +1,6 @@
 //
 //  PlayGameSolutionViewController.swift
-//  
+//
 //
 //  Created by Jean Smits on 19/04/16.
 //
@@ -17,7 +17,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
- 
+    
     @IBOutlet weak var answerButton2: UIButton!
     
     @IBOutlet weak var answerButton3: UIButton!
@@ -27,7 +27,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     let locationManager = LocationManager.sharedManager
     var ridlleRecord : CKRecord!
     
-    var timer = 60
+    var clock = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +51,23 @@ fillTheLabels()
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         
         fillTheLabels()
-    
+        
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-
+        
         // Do any additional setup after loading the view.
+        
+        let kAnimationKey = "rotation"
+        
+        if handsImage.layer.animationForKey(kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = 4
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(M_PI * 10.0)
+            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,12 +85,16 @@ fillTheLabels()
     }
     
     func countdown() {
-        timerLabel.text = String(timer)
-        timer -= 1
-        
-        if timer <= 0 {
-            timerLabel.text = "Verloren"
-        
+        if timer > 0 {
+            timerLabel.text = String(timer)
+            timer -= 1
+            
+        }
+        else {
+            
+            clock.invalidate()
+            timesupAlert()
+            
         }
     }
     }
