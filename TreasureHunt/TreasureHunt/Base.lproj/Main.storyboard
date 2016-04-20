@@ -308,13 +308,6 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qeO-vh-y6Y">
-                            <rect key="frame" x="0.0" y="368" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="71" id="xLI-zx-lfN" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297" width="320" height="71"/>
@@ -326,23 +319,23 @@
                                         <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image92" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-1y-A8B">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Old Town Hall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU3-9u-eaU">
-                                            <rect key="frame" x="63" y="10" width="197" height="29"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Old Town Hall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU3-9u-eaU">
+                                            <rect key="frame" x="40" y="3" width="244" height="53"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="oYN-DW-XgZ">
+                                            <rect key="frame" x="8" y="10" width="30" height="15"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efF-wY-8k2">
-                                            <rect key="frame" x="64" y="33" width="197" height="29"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <rect key="frame" x="63" y="41" width="197" height="29"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="11"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="oYN-DW-XgZ">
-                                            <rect key="frame" x="33" y="17" width="30" height="15"/>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-UN-5x2">
-                                            <rect key="frame" x="260" y="17" width="30" height="15"/>
+                                            <rect key="frame" x="282" y="10" width="30" height="15"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -352,7 +345,7 @@
                                     <outlet property="riddleCellBackground" destination="CpW-1y-A8B" id="HX5-Tc-Xnx"/>
                                     <outlet property="signLeft" destination="oYN-DW-XgZ" id="TcR-Tu-fJu"/>
                                     <outlet property="signRight" destination="Cez-UN-5x2" id="emf-vW-LYk"/>
-                                    <segue destination="woW-it-Dac" kind="show" id="nMQ-zt-RY1"/>
+                                    <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="nMQ-zt-RY1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -364,7 +357,6 @@
                     <navigationItem key="navigationItem" id="UQj-YS-WdO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="destinationLabel" destination="qeO-vh-y6Y" id="Wg6-X8-cZw"/>
                         <outlet property="mapView" destination="mdg-si-bt2" id="Dn1-uY-LgO"/>
                     </connections>
                 </tableViewController>
@@ -460,26 +452,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
                                 <rect key="frame" x="267" y="400" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999732347608" blue="0.32135042690602345" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
                                 <rect key="frame" x="267" y="439" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch2ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="1Px-hE-ugr"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
                                 <rect key="frame" x="267" y="476" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch3ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="nOD-NM-bKQ"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
+                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="sherlockhat" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
                                 <rect key="frame" x="267" y="517" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
                                 </connections>
@@ -570,8 +566,8 @@
                                 <rect key="frame" x="25" y="86" width="271" height="157"/>
                                 <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG">
-                                <rect key="frame" x="26" y="244" width="270" height="147"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG" userLabel="summaryLabel">
+                                <rect key="frame" x="26" y="235" width="270" height="174"/>
                                 <attributedString key="attributedText">
                                     <fragment content="&quot;T">
                                         <attributes>
@@ -600,7 +596,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-HQ-wuk">
                                 <rect key="frame" x="26" y="514" width="67" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
@@ -635,11 +631,11 @@
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
-                                <rect key="frame" x="199" y="472" width="97" height="97"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
-                                <rect key="frame" x="199" y="473" width="97" height="97"/>
+                                <rect key="frame" x="113" y="471" width="97" height="97"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
+                                <rect key="frame" x="113" y="471" width="97" height="97"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -652,6 +648,7 @@
                         <outlet property="answerButton4" destination="Wg3-h3-KFD" id="rUJ-LN-Pwy"/>
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
+                        <outlet property="summaryLabel" destination="k43-7E-6HG" id="gii-M0-rb5"/>
                         <outlet property="timerLabel" destination="r1G-HQ-wuk" id="qTS-UV-d0r"/>
                     </connections>
                 </viewController>
@@ -741,6 +738,7 @@
         <image name="hands" width="174" height="174"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
+        <image name="sherlockhat" width="1000" height="1000"/>
         <image name="sign" width="30" height="15"/>
         <image name="sign2" width="30" height="15"/>
         <image name="tape" width="195" height="138"/>

@@ -42,16 +42,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         // Universal Unique Identifier (e.g. social security number)
         let identifier = NSUUID().UUIDString //format cle unique
+        let identifier2 = NSUUID().UUIDString
         let locID = CKRecordID(recordName : identifier)
-        
+        let answID = CKRecordID(recordName: identifier2)
         let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
-        
+        let gameRecord = CKRecord(recordType: "Game",recordID: answID)
         // set summary in CK
-        locRecord.setObject(summary, forKey: "summary")
         
-        // set latitude en longitude in CK
-       //locRecord.setObject(locationManager.location?.coordinate.latitude, forKey: "lattitude")
-       // locRecord.setObject(locationManager.location?.coordinate.longitude, forKey: "longitude")
+        locRecord.setObject(summary, forKey: "summary")
         let loc = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
         locRecord.setObject(loc, forKey: "location")
         // set Image in CK
@@ -63,11 +61,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         //timeStamp in CK
         locRecord.setObject(NSDate(), forKey: "timestamp")
-        
+      //  gameRecord.setObject(, forKey: <#T##String#>)
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
+        //rel tussen de entities
         
-        
+        locRecord.setObject(CKReference(recordID: locID , action: CKReferenceAction.None), forKey: "answer")
+        gameRecord.setObject(CKReference(recordID: answID,action: CKReferenceAction.None), forKey: "riddle")
         publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
@@ -81,7 +81,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     let notification = NSNotification(name: LocationManagerDidAddLocation, object: self, userInfo: ["record" : locRecord])
                     
                     
-notificationCenter.postNotification(notification)
+                    notificationCenter.postNotification(notification)
                     
                 }
             })
@@ -112,6 +112,8 @@ notificationCenter.postNotification(notification)
                 })
             
         }
+        
+    }
     }
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CloudKit
 
-class PlayGameSolutionViewController: UIViewController {
-    
+class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate {
+
     @IBOutlet weak var locationImageView: UIImageView!
-    
+
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -22,14 +24,22 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    var timer = 2
+    
     @IBOutlet weak var handsImage: UIImageView!
     
+    let locationManager = LocationManager.sharedManager
+    var ridlleRecord : CKRecord!
+    
     var clock = NSTimer()
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
+        
 
 fillTheLabels()
         answerButton1.layer.cornerRadius = 20
@@ -59,7 +69,7 @@ fillTheLabels()
         
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 4
+            animate.duration = 100
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
@@ -74,7 +84,11 @@ fillTheLabels()
     }
     
     func fillTheLabels() {
-        
+        let img = ridlleRecord.valueForKey("photo") as? CKAsset
+        self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
+       self.locationImageView?.contentMode = UIViewContentMode.ScaleAspectFit
+       
+        self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
     }
     
@@ -88,18 +102,24 @@ fillTheLabels()
             
             clock.invalidate()
             timesupAlert()
+            self.navigationController?.popViewControllerAnimated(true)
+
             
         }
     }
     
     func timesupAlert() {
-        let alert: UIAlertView = UIAlertView()
-        alert.title = "Watson:"
-        alert.message = "Unfortunately, the time is up sir"
-        alert.delegate = self
-        alert.addButtonWithTitle("Shut up WaRson")
-        alert.show()
+        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunatly your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
         
+        let yourImage = UIImage(named: "catson")
+        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+
+        self.presentViewController(alert, animated: true, completion: nil)
+
     }
     /*
      // MARK: - Navigation
