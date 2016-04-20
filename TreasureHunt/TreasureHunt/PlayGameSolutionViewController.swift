@@ -22,13 +22,14 @@ class PlayGameSolutionViewController: UIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var handsImage: UIImageView!
     
     var timer = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var clock = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        var clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "countdown", userInfo: nil, repeats: true)
 
 fillTheLabels()
         answerButton1.layer.cornerRadius = 20
@@ -53,6 +54,18 @@ fillTheLabels()
         navigationItem.titleView = UIImageView(image: image)
 
         // Do any additional setup after loading the view.
+        
+        let kAnimationKey = "rotation"
+        
+        if handsImage.layer.animationForKey(kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = 4
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(M_PI * 10.0)
+            handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -571,7 +571,7 @@
                                 <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG">
-                                <rect key="frame" x="26" y="235" width="270" height="174"/>
+                                <rect key="frame" x="26" y="244" width="270" height="147"/>
                                 <attributedString key="attributedText">
                                     <fragment content="&quot;T">
                                         <attributes>
@@ -598,13 +598,13 @@
                                 <rect key="frame" x="247" y="200" width="73" height="62"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-HQ-wuk">
-                                <rect key="frame" x="130" y="514" width="67" height="46"/>
+                                <rect key="frame" x="26" y="514" width="67" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
-                                <rect key="frame" x="26" y="412" width="130" height="45"/>
+                                <rect key="frame" x="26" y="393" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <state key="normal" title="Butcher">
@@ -612,7 +612,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdk-Uw-zoG">
-                                <rect key="frame" x="166" y="412" width="130" height="45"/>
+                                <rect key="frame" x="166" y="393" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <state key="normal" title="Farmer">
@@ -620,7 +620,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcx-lv-3JW">
-                                <rect key="frame" x="26" y="468" width="130" height="45"/>
+                                <rect key="frame" x="26" y="433" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <state key="normal" title="Blacksmith">
@@ -628,13 +628,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg3-h3-KFD">
-                                <rect key="frame" x="166" y="468" width="130" height="45"/>
+                                <rect key="frame" x="166" y="433" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <state key="normal" title="Fisherman">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
+                                <rect key="frame" x="199" y="472" width="97" height="97"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
+                                <rect key="frame" x="199" y="473" width="97" height="97"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -644,6 +650,7 @@
                         <outlet property="answerButton2" destination="Pdk-Uw-zoG" id="3Xv-pF-eSg"/>
                         <outlet property="answerButton3" destination="Hcx-lv-3JW" id="Un5-OA-ZW5"/>
                         <outlet property="answerButton4" destination="Wg3-h3-KFD" id="rUJ-LN-Pwy"/>
+                        <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
                         <outlet property="timerLabel" destination="r1G-HQ-wuk" id="qTS-UV-d0r"/>
                     </connections>
@@ -730,6 +737,8 @@
     <resources>
         <image name="20150516_555778654c3bb" width="730" height="1095"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
+        <image name="clock" width="174" height="174"/>
+        <image name="hands" width="174" height="174"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
         <image name="sign" width="30" height="15"/>
