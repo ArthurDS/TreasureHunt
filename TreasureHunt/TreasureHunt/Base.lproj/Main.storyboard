@@ -638,7 +638,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="answerButton1" destination="1HT-8D-kNZ" id="Nfy-iD-SID"/>
-                        <outlet property="answerButton2" destination="Pdk-Uw-zoG" id="myi-7I-yU0"/>
+                        <outlet property="answerButton2" destination="Pdk-Uw-zoG" id="3Xv-pF-eSg"/>
                         <outlet property="answerButton3" destination="Hcx-lv-3JW" id="Un5-OA-ZW5"/>
                         <outlet property="answerButton4" destination="Wg3-h3-KFD" id="rUJ-LN-Pwy"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
