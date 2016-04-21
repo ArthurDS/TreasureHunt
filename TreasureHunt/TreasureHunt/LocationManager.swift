@@ -16,6 +16,7 @@ import QuartzCore
 
 
 let LocationManagerDidAddLocation = "LocationManagerDidAddLocation"
+
 let LocationManagerDidUpdateLocation = "locationManagerDidUpdateLocation"
 
 
@@ -135,13 +136,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     
-    
     func isNearRecord(record: CKRecord) -> Bool {
         
      
         let recordLocation = record["location"] as! CLLocation
         
-
         let distance = userLocation.distanceFromLocation(recordLocation)
         
         let result = distance < 1000 ? true : false
@@ -149,14 +148,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         return result
         
-
-        
         }
-        
-        
-        // 
-        
-    
 }
 
 
