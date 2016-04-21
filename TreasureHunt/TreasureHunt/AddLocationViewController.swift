@@ -116,22 +116,22 @@ var newItem:Location? = nil
     
     
     
-    @IBAction func addLocationButtonPressed(sender: AnyObject) {
-        guard !self.summaryTextField.text!.isEmpty else {
-            return
-        }
-        
-
-        loader.showLoader()
-        
-
-        
-        LocationManager.sharedManager.addLocation(summary: self.summaryTextField.text!, imageURL: self.imageURL, completionHandler: {(record, error) in
-            
-            self.loader.removeLoader()
-            self.navigationController?.popViewControllerAnimated(true)
-        })
-    }
+//    @IBAction func addLocationButtonPressed(sender: AnyObject) {
+//        guard !self.summaryTextField.text!.isEmpty else {
+//            return
+//        }
+//        
+//
+//        loader.showLoader()
+//        
+//
+//        
+//        LocationManager.sharedManager.addLocation(summary: self.summaryTextField.text!, imageURL: self.imageURL, completionHandler: {(record, error) in
+//            
+//            self.loader.removeLoader()
+//            self.navigationController?.popViewControllerAnimated(true)
+//        })
+//    }
     
     func dismissKeyboard() {
 
