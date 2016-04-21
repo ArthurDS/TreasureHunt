@@ -460,11 +460,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
                                 <rect key="frame" x="11" y="72" width="72" height="158"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Add Image">
+                                <state key="normal" title="CameraRoll">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="dO7-Ca-ZYy"/>
+                                    <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ML1-jN-N12">
@@ -551,10 +551,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
                                 <rect key="frame" x="91" y="72" width="209" height="178"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
+                                <rect key="frame" x="5" y="187" width="85" height="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchDragInside" id="xeF-kW-yj9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -577,6 +584,7 @@
                         <outlet property="AnswerSwitch3" destination="WlC-X6-kzq" id="EIq-st-e4y"/>
                         <outlet property="AnswerSwitch4" destination="Ww6-1C-saK" id="8ho-jv-Kpz"/>
                         <outlet property="locationImage" destination="HTJ-IY-UqM" id="Scl-qP-nOi"/>
+                        <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
