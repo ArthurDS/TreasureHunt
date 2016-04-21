@@ -60,6 +60,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     func userLocationChanged(notification: NSNotification) {
+        
+        
+        
         // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
         // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
         // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
@@ -94,6 +97,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             mapView.removeAnnotation(annotationForActiveRecord)
         }
         
+        else {
+            mapView.addAnnotation(annotationForActiveRecord!)
+        }
         // voeg een nieuwe annotation toe
 //        annotationForActiveRecord = ...
     }
