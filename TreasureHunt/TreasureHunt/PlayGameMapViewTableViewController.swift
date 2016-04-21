@@ -74,8 +74,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
 //    func userLocationChanged(notification: NSNotification) {
-//        
-//        
+    
+    
+
+//
+//
 //        let ridrecord: CKRecord
 //
 //        
