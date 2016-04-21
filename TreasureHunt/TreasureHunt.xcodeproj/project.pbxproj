@@ -33,6 +33,7 @@
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
 		BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7D1CBCDBB80011AFC6 /* Person.swift */; };
 		BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */; };
+		BED9C7EE1CC8B16B007F6CA6 /* PickGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9C7ED1CC8B16B007F6CA6 /* PickGameTableViewController.swift */; };
 		BEEEFD021CC64B9600A7467D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; };
 		BEEEFD031CC64B9600A7467D /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEEEFD011CC64B9600A7467D /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEEEFD061CC661A000A7467D /* RiddleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */; };
@@ -83,6 +84,7 @@
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BECE3C7E1CBCDBB80011AFC6 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BED9C7ED1CC8B16B007F6CA6 /* PickGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickGameTableViewController.swift; path = ../PickGameTableViewController.swift; sourceTree = "<group>"; };
 		BEEEFD011CC64B9600A7467D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiddleTableViewCell.swift; sourceTree = "<group>"; };
 		F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */,
+				BED9C7ED1CC8B16B007F6CA6 /* PickGameTableViewController.swift */,
 				BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */,
 				BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */,
 				BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */,
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED9C7EE1CC8B16B007F6CA6 /* PickGameTableViewController.swift in Sources */,
 				BECE3C821CBCDBB80011AFC6 /* Person+CoreDataProperties.swift in Sources */,
 				BE336B111CC6184400B2BFDB /* Game.swift in Sources */,
 				BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */,
