@@ -23,17 +23,33 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
+    
     var riddleArray: [CKRecord] = []
     let location = CLLocationManager()
     var isInitialized = false
     
+    
+    
+       var array1 = []
+    var arrayInNearby = []
+    
     var annotationForActiveRecord: MKAnnotation?
     
     var activeLocation: CKRecord? {
+        
+        for records in riddleArray  {
+            
+            print(records)
+            
+        }
+        
         // doorloop alle records
         // geef eerste record terug die nog niet "completed" is
         
         return riddleArray.first
+            
+            
+        
     }
     
     override func viewDidLoad() {
@@ -50,10 +66,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
+//    }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)

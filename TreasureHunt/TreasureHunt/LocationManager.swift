@@ -106,8 +106,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         //rel tussen de entities
         
-        locRecord.setObject(CKReference(recordID: locID , action: CKReferenceAction.None), forKey: "answer")
-        gameRecord.setObject(CKReference(recordID: answID,action: CKReferenceAction.None), forKey: "riddle")
+       // locRecord.setObject(CKReference(recordID: locID , action: CKReferenceAction.None), forKey: "answer")
+        //gameRecord.setObject(CKReference(recordID: answID,action: CKReferenceAction.None), forKey: "riddle")
         publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
@@ -132,7 +132,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
 
         
-        //location opvragen
+        //Riddles opvragen
         
         let container = CKContainer.defaultContainer()
         
