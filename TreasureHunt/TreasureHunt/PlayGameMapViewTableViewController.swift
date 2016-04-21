@@ -10,11 +10,13 @@ import UIKit
 import MapKit
 import CloudKit
 import CoreLocation
+import FillableLoaders
 
 
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationLabel: UILabel!
@@ -53,11 +55,12 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchLocation()
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
         
-        
+              
+
         mapAnotation()
         walkingRoute()
         
@@ -73,35 +76,15 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-//    func userLocationChanged(notification: NSNotification) {
-//        
-//        
-//        let ridrecord: CKRecord
-//
-//        
-//        let isNearby = LocationManager.sharedManager.isNearRecord(ridrecord)
-//        
-//        if isNearby  {
-//            
-//            
-//            arrayInNearby.append(isNearby)
-//            
-//        }
-//
-//        if array1 != arrayInNearby {
-//            
-//            
-//            self.tableView.reloadData()
-//            
-//            array1 = arrayInNearby
-//        }
-//        
-//        
-//        // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
-//        // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
-//        // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
-//        // vorige array (property) = nieuwe array
-//    }
+    func userLocationChanged(notification: NSNotification) {
+        
+        
+        
+        // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
+        // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
+        // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
+        // vorige array (property) = nieuwe array
+    }
     
     func mapAnotation() {
         self.mapView.delegate = self
@@ -131,6 +114,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             mapView.removeAnnotation(annotationForActiveRecord)
         }
         
+        else {
+            mapView.addAnnotation(annotationForActiveRecord!)
+        }
         // voeg een nieuwe annotation toe
 //        annotationForActiveRecord = ...
     }
@@ -216,21 +202,15 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
 //        let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
-//        
+        
 //        if isNearby {
-//            
-//            
-//            cell.backgroundColor = UIColor.blueColor()
-//            
 //            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
 //            // stel eventueel selectionstate in
 //        }
 //        else {
 //            // geef de standaard kleur
-//            
-//            cell.backgroundColor = UIColor.greenColor()
 //        }
-        
+//        
         
         let location = ridRecord.valueForKey("location")
         //let lat = location?.coordinate.latitude
@@ -240,6 +220,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
         
         return cell
+        
+
     }
     
     func walkingRoute() {
@@ -295,6 +277,55 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     func fetchLocation() {//location opvragen
         
+        let bezier2Path = UIBezierPath()
+        bezier2Path.moveToPoint(CGPoint(x: 170.47, y: 11.16))
+        bezier2Path.addCurveToPoint(CGPoint(x: 178.48, y: 21.74), controlPoint1: CGPoint(x: 170.47, y: 11.16), controlPoint2: CGPoint(x: 176.24, y: 18.78))
+        bezier2Path.addCurveToPoint(CGPoint(x: 187.54, y: 25.24), controlPoint1: CGPoint(x: 181.62, y: 22.24), controlPoint2: CGPoint(x: 184.7, y: 23.4))
+        bezier2Path.addCurveToPoint(CGPoint(x: 193.99, y: 31.48), controlPoint1: CGPoint(x: 190.15, y: 26.94), controlPoint2: CGPoint(x: 192.31, y: 29.08))
+        bezier2Path.addCurveToPoint(CGPoint(x: 204.9, y: 32.6), controlPoint1: CGPoint(x: 197.62, y: 31.85), controlPoint2: CGPoint(x: 204.9, y: 32.6))
+        bezier2Path.addCurveToPoint(CGPoint(x: 198.04, y: 42.09), controlPoint1: CGPoint(x: 204.9, y: 32.6), controlPoint2: CGPoint(x: 199.96, y: 39.43))
+        bezier2Path.addCurveToPoint(CGPoint(x: 194.41, y: 57.76), controlPoint1: CGPoint(x: 198.69, y: 47.38), controlPoint2: CGPoint(x: 197.55, y: 52.93))
+        bezier2Path.addCurveToPoint(CGPoint(x: 190.47, y: 62.39), controlPoint1: CGPoint(x: 193.28, y: 59.51), controlPoint2: CGPoint(x: 191.94, y: 61.05))
+        bezier2Path.addCurveToPoint(CGPoint(x: 193, y: 77), controlPoint1: CGPoint(x: 192.09, y: 66.77), controlPoint2: CGPoint(x: 193, y: 71.74))
+        bezier2Path.addCurveToPoint(CGPoint(x: 192.95, y: 79.03), controlPoint1: CGPoint(x: 193, y: 77.68), controlPoint2: CGPoint(x: 192.98, y: 78.36))
+        bezier2Path.addCurveToPoint(CGPoint(x: 193, y: 81.64), controlPoint1: CGPoint(x: 193, y: 79.73), controlPoint2: CGPoint(x: 193, y: 80.55))
+        bezier2Path.addLineToPoint(CGPoint(x: 193, y: 101.36))
+        bezier2Path.addCurveToPoint(CGPoint(x: 192.67, y: 105.65), controlPoint1: CGPoint(x: 193, y: 103.56), controlPoint2: CGPoint(x: 193, y: 104.66))
+        bezier2Path.addLineToPoint(CGPoint(x: 192.63, y: 105.84))
+        bezier2Path.addCurveToPoint(CGPoint(x: 189.84, y: 108.63), controlPoint1: CGPoint(x: 192.15, y: 107.14), controlPoint2: CGPoint(x: 191.14, y: 108.15))
+        bezier2Path.addCurveToPoint(CGPoint(x: 185.36, y: 109), controlPoint1: CGPoint(x: 188.66, y: 109), controlPoint2: CGPoint(x: 187.56, y: 109))
+        bezier2Path.addLineToPoint(CGPoint(x: 154.64, y: 109))
+        bezier2Path.addCurveToPoint(CGPoint(x: 150.35, y: 108.67), controlPoint1: CGPoint(x: 152.44, y: 109), controlPoint2: CGPoint(x: 151.34, y: 109))
+        bezier2Path.addLineToPoint(CGPoint(x: 150.16, y: 108.63))
+        bezier2Path.addCurveToPoint(CGPoint(x: 149.33, y: 108.23), controlPoint1: CGPoint(x: 149.87, y: 108.52), controlPoint2: CGPoint(x: 149.59, y: 108.39))
+        bezier2Path.addCurveToPoint(CGPoint(x: 141.43, y: 108.94), controlPoint1: CGPoint(x: 147.47, y: 108.4), controlPoint2: CGPoint(x: 144.92, y: 108.63))
+        bezier2Path.addCurveToPoint(CGPoint(x: 124.57, y: 88.98), controlPoint1: CGPoint(x: 128.49, y: 110.11), controlPoint2: CGPoint(x: 124.57, y: 88.98))
+        bezier2Path.addCurveToPoint(CGPoint(x: 136.79, y: 57.36), controlPoint1: CGPoint(x: 124.57, y: 88.98), controlPoint2: CGPoint(x: 119.67, y: 67.95))
+        bezier2Path.addCurveToPoint(CGPoint(x: 140.41, y: 63.78), controlPoint1: CGPoint(x: 153.44, y: 47.07), controlPoint2: CGPoint(x: 141.1, y: 62.91))
+        bezier2Path.addCurveToPoint(CGPoint(x: 130.55, y: 88.44), controlPoint1: CGPoint(x: 139.65, y: 64.2), controlPoint2: CGPoint(x: 128.89, y: 70))
+        bezier2Path.addCurveToPoint(CGPoint(x: 147, y: 101.3), controlPoint1: CGPoint(x: 131.63, y: 100.48), controlPoint2: CGPoint(x: 140.56, y: 101.89))
+        bezier2Path.addCurveToPoint(CGPoint(x: 147, y: 81.64), controlPoint1: CGPoint(x: 147, y: 100.16), controlPoint2: CGPoint(x: 147, y: 81.64))
+        bezier2Path.addCurveToPoint(CGPoint(x: 147.04, y: 78.99), controlPoint1: CGPoint(x: 147, y: 80.52), controlPoint2: CGPoint(x: 147, y: 79.68))
+        bezier2Path.addCurveToPoint(CGPoint(x: 147, y: 77), controlPoint1: CGPoint(x: 147.01, y: 78.33), controlPoint2: CGPoint(x: 147, y: 77.67))
+        bezier2Path.addCurveToPoint(CGPoint(x: 150.25, y: 60.59), controlPoint1: CGPoint(x: 147, y: 71), controlPoint2: CGPoint(x: 148.19, y: 65.39))
+        bezier2Path.addCurveToPoint(CGPoint(x: 153.4, y: 54.85), controlPoint1: CGPoint(x: 151.15, y: 58.51), controlPoint2: CGPoint(x: 152.2, y: 56.58))
+        bezier2Path.addCurveToPoint(CGPoint(x: 151.22, y: 45.4), controlPoint1: CGPoint(x: 152.03, y: 51.88), controlPoint2: CGPoint(x: 151.29, y: 48.66))
+        bezier2Path.addCurveToPoint(CGPoint(x: 155.02, y: 32.12), controlPoint1: CGPoint(x: 151.13, y: 40.85), controlPoint2: CGPoint(x: 152.35, y: 36.22))
+        bezier2Path.addCurveToPoint(CGPoint(x: 165.31, y: 23.4), controlPoint1: CGPoint(x: 157.63, y: 28.12), controlPoint2: CGPoint(x: 161.24, y: 25.17))
+        bezier2Path.addCurveToPoint(CGPoint(x: 170.46, y: 11.17), controlPoint1: CGPoint(x: 166.73, y: 20.04), controlPoint2: CGPoint(x: 170.35, y: 11.43))
+        bezier2Path.addLineToPoint(CGPoint(x: 170.47, y: 11.16))
+        
+        
+        bezier2Path.closePath()
+        UIColor.blackColor().setFill()
+        bezier2Path.fill()
+        
+        
+        let myPath = bezier2Path.CGPath
+        var loader = WavesLoader.showLoaderWithPath(myPath)
+        loader.loaderColor = UIColor.blackColor()
+
+        
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let predicate = NSPredicate(value: true) //
@@ -305,6 +336,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 print(error)
             }
             else {
+                loader.showLoader()
                 print(results)
                 
                 self.riddleArray = results!
@@ -312,7 +344,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.tableView.hidden = false
                     self.tableView.reloadData()
-                    
+                loader.removeLoader()
                 })
             }
         }
