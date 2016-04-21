@@ -587,34 +587,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
-                                <rect key="frame" x="26" y="408" width="130" height="32"/>
+                                <rect key="frame" x="26" y="404" width="130" height="39"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
-                                <state key="normal" title="Butcher">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdk-Uw-zoG">
-                                <rect key="frame" x="166" y="408" width="130" height="32"/>
+                                <rect key="frame" x="166" y="404" width="130" height="39"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
-                                <state key="normal" title="Farmer">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcx-lv-3JW">
-                                <rect key="frame" x="26" y="448" width="130" height="32"/>
+                                <rect key="frame" x="26" y="444" width="130" height="39"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
-                                <state key="normal" title="Blacksmith">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg3-h3-KFD">
-                                <rect key="frame" x="166" y="448" width="130" height="32"/>
+                                <rect key="frame" x="166" y="444" width="130" height="39"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
-                                <state key="normal" title="Fisherman">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
