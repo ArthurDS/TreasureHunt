@@ -39,6 +39,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
+        
+        let identifier = NSUUID().UUIDString
+        let gameID = CKRecordID(recordName: identifier)
+        let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
+        
+        gameRecord.setObject(title, forKey: "title")
+    }
+    
     func addLocation(summary summary: String, imageURL: NSURL?, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         // Universal Unique Identifier (e.g. social security number)
@@ -48,6 +57,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let answID = CKRecordID(recordName: identifier2)
         let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
         let gameRecord = CKRecord(recordType: "Game",recordID: answID)
+        
         // set summary in CK
         
         locRecord.setObject(summary, forKey: "summary")
@@ -67,8 +77,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         //rel tussen de entities
         
-        locRecord.setObject(CKReference(recordID: locID , action: CKReferenceAction.None), forKey: "answer")
-        gameRecord.setObject(CKReference(recordID: answID,action: CKReferenceAction.None), forKey: "riddle")
+       // locRecord.setObject(CKReference(recordID: locID , action: CKReferenceAction.None), forKey: "answer")
+        //gameRecord.setObject(CKReference(recordID: answID,action: CKReferenceAction.None), forKey: "riddle")
         publicDatabase.saveRecord(locRecord, completionHandler: { (record, error) -> Void in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
@@ -92,7 +102,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func fetchAllLocations(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
         
         
-        //location opvragen
+        //Riddles opvragen
         
         let container = CKContainer.defaultContainer()
         
