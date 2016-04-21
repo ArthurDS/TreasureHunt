@@ -215,21 +215,21 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
-        let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
-        
-        if isNearby {
-            
-            
-            cell.backgroundColor = UIColor.blueColor()
-            
-            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-            // stel eventueel selectionstate in
-        }
-        else {
-            // geef de standaard kleur
-            
-            cell.backgroundColor = UIColor.greenColor()
-        }
+//        let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
+//        
+//        if isNearby {
+//            
+//            
+//            cell.backgroundColor = UIColor.blueColor()
+//            
+//            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+//            // stel eventueel selectionstate in
+//        }
+//        else {
+//            // geef de standaard kleur
+//            
+//            cell.backgroundColor = UIColor.greenColor()
+//        }
         
         
         let location = ridRecord.valueForKey("location")
