@@ -159,16 +159,16 @@ class CreateOwnGameDetailsViewController: UIViewController {
         locRecord.setObject(summaryTextField.text, forKey: "summary")
         
         // set Image in CK
-//        if let url = imageURL {
-//            let imageAsset = CKAsset(fileURL: url)
-//            locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
-//                print("asset file url before: \(imageAsset.fileURL)")
-//        }
-//        else {
-//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
-//            let imageAsset = CKAsset(fileURL: fileURL!)
-//            locRecord.setObject(imageAsset, forKey: "photo")
-//        }
+        if let url = imageURL {
+            let imageAsset = CKAsset(fileURL: url)
+            locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
+                print("asset file url before: \(imageAsset.fileURL)")
+        }
+        else {
+            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+            let imageAsset = CKAsset(fileURL: fileURL!)
+            locRecord.setObject(imageAsset, forKey: "photo")
+        }
         //answers in CK
 //        answerID.setValue(AnswerSwitch1, forKey: "correctAnswer")
 //        answerID.setValue(AnswerSwitch1, forKey: "wrongAnswer1")
