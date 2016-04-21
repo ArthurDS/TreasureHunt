@@ -17,6 +17,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addGameTitleAlert()
  }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -39,6 +40,41 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         
         return UITableViewCellEditingStyle.Delete
     }
+    
+    func addGameTitleAlert() {
+        let alert = UIAlertController(title: "Catson:", message: "Hold your horses.\nBefore we can create a game, \nwe need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
+    
+        let yourImage = UIImage(named: "catson_small")
+        var imageView = UIImageView(frame: CGRectMake(211, 48, 70, 98))
+        
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+
+        let confirmAction = UIAlertAction(title: "Did it!", style: .Default) { (_) in
+            if let field = alert.textFields![0] as? UITextField {
+                // store your data
+            NSUserDefaults.standardUserDefaults().setObject(field.text, forKey: "")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            } else {
+                // user did not fill field
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Game Title"
+        }
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+     
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

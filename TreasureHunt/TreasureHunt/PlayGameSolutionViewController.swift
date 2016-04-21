@@ -69,25 +69,26 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func createButtons() {
-        answerButton1.layer.cornerRadius = 20
+        answerButton1.layer.cornerRadius = 10
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         
-        answerButton2.layer.cornerRadius = 20
+        answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
         
-        answerButton3.layer.cornerRadius = 20
+        answerButton3.layer.cornerRadius = 10
         answerButton3.layer.borderWidth = 2
         answerButton3.layer.borderColor = UIColor.blackColor().CGColor
         
-        answerButton4.layer.cornerRadius = 20
+        answerButton4.layer.cornerRadius = 10
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     func fillTheLabels() {
         let img = ridlleRecord.valueForKey("photo") as? CKAsset
+        
         self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
 
         self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill

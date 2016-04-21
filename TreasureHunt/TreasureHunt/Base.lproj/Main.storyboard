@@ -300,19 +300,59 @@
         <scene sceneID="cDK-aM-iDe">
             <objects>
                 <tableViewController id="INZ-dP-uBd" customClass="PickGameTableViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jwL-wo-xJg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="jwL-wo-xJg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickGameID" id="1f8-da-bKt">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickGameID" rowHeight="150" id="1f8-da-bKt" customClass="PickGameTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1f8-da-bKt" id="2tT-oU-CQP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="old_paper_stock_02_by_ftourini-d48ubt0-1" translatesAutoresizingMaskIntoConstraints="NO" id="IDi-4H-LLx">
+                                            <rect key="frame" x="18" y="8" width="284" height="133"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KC3-0X-A8W">
+                                            <rect key="frame" x="50" y="49" width="74" height="66"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9J-as-EQD">
+                                            <rect key="frame" x="136" y="54" width="136" height="64"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Episode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjm-6l-eT3">
+                                            <rect key="frame" x="170" y="25" width="49" height="21"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bso-MG-2Tx">
+                                            <rect key="frame" x="217" y="25" width="25" height="21"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="agC-pc-fGm">
+                                            <rect key="frame" x="136" y="28" width="30" height="15"/>
+                                        </imageView>
+                                        <view alpha="0.14999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9P8-gO-2Rq">
+                                            <rect key="frame" x="130" y="49" width="140" height="2"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="justALine" destination="9P8-gO-2Rq" id="08M-am-g0v"/>
+                                    <outlet property="pickGameBackground" destination="IDi-4H-LLx" id="sHV-ev-B0M"/>
+                                    <outlet property="pickGameEpisodeLabel" destination="fjm-6l-eT3" id="hCm-8D-wxe"/>
+                                    <outlet property="pickGameEpisodeNumberLabel" destination="bso-MG-2Tx" id="CsJ-X1-Dz0"/>
+                                    <outlet property="pickGameImage" destination="KC3-0X-A8W" id="CVn-tI-2tR"/>
+                                    <outlet property="pickGameLabel" destination="m9J-as-EQD" id="DAh-aa-xdy"/>
                                     <segue destination="vvK-kd-vBj" kind="show" id="EmS-kp-afs"/>
                                 </connections>
                             </tableViewCell>
@@ -759,6 +799,7 @@
         <image name="hands" width="174" height="174"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
+        <image name="old_paper_stock_02_by_ftourini-d48ubt0-1" width="600" height="421"/>
         <image name="sherlockhat" width="1000" height="1000"/>
         <image name="sign" width="30" height="15"/>
         <image name="sign2" width="30" height="15"/>
