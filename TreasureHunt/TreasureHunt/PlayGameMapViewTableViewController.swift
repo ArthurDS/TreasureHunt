@@ -15,6 +15,7 @@ import CoreLocation
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
+
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationLabel: UILabel!
@@ -32,6 +33,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
         
+              
 
         mapAnotation()
         walkingRoute()
@@ -170,6 +172,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         let  location = ridRecord.valueForKey("location")
@@ -180,6 +183,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
         
         return cell
+        
+
     }
     
     func walkingRoute() {

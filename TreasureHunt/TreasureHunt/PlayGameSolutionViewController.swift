@@ -27,6 +27,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     
     var ridlleRecord : CKRecord!
+    var answerRecord : CKRecord!
     
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -92,6 +93,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
+        self.answerButton1.titleLabel!.text = answerRecord.valueForKey("answer") as? String
     }
     
     func countdown() {

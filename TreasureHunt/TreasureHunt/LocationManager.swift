@@ -14,8 +14,11 @@ import CloudKit
 import MobileCoreServices
 import QuartzCore
 
+
 let LocationManagerDidAddLocation = "LocationManagerDidAddLocation"
 let LocationManagerDidUpdateLocation = "locationManagerDidUpdateLocation"
+
+
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
@@ -24,6 +27,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     
     var userLocation: CLLocation!
+    
+
     
     private override init() {
         super.init()
@@ -90,6 +95,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func fetchAllLocations(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
         
+
         
         //location opvragen
         
@@ -113,6 +119,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             
         }
         
+
     }
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
