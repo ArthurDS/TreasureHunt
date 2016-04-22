@@ -232,7 +232,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
                     cell.locationTitleLabel.textColor = UIColor.blueColor()
-        
+                    
+            
+                    
+                    
                     // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
                     // stel eventueel selectionstate in
                 }
@@ -240,6 +243,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     // geef de standaard kleur
                     
                     cell.locationTitleLabel.textColor = UIColor.greenColor()
+                    
+                     //  cell.userInteractionEnabled = false
                 }
         
         
