@@ -41,6 +41,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //scrollView = UIScrollView(frame: view.bounds)
         
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")    }
@@ -48,6 +49,11 @@ class CreateOwnGameDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    //keyBoard dissmiss
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     // Take and save a picture
@@ -168,11 +174,11 @@ class CreateOwnGameDetailsViewController: UIViewController {
             locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
                 print("asset file url before: \(imageAsset.fileURL)")
         }
-        else {
-            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
-            let imageAsset = CKAsset(fileURL: fileURL!)
-            locRecord.setObject(imageAsset, forKey: "photo")
-        }
+//        else {
+//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+//            let imageAsset = CKAsset(fileURL: fileURL!)
+//            locRecord.setObject(imageAsset, forKey: "photo")
+//        }
         //answers in CK
         locRecord.setObject(answer1Field.text, forKey: "correctAnswer")
         locRecord.setObject(answer1Field2.text, forKey: "wrongAnswer1")

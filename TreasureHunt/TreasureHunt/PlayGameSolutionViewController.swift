@@ -99,8 +99,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
-        
-        //        self.answerButton1.titleLabel!.text = answerRecord.valueForKey("answer") as? String
+       
+
     }
     
     func countdown() {
