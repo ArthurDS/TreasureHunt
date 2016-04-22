@@ -65,17 +65,17 @@ class StartGameViewController: UIViewController {
         super.viewDidAppear(animated)
 
         UIView.animateWithDuration(50.9, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.backgroundImage.frame.origin.x -= 350
+            self.backgroundImage.frame.origin.x -= 320
             }, completion: { (finished: Bool) in
                 print("Animation Ended!")
         });
         
-        UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
-            self.playButton.center.x -= self.view.bounds.width
-            }, completion: nil)
-        UIView.animateWithDuration(0.5, delay: 0.4, options: [], animations: {
-            self.createButton.center.x -= self.view.bounds.width
-            }, completion: nil)
+//        UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
+//            self.playButton.center.x -= self.view.bounds.width
+//            }, completion: nil)
+//        UIView.animateWithDuration(0.5, delay: 0.4, options: [], animations: {
+//            self.createButton.center.x -= self.view.bounds.width
+//            }, completion: nil)
         }
   
    

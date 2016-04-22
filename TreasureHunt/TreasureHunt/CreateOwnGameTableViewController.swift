@@ -42,11 +42,10 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     }
     
     func addGameTitleAlert() {
-        let alert = UIAlertController(title: "Catson:", message: "Hold your horses.\nBefore we can create a game, \nwe need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Catson:", message: "Before we can create a game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
     
-        let yourImage = UIImage(named: "catson_small")
-        var imageView = UIImageView(frame: CGRectMake(211, 48, 70, 98))
-        
+        let yourImage = UIImage(named: "catson")
+        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
 

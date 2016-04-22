@@ -46,34 +46,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
-        var starPath = UIBezierPath()
-        starPath.moveToPoint(CGPointMake(180, 25))
-        starPath.addLineToPoint(CGPointMake(195.16, 43.53))
-        starPath.addLineToPoint(CGPointMake(220.9, 49.88))
-        starPath.addLineToPoint(CGPointMake(204.54, 67.67))
-        starPath.addLineToPoint(CGPointMake(205.27, 90.12))
-        starPath.addLineToPoint(CGPointMake(180, 82.6))
-        starPath.addLineToPoint(CGPointMake(154.73, 90.12))
-        starPath.addLineToPoint(CGPointMake(155.46, 67.67))
-        starPath.addLineToPoint(CGPointMake(139.1, 49.88))
-        starPath.addLineToPoint(CGPointMake(164.84, 43.53))
-        starPath.closePath()
-        UIColor.grayColor().setFill()
-        starPath.fill()
-        
-        let myPath = starPath.CGPath
-        var loader = WavesLoader.showProgressBasedLoaderWithPath(myPath)
-        
-        
-        loader.showLoader()
-        
         let identifier = NSUUID().UUIDString
         let gameID = CKRecordID(recordName: identifier)
         let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
         
         gameRecord.setObject(title, forKey: "title")
-        
-        loader.removeLoader()
     }
     
     func addLocation(summary summary: String, imageURL: NSURL?, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
@@ -187,5 +164,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         }
 }
-
 

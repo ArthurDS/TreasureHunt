@@ -59,10 +59,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
         
-              
-
+    
         mapAnotation()
-        walkingRoute()
+
         
     }
     
@@ -122,7 +121,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
             mapLocationManager.requestAlwaysAuthorization()
             mapLocationManager.startUpdatingLocation()
-            setAnotation()
+
             
             mapView.showsUserLocation = true
         }
@@ -149,21 +148,20 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     // mag weg:
-    func setAnotation() {
+    func setAnotation(latitude: Double, longitude: Double) {
         
         let locManager = CLLocationManager() // kan nu via manager
         locManager.requestWhenInUseAuthorization()
         var currentLocation = CLLocation!()
         currentLocation = locManager.location
         
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         
         
         let anotation = MKPointAnnotation()
         anotation.coordinate = location
-        anotation.title = "Kristof Renotte"
-        anotation.subtitle = "op 20 km van uw locatie"
+
         
         mapView.addAnnotation(anotation)
     }
@@ -247,8 +245,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
         let location = ridRecord.valueForKey("location")
-        //let lat = location?.coordinate.latitude
-        //let long = location?.coordinate.longitude
+        
+        let lat = location?.coordinate.latitude
+        let long = location?.coordinate.longitude
+        
+        setAnotation(lat!, longitude: long!)
+        walkingRoute(lat!, longitude: long!)
+
         cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
         // Game
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
@@ -258,11 +261,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
 
     }
     
-    func walkingRoute() {
+    func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
         
+
+        
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.881581, longitude: 4.711865), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), addressDictionary: nil))
         request.requestsAlternateRoutes = false
         request.transportType = .Walking
         
@@ -301,8 +306,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         if segue.identifier == "riddleID" {
             let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
-            let indexPAth = tableView.indexPathForSelectedRow
-            let recordSelected : CKRecord = riddleArray[(indexPAth?.row)!]
+            let indexPath = tableView.indexPathForSelectedRow
+            let recordSelected : CKRecord = riddleArray[(indexPath?.row)!]
             playGameViewController.ridlleRecord = recordSelected
         }
     }
@@ -371,6 +376,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             }
             else {
                 loader.showLoader()
+                
                 print(results)
                 
                 self.riddleArray = results!
@@ -378,6 +384,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.tableView.hidden = false
                     self.tableView.reloadData()
+                    
                 loader.removeLoader()
                 })
             }
