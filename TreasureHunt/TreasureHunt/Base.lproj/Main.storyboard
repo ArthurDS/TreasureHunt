@@ -321,19 +321,19 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9J-as-EQD">
                                             <rect key="frame" x="136" y="54" width="136" height="64"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Episode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjm-6l-eT3">
                                             <rect key="frame" x="170" y="25" width="49" height="21"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bso-MG-2Tx">
                                             <rect key="frame" x="217" y="25" width="25" height="21"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="agC-pc-fGm">
@@ -623,6 +623,10 @@
                         <outlet property="AnswerSwitch2" destination="1gx-NJ-iEN" id="uL9-ZG-5Rf"/>
                         <outlet property="AnswerSwitch3" destination="WlC-X6-kzq" id="EIq-st-e4y"/>
                         <outlet property="AnswerSwitch4" destination="Ww6-1C-saK" id="8ho-jv-Kpz"/>
+                        <outlet property="answer1Field" destination="ML1-jN-N12" id="nrE-9z-rQQ"/>
+                        <outlet property="answer1Field2" destination="mtc-hE-qBn" id="jjQ-ov-TdP"/>
+                        <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
+                        <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="HTJ-IY-UqM" id="Scl-qP-nOi"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>

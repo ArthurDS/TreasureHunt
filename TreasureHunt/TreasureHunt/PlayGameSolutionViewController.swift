@@ -37,7 +37,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     var clock = NSTimer()
     var timer = 60
     let kAnimationKey = "rotation"
-
+    
     
     override func viewDidLoad() {
         
@@ -77,6 +77,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
+        answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
         
         answerButton3.layer.cornerRadius = 10
         answerButton3.layer.borderWidth = 2
@@ -93,12 +94,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         let img = ridlleRecord.valueForKey("photo") as? CKAsset
         
         self.locationImageView.image = UIImage(contentsOfFile: img!.fileURL.path!)
-
+        
         self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
         
-//        self.answerButton1.titleLabel!.text = answerRecord.valueForKey("answer") as? String
+        //        self.answerButton1.titleLabel!.text = answerRecord.valueForKey("answer") as? String
     }
     
     func countdown() {
@@ -139,12 +140,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func applyProcessing() {
-    
+        
         let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
         let processedImage = UIImage(CGImage: cgimg)
         
         locationImageView.image = processedImage
-    
+        
     }
     
     
