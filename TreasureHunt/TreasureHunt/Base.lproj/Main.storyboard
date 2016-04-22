@@ -636,7 +636,7 @@
                                 <rect key="frame" x="5" y="187" width="85" height="30"/>
                                 <state key="normal" title="Take Picture"/>
                                 <connections>
-                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchDragInside" id="xeF-kW-yj9"/>
+                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
                                 </connections>
                             </button>
                         </subviews>
