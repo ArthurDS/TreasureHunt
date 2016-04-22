@@ -258,8 +258,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
 //        
         
         let location = ridRecord.valueForKey("location")
-        //let lat = location?.coordinate.latitude
-        //let long = location?.coordinate.longitude
+        
+        let lat = location?.coordinate.latitude
+        let long = location?.coordinate.longitude
+        print(lat)
+        print(long)
         cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
         // Game
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String

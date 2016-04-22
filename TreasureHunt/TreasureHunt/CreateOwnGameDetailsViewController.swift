@@ -19,7 +19,11 @@ class CreateOwnGameDetailsViewController: UIViewController {
 
     @IBOutlet weak var summaryTextField: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var answer1Field: UITextField!
+    @IBOutlet weak var answer1Field2: UITextField!
+    @IBOutlet weak var answer1Field3: UITextField!
     
+    @IBOutlet weak var answer1Field4: UITextField!
     @IBOutlet weak var AnswerSwitch1: UISwitch!
     @IBOutlet weak var AnswerSwitch2: UISwitch!
     @IBOutlet weak var AnswerSwitch3: UISwitch!
@@ -159,22 +163,33 @@ class CreateOwnGameDetailsViewController: UIViewController {
         locRecord.setObject(summaryTextField.text, forKey: "summary")
         
         // set Image in CK
-//        if let url = imageURL {
-//            let imageAsset = CKAsset(fileURL: url)
-//            locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
-//                print("asset file url before: \(imageAsset.fileURL)")
-//        }
-//        else {
-//            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
-//            let imageAsset = CKAsset(fileURL: fileURL!)
-//            locRecord.setObject(imageAsset, forKey: "photo")
-//        }
+        if let url = imageURL {
+            let imageAsset = CKAsset(fileURL: url)
+            locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
+                print("asset file url before: \(imageAsset.fileURL)")
+        }
+        else {
+            let fileURL = NSBundle.mainBundle().URLForResource("no_image", withExtension: "png")
+            let imageAsset = CKAsset(fileURL: fileURL!)
+            locRecord.setObject(imageAsset, forKey: "photo")
+        }
         //answers in CK
-//        answerID.setValue(AnswerSwitch1, forKey: "correctAnswer")
-//        answerID.setValue(AnswerSwitch1, forKey: "wrongAnswer1")
-//        answerID.setValue(AnswerSwitch1, forKey: "wrongAnswer2")
-//        answerID.setValue(AnswerSwitch1, forKey: "wrongAnswer3")
-//        
+        locRecord.setObject(answer1Field.text, forKey: "correctAnswer")
+        locRecord.setObject(answer1Field2.text, forKey: "wrongAnswer1")
+        locRecord.setObject(answer1Field3.text, forKey: "wrongAnswer2")
+        locRecord.setObject(answer1Field4.text, forKey: "wrongAnswer3")
+        
+        
+
+//        locRecord.setValue(switchIsChanged(AnswerSwitch1), forKey: "correctAnswer")
+//        locRecord.setValue(switchIsChanged(AnswerSwitch2), forKey: "wrongAnswer1")
+//        locRecord.setValue(switchIsChanged(AnswerSwitch3), forKey: "wrongAnswer2")
+//        locRecord.setValue(switchIsChanged(AnswerSwitch4), forKey: "wrongAnswer3")
+        
+        SwitchValue()
+
+            
+        
 //        let url = imageURL
 //        let imageAsset = CKAsset(fileURL: url!)
 //        locRecord.setObject(imageAsset, forKey: "photo")
@@ -222,8 +237,55 @@ class CreateOwnGameDetailsViewController: UIViewController {
         
         
     }
-
     
+    
+    func switchIsChanged(mySwitch: UISwitch) -> Bool {
+        if mySwitch.on {
+            return true
+        } else {
+           return false
+        }
+    }
+    func SwitchValue(){
+        let identifier = NSUUID().UUIDString //format cle unique
+        let locID = CKRecordID(recordName : identifier)
+        let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
+        
+        if (switchIsChanged(AnswerSwitch1)) {
+            locRecord.setValue(switchIsChanged(AnswerSwitch1), forKey: "correctAnswer")
+            locRecord.setValue(switchIsChanged(AnswerSwitch2), forKey: "wrongAnswer1")
+            locRecord.setValue(switchIsChanged(AnswerSwitch3), forKey: "wrongAnswer2")
+            locRecord.setValue(switchIsChanged(AnswerSwitch4), forKey: "wrongAnswer3")
+        }
+            
+        else if (switchIsChanged(AnswerSwitch2)) {
+            
+            
+            locRecord.setValue(switchIsChanged(AnswerSwitch1), forKey: "wrongAnswer1")
+            locRecord.setValue(switchIsChanged(AnswerSwitch2), forKey: "correctAnswer")
+            locRecord.setValue(switchIsChanged(AnswerSwitch3), forKey: "wrongAnswer2")
+            locRecord.setValue(switchIsChanged(AnswerSwitch4), forKey: "wrongAnswer3")
+            
+        }
+        else if (switchIsChanged(AnswerSwitch3)) {
+            
+            
+            locRecord.setValue(switchIsChanged(AnswerSwitch1), forKey: "wrongAnswer1")
+            locRecord.setValue(switchIsChanged(AnswerSwitch2), forKey: "wrongAnswer2")
+            locRecord.setValue(switchIsChanged(AnswerSwitch3), forKey: "correctAnswer")
+            locRecord.setValue(switchIsChanged(AnswerSwitch4), forKey: "wrongAnswer3")
+            
+        }
+        else {
+            locRecord.setValue(switchIsChanged(AnswerSwitch1), forKey: "wrongAnswer1")
+            locRecord.setValue(switchIsChanged(AnswerSwitch2), forKey: "wrongAnswer2")
+            locRecord.setValue(switchIsChanged(AnswerSwitch3), forKey: "wrongAnswer3")
+            locRecord.setValue(switchIsChanged(AnswerSwitch4), forKey: "correctAnswer")
+            
+        }
+    }
+    
+
     //    func setPhoto() {
     //
     //        if let url = imageURL {

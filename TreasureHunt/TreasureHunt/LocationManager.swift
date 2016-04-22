@@ -183,6 +183,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //        return result
 //        
 //        }
+    
+    
+    
+//    This error means that the file didn't exist when CloudKit tried to upload the file backing the CKAsset to the server. This could be for one of two reasons:
+//    
+//    The fileURL for the asset points at a file that doesn't exist.
+//    The file was removed before the CKModifyRecordsOperation completed.
+//    When saving an asset you need to keep the backing file around until the CKModifyRecordsOperation completes successfully.
+//    
+//    Double-check that the file at the URL you're passing to -[CKAsset initWithFileURL:] can be opened by your process.
 }
-
 
