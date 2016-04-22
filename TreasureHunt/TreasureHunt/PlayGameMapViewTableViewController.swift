@@ -33,6 +33,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     var recordsInRange:[CKRecord] = []
    
     
+    
     var annotationForActiveRecord: MKAnnotation?
     
     var activeLocation: CKRecord? {
@@ -58,8 +59,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-        
-    
+                    print("After delete ============== \(riddleArray.count)")
+
         mapAnotation()
 
         
@@ -99,17 +100,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             
         }
+
+    }
+    
+    func showActiveLocation(notification: NSNotification) {
         
-        
-        
-        
-        
-        
-        
-        // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
-        // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
-        // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
-        // vorige array (property) = nieuwe array
     }
 
     func mapAnotation() {
@@ -130,22 +125,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     
     
-    func showAnnotationForActiveRecord() { // aan te roepen in view will appear bijvoorbeeld
-        
-        
-        // zie onderstaande functie
-        
-        // verwijder de al bestaande annotation
-        if let annotationForActiveRecord = annotationForActiveRecord {
-            mapView.removeAnnotation(annotationForActiveRecord)
-        }
-        
-        else {
-            mapView.addAnnotation(annotationForActiveRecord!)
-        }
-        // voeg een nieuwe annotation toe
-//        annotationForActiveRecord = ...
-    }
     
     // mag weg:
     func setAnotation(latitude: Double, longitude: Double) {
@@ -156,7 +135,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         currentLocation = locManager.location
         
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
         
         
         let anotation = MKPointAnnotation()
@@ -224,6 +202,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
+        
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
                 let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
@@ -248,6 +227,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         let lat = location?.coordinate.latitude
         let long = location?.coordinate.longitude
+        
+        
         
         setAnotation(lat!, longitude: long!)
         walkingRoute(lat!, longitude: long!)
@@ -312,7 +293,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         }
     }
     
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        riddleArray.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        print("After delete ============== \(riddleArray.count)")
+    }
     
     func fetchLocation() {//location opvragen
         
