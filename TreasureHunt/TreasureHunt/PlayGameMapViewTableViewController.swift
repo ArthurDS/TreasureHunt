@@ -30,8 +30,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     
     
-       var array1 = []
-    var arrayInNearby = []
+    var recordsInRange:[CKRecord] = []
+   
     
     var annotationForActiveRecord: MKAnnotation?
     
@@ -66,10 +66,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
-//    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
+    }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
@@ -79,13 +79,40 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func userLocationChanged(notification: NSNotification) {
         
         
+        var currentInRange: [CKRecord] = []
+        
+        for record in self.riddleArray {
+            
+            if locationManager.isNearRecord(record)   {
+            
+            currentInRange.append(record)
+                
+            }
+            
+        }
+        
+        if  recordsInRange != currentInRange  {
+            
+            
+            self.tableView.reloadData()
+            
+            recordsInRange = currentInRange
+            
+            
+        }
+        
+        
+        
+        
+        
+        
         
         // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
         // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
         // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
         // vorige array (property) = nieuwe array
     }
-    
+
     func mapAnotation() {
         self.mapView.delegate = self
         
@@ -201,16 +228,23 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
-//        let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
+                let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
         
-//        if isNearby {
-//            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-//            // stel eventueel selectionstate in
-//        }
-//        else {
-//            // geef de standaard kleur
-//        }
-//        
+                if isNearby {
+        
+        
+                    cell.locationTitleLabel.textColor = UIColor.blueColor()
+        
+                    // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+                    // stel eventueel selectionstate in
+                }
+                else {
+                    // geef de standaard kleur
+                    
+                    cell.locationTitleLabel.textColor = UIColor.greenColor()
+                }
+        
+        
         
         let location = ridRecord.valueForKey("location")
         //let lat = location?.coordinate.latitude

@@ -170,19 +170,22 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     
-//    func isNearRecord(record: CKRecord) -> Bool {
-//        
-//     
-//        let recordLocation = record["location"] as! CLLocation
-//        
-//        let distance = userLocation.distanceFromLocation(recordLocation)
-//        
-//        let result = distance < 1000 ? true : false
-//        
-//        
-//        return result
-//        
-//        }
+    func isNearRecord(record: CKRecord) -> Bool {
+        
+        guard userLocation != nil else {
+            return false
+        }
+     
+        let recordLocation = record["location"] as! CLLocation
+        
+        let distance = userLocation.distanceFromLocation(recordLocation)
+        
+        let result = distance < 20 ? true : false
+        
+        
+        return result
+        
+        }
 }
 
 
