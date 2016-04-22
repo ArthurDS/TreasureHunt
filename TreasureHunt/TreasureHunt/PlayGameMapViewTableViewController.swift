@@ -21,7 +21,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationLabel: UILabel!
     
-    var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
     
     var riddleArray: [CKRecord] = []
@@ -61,6 +60,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         navigationItem.titleView = UIImageView(image: image)
                     print("After delete ============== \(riddleArray.count)")
 
+
         mapAnotation()
 
         
@@ -69,6 +69,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
+        
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -110,23 +112,19 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func mapAnotation() {
         self.mapView.delegate = self
         
-        if mapLocationManager == nil {
-            mapLocationManager = CLLocationManager()
-            mapLocationManager.delegate = self
-            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-            mapLocationManager.requestAlwaysAuthorization()
-            mapLocationManager.startUpdatingLocation()
 
             
-            mapView.showsUserLocation = true
-        }
+        mapView.showsUserLocation = true
+        
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+
+    }
     
     
-    
-    // mag weg:
+
     func setAnotation(latitude: Double, longitude: Double) {
         
         let locManager = CLLocationManager() // kan nu via manager
@@ -210,7 +208,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 if isNearby {
         
         
-                    cell.locationTitleLabel.textColor = UIColor.blueColor()
+                    cell.userInteractionEnabled = true
+                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
         
                     // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
                     // stel eventueel selectionstate in
@@ -218,21 +217,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 else {
                     // geef de standaard kleur
                     
-                    cell.locationTitleLabel.textColor = UIColor.greenColor()
+                    cell.userInteractionEnabled = false
+                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
                 }
         
         
         
-        let location = ridRecord.valueForKey("location")
-        
-        let lat = location?.coordinate.latitude
-        let long = location?.coordinate.longitude
-        
-        
-        
-        setAnotation(lat!, longitude: long!)
-        walkingRoute(lat!, longitude: long!)
-
+       
         cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
         // Game
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
@@ -245,9 +236,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
         
-
+        let latitudeUser = LocationManager.sharedManager.userLocation!.coordinate.latitude
+        let longitudeUser = LocationManager.sharedManager.userLocation!.coordinate.longitude
         
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitudeUser, longitude: longitudeUser), addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), addressDictionary: nil))
         request.requestsAlternateRoutes = false
         request.transportType = .Walking
@@ -297,6 +289,17 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         riddleArray.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         print("After delete ============== \(riddleArray.count)")
+        
+        let firstRecord : CKRecord = self.riddleArray.first!
+        
+        let location = firstRecord.valueForKey("location")
+        
+        let lat = location?.coordinate.latitude
+        let long = location?.coordinate.longitude
+        
+        self.setAnotation(lat!, longitude: long!)
+        self.walkingRoute(lat!, longitude: long!)
+        
     }
     
     func fetchLocation() {//location opvragen
@@ -371,6 +374,19 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     self.tableView.reloadData()
                     
                 loader.removeLoader()
+                    
+                    let firstRecord : CKRecord = self.riddleArray.first!
+                    
+                    let location = firstRecord.valueForKey("location")
+                    
+                    let lat = location?.coordinate.latitude
+                    let long = location?.coordinate.longitude
+                    
+                    
+                    
+                    self.setAnotation(lat!, longitude: long!)
+                    self.walkingRoute(lat!, longitude: long!)
+
                 })
             }
         }

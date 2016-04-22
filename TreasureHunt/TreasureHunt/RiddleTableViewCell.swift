@@ -15,6 +15,7 @@ class RiddleTableViewCell: UITableViewCell {
     @IBOutlet weak var signRight: UIImageView!
     @IBOutlet weak var signLeft: UIImageView!
     
+    @IBOutlet weak var mistyLayer: UIView!
     @IBOutlet weak var riddleCellBackground: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
     override func awakeFromNib() {

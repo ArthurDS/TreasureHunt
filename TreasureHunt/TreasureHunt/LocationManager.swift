@@ -41,6 +41,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
+            self.userLocation = locationManager.location
         }
     }
     

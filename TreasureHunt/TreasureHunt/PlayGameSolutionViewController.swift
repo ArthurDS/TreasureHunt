@@ -48,7 +48,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationItem.titleView = UIImageView(image: image)
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.setHidesBackButton(false, animated: false)
         
         fillTheLabels()
         createButtons()
