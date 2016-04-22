@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */; };
-		BE002AA61CC8F3C1008D7FA8 /* no_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BE002AA51CC8F3C1008D7FA8 /* no_image.png */; };
 		BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */; };
 		BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */; };
 		BE336B091CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */; };
@@ -58,7 +57,6 @@
 /* Begin PBXFileReference section */
 		5B0E2A27BA626B6DB4F316D5 /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
 		6298F75DFF686824FD0C2E66 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
-		BE002AA51CC8F3C1008D7FA8 /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_image.png; path = "../../../../../Downloads/CloudDemo kopie/CloudDemo/no_image.png"; sourceTree = "<group>"; };
 		BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
 		BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */,
 				BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */,
 				BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */,
-				BE002AA51CC8F3C1008D7FA8 /* no_image.png */,
 				BE336B101CC6184400B2BFDB /* Game.swift */,
 			);
 			name = NewViewControllers;
@@ -286,7 +283,6 @@
 			files = (
 				BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */,
 				BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */,
-				BE002AA61CC8F3C1008D7FA8 /* no_image.png in Resources */,
 				BE72F63D1CBBBED500976D47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

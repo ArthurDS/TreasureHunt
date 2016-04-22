@@ -69,7 +69,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func createButtons() {
-        answerButton1.layer.cornerRadius = 10
+        
+        answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
@@ -77,14 +78,15 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
-        
-        answerButton3.layer.cornerRadius = 10
+        answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
+
+        answerButton3.layer.cornerRadius = 20
         answerButton3.layer.borderWidth = 2
         answerButton3.layer.borderColor = UIColor.blackColor().CGColor
         answerButton3.setTitle(ridlleRecord.valueForKey("wrongAnswer2")as? String, forState: .Normal)
         
         
-        answerButton4.layer.cornerRadius = 10
+        answerButton4.layer.cornerRadius = 20
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         answerButton4.setTitle(ridlleRecord.valueForKey("wrongAnswer3")as? String, forState: .Normal)            }
@@ -97,8 +99,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
-        
-//        self.answerButton1.titleLabel!.text = answerRecord.valueForKey("answer") as? String
+       
+
     }
     
     func countdown() {
@@ -115,7 +117,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func timesupAlert() {
-        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunatly your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunately your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
         
         let yourImage = UIImage(named: "catson")
         var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
