@@ -86,6 +86,37 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         // vorige array (property) = nieuwe array
     }
     
+    
+
+//
+//
+//        let ridrecord: CKRecord
+//
+//        
+//        let isNearby = LocationManager.sharedManager.isNearRecord(ridrecord)
+//        
+//        if isNearby  {
+//            
+//            
+//            arrayInNearby.append(isNearby)
+//            
+//        }
+//
+//        if array1 != arrayInNearby {
+//            
+//            
+//            self.tableView.reloadData()
+//            
+//            array1 = arrayInNearby
+//        }
+//        
+//        
+//        // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
+//        // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
+//        // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
+//        // vorige array (property) = nieuwe array
+//    }
+    
     func mapAnotation() {
         self.mapView.delegate = self
         
@@ -202,6 +233,20 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
 //        let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
+//        
+//        if isNearby {
+//            
+//            
+//            cell.backgroundColor = UIColor.blueColor()
+//            
+//            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+//            // stel eventueel selectionstate in
+//        }
+//        else {
+//            // geef de standaard kleur
+//            
+//            cell.backgroundColor = UIColor.greenColor()
+//        }
         
 //        if isNearby {
 //            // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
@@ -340,6 +385,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             }
             else {
                 loader.showLoader()
+                
                 print(results)
                 
                 self.riddleArray = results!
@@ -347,6 +393,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.tableView.hidden = false
                     self.tableView.reloadData()
+                    
                 loader.removeLoader()
                 })
             }

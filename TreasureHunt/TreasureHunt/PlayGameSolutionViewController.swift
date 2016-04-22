@@ -69,7 +69,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func createButtons() {
-        answerButton1.layer.cornerRadius = 10
+        
+        answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
@@ -85,7 +86,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton3.setTitle(ridlleRecord.valueForKey("wrongAnswer2")as? String, forState: .Normal)
         
         
-        answerButton4.layer.cornerRadius = 10
+        answerButton4.layer.cornerRadius = 20
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
         answerButton4.setTitle(ridlleRecord.valueForKey("wrongAnswer3")as? String, forState: .Normal)            }
@@ -116,7 +117,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func timesupAlert() {
-        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunatly your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunately your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
         
         let yourImage = UIImage(named: "catson")
         var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
