@@ -521,6 +521,40 @@
                                     <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="zDM-Sh-9gB"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deductionCell" rowHeight="98" id="mm5-bm-DXT" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="368" width="320" height="98"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm5-bm-DXT" id="1ev-DH-ljN">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Old Town Hall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-HY-VGf">
+                                            <rect key="frame" x="40" y="1" width="244" height="53"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-yv-yZl">
+                                            <rect key="frame" x="8" y="22" width="30" height="15"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-9p-9Ho">
+                                            <rect key="frame" x="63" y="52" width="197" height="18"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="11"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="wgW-81-cfQ">
+                                            <rect key="frame" x="282" y="22" width="30" height="15"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameTitleLabel" destination="QUM-9p-9Ho" id="AzL-hX-DRS"/>
+                                    <outlet property="locationTitleLabel" destination="Xd1-HY-VGf" id="Gad-Dm-dFV"/>
+                                    <outlet property="signLeft" destination="Ntd-yv-yZl" id="m6k-A5-IVU"/>
+                                    <outlet property="signRight" destination="wgW-81-cfQ" id="xsk-gr-2HF"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="vvK-kd-vBj" id="DZF-1v-04g"/>
@@ -536,6 +570,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1088" y="465"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SQb-tz-ugq">
+            <objects>
+                <viewController id="JHn-GK-sQN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dRh-IW-8Xs"/>
+                        <viewControllerLayoutGuide type="bottom" id="U0P-Jt-r8Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5nw-Yv-TrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088" y="-181"/>
         </scene>
         <!--Create Own Game Table View Controller-->
         <scene sceneID="evV-8q-iml">
