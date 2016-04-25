@@ -29,7 +29,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     
     
-    
+    var textNamesArray : [String] = []
     var ridlleRecord : CKRecord!
     var answerRecord : CKRecord!
     
@@ -64,7 +64,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         fillTheLabels()
         createButtons()
         rotateClock()
-        makePictureOld()
+        makePictureOld(
+        randomButton())
     }
     
     
@@ -246,20 +247,28 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
      // Pass the selected object to the new view controller.
      }
      */
-    
-    //    @IBAction func answer1Button(sender: AnyObject) {
-    //
-    //
-    //        if answerButton1.titleLabel!.text == "Abraham" || answerButton1.titleLabel!.text == "1561" || answerButton1.titleLabel!.text == "450" || answerButton1.titleLabel!.text == "Cloth Hall" || answerButton1.titleLabel!.text == "Fochplein"
-    //        {
-    //
-    //            print ("correct answer")
-    //
-    //        }  else  {
-    //
-    //            print ("wrong answer")
-    //
+
+    func randomButton(){
+        let textName1 = ridlleRecord.valueForKey("correctAnswer")as? String
+        let textName2 = ridlleRecord.valueForKey("wrongAnswer1")as? String
+        let textName3 = ridlleRecord.valueForKey("wrongAnswer2")as? String
+        let textName4 = ridlleRecord.valueForKey("wrongAnswer3")as? String
+        var buttonArray = [answerButton1,answerButton2,answerButton3,answerButton4]
+        textNamesArray = [textName1!,textName2!,textName3!,textName4!]
+        srandom(UInt32(NSDate().timeIntervalSince1970))
+        
+        for button in buttonArray{
+            let choice = random() % textNamesArray.count
+            //            print(choice)
+            let textName =  textNamesArray[choice]
+            
+            button.setTitle(textName, forState: .Normal)
+            textNamesArray.removeAtIndex(choice)
+
+        }
+    }
 }
+
 
 
 
