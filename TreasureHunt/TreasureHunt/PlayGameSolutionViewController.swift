@@ -25,8 +25,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     @IBOutlet weak var handsImage: UIImageView!
     
+    @IBOutlet weak var clockImage: UIImageView!
     
-  
+    
     
     
     var ridlleRecord : CKRecord!
@@ -38,14 +39,15 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     let image = UIImage(named: "sherlockmini")
     
     var clock = NSTimer()
-    var timer = 10
+    var timer = 180
     let kAnimationKey = "rotation"
+    var correctAnswer: String!
     
     
     override func viewDidLoad() {
         
         
-       
+        
         
         
         super.viewDidLoad()
@@ -55,6 +57,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationItem.titleView = UIImageView(image: image)
         self.navigationItem.setHidesBackButton(false, animated: false)
+        correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
+        
         
         countdown()
         fillTheLabels()
@@ -64,10 +68,11 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     
+    
     func rotateClock() {
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 250
+            animate.duration = 300
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
@@ -86,7 +91,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
         
-      
+        
         answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
@@ -116,6 +121,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     func countdown() {
+        
         if timer > 0 {
             timerLabel.text = String(timer)
             timer -= 1
@@ -128,6 +134,21 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
+    
+//    func changeTintClock() {
+//        if timer > 120 {
+//            clockImage.tintColor = UIColor.greenColor()
+//            print("green")
+//        }
+//        else if timer > 60 {
+//            clockImage.tintColor = UIColor.orangeColor()
+//            print("orange")
+//        }
+//        else {
+//            clockImage.tintColor = UIColor.redColor()
+//            print("red")
+//        }
+//    }
     
     func timesupAlert() {
         let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunately your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
@@ -162,7 +183,60 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
     }
     
+    @IBAction func answerButton1WasPressed(sender: AnyObject) {
+        if (checkAnswer(answerButton1) ) {
+            print("this is the correctAnswer")
+        }
+        else {
+            print("Wrong!!!!")
+            
+        }
+    }
     
+    @IBAction func answerButton2WasPressed(sender: AnyObject) {
+        if (checkAnswer(answerButton2)){
+            print("this is the correctAnswer")
+        }
+        else {
+            print("Wrong!!!!")
+            
+        }
+        
+    }
+    
+    @IBAction func answerButton3WasPressed(sender: AnyObject) {
+        if (checkAnswer((answerButton3)!)){
+            print("this is the correctAnswer")
+        }
+        else {
+            print("Wrong!!!!")
+            
+        }
+        
+    }
+    @IBAction func answerButton4WasPressed(sender: AnyObject) {
+        if (checkAnswer(answerButton4!)) {
+            print("this is the correctAnswer")
+        }
+            
+        else  {
+            print("Wrong!!!!")
+            
+        }
+    }
+    
+    
+    
+    func checkAnswer(myButton: UIButton) -> Bool {
+        if (myButton.titleLabel?.text == correctAnswer)
+        {
+            return true
+        }
+        else {
+            return false
+        }
+        //self.performSegueWithIdentifier("riddeID", sender: self)
+    }
     /*
      // MARK: - Navigation
      
@@ -173,23 +247,23 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
      }
      */
     
-    @IBAction func answer1Button(sender: AnyObject) {
-        
-        
-        if answerButton1.titleLabel!.text == "Abraham" || answerButton1.titleLabel!.text == "1561" || answerButton1.titleLabel!.text == "450" || answerButton1.titleLabel!.text == "Cloth Hall" || answerButton1.titleLabel!.text == "Fochplein"
-        {
-            
-            print ("correct answer")
-            
-        }  else  {
-            
-            print ("wrong answer")
-            
-        }
-        
-    }
-    
-
-    
-    
+    //    @IBAction func answer1Button(sender: AnyObject) {
+    //
+    //
+    //        if answerButton1.titleLabel!.text == "Abraham" || answerButton1.titleLabel!.text == "1561" || answerButton1.titleLabel!.text == "450" || answerButton1.titleLabel!.text == "Cloth Hall" || answerButton1.titleLabel!.text == "Fochplein"
+    //        {
+    //
+    //            print ("correct answer")
+    //
+    //        }  else  {
+    //
+    //            print ("wrong answer")
+    //
 }
+
+
+
+
+
+
+
