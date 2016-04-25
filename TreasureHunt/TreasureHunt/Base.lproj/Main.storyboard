@@ -521,7 +521,7 @@
                                     <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="zDM-Sh-9gB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="98" id="mm5-bm-DXT" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deductionCell" rowHeight="98" id="mm5-bm-DXT" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="368" width="320" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm5-bm-DXT" id="1ev-DH-ljN">
