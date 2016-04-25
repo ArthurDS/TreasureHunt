@@ -35,7 +35,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     let image = UIImage(named: "sherlockmini")
     
     var clock = NSTimer()
-    var timer = 60
+    var timer = 10
     let kAnimationKey = "rotation"
     
     
@@ -50,6 +50,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         navigationItem.titleView = UIImageView(image: image)
         self.navigationItem.setHidesBackButton(true, animated: true)
         
+        countdown()
         fillTheLabels()
         createButtons()
         rotateClock()
@@ -60,12 +61,16 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     func rotateClock() {
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 100
+            animate.duration = 250
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
             handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
         }
+    }
+    
+    func stopRotatingClock() {
+        handsImage.layer.removeAllAnimations()
     }
     
     func createButtons() {
@@ -99,8 +104,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.locationImageView?.contentMode = UIViewContentMode.ScaleToFill
         
         self.summaryLabel.text = ridlleRecord.valueForKey("summary") as? String
-       
-
+        
+        
     }
     
     func countdown() {
@@ -112,6 +117,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             
             clock.invalidate()
             timesupAlert()
+            stopRotatingClock()
             self.navigationController?.popViewControllerAnimated(true)
         }
     }

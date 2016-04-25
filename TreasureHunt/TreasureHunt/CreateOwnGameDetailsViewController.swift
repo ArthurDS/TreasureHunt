@@ -44,7 +44,13 @@ class CreateOwnGameDetailsViewController: UIViewController {
         //scrollView = UIScrollView(frame: view.bounds)
         
         context = CIContext(options: nil)
-        currentFilter = CIFilter(name: "CISepiaTone")    }
+        currentFilter = CIFilter(name: "CISepiaTone")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+    
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,7 +64,34 @@ class CreateOwnGameDetailsViewController: UIViewController {
     
     // Take and save a picture
     
+    func registerForKeyboardNotifications()
+    {
+        //Adding notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func deregisterFromKeyboardNotifications()
+    {
+        //Removing notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        
+        self.view.frame.origin.y = -197
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+
+    
     var cameraUI: UIImagePickerController! = UIImagePickerController()
+    
     
     //--- Take Photo from Camera ---//
 //    @IBAction func takePhotoFromCamera(sender: AnyObject)
@@ -230,6 +263,8 @@ class CreateOwnGameDetailsViewController: UIViewController {
         self.delegate?.addQuestionViewControllerSavePressed(self)
         
     }
+    
+
     
     func saveImageLocally() { //om een file aanmaken
         
