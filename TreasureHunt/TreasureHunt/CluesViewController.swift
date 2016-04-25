@@ -19,11 +19,34 @@ class CluesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideTheButtons()
+       
+//        hideTheButtons()
+        createButtons()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func createButtons() {
+       
+        answerButton1.layer.cornerRadius = 20
+        answerButton1.layer.borderWidth = 2
+        answerButton1.layer.borderColor = UIColor.blackColor().CGColor
+        
+        
+        answerButton2.layer.cornerRadius = 20
+        answerButton2.layer.borderWidth = 2
+        answerButton2.layer.borderColor = UIColor.blackColor().CGColor
+        
+        answerButton3.layer.cornerRadius = 20
+        answerButton3.layer.borderWidth = 2
+        answerButton3.layer.borderColor = UIColor.blackColor().CGColor
+        
+        
+        answerButton4.layer.cornerRadius = 20
+        answerButton4.layer.borderWidth = 2
+        answerButton4.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     func hideTheButtons() {
@@ -55,6 +78,10 @@ class CluesViewController: UIViewController {
         answerButton4.hidden = false
         answerButton4.userInteractionEnabled = true
     }
+    
+    
+    
+
     
     
     
