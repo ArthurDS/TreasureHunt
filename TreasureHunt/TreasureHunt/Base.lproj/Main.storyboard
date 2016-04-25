@@ -578,15 +578,15 @@
             </objects>
             <point key="canvasLocation" x="1088" y="465"/>
         </scene>
-        <!--View Controller-->
+        <!--Clues View Controller-->
         <scene sceneID="SQb-tz-ugq">
             <objects>
-                <viewController id="JHn-GK-sQN" sceneMemberID="viewController">
+                <viewController id="JHn-GK-sQN" customClass="CluesViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dRh-IW-8Xs"/>
                         <viewControllerLayoutGuide type="bottom" id="U0P-Jt-r8Y"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc">
+                    <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc" customClass="Clues">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -614,6 +614,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="answerButton3" destination="gNE-0r-ZzA" id="GsT-0j-U0f"/>
+                        <outlet property="answerButton4" destination="Xal-BO-LdV" id="GSN-ck-dNA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nw-Yv-TrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
