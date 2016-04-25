@@ -590,26 +590,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8997626e1edd86d05240e738ff137f9b" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-Jh-P6T">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
-                                <rect key="frame" x="20" y="429" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
-                                <rect key="frame" x="180" y="496" width="120" height="59"/>
+                                <rect key="frame" x="174" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
-                                <rect key="frame" x="180" y="429" width="120" height="59"/>
+                                <rect key="frame" x="174" y="153" width="120" height="59"/>
                                 <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
-                                <rect key="frame" x="20" y="496" width="120" height="59"/>
+                                <rect key="frame" x="25" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
+                                <rect key="frame" x="25" y="153" width="120" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wood_kitchen_table_built" translatesAutoresizingMaskIntoConstraints="NO" id="irb-Ua-urx">
+                                <rect key="frame" x="0.0" y="390" width="320" height="239"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="217549-Blond-Ladys-Wig-color-png" translatesAutoresizingMaskIntoConstraints="NO" id="K6F-l3-RJY">
+                                <rect key="frame" x="216" y="339" width="84" height="95"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hammer-tools-clip-art-mrs-ks-clip-art-and-more-1" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
+                                <rect key="frame" x="66" y="438" width="60" height="60"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1019,8 +1031,12 @@
     </scenes>
     <resources>
         <image name="20150516_555778654c3bb" width="730" height="1095"/>
+        <image name="217549-Blond-Ladys-Wig-color-png" width="160" height="160"/>
+        <image name="8997626e1edd86d05240e738ff137f9b" width="736" height="552"/>
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
+        <image name="Wood_kitchen_table_built" width="1040" height="678"/>
+        <image name="hammer-tools-clip-art-mrs-ks-clip-art-and-more-1" width="463" height="480"/>
         <image name="hands" width="174" height="174"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
