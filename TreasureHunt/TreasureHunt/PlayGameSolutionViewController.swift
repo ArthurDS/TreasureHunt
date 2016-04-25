@@ -129,7 +129,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         }
         else if timer > 60 {
             clockImage.image = UIImage(named: "clock2")
-            print("orange")
             timer -= 1
         }
         else if timer > 0 {
@@ -164,6 +163,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         alert.view.addSubview(imageView)
         alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+
+
         
         self.presentViewController(alert, animated: true, completion: nil)
         
