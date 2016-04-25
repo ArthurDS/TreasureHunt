@@ -59,7 +59,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.navigationItem.setHidesBackButton(false, animated: false)
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
         
-        
         countdown()
         fillTheLabels()
         createButtons()

@@ -21,6 +21,7 @@ let LocationManagerDidUpdateLocation = "locationManagerDidUpdateLocation"
 
 
 
+
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     static let sharedManager = LocationManager()
@@ -28,7 +29,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     
     var userLocation: CLLocation!
-    
 
     
     private override init() {

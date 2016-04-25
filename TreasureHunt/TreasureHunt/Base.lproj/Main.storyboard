@@ -528,28 +528,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Old Town Hall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-HY-VGf">
-                                            <rect key="frame" x="40" y="1" width="244" height="53"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-yv-yZl">
+                                            <rect key="frame" x="8" y="22" width="30" height="15"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="wgW-81-cfQ">
+                                            <rect key="frame" x="282" y="22" width="30" height="15"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deduction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-HY-VGf">
+                                            <rect key="frame" x="38" y="22" width="244" height="53"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-yv-yZl">
-                                            <rect key="frame" x="8" y="22" width="30" height="15"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Curse of the Socialist Mayor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-9p-9Ho">
-                                            <rect key="frame" x="63" y="52" width="197" height="18"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="11"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="wgW-81-cfQ">
-                                            <rect key="frame" x="282" y="22" width="30" height="15"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="gameTitleLabel" destination="QUM-9p-9Ho" id="AzL-hX-DRS"/>
                                     <outlet property="locationTitleLabel" destination="Xd1-HY-VGf" id="Gad-Dm-dFV"/>
                                     <outlet property="signLeft" destination="Ntd-yv-yZl" id="m6k-A5-IVU"/>
                                     <outlet property="signRight" destination="wgW-81-cfQ" id="xsk-gr-2HF"/>
@@ -593,6 +586,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8997626e1edd86d05240e738ff137f9b" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-Jh-P6T">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wood_kitchen_table_built" translatesAutoresizingMaskIntoConstraints="NO" id="irb-Ua-urx">
+                                <rect key="frame" x="0.0" y="390" width="320" height="239"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hanging_side_round_birdcage_by_madetobeunique-d3arfyr" translatesAutoresizingMaskIntoConstraints="NO" id="For-d8-NiV">
+                                <rect key="frame" x="-16" y="124" width="310" height="258"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
                                 <rect key="frame" x="174" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -613,14 +612,17 @@
                                 <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wood_kitchen_table_built" translatesAutoresizingMaskIntoConstraints="NO" id="irb-Ua-urx">
-                                <rect key="frame" x="0.0" y="390" width="320" height="239"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12065628201889940800mystica_Hammer.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
+                                <rect key="frame" x="147" y="417" width="95" height="58"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="217549-Blond-Ladys-Wig-color-png" translatesAutoresizingMaskIntoConstraints="NO" id="K6F-l3-RJY">
-                                <rect key="frame" x="216" y="339" width="84" height="95"/>
+                                <rect key="frame" x="180" y="309" width="109" height="124"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hammer-tools-clip-art-mrs-ks-clip-art-and-more-1" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
-                                <rect key="frame" x="66" y="438" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bible-And-Cross" translatesAutoresizingMaskIntoConstraints="NO" id="wIG-Qf-UhH">
+                                <rect key="frame" x="36" y="430" width="99" height="69"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12231396322000101003Scale_of_justice_2.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-hH-3Mb">
+                                <rect key="frame" x="15" y="315" width="113" height="112"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1026,14 +1028,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="12065628201889940800mystica_Hammer.svg.hi" width="600" height="376"/>
+        <image name="12231396322000101003Scale_of_justice_2.svg.hi" width="600" height="601"/>
         <image name="20150516_555778654c3bb" width="730" height="1095"/>
         <image name="217549-Blond-Ladys-Wig-color-png" width="160" height="160"/>
         <image name="8997626e1edd86d05240e738ff137f9b" width="736" height="552"/>
+        <image name="Bible-And-Cross" width="350" height="285"/>
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
-        <image name="hammer-tools-clip-art-mrs-ks-clip-art-and-more-1" width="463" height="480"/>
         <image name="hands" width="174" height="174"/>
+        <image name="hanging_side_round_birdcage_by_madetobeunique-d3arfyr" width="800" height="640"/>
         <image name="image92" width="550" height="70"/>
         <image name="logo" width="363" height="267"/>
         <image name="old_paper_stock_02_by_ftourini-d48ubt0-1" width="600" height="421"/>
