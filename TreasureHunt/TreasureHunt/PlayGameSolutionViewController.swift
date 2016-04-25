@@ -38,7 +38,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     let image = UIImage(named: "sherlockmini")
     
     var clock = NSTimer()
-    var timer = 10
+    var timer = 60
     let kAnimationKey = "rotation"
     
     
@@ -67,7 +67,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     func rotateClock() {
         if handsImage.layer.animationForKey(kAnimationKey) == nil {
             let animate = CABasicAnimation(keyPath: "transform.rotation")
-            animate.duration = 250
+            animate.duration = 300
             animate.repeatCount = Float.infinity
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
