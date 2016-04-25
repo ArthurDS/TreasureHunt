@@ -22,9 +22,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     @IBOutlet weak var destinationLabel: UILabel!
     
     var myLocations: [CLLocation] = []
-      var gameSelected : CKRecord!
+    var gameSelected : CKRecord!
+    var singleRiddle: CKRecord!
     var riddleArray: [CKRecord] = []
-    var riddleArrayByIDGame = []
+    var riddleArrayByIDGame: [CKRecord] = []
     let location = CLLocationManager()
     var isInitialized = false
     
@@ -67,21 +68,18 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
     }
     
-//    func searchAllRiddlesForIdGame(){
-//        let idGame = gameSelected.valueForKey("id_Game") as! String
-//        print("my game is %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \(idGame)")
-//        let id_Riddle = riddleArray.valueForKey("id_Riddle") as! String
-//        // print("my riddle is %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \(id_Riddle)")
-//        
-//        
-//        for record in riddleArray{
-//            
-//            if(riddleArray.valueForKey("id_Riddle") == idGame){
-//                riddleArrayByIDGame.append(record)
-//                
-//            }
-//        }
-//    }
+    func searchAllRiddlesForIdGame(){
+        let idGame = gameSelected.valueForKey("id_Game") as? Int
+     
+        
+        for record in riddleArray{
+            
+            if(singleRiddle.valueForKey("id_Game") as? Int == idGame){
+                riddleArrayByIDGame.append(record)
+                
+            }
+        }
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
