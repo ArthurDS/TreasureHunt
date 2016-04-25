@@ -15,13 +15,16 @@ class CluesViewController: UIViewController {
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var Clue1: UIImageView!
+    @IBOutlet weak var Clue2: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-//        hideTheButtons()
+        hideTheButtons()
         createButtons()
+        hideClues()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +50,15 @@ class CluesViewController: UIViewController {
         answerButton4.layer.cornerRadius = 20
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    func hideClues() {
+        Clue1.hidden = true
+        Clue2.hidden = true
+        
+    }
+    
+    func showClues() {
+        
     }
     
     func hideTheButtons() {

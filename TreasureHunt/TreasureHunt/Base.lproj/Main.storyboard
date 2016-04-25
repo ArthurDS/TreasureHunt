@@ -596,22 +596,30 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
                                 <rect key="frame" x="174" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
                                 <rect key="frame" x="174" y="153" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
                                 <rect key="frame" x="25" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
                                 <rect key="frame" x="25" y="153" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wood_kitchen_table_built" translatesAutoresizingMaskIntoConstraints="NO" id="irb-Ua-urx">
                                 <rect key="frame" x="0.0" y="390" width="320" height="239"/>
@@ -627,6 +635,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="Clue1" destination="FW9-TD-Q0X" id="81h-Gu-2fu"/>
+                        <outlet property="Clue2" destination="K6F-l3-RJY" id="7HS-24-hjg"/>
                         <outlet property="answerButton1" destination="gNE-0r-ZzA" id="e0e-9C-xvE"/>
                         <outlet property="answerButton2" destination="lyV-zi-c4r" id="ZMF-En-Gv1"/>
                         <outlet property="answerButton3" destination="Xal-BO-LdV" id="xg9-1d-0kx"/>
