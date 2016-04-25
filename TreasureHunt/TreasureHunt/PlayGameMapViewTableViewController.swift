@@ -22,8 +22,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     @IBOutlet weak var destinationLabel: UILabel!
     
     var myLocations: [CLLocation] = []
-    
+      var gameSelected : CKRecord!
     var riddleArray: [CKRecord] = []
+    var riddleArrayByIDGame = []
     let location = CLLocationManager()
     var isInitialized = false
     
@@ -65,6 +66,22 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
 
         
     }
+    
+//    func searchAllRiddlesForIdGame(){
+//        let idGame = gameSelected.valueForKey("id_Game") as! String
+//        print("my game is %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \(idGame)")
+//        let id_Riddle = riddleArray.valueForKey("id_Riddle") as! String
+//        // print("my riddle is %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \(id_Riddle)")
+//        
+//        
+//        for record in riddleArray{
+//            
+//            if(riddleArray.valueForKey("id_Riddle") == idGame){
+//                riddleArrayByIDGame.append(record)
+//                
+//            }
+//        }
+//    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

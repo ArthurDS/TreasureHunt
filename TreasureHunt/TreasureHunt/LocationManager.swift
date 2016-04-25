@@ -44,7 +44,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             self.userLocation = locationManager.location
         }
     }
-    
+     
     func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         let identifier = NSUUID().UUIDString

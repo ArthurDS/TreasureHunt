@@ -131,6 +131,16 @@ class PickGameTableViewController: UITableViewController {
             }
             
         }
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let playgameController = segue.destinationViewController as! PlayGameMapViewTableViewController
+        let indexSelected = tableView.indexPathForSelectedRow
+        let selectedGame = gameArray[(indexSelected?.row)!]
+        
+        playgameController.gameSelected = selectedGame
     }
     
     /*
