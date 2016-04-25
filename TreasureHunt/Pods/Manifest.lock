@@ -1,0 +1,10 @@
+PODS:
+  - FillableLoaders (1.2.6)
+
+DEPENDENCIES:
+  - FillableLoaders
+
+SPEC CHECKSUMS:
+  FillableLoaders: 26266e9e0550608d79ef529809cf7ca4e0bf16c7
+
+COCOAPODS: 0.39.0
