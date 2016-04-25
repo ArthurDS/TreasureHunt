@@ -50,7 +50,7 @@ class StartGameViewController: UIViewController {
         catAnimation.animationDuration = 1.0
         catAnimation.startAnimating()
         
-
+        LocationManager.sharedManager
 
     }
     

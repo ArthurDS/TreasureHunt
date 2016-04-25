@@ -41,9 +41,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
+            self.userLocation = locationManager.location
         }
     }
-    
+     
     func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         let identifier = NSUUID().UUIDString

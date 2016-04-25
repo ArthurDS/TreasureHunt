@@ -21,10 +21,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationLabel: UILabel!
     
-    var mapLocationManager: CLLocationManager!
     var myLocations: [CLLocation] = []
-    
+    var gameSelected : CKRecord!
+    var singleRiddle: CKRecord!
     var riddleArray: [CKRecord] = []
+    var riddleArrayByIDGame: [CKRecord] = []
     let location = CLLocationManager()
     var isInitialized = false
     
@@ -32,6 +33,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     var recordsInRange:[CKRecord] = []
    
+    
     
     var annotationForActiveRecord: MKAnnotation?
     
@@ -58,16 +60,32 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-        
-    
+                    print("After delete ============== \(riddleArray.count)")
+
+
         mapAnotation()
 
         
     }
     
+    func searchAllRiddlesForIdGame(){
+        let idGame = gameSelected.valueForKey("id_Game") as? Int
+     
+        
+        for record in riddleArray{
+            
+            if(singleRiddle.valueForKey("id_Game") as? Int == idGame){
+                riddleArrayByIDGame.append(record)
+                
+            }
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
+        
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -99,55 +117,29 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             
         }
+
+    }
+    
+    func showActiveLocation(notification: NSNotification) {
         
-        
-        
-        
-        
-        
-        
-        // Hou bij welke records in de buurt zijn (als property(nog aan te maken)).
-        // Maak een nieuwe array aan voor alle records die in de buurt zijn en doorloop alle records.
-        // Indien de nieuwe array verschilt van de vorige array (die in de property zit) -> reloadtableview
-        // vorige array (property) = nieuwe array
     }
 
     func mapAnotation() {
         self.mapView.delegate = self
         
-        if mapLocationManager == nil {
-            mapLocationManager = CLLocationManager()
-            mapLocationManager.delegate = self
-            mapLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-            mapLocationManager.requestAlwaysAuthorization()
-            mapLocationManager.startUpdatingLocation()
 
             
-            mapView.showsUserLocation = true
-        }
+        mapView.showsUserLocation = true
+        
         
     }
     
-    
-    
-    func showAnnotationForActiveRecord() { // aan te roepen in view will appear bijvoorbeeld
-        
-        
-        // zie onderstaande functie
-        
-        // verwijder de al bestaande annotation
-        if let annotationForActiveRecord = annotationForActiveRecord {
-            mapView.removeAnnotation(annotationForActiveRecord)
-        }
-        
-        else {
-            mapView.addAnnotation(annotationForActiveRecord!)
-        }
-        // voeg een nieuwe annotation toe
-//        annotationForActiveRecord = ...
+    override func viewDidAppear(animated: Bool) {
+
     }
     
-    // mag weg:
+    
+
     func setAnotation(latitude: Double, longitude: Double) {
         
         let locManager = CLLocationManager() // kan nu via manager
@@ -156,7 +148,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         currentLocation = locManager.location
         
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
         
         
         let anotation = MKPointAnnotation()
@@ -224,34 +215,30 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
+        
         let ridRecord : CKRecord = riddleArray[indexPath.row]
         
                 let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
         
                 if isNearby {
         
-        
-                    cell.locationTitleLabel.textColor = UIColor.blueColor()
-        
+                    cell.userInteractionEnabled = true
+                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+
                     // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
                     // stel eventueel selectionstate in
                 }
                 else {
                     // geef de standaard kleur
-                    
-                    cell.locationTitleLabel.textColor = UIColor.greenColor()
+
+                    cell.userInteractionEnabled = false
+                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+
                 }
         
         
         
-        let location = ridRecord.valueForKey("location")
-        
-        let lat = location?.coordinate.latitude
-        let long = location?.coordinate.longitude
-        
-        setAnotation(lat!, longitude: long!)
-        walkingRoute(lat!, longitude: long!)
-
+       
         cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
         // Game
         cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
@@ -264,9 +251,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
         
-
+        let latitudeUser = LocationManager.sharedManager.userLocation!.coordinate.latitude
+        let longitudeUser = LocationManager.sharedManager.userLocation!.coordinate.longitude
         
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.876281, longitude: 4.70096), addressDictionary: nil))
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitudeUser, longitude: longitudeUser), addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), addressDictionary: nil))
         request.requestsAlternateRoutes = false
         request.transportType = .Walking
@@ -312,7 +300,22 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         }
     }
     
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        riddleArray.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        print("After delete ============== \(riddleArray.count)")
+        
+        let firstRecord : CKRecord = self.riddleArray.first!
+        
+        let location = firstRecord.valueForKey("location")
+        
+        let lat = location?.coordinate.latitude
+        let long = location?.coordinate.longitude
+        
+        self.setAnotation(lat!, longitude: long!)
+        self.walkingRoute(lat!, longitude: long!)
+        
+    }
     
     func fetchLocation() {//location opvragen
         
@@ -386,6 +389,19 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     self.tableView.reloadData()
                     
                 loader.removeLoader()
+                    
+                    let firstRecord : CKRecord = self.riddleArray.first!
+                    
+                    let location = firstRecord.valueForKey("location")
+                    
+                    let lat = location?.coordinate.latitude
+                    let long = location?.coordinate.longitude
+                    
+                    
+                    
+                    self.setAnotation(lat!, longitude: long!)
+                    self.walkingRoute(lat!, longitude: long!)
+
                 })
             }
         }
