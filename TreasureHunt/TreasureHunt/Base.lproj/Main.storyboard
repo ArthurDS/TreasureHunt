@@ -553,6 +553,7 @@
                                     <outlet property="locationTitleLabel" destination="Xd1-HY-VGf" id="Gad-Dm-dFV"/>
                                     <outlet property="signLeft" destination="Ntd-yv-yZl" id="m6k-A5-IVU"/>
                                     <outlet property="signRight" destination="wgW-81-cfQ" id="xsk-gr-2HF"/>
+                                    <segue destination="JHn-GK-sQN" kind="show" id="L0K-fT-cI8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -561,7 +562,13 @@
                             <outlet property="delegate" destination="vvK-kd-vBj" id="eG4-Ub-04x"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UQj-YS-WdO"/>
+                    <navigationItem key="navigationItem" id="UQj-YS-WdO">
+                        <barButtonItem key="rightBarButtonItem" title="Clues" id="JPG-Fv-1ZX">
+                            <connections>
+                                <segue destination="JHn-GK-sQN" kind="show" id="1dp-Rc-r2L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="mdg-si-bt2" id="Dn1-uY-LgO"/>
@@ -582,6 +589,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
+                                <rect key="frame" x="20" y="429" width="120" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
+                                <rect key="frame" x="180" y="496" width="120" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
+                                <rect key="frame" x="180" y="429" width="120" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
+                                <rect key="frame" x="20" y="496" width="120" height="59"/>
+                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -997,4 +1026,7 @@
         <image name="tape" width="195" height="138"/>
         <image name="woodboard" width="768" height="1024"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="L0K-fT-cI8"/>
+    </inferredMetricsTieBreakers>
 </document>
