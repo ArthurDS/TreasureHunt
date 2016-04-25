@@ -222,18 +222,18 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
                 if isNearby {
         
-        
                     cell.userInteractionEnabled = true
                     cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-        
+
                     // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
                     // stel eventueel selectionstate in
                 }
                 else {
                     // geef de standaard kleur
-                    
+
                     cell.userInteractionEnabled = false
                     cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+
                 }
         
         

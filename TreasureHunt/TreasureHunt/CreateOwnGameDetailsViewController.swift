@@ -235,7 +235,7 @@ class CreateOwnGameDetailsViewController: UIViewController {
         
         let imageData: NSData = UIImageJPEGRepresentation(locationImage.image!, 0.8)!
         
-        let path = documentsDirectoryPath.stringByAppendingString(tempImageName)
+        let path = documentsDirectoryPath.stringByAppendingString("/" + tempImageName)
         
         imageURL = NSURL(fileURLWithPath: path)
         

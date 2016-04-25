@@ -26,6 +26,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     @IBOutlet weak var handsImage: UIImageView!
     
     
+  
+    
+    
     var ridlleRecord : CKRecord!
     var answerRecord : CKRecord!
     
@@ -40,6 +43,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     
     override func viewDidLoad() {
+        
+        
+       
         
         
         super.viewDidLoad()
@@ -75,6 +81,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
         answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
         
+      
         answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
@@ -159,5 +166,24 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
      // Pass the selected object to the new view controller.
      }
      */
+    
+    @IBAction func answer1Button(sender: AnyObject) {
+        
+        
+        if answerButton1.titleLabel!.text == "Abraham" || answerButton1.titleLabel!.text == "1561" || answerButton1.titleLabel!.text == "450" || answerButton1.titleLabel!.text == "Cloth Hall" || answerButton1.titleLabel!.text == "Fochplein"
+        {
+            
+            print ("correct answer")
+            
+        }  else  {
+            
+            print ("wrong answer")
+            
+        }
+        
+    }
+    
+
+    
     
 }
