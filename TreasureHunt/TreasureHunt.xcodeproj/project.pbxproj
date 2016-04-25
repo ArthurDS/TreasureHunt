@@ -24,6 +24,7 @@
 		BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */; };
 		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
 		BE9D4E3B1CC8CC2400687594 /* PickGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */; };
+		BEBD808D1CCE328600455162 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD808C1CCE328600455162 /* CluesViewController.swift */; };
 		BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */; };
 		BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */; };
 		BEC5125B1CBBE188000B0DFB /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */; };
@@ -76,6 +77,7 @@
 		BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameTableViewController.swift; sourceTree = "<group>"; };
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGameTableViewCell.swift; sourceTree = "<group>"; };
+		BEBD808C1CCE328600455162 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
 		BEC512551CBBE188000B0DFB /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */,
 				BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */,
 				BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */,
+				BEBD808C1CCE328600455162 /* CluesViewController.swift */,
 				BE336B101CC6184400B2BFDB /* Game.swift */,
 			);
 			name = NewViewControllers;
@@ -357,6 +360,7 @@
 				BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */,
 				BEC5125C1CBBE188000B0DFB /* LocationTableViewController.swift in Sources */,
 				BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */,
+				BEBD808D1CCE328600455162 /* CluesViewController.swift in Sources */,
 				BEC5125F1CBBE196000B0DFB /* DescriptionTableViewCell.swift in Sources */,
 				BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */,
 				BE72F6381CBBBED500976D47 /* AppDelegate.swift in Sources */,

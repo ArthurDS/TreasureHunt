@@ -93,12 +93,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         //answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
         
         
-        answerButton2.layer.cornerRadius = 10
+        answerButton2.layer.cornerRadius = 20
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
        // answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
         
-        answerButton3.layer.cornerRadius = 10
+        answerButton3.layer.cornerRadius = 20
         answerButton3.layer.borderWidth = 2
         answerButton3.layer.borderColor = UIColor.blackColor().CGColor
         //answerButton3.setTitle(ridlleRecord.valueForKey("wrongAnswer2")as? String, forState: .Normal)

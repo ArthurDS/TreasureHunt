@@ -571,15 +571,15 @@
             </objects>
             <point key="canvasLocation" x="1088" y="465"/>
         </scene>
-        <!--View Controller-->
+        <!--Clues View Controller-->
         <scene sceneID="SQb-tz-ugq">
             <objects>
-                <viewController id="JHn-GK-sQN" sceneMemberID="viewController">
+                <viewController id="JHn-GK-sQN" customClass="CluesViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dRh-IW-8Xs"/>
                         <viewControllerLayoutGuide type="bottom" id="U0P-Jt-r8Y"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc">
+                    <view key="view" contentMode="scaleToFill" id="Ngy-rr-wnc" customClass="Clues">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -594,22 +594,22 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
                                 <rect key="frame" x="174" y="81" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
                                 <rect key="frame" x="174" y="153" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
                                 <rect key="frame" x="25" y="81" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
                                 <rect key="frame" x="25" y="153" width="120" height="59"/>
-                                <color key="backgroundColor" red="1" green="0.56540999729999997" blue="0.32135042689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12065628201889940800mystica_Hammer.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
@@ -628,6 +628,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="answerButton1" destination="gNE-0r-ZzA" id="e0e-9C-xvE"/>
+                        <outlet property="answerButton2" destination="lyV-zi-c4r" id="ZMF-En-Gv1"/>
+                        <outlet property="answerButton3" destination="Xal-BO-LdV" id="xg9-1d-0kx"/>
+                        <outlet property="answerButton4" destination="Gga-CR-7KJ" id="XY0-tA-FXH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nw-Yv-TrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -868,7 +874,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HT-8D-kNZ">
                                 <rect key="frame" x="26" y="404" width="130" height="39"/>
-                                <color key="backgroundColor" red="0.75037484219999995" green="0.54258502070000003" blue="0.27680078330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465892914242" blue="0.27900731878255014" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
