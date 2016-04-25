@@ -65,6 +65,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         createButtons()
         rotateClock()
         makePictureOld()
+        changeTintClock()
     }
     
     
@@ -122,7 +123,16 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     func countdown() {
         
-        if timer > 0 {
+        if timer > 120 {
+            clockImage.image = UIImage(named: "clock")
+            timer -= 1
+        }
+        else if timer > 60 {
+            clockImage.image = UIImage(named: "clock2")
+            print("orange")
+            timer -= 1
+        }
+        else if timer > 0 {
             timerLabel.text = String(timer)
             timer -= 1
         }
@@ -135,20 +145,15 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         }
     }
     
-//    func changeTintClock() {
-//        if timer > 120 {
-//            clockImage.tintColor = UIColor.greenColor()
-//            print("green")
-//        }
-//        else if timer > 60 {
-//            clockImage.tintColor = UIColor.orangeColor()
-//            print("orange")
-//        }
-//        else {
-//            clockImage.tintColor = UIColor.redColor()
-//            print("red")
-//        }
-//    }
+    func changeTintClock() {
+        if timer > 120 {
+            clockImage.image = UIImage(named: "clock")
+        }
+        else if timer < 120 {
+            clockImage.image = UIImage(named: "clock2")
+            print("orange")
+        }
+    }
     
     func timesupAlert() {
         let alert = UIAlertController(title: "Catson:", message: "                     Un-furr-tunately your time is up Sherlock...", preferredStyle: UIAlertControllerStyle.Alert)
