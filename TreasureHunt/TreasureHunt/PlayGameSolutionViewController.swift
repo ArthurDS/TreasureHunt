@@ -259,7 +259,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         let textName2 = ridlleRecord.valueForKey("wrongAnswer1")as? String
         let textName3 = ridlleRecord.valueForKey("wrongAnswer2")as? String
         let textName4 = ridlleRecord.valueForKey("wrongAnswer3")as? String
-        var buttonArray = [answerButton1,answerButton2,answerButton3,answerButton4]
+        let buttonArray = [answerButton1,answerButton2,answerButton3,answerButton4]
         textNamesArray = [textName1!,textName2!,textName3!,textName4!]
         srandom(UInt32(NSDate().timeIntervalSince1970))
         
