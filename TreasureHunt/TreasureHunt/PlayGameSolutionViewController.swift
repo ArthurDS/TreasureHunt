@@ -29,7 +29,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     
     
-    
+    var textNamesArray : [String] = []
     var ridlleRecord : CKRecord!
     var answerRecord : CKRecord!
     
@@ -66,6 +66,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         rotateClock()
         makePictureOld()
         changeTintClock()
+        randomButton()
     }
     
     
@@ -90,18 +91,18 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
-        answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
+        //answerButton1.setTitle(ridlleRecord.valueForKey("correctAnswer")as? String, forState: .Normal)
         
         
         answerButton2.layer.cornerRadius = 10
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
-        answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
+       // answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
         
         answerButton3.layer.cornerRadius = 10
         answerButton3.layer.borderWidth = 2
         answerButton3.layer.borderColor = UIColor.blackColor().CGColor
-        answerButton3.setTitle(ridlleRecord.valueForKey("wrongAnswer2")as? String, forState: .Normal)
+        //answerButton3.setTitle(ridlleRecord.valueForKey("wrongAnswer2")as? String, forState: .Normal)
         
         
         answerButton4.layer.cornerRadius = 20
@@ -251,20 +252,28 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
      // Pass the selected object to the new view controller.
      }
      */
-    
-    //    @IBAction func answer1Button(sender: AnyObject) {
-    //
-    //
-    //        if answerButton1.titleLabel!.text == "Abraham" || answerButton1.titleLabel!.text == "1561" || answerButton1.titleLabel!.text == "450" || answerButton1.titleLabel!.text == "Cloth Hall" || answerButton1.titleLabel!.text == "Fochplein"
-    //        {
-    //
-    //            print ("correct answer")
-    //
-    //        }  else  {
-    //
-    //            print ("wrong answer")
-    //
+
+    func randomButton(){
+        let textName1 = ridlleRecord.valueForKey("correctAnswer")as? String
+        let textName2 = ridlleRecord.valueForKey("wrongAnswer1")as? String
+        let textName3 = ridlleRecord.valueForKey("wrongAnswer2")as? String
+        let textName4 = ridlleRecord.valueForKey("wrongAnswer3")as? String
+        var buttonArray = [answerButton1,answerButton2,answerButton3,answerButton4]
+        textNamesArray = [textName1!,textName2!,textName3!,textName4!]
+        srandom(UInt32(NSDate().timeIntervalSince1970))
+        
+        for button in buttonArray{
+            let choice = random() % textNamesArray.count
+            //            print(choice)
+            let textName =  textNamesArray[choice]
+            
+            button.setTitle(textName, forState: .Normal)
+            textNamesArray.removeAtIndex(choice)
+
+        }
+    }
 }
+
 
 
 
