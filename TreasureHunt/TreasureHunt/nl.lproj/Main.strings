@@ -51,7 +51,7 @@
 "cX6-HO-618.text" = "Datum";
 
 /* Class = "UIButton"; normalTitle = "Create game"; ObjectID = "cya-cP-gsn"; */
-"cya-cP-gsn.normalTitle" = "Maak zelf een spel";
+"cya-cP-gsn.normalTitle" = "Creëer een spel";
 
 /* Class = "UILabel"; text = "The Old Town Hall"; ObjectID = "eU3-9u-eaU"; */
 "eU3-9u-eaU.text" = "The Old Town Hall";
