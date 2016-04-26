@@ -15,6 +15,8 @@ class CluesViewController: UIViewController {
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var answerButton1View: UIView!
+    
     @IBOutlet weak var Clue1: UIImageView!
     @IBOutlet weak var Clue2: UIImageView!
     
@@ -74,6 +76,8 @@ class CluesViewController: UIViewController {
         answerButton4.hidden = true
         answerButton4.userInteractionEnabled = false
 
+    }
+    func mistifyButtons() {
     }
     
     func ShowTheButtons() {

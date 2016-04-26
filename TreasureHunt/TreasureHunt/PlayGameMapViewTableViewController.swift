@@ -120,8 +120,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
 
     }
     
-    
-
     func setAnotation(latitude: Double, longitude: Double) {
         
         let locManager = CLLocationManager() // kan nu via manager
@@ -225,7 +223,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
        
         cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
         // Game
-        cell.gameTitleLabel?.text = " " //ridRecord.valueForKey("game_description") as? String
+        cell.gameTitleLabel?.text = ridRecord.valueForKey("game_description") as? String
         
         return cell
         

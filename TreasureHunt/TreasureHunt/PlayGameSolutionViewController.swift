@@ -150,9 +150,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         if timer > 120 {
             clockImage.image = UIImage(named: "clock")
         }
-        else if timer < 120 {
-            clockImage.image = UIImage(named: "clock2")
+        else if timer < 120 && timer > 60 {
+            clockImage.image = UIImage(named: "clock_orange")
             print("orange")
+        }
+        else {
+            clockImage.image = UIImage(named: "clock_red")
         }
     }
     
@@ -167,6 +170,36 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         
         
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    func AnsweredCorrectly() {
+        let alert = UIAlertController(title: "Catson:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let yourImage = UIImage(named: "catson")
+        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    func AnsweredWrong() {
+        let alert = UIAlertController(title: "Catson:", message: "               I'm sorry Purlock, you              probably just have a dog day", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let yourImage = UIImage(named: "catson")
+        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         
         self.presentViewController(alert, animated: true, completion: nil)
         
@@ -196,52 +229,114 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         print(locationManager.riddlesSolvedArray)
     }
     
+    func makeButtonsInactiveAfterAnswering() {
+        answerButton1.userInteractionEnabled = false
+        answerButton2.userInteractionEnabled = false
+        answerButton3.userInteractionEnabled = false
+        answerButton4.userInteractionEnabled = false
+    }
+    
+    func Answer1CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer2CorrectMistify() {
+        answerButton1.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer3CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton1.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer4CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton1.alpha = 0.5
+    }
+    
     @IBAction func answerButton1WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+        stopRotatingClock()
+        Answer1CorrectMistify()
+        
+        
         if (checkAnswer(answerButton1) ) {
             addIfRiddleSolved()
+            makeButtonsInactiveAfterAnswering()
+            AnsweredCorrectly()
+            
             print("this is the correctAnswer")
             
         }
         else {
             print("Wrong!!!!")
-            
+            answerButton1.backgroundColor = UIColor.redColor()
+            AnsweredWrong()
         }
     }
     
     @IBAction func answerButton2WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+        stopRotatingClock()
+        Answer2CorrectMistify()
+        
+        
         if (checkAnswer(answerButton2)){
             addIfRiddleSolved()
+            makeButtonsInactiveAfterAnswering()
+            AnsweredCorrectly()
+            
             print("this is the correctAnswer")
         }
         else {
             print("Wrong!!!!")
+            AnsweredWrong()
+            answerButton2.backgroundColor = UIColor.redColor()
             
         }
-        
     }
     
     @IBAction func answerButton3WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+        stopRotatingClock()
+        Answer3CorrectMistify()
+        
+        
         if (checkAnswer((answerButton3)!)){
             addIfRiddleSolved()
+            AnsweredCorrectly()
             print("this is the correctAnswer")
         }
         else {
             print("Wrong!!!!")
-            
+            AnsweredWrong()
+            answerButton3.backgroundColor = UIColor.redColor()
+
         }
-        
     }
+    
     @IBAction func answerButton4WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+        stopRotatingClock()
+        Answer4CorrectMistify()
+        
+        
         if (checkAnswer(answerButton4!)) {
-           addIfRiddleSolved()
+            addIfRiddleSolved()
+            AnsweredCorrectly()
             print("this is the correctAnswer")
         }
             
         else  {
             print("Wrong!!!!")
-            
+            answerButton4.backgroundColor = UIColor.redColor()
+            AnsweredWrong()
         }
     }
+    
     
     
     

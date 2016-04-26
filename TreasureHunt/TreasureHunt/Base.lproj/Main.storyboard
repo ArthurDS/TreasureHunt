@@ -583,6 +583,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-xO-Wnf">
+                                <rect key="frame" x="25" y="81" width="120" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8997626e1edd86d05240e738ff137f9b" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-Jh-P6T">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
@@ -609,6 +613,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
                                 <rect key="frame" x="25" y="81" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -640,6 +645,7 @@
                         <outlet property="Clue1" destination="FW9-TD-Q0X" id="81h-Gu-2fu"/>
                         <outlet property="Clue2" destination="K6F-l3-RJY" id="7HS-24-hjg"/>
                         <outlet property="answerButton1" destination="gNE-0r-ZzA" id="e0e-9C-xvE"/>
+                        <outlet property="answerButton1View" destination="PpX-xO-Wnf" id="eTC-SZ-uOx"/>
                         <outlet property="answerButton2" destination="lyV-zi-c4r" id="ZMF-En-Gv1"/>
                         <outlet property="answerButton3" destination="Xal-BO-LdV" id="xg9-1d-0kx"/>
                         <outlet property="answerButton4" destination="Gga-CR-7KJ" id="XY0-tA-FXH"/>
