@@ -286,9 +286,15 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let indexPath = tableView.indexPathForSelectedRow!
+        
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        
+        
+        
         riddleArrayByIDGame.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        print("After delete ============== \(riddleArray.count)")
+
         
         let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
         
