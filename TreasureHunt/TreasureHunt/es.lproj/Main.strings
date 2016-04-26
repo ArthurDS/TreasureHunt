@@ -1,0 +1,96 @@
+
+/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "4ab-cG-yVb"; */
+"4ab-cG-yVb.normalTitle" = "Play game";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "95U-DY-SnP"; */
+"95U-DY-SnP.title" = "Item";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "GDi-yl-Clh"; */
+"GDi-yl-Clh.text" = "Description";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Gga-CR-7KJ"; */
+"Gga-CR-7KJ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Riddle"; ObjectID = "HjV-tB-v6O"; */
+"HjV-tB-v6O.text" = "Riddle";
+
+/* Class = "UIBarButtonItem"; title = "Clues"; ObjectID = "JPG-Fv-1ZX"; */
+"JPG-Fv-1ZX.title" = "Clues";
+
+/* Class = "UIButton"; normalTitle = "Take Picture"; ObjectID = "M8a-nY-Aaa"; */
+"M8a-nY-Aaa.normalTitle" = "Take Picture";
+
+/* Class = "UISegmentedControl"; N7x-Zm-rRR.segmentTitles[0] = "ON FOOT"; ObjectID = "N7x-Zm-rRR"; */
+"N7x-Zm-rRR.segmentTitles[0]" = "ON FOOT";
+
+/* Class = "UISegmentedControl"; N7x-Zm-rRR.segmentTitles[1] = "BY CAR"; ObjectID = "N7x-Zm-rRR"; */
+"N7x-Zm-rRR.segmentTitles[1]" = "BY CAR";
+
+/* Class = "UILabel"; text = "Answer 1"; ObjectID = "S3u-xC-8Zn"; */
+"S3u-xC-8Zn.text" = "Answer 1";
+
+/* Class = "UILabel"; text = "TimeStamp"; ObjectID = "SfX-Cv-XwK"; */
+"SfX-Cv-XwK.text" = "TimeStamp";
+
+/* Class = "UILabel"; text = "Beschrijving"; ObjectID = "U7S-X9-XrD"; */
+"U7S-X9-XrD.text" = "Beschrijving";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Xal-BO-LdV"; */
+"Xal-BO-LdV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Deduction"; ObjectID = "Xd1-HY-VGf"; */
+"Xd1-HY-VGf.text" = "Deduction";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Y4e-qD-yds"; */
+"Y4e-qD-yds.title" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Add Location"; ObjectID = "ae3-6Y-BdQ"; */
+"ae3-6Y-BdQ.normalTitle" = "Add Location";
+
+/* Class = "UILabel"; text = "Datum"; ObjectID = "cX6-HO-618"; */
+"cX6-HO-618.text" = "Datum";
+
+/* Class = "UIButton"; normalTitle = "Create game"; ObjectID = "cya-cP-gsn"; */
+"cya-cP-gsn.normalTitle" = "Create game";
+
+/* Class = "UILabel"; text = "The Old Town Hall"; ObjectID = "eU3-9u-eaU"; */
+"eU3-9u-eaU.text" = "The Old Town Hall";
+
+/* Class = "UILabel"; text = "The Curse of the Socialist Mayor"; ObjectID = "efF-wY-8k2"; */
+"efF-wY-8k2.text" = "The Curse of the Socialist Mayor";
+
+/* Class = "UILabel"; text = "Answer 3"; ObjectID = "fQN-IZ-QFF"; */
+"fQN-IZ-QFF.text" = "Answer 3";
+
+/* Class = "UILabel"; text = "Game"; ObjectID = "fjm-6l-eT3"; */
+"fjm-6l-eT3.text" = "Game";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gNE-0r-ZzA"; */
+"gNE-0r-ZzA.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Answer 4"; ObjectID = "ghx-qW-AGY"; */
+"ghx-qW-AGY.text" = "Answer 4";
+
+/* Class = "UILabel"; text = "Answer 2"; ObjectID = "knf-d0-X5Q"; */
+"knf-d0-X5Q.text" = "Answer 2";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "koi-XA-D4W"; */
+"koi-XA-D4W.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lyV-zi-c4r"; */
+"lyV-zi-c4r.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "m9J-as-EQD"; */
+"m9J-as-EQD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Camera"; ObjectID = "nGY-Ek-rST"; */
+"nGY-Ek-rST.normalTitle" = "Camera";
+
+/* Class = "UIButton"; normalTitle = "CameraRoll"; ObjectID = "tYi-rs-D6I"; */
+"tYi-rs-D6I.normalTitle" = "CameraRoll";
+
+/* Class = "UILabel"; text = "UserName"; ObjectID = "vJj-Uh-48R"; */
+"vJj-Uh-48R.text" = "UserName";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "w8w-Up-5q9"; */
+"w8w-Up-5q9.text" = "Description";
