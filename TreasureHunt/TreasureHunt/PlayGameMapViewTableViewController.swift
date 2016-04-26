@@ -292,9 +292,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         
-        cell.userInteractionEnabled = false
-        cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-        cell.finishedStamp?.alpha = 1
+//        cell.userInteractionEnabled = false
+//        cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+//        cell.finishedStamp?.alpha = 1
         
         //        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         

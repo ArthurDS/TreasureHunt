@@ -133,7 +133,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             timer -= 1
         }
         else if timer > 0 {
-            timerLabel.text = String(timer)
             clockImage.image = UIImage(named: "clock_red")
             timer -= 1
         }
