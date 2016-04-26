@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import CloudKit
 
 class CluesViewController: UIViewController {
 
+    let locationManager = LocationManager.sharedManager
+
+    var riddleArray: [CKRecord] = []
+    var clueArray: [CKRecord] = []
+    
+    let clueRecord: CKRecord! = nil
+
+    
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
@@ -19,11 +28,16 @@ class CluesViewController: UIViewController {
     
     @IBOutlet weak var Clue1: UIImageView!
     @IBOutlet weak var Clue2: UIImageView!
+    @IBOutlet weak var Clue3: UIImageView!
+    @IBOutlet weak var Clue4: UIImageView!
+    @IBOutlet weak var Clue5: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        fetchClues()
+        fetchRiddles()
         hideTheButtons()
         createButtons()
         hideClues()
@@ -32,6 +46,7 @@ class CluesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     func createButtons() {
        
@@ -56,11 +71,13 @@ class CluesViewController: UIViewController {
     func hideClues() {
         Clue1.hidden = true
         Clue2.hidden = true
-        
+        Clue3.hidden = true
+        Clue4.hidden = true
+        Clue5.hidden = true
     }
     
     func showClues() {
-        
+        // Show clues when correct answer is given
     }
     
     func hideTheButtons() {
@@ -93,10 +110,57 @@ class CluesViewController: UIViewController {
         
         answerButton4.hidden = false
         answerButton4.userInteractionEnabled = true
+        
+        
     }
     
+
     
+    func fetchRiddles() {
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Riddles", predicate: predicate)
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error != nil {
+                print(error)
+            }
+            else {
+                
+                print(results)
+                self.riddleArray = results!
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+
+                })
+                
+            }
+            
+        }
+    }
     
+    func fetchClues() {
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Clues", predicate: predicate)
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error != nil {
+                print(error)
+            }
+            else {
+                
+                print(results)
+                self.clueArray = results!
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                })
+                
+            }
+            
+        }
+    }
 
     
     

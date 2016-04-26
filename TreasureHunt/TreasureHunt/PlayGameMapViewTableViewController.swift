@@ -16,7 +16,7 @@ import FillableLoaders
 class PlayGameMapViewTableViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = LocationManager.sharedManager
-
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var destinationLabel: UILabel!
@@ -32,7 +32,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     
     var recordsInRange:[CKRecord] = []
-   
+    
     
     
     var annotationForActiveRecord: MKAnnotation?
@@ -44,16 +44,12 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
-
-
-
-
         
     }
     
     func searchAllRiddlesForIdGame(){
         let idGame = gameSelected.valueForKey("id_Game") as? Int
-     
+        
         
         for record in riddleArray{
             
@@ -78,19 +74,17 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     func userLocationChanged(notification: NSNotification) {
         
-        
         var currentInRange: [CKRecord] = []
         
         for record in self.riddleArrayByIDGame {
             
             if locationManager.isNearRecord(record)   {
-            
-            currentInRange.append(record)
+                
+                currentInRange.append(record)
                 
             }
             
         }
-        
         if  recordsInRange != currentInRange  {
             
             
@@ -100,24 +94,24 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             
         }
-
+        
     }
     
-
-
+    
+    
     func mapAnotation() {
         self.mapView.delegate = self
         
-
-            
+        
+        
         mapView.showsUserLocation = true
         
         
     }
     
     override func viewDidAppear(animated: Bool) {
-      
-
+        
+        
     }
     
     func setAnotation(latitude: Double, longitude: Double) {
@@ -132,7 +126,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         let anotation = MKPointAnnotation()
         anotation.coordinate = location
-
+        
         
         mapView.addAnnotation(anotation)
     }
@@ -189,7 +183,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-        return self.riddleArrayByIDGame.count
+            return self.riddleArrayByIDGame.count
         }
         if section == 1 {
             return 1
@@ -200,45 +194,45 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
-        
-        let ridRecord : CKRecord = riddleArrayByIDGame[indexPath.row]
-        
-                let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
-        
-                if isNearby {
-        
-                    cell.userInteractionEnabled = true
-                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-                    cell.finishedStamp?.alpha = 0
-                    // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-                    // stel eventueel selectionstate in
-                }
-                else {
-                    // geef de standaard kleur
-
-                    cell.userInteractionEnabled = false
-                    cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-                    cell.finishedStamp?.alpha = 0
-                }
-       
-        cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
-        // Game
-        cell.gameTitleLabel?.text = ridRecord.valueForKey("game_description") as? String
-        
-        return cell
-        
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
+            
+            let ridRecord : CKRecord = riddleArrayByIDGame[indexPath.row]
+            
+            let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
+            
+            if isNearby {
+                
+                cell.userInteractionEnabled = true
+                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+                cell.finishedStamp?.alpha = 0
+                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+                // stel eventueel selectionstate in
+            }
+            else {
+                // geef de standaard kleur
+                
+                cell.userInteractionEnabled = false
+                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+                cell.finishedStamp?.alpha = 0
+            }
+            
+            cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
+            // Game
+            cell.gameTitleLabel?.text = ridRecord.valueForKey("game_description") as? String
+            
+            return cell
+            
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("deductionCell", forIndexPath: indexPath) as! DeductionTableViewCell
             
             return cell
         }
-    
+        
     }
-
- 
+    
+    
     
     func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
@@ -299,11 +293,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         riddleArrayByIDGame.removeAtIndex(indexPath.row)
         
         cell.userInteractionEnabled = false
-            cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+        cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         cell.finishedStamp?.alpha = 1
         
-//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-
+        //        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        
         
         let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
         
@@ -364,9 +358,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         
         let myPath = bezier2Path.CGPath
-        var loader = WavesLoader.showLoaderWithPath(myPath)
+        let loader = WavesLoader.showLoaderWithPath(myPath)
         loader.loaderColor = UIColor.blackColor()
-
+        
         
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
@@ -388,7 +382,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     self.tableView.hidden = false
                     self.tableView.reloadData()
                     
-                loader.removeLoader()
+                    loader.removeLoader()
                     
                     self.searchAllRiddlesForIdGame()
                     

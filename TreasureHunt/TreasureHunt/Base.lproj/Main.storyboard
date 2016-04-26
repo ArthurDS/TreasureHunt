@@ -642,6 +642,9 @@
                     <connections>
                         <outlet property="Clue1" destination="FW9-TD-Q0X" id="81h-Gu-2fu"/>
                         <outlet property="Clue2" destination="K6F-l3-RJY" id="7HS-24-hjg"/>
+                        <outlet property="Clue3" destination="wIG-Qf-UhH" id="72x-sx-EGa"/>
+                        <outlet property="Clue4" destination="AUF-hH-3Mb" id="UtW-LF-IGN"/>
+                        <outlet property="Clue5" destination="For-d8-NiV" id="frt-xG-AcE"/>
                         <outlet property="answerButton1" destination="gNE-0r-ZzA" id="e0e-9C-xvE"/>
                         <outlet property="answerButton1View" destination="PpX-xO-Wnf" id="eTC-SZ-uOx"/>
                         <outlet property="answerButton2" destination="lyV-zi-c4r" id="ZMF-En-Gv1"/>
