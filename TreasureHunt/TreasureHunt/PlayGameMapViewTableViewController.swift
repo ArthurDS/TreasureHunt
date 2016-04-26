@@ -28,7 +28,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     var riddleArrayByIDGame: [CKRecord] = []
     let location = CLLocationManager()
     var isInitialized = false
-    
+    var playedGameArray: [CKRecord] = []
     
     
     var recordsInRange:[CKRecord] = []
@@ -177,7 +177,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -288,9 +288,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
+        let indexPath = tableView.indexPathForSelectedRow!
         
-        riddleArrayByIDGame.removeAtIndex(indexPath.row)
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         
         cell.userInteractionEnabled = false
         cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
@@ -376,7 +376,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                 
                 print(results)
                 
-                self.riddleArrayByIDGame = results!
+                self.riddleArray = results!
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self.tableView.hidden = false
@@ -386,7 +386,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     
                     self.searchAllRiddlesForIdGame()
                     
-                    let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
+                    let firstRecord : CKRecord = self.riddleArray.first!
                     
                     let location = firstRecord.valueForKey("location")
                     
@@ -403,8 +403,3 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         }
     }
 }
-
-
-
-
-       

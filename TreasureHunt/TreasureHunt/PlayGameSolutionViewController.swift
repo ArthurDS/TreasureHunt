@@ -18,7 +18,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     @IBOutlet weak var locationImageView: UIImageView!
     
     @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
+    
     
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!

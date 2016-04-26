@@ -25,6 +25,7 @@
 		BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */; };
 		BE7E42871CBBCF0800F726B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */; };
 		BE9D4E3B1CC8CC2400687594 /* PickGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */; };
+		BEAD7CC61CCF5CA200CCAB5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */; };
 		BEBD808D1CCE328600455162 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD808C1CCE328600455162 /* CluesViewController.swift */; };
 		BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */; };
 		BEC512591CBBE188000B0DFB /* LocationDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */; };
@@ -79,6 +80,10 @@
 		BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameTableViewController.swift; sourceTree = "<group>"; };
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGameTableViewCell.swift; sourceTree = "<group>"; };
+		BEAD7CC71CCF5CA200CCAB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BEAD7CCA1CCF671100CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		BEAD7CCB1CCF671200CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BEAD7CCC1CCF671200CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEBD808C1CCE328600455162 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
 		BEC512521CBBE188000B0DFB /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		BEC512531CBBE188000B0DFB /* LocationDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */,
 				BE336B071CC60F3D00B2BFDB /* NewViewControllers */,
 				BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
@@ -271,6 +277,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = BE72F62B1CBBBED500976D47;
 			productRefGroup = BE72F6351CBBBED500976D47 /* Products */;
@@ -288,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */,
+				BEAD7CC61CCF5CA200CCAB5C /* Localizable.strings in Resources */,
 				BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */,
 				BE72F63D1CBBBED500976D47 /* Main.storyboard in Resources */,
 			);
@@ -383,6 +391,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE72F63C1CBBBED500976D47 /* Base */,
+				BEAD7CCA1CCF671100CCAB5C /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -391,8 +400,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE72F6441CBBBED500976D47 /* Base */,
+				BEAD7CCB1CCF671200CCAB5C /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEAD7CC71CCF5CA200CCAB5C /* en */,
+				BEAD7CCC1CCF671200CCAB5C /* nl */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
