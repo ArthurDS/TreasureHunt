@@ -16,7 +16,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     @IBOutlet weak var locationImageView: UIImageView!
     
     @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
+    
     
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
@@ -132,10 +132,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             clockImage.image = UIImage(named: "clock2")
             timer -= 1
         }
-        else if timer > 0 {
-            timerLabel.text = String(timer)
-            timer -= 1
-        }
+      
         else {
             
             clock.invalidate()
