@@ -67,7 +67,7 @@
 		BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameMapViewTableViewController.swift; sourceTree = "<group>"; };
 		BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameSolutionViewController.swift; sourceTree = "<group>"; };
 		BE336B101CC6184400B2BFDB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		BE4709991CBE443C00B395DC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = TreasureHunt/LocationManager.swift; sourceTree = "<group>"; };
+		BE4709991CBE443C00B395DC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BE720E8B1CBE353000300C77 /* TakePicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePicturesViewController.swift; path = ../TakePicturesViewController.swift; sourceTree = "<group>"; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 				BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */,
 				BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */,
 				BE336B101CC6184400B2BFDB /* Game.swift */,
+				BE4709991CBE443C00B395DC /* LocationManager.swift */,
 			);
 			name = NewViewControllers;
 			sourceTree = "<group>";
@@ -200,7 +201,6 @@
 		BECE3C731CBBD04F0011AFC6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BE4709991CBE443C00B395DC /* LocationManager.swift */,
 				BECE3C7B1CBCDBB80011AFC6 /* Location.swift */,
 				BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */,
 				BECE3C7D1CBCDBB80011AFC6 /* Person.swift */,
