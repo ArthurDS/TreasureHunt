@@ -527,26 +527,6 @@
                                     <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="zDM-Sh-9gB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deductionCell" rowHeight="98" id="mm5-bm-DXT" customClass="DeductionTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="368" width="320" height="98"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm5-bm-DXT" id="1ev-DH-ljN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deduction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-HY-VGf">
-                                            <rect key="frame" x="38" y="22" width="244" height="53"/>
-                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="deductionLabel" destination="Xd1-HY-VGf" id="cUY-Vb-cnn"/>
-                                    <segue destination="JHn-GK-sQN" kind="show" id="L0K-fT-cI8"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="vvK-kd-vBj" id="DZF-1v-04g"/>
@@ -791,10 +771,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
-                                <rect key="frame" x="91" y="72" width="209" height="178"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
                                 <rect key="frame" x="5" y="187" width="85" height="30"/>
                                 <state key="normal" title="Take Picture"/>
@@ -812,6 +788,10 @@
                                     <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="HTJ-IY-UqM">
+                                <rect key="frame" x="91" y="72" width="209" height="178"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1062,7 +1042,4 @@
         <image name="tape" width="195" height="138"/>
         <image name="woodboard" width="768" height="1024"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="L0K-fT-cI8"/>
-    </inferredMetricsTieBreakers>
 </document>
