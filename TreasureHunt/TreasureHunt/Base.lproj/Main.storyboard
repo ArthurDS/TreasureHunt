@@ -507,11 +507,17 @@
                                         </imageView>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZdT-0h-9fK">
                                             <rect key="frame" x="0.0" y="1" width="320" height="69"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="finished" translatesAutoresizingMaskIntoConstraints="NO" id="o7x-pH-9Vd">
+                                                    <rect key="frame" x="194" y="-17" width="92" height="95"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="finishedStamp" destination="o7x-pH-9Vd" id="Og4-IC-PXL"/>
                                     <outlet property="gameTitleLabel" destination="efF-wY-8k2" id="V5Y-d8-0L2"/>
                                     <outlet property="locationTitleLabel" destination="eU3-9u-eaU" id="TRH-Vu-uFp"/>
                                     <outlet property="mistyLayer" destination="ZdT-0h-9fK" id="IaO-BW-UaK"/>
@@ -521,19 +527,13 @@
                                     <segue destination="woW-it-Dac" kind="show" identifier="riddleID" id="zDM-Sh-9gB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deductionCell" rowHeight="98" id="mm5-bm-DXT" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deductionCell" rowHeight="98" id="mm5-bm-DXT" customClass="DeductionTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="368" width="320" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm5-bm-DXT" id="1ev-DH-ljN">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-yv-yZl">
-                                            <rect key="frame" x="8" y="22" width="30" height="15"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign2" translatesAutoresizingMaskIntoConstraints="NO" id="wgW-81-cfQ">
-                                            <rect key="frame" x="282" y="22" width="30" height="15"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deduction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-HY-VGf">
                                             <rect key="frame" x="38" y="22" width="244" height="53"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
@@ -543,9 +543,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="locationTitleLabel" destination="Xd1-HY-VGf" id="Gad-Dm-dFV"/>
-                                    <outlet property="signLeft" destination="Ntd-yv-yZl" id="m6k-A5-IVU"/>
-                                    <outlet property="signRight" destination="wgW-81-cfQ" id="xsk-gr-2HF"/>
+                                    <outlet property="deductionLabel" destination="Xd1-HY-VGf" id="cUY-Vb-cnn"/>
                                     <segue destination="JHn-GK-sQN" kind="show" id="L0K-fT-cI8"/>
                                 </connections>
                             </tableViewCell>
@@ -851,7 +849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="1145"/>
+            <point key="canvasLocation" x="1088" y="1145"/>
         </scene>
         <!--Play Game Solution View Controller-->
         <scene sceneID="vZm-eM-3vO">
@@ -1059,6 +1057,7 @@
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
+        <image name="finished" width="1070" height="1090"/>
         <image name="hands" width="174" height="174"/>
         <image name="hanging_side_round_birdcage_by_madetobeunique-d3arfyr" width="800" height="640"/>
         <image name="image92" width="550" height="70"/>
