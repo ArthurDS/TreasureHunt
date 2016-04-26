@@ -28,9 +28,15 @@ class StartGameViewController: UIViewController {
     
 
 
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
         
         var catAnimationArray = ["giphy-0", "giphy-1", "giphy-2", "giphy-3", "giphy-4", "giphy-5", "giphy-6", "giphy-7", "giphy-8", "giphy-9", "giphy-10", "giphy-11", "giphy-12"]
         
