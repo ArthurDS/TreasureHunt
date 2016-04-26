@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Add Location View Controller-->
@@ -645,13 +646,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="WFM-uN-c7r">
-                            <rect key="frame" x="0.0" y="64" width="320" height="227"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iRN-fd-OQb">
+                            <rect key="frame" x="0.0" y="64" width="320" height="155"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </mapView>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6D2-jw-Zr6">
-                                <rect key="frame" x="0.0" y="319" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="247" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6D2-jw-Zr6" id="acd-8j-yeD">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -666,16 +667,39 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="buS-sM-NCd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="95U-DY-SnP">
-                            <connections>
-                                <segue destination="oLr-7s-F5G" kind="show" id="F5X-kI-QoT"/>
-                            </connections>
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="pN6-uv-UHR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nCi-Q4-K9S">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Foto"/>
+                                <connections>
+                                    <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="bvt-FG-5qN"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" systemItem="add" id="95U-DY-SnP">
+                                <connections>
+                                    <segue destination="oLr-7s-F5G" kind="show" id="F5X-kI-QoT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Msv-WU-wzO">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fgO-dL-UAA">
+                                    <rect key="frame" x="231" y="12" width="37" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Save"/>
+                                    <connections>
+                                        <action selector="saveData:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="WvE-h2-Raw"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="mapView" destination="WFM-uN-c7r" id="X9B-xk-Bcw"/>
+                        <outlet property="gameImage" destination="iRN-fd-OQb" id="dDW-y3-qGF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyk-3q-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -802,6 +826,12 @@
                                     <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id_riddle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV5-iJ-PuJ">
+                                <rect key="frame" x="11" y="302" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -827,6 +857,7 @@
                         <outlet property="answer1Field2" destination="mtc-hE-qBn" id="jjQ-ov-TdP"/>
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
+                        <outlet property="id_RiddleLabel" destination="wV5-iJ-PuJ" id="1SL-we-7gV"/>
                         <outlet property="locationImage" destination="HTJ-IY-UqM" id="Scl-qP-nOi"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
