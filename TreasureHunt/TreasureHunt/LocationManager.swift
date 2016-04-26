@@ -20,17 +20,17 @@ let LocationManagerDidAddLocation = "LocationManagerDidAddLocation"
 let LocationManagerDidUpdateLocation = "locationManagerDidUpdateLocation"
 
 
-
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
+
     static let sharedManager = LocationManager()
     
     var locationManager: CLLocationManager!
     
     var userLocation: CLLocation!
     
+    var riddlesSolvedArray: [String] = []
 
-    
     private override init() {
         super.init()
         
@@ -44,7 +44,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             self.userLocation = locationManager.location
         }
     }
-     
+    
+
     func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         let identifier = NSUUID().UUIDString

@@ -13,6 +13,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     let locationManager = LocationManager.sharedManager
     
+    
+    
     @IBOutlet weak var locationImageView: UIImageView!
     
     @IBOutlet weak var summaryLabel: UILabel!
@@ -59,7 +61,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.navigationItem.setHidesBackButton(false, animated: false)
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
         
-        
         countdown()
         fillTheLabels()
         createButtons()
@@ -97,7 +98,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton2.layer.cornerRadius = 20
         answerButton2.layer.borderWidth = 2
         answerButton2.layer.borderColor = UIColor.blackColor().CGColor
-       // answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
+        // answerButton2.setTitle(ridlleRecord.valueForKey("wrongAnswer1")as? String, forState: .Normal)
         
         answerButton3.layer.cornerRadius = 20
         answerButton3.layer.borderWidth = 2
@@ -161,8 +162,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         alert.view.addSubview(imageView)
         alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
-
-
+        
+        
         
         self.presentViewController(alert, animated: true, completion: nil)
         
@@ -187,9 +188,16 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
     }
     
+    func addIfRiddleSolved() {
+        self.locationManager.riddlesSolvedArray.append(ridlleRecord.valueForKey("nameLocation") as! String)
+        print(locationManager.riddlesSolvedArray)
+    }
+    
     @IBAction func answerButton1WasPressed(sender: AnyObject) {
         if (checkAnswer(answerButton1) ) {
+            addIfRiddleSolved()
             print("this is the correctAnswer")
+            
         }
         else {
             print("Wrong!!!!")
@@ -199,6 +207,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     @IBAction func answerButton2WasPressed(sender: AnyObject) {
         if (checkAnswer(answerButton2)){
+            addIfRiddleSolved()
             print("this is the correctAnswer")
         }
         else {
@@ -210,6 +219,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     @IBAction func answerButton3WasPressed(sender: AnyObject) {
         if (checkAnswer((answerButton3)!)){
+            addIfRiddleSolved()
             print("this is the correctAnswer")
         }
         else {
@@ -220,6 +230,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     @IBAction func answerButton4WasPressed(sender: AnyObject) {
         if (checkAnswer(answerButton4!)) {
+           addIfRiddleSolved()
             print("this is the correctAnswer")
         }
             
@@ -250,7 +261,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
      // Pass the selected object to the new view controller.
      }
      */
-
+    
     func randomButton(){
         let textName1 = ridlleRecord.valueForKey("correctAnswer")as? String
         let textName2 = ridlleRecord.valueForKey("wrongAnswer1")as? String
@@ -267,7 +278,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             
             button.setTitle(textName, forState: .Normal)
             textNamesArray.removeAtIndex(choice)
-
+            
         }
     }
 }
