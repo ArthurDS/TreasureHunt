@@ -877,21 +877,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-9R-hIC" userLabel="View2">
                                 <rect key="frame" x="49" y="411" width="240" height="63"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-wg-T06">
-                                        <rect key="frame" x="23" y="33" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-wg-T06">
+                                        <rect key="frame" x="23" y="33" width="76" height="30"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ofg-v4-PCc"/>
+                                            <constraint firstAttribute="width" constant="76" id="rXd-V3-4fq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-iA-fWe">
-                                        <rect key="frame" x="167" y="0.0" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-yF-xgB">
+                                        <rect key="frame" x="136" y="33" width="77" height="30"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="H7d-7m-dcq"/>
+                                            <constraint firstAttribute="height" constant="30" id="UNB-7b-UTf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-yF-xgB">
-                                        <rect key="frame" x="167" y="33" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixt-UJ-9Qk">
+                                        <rect key="frame" x="23" y="0.0" width="76" height="30"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="BL8-qD-hFB"/>
+                                            <constraint firstAttribute="height" constant="30" id="Iq3-cx-Tjo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixt-UJ-9Qk">
-                                        <rect key="frame" x="23" y="0.0" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-iA-fWe">
+                                        <rect key="frame" x="136" y="0.0" width="77" height="30"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Rjb-Mh-hrU"/>
+                                            <constraint firstAttribute="width" constant="77" id="fMf-Ki-R38"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     </button>
                                 </subviews>
                                 <constraints>
