@@ -18,6 +18,8 @@ class RiddleTableViewCell: UITableViewCell {
     @IBOutlet weak var mistyLayer: UIView!
     @IBOutlet weak var riddleCellBackground: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
+    @IBOutlet weak var finishedStamp: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

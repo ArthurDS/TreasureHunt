@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */; };
 		BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */; };
+		BE27BBE71CCE4BBA00B1F8DC /* DeductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */; };
 		BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */; };
 		BE336B091CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */; };
 		BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */; };
@@ -60,6 +61,7 @@
 		6298F75DFF686824FD0C2E66 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
 		BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeductionTableViewCell.swift; sourceTree = "<group>"; };
 		BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		BE336B081CC6111A00B2BFDB /* PlayGameMapViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameMapViewTableViewController.swift; sourceTree = "<group>"; };
 		BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameSolutionViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */,
 				BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */,
+				BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
 				BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */,
+				BE27BBE71CCE4BBA00B1F8DC /* DeductionTableViewCell.swift in Sources */,
 				BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */,
 				BEC512581CBBE188000B0DFB /* AddLocationViewController.swift in Sources */,
 			);
