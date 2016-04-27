@@ -537,7 +537,7 @@
                     <navigationItem key="navigationItem" id="UQj-YS-WdO">
                         <barButtonItem key="rightBarButtonItem" title="Clues" id="JPG-Fv-1ZX">
                             <connections>
-                                <segue destination="JHn-GK-sQN" kind="show" identifier="cluesID" id="1dp-Rc-r2L"/>
+                                <segue destination="JHn-GK-sQN" kind="show" identifier="clueID" id="1dp-Rc-r2L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

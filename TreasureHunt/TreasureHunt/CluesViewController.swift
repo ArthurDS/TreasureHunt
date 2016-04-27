@@ -122,6 +122,7 @@ class CluesViewController: UIViewController {
             Clue3.hidden = false
             Clue4.hidden = false
             Clue5.hidden = false
+            ShowTheButtons()
         default:
             break
         }
