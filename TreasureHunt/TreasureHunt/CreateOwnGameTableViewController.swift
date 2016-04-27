@@ -26,7 +26,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     let tempImageName = "temp_image.jpg"
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
     var alert : UIAlertController!
-    var riddleArray : CKRecord!
+    var riddleArray : [CKRecord] = []
     var gameArray : [CKRecord] = []
     var lastId : Int!
     
@@ -41,12 +41,6 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         lastId = 2
         print(lastId)
         navigationController?.navigationBarHidden = false
-
-        
-        
-       
-        // var nbRecord = riddleArray.creatorUserRecordID?.recordName
-        //print(lastIdGame)
         
     }
     
