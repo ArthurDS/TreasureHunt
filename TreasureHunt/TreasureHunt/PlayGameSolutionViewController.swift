@@ -61,7 +61,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         navigationItem.titleView = UIImageView(image: image)
         self.navigationItem.setHidesBackButton(false, animated: false)
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
-        navigationController?.navigationBarHidden = false
+        navigationController?.navigationBarHidden = true
 
         
         countdown()
@@ -275,6 +275,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             answerButton1.backgroundColor = UIColor.redColor()
             AnsweredWrong()
         }
+        navigationController?.navigationBarHidden = false
+
     }
     
     @IBAction func answerButton2WasPressed(sender: AnyObject) {
@@ -296,6 +298,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             answerButton2.backgroundColor = UIColor.redColor()
             
         }
+        navigationController?.navigationBarHidden = false
+
     }
     
     @IBAction func answerButton3WasPressed(sender: AnyObject) {
@@ -315,6 +319,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             answerButton3.backgroundColor = UIColor.redColor()
 
         }
+        navigationController?.navigationBarHidden = false
+
     }
     
     @IBAction func answerButton4WasPressed(sender: AnyObject) {
@@ -334,6 +340,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             answerButton4.backgroundColor = UIColor.redColor()
             AnsweredWrong()
         }
+        navigationController?.navigationBarHidden = false
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
