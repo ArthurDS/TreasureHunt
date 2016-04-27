@@ -354,21 +354,21 @@
                                 <rect key="frame" x="-16" y="124" width="310" height="258"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
-                                <rect key="frame" x="174" y="81" width="120" height="59"/>
+                                <rect key="frame" x="169" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
-                                <rect key="frame" x="174" y="153" width="120" height="59"/>
+                                <rect key="frame" x="169" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
-                                <rect key="frame" x="25" y="153" width="120" height="59"/>
+                                <rect key="frame" x="25" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,7 +387,7 @@
                                 <rect key="frame" x="15" y="315" width="113" height="112"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
-                                <rect key="frame" x="25" y="81" width="120" height="59"/>
+                                <rect key="frame" x="25" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button">
@@ -464,7 +464,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Library " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-Gj-imV">
                                     <rect key="frame" x="25" y="13" width="117" height="21"/>
                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-w2-XIv">
@@ -767,10 +767,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="answerButton1" destination="Ixt-UJ-9Qk" id="KAt-UF-QiU"/>
-                        <outlet property="answerButton2" destination="C7w-iA-fWe" id="WV1-6g-hdu"/>
-                        <outlet property="answerButton3" destination="mty-wg-T06" id="3YF-2C-ykT"/>
-                        <outlet property="answerButton4" destination="kAI-yF-xgB" id="pEG-gT-4aW"/>
+                        <outlet property="answerButton1" destination="s6J-xZ-giL" id="OQy-0v-ggL"/>
+                        <outlet property="answerButton2" destination="nAE-GD-Myh" id="bfs-O7-uk8"/>
+                        <outlet property="answerButton3" destination="5wl-L9-U9T" id="P2C-Hf-Bhe"/>
+                        <outlet property="answerButton4" destination="fyk-bp-OZZ" id="JEh-Qu-Ehd"/>
                         <outlet property="clockImage" destination="u6O-SO-qGv" id="k91-xX-CiT"/>
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>

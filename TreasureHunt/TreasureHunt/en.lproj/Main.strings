@@ -1,0 +1,75 @@
+
+/* Class = "UIButton"; normalTitle = "Take Photo"; ObjectID = "15R-Ff-gFF"; */
+"15R-Ff-gFF.normalTitle" = "Take Photo";
+
+/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "4ab-cG-yVb"; */
+"4ab-cG-yVb.normalTitle" = "Play game";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "95U-DY-SnP"; */
+"95U-DY-SnP.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Gga-CR-7KJ"; */
+"Gga-CR-7KJ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Riddle"; ObjectID = "HjV-tB-v6O"; */
+"HjV-tB-v6O.text" = "Riddle";
+
+/* Class = "UIBarButtonItem"; title = "Clues"; ObjectID = "JPG-Fv-1ZX"; */
+"JPG-Fv-1ZX.title" = "Clues";
+
+/* Class = "UIButton"; normalTitle = "Take Picture"; ObjectID = "M8a-nY-Aaa"; */
+"M8a-nY-Aaa.normalTitle" = "Take Picture";
+
+/* Class = "UILabel"; text = "Answers"; ObjectID = "S3u-xC-8Zn"; */
+"S3u-xC-8Zn.text" = "Answers";
+
+/* Class = "UIBarButtonItem"; title = "Quit"; ObjectID = "V6U-6J-ySA"; */
+"V6U-6J-ySA.title" = "Quit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Xal-BO-LdV"; */
+"Xal-BO-LdV.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Y4e-qD-yds"; */
+"Y4e-qD-yds.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Library "; ObjectID = "aI2-Gj-imV"; */
+"aI2-Gj-imV.text" = "Library ";
+
+/* Class = "UIButton"; normalTitle = "Create game"; ObjectID = "cya-cP-gsn"; */
+"cya-cP-gsn.normalTitle" = "Create game";
+
+/* Class = "UILabel"; text = "Camera"; ObjectID = "e1i-w2-XIv"; */
+"e1i-w2-XIv.text" = "Camera";
+
+/* Class = "UILabel"; text = "The Old Town Hall"; ObjectID = "eU3-9u-eaU"; */
+"eU3-9u-eaU.text" = "The Old Town Hall";
+
+/* Class = "UILabel"; text = "The Curse of the Socialist Mayor"; ObjectID = "efF-wY-8k2"; */
+"efF-wY-8k2.text" = "The Curse of the Socialist Mayor";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "fgO-dL-UAA"; */
+"fgO-dL-UAA.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Game"; ObjectID = "fjm-6l-eT3"; */
+"fjm-6l-eT3.text" = "Game";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gNE-0r-ZzA"; */
+"gNE-0r-ZzA.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "kVh-G0-LCS"; */
+"kVh-G0-LCS.title" = "Back";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "koi-XA-D4W"; */
+"koi-XA-D4W.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lyV-zi-c4r"; */
+"lyV-zi-c4r.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "m9J-as-EQD"; */
+"m9J-as-EQD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Camera Roll"; ObjectID = "nwY-la-gzG"; */
+"nwY-la-gzG.normalTitle" = "Camera Roll";
+
+/* Class = "UIButton"; normalTitle = "CameraRoll"; ObjectID = "tYi-rs-D6I"; */
+"tYi-rs-D6I.normalTitle" = "CameraRoll";

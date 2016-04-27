@@ -19,7 +19,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var destinationLabel: UILabel!
     
     var myLocations: [CLLocation] = []
     var gameSelected : CKRecord!
@@ -275,6 +274,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
            let currentGame =  gameSelected.valueForKey("id_Game") as? Int
             playGameViewController.gameRecord = currentGame
         }
+        
+        
 
     }
     
