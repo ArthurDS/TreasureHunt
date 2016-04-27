@@ -71,6 +71,7 @@
 		BE7569131CC638B20057DD5B /* CreateOwnGameDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameDetailsViewController.swift; sourceTree = "<group>"; };
 		BE7569151CC64E270057DD5B /* CreateOwnGameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOwnGameTableViewController.swift; sourceTree = "<group>"; };
 		BE7E42861CBBCF0800F726B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BE91BCF61CD0D810000C01A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGameTableViewCell.swift; sourceTree = "<group>"; };
 		BEAD7CC71CCF5CA200CCAB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEAD7CCA1CCF671100CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -356,6 +357,7 @@
 			children = (
 				BE72F63C1CBBBED500976D47 /* Base */,
 				BEAD7CCA1CCF671100CCAB5C /* nl */,
+				BE91BCF61CD0D810000C01A9 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
