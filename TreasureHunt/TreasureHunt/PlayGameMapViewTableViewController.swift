@@ -284,6 +284,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             let recordSelected : CKRecord = riddleArrayByIDGame[(indexPath?.row)!]
             playGameViewController.ridlleRecord = recordSelected
         }
+        
+        if segue.identifier == "clueID" {
+            let playGameViewController = segue.destinationViewController as! CluesViewController
+           let currentGame =  gameSelected.valueForKey("id_Game") as? Int
+            playGameViewController.gameRecord = currentGame
+        }
+
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
