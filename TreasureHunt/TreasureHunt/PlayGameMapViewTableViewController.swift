@@ -282,13 +282,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         let indexPath = tableView.indexPathForSelectedRow!
         
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        riddleArrayByIDGame.removeAtIndex(indexPath.row)
+
         
-//        cell.userInteractionEnabled = false
-//        cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-//        cell.finishedStamp?.alpha = 1
-        
-        //        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         
         
         let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
@@ -302,6 +299,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         self.walkingRoute(lat!, longitude: long!)
         
     }
+    
     
     func fetchLocation() {//location opvragen
         

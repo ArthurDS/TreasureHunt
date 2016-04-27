@@ -31,7 +31,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var riddlesSolvedArray: [String] = []
     
-    var gameIsPlayed: [CKRecord] = []
+    var gameIsPlayed: [Int] = []
 
     private override init() {
         super.init()
