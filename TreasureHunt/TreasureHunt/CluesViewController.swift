@@ -15,9 +15,10 @@ class CluesViewController: UIViewController {
 
     var riddleArray: [CKRecord] = []
     var clueArray: [CKRecord] = []
+    var clueArrayByID: [CKRecord] = []
     
-    let clueRecord: CKRecord! = nil
-
+    var clueRecord: CKRecord!
+    var gameRecord: Int!
     
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
@@ -35,7 +36,6 @@ class CluesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchClues()
         fetchRiddles()
         hideTheButtons()
@@ -49,6 +49,18 @@ class CluesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func searchAllCluesForIdGame(){
+        
+        for record in riddleArray{
+            
+            if record.valueForKey("id_clue") as? Int == gameRecord {
+                clueArrayByID.append(record)
+                
+            }
+        }
+    }
+
     
     
     func createButtons() {
@@ -71,12 +83,54 @@ class CluesViewController: UIViewController {
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
     }
+    
     func hideClues() {
-        Clue1.hidden = true
-        Clue2.hidden = true
-        Clue3.hidden = true
-        Clue4.hidden = true
-        Clue5.hidden = true
+        
+        let numberOfSolvedRiddles = self.locationManager.riddlesSolvedArray.count
+        
+        switch numberOfSolvedRiddles {
+        case 0:
+            Clue1.hidden = true
+            Clue2.hidden = true
+            Clue3.hidden = true
+            Clue4.hidden = true
+            Clue5.hidden = true
+        case 1:
+            Clue1.hidden = false
+            Clue2.hidden = true
+            Clue3.hidden = true
+            Clue4.hidden = true
+            Clue5.hidden = true
+        case 2:
+            Clue1.hidden = false
+            Clue2.hidden = false
+            Clue3.hidden = true
+            Clue4.hidden = true
+            Clue5.hidden = true
+        case 3:
+            Clue1.hidden = false
+            Clue2.hidden = false
+            Clue3.hidden = false
+            Clue4.hidden = true
+            Clue5.hidden = true
+        case 4:
+            Clue1.hidden = false
+            Clue2.hidden = false
+            Clue3.hidden = false
+            Clue4.hidden = false
+            Clue5.hidden = true
+        case 5:
+            Clue1.hidden = false
+            Clue2.hidden = false
+            Clue3.hidden = false
+            Clue4.hidden = false
+            Clue5.hidden = false
+            ShowTheButtons()
+        default:
+            break
+        }
+        
+       
     }
     
     func showClues() {
@@ -157,9 +211,9 @@ class CluesViewController: UIViewController {
                 print(results)
                 self.clueArray = results!
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    
+
                 })
-                
+                self.searchAllCluesForIdGame()
             }
             
         }
