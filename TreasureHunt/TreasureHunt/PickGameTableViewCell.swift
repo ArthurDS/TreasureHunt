@@ -10,6 +10,7 @@ import UIKit
 
 class PickGameTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var finishedLabel: UIImageView!
     @IBOutlet weak var justALine: UIView!
     @IBOutlet weak var pickGameEpisodeNumberLabel: UILabel!
     @IBOutlet weak var pickGameEpisodeLabel: UILabel!

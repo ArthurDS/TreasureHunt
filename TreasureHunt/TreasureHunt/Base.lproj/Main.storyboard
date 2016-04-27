@@ -188,6 +188,9 @@
                                             <rect key="frame" x="130" y="49" width="140" height="2"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="finished" translatesAutoresizingMaskIntoConstraints="NO" id="x4d-Fj-6fG">
+                                            <rect key="frame" x="158" y="13" width="133" height="128"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bso-MG-2Tx" firstAttribute="top" secondItem="2tT-oU-CQP" secondAttribute="topMargin" constant="17" id="01i-a6-5HN"/>
@@ -215,6 +218,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="finishedLabel" destination="x4d-Fj-6fG" id="Oe8-Ys-AIx"/>
                                     <outlet property="justALine" destination="9P8-gO-2Rq" id="08M-am-g0v"/>
                                     <outlet property="pickGameBackground" destination="IDi-4H-LLx" id="sHV-ev-B0M"/>
                                     <outlet property="pickGameEpisodeLabel" destination="fjm-6l-eT3" id="hCm-8D-wxe"/>
@@ -390,6 +394,16 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-MA-XR4">
+                                <rect key="frame" x="85" y="238" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="Don't click me!!!!">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="WhyDidYouPressMe:" destination="JHn-GK-sQN" eventType="touchUpInside" id="kdi-Ap-ygc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -499,7 +513,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" systemItem="add" id="95U-DY-SnP">
                                 <connections>
-                                    <segue destination="oLr-7s-F5G" kind="show" id="F5X-kI-QoT"/>
+                                    <segue destination="oLr-7s-F5G" kind="show" identifier="goToDetail" id="F5X-kI-QoT"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" id="Msv-WU-wzO">
@@ -523,9 +537,11 @@
                         <outlet property="photoCameraLabel" destination="e1i-w2-XIv" id="b0g-PE-Mwb"/>
                         <outlet property="photoLibraryLabel" destination="aI2-Gj-imV" id="aCR-Pu-SCd"/>
                         <outlet property="takePhotoButton" destination="15R-Ff-gFF" id="r7d-LP-eld"/>
+                        <segue destination="WhT-0W-Eau" kind="unwind" identifier="goToStartSegue" unwindAction="unWindToStart:" id="FtN-3S-1Mt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyk-3q-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WhT-0W-Eau" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1090" y="1165"/>
         </scene>
@@ -759,9 +775,11 @@
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
                         <outlet property="summaryLabel" destination="k43-7E-6HG" id="gii-M0-rb5"/>
+                        <segue destination="qZ7-24-VXQ" kind="unwind" identifier="goBackSegue" unwindAction="unwindToVC:" id="fhb-Bl-nzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoM-aH-a0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qZ7-24-VXQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2334" y="465"/>
         </scene>

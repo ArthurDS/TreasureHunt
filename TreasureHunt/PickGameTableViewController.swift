@@ -11,8 +11,7 @@ import CloudKit
 import FillableLoaders
 
 class PickGameTableViewController: UITableViewController {
-    
-    let locationManager = LocationManager.sharedManager
+        let locationManager = LocationManager.sharedManager
     var gameArray: [CKRecord] = []
     
     override func viewDidLoad() {
@@ -27,6 +26,11 @@ class PickGameTableViewController: UITableViewController {
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        print(self.locationManager.gameIsPlayed)
+        tableView.reloadData()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -35,6 +39,7 @@ class PickGameTableViewController: UITableViewController {
         return gameArray.count
     }
     
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("pickGameID", forIndexPath: indexPath) as! PickGameTableViewCell
@@ -55,6 +60,20 @@ class PickGameTableViewController: UITableViewController {
         cell.pickGameLabel.text = gameTitle as? String
         cell.pickGameEpisodeNumberLabel.text = indexValue
         
+        let gameID = gameRecord.valueForKey("id_Game") as? Int
+        
+        for game in self.gameArray {
+            
+           for game in self.locationManager.gameIsPlayed {
+                if game == gameID! {
+                    cell.finishedLabel.alpha = 1
+                }
+                else {
+                    continue
+                }
+
+            }
+        }
         return cell
     }
     

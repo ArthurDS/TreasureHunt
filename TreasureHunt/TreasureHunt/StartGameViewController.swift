@@ -26,9 +26,11 @@ class StartGameViewController: UIViewController {
     
     @IBOutlet weak var createButton: UIButton!
     
+    @IBAction func unWindToStart(segue: UIStoryboardSegue) {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var catAnimationArray = ["giphy-0", "giphy-1", "giphy-2", "giphy-3", "giphy-4", "giphy-5", "giphy-6", "giphy-7", "giphy-8", "giphy-9", "giphy-10", "giphy-11", "giphy-12"]
         
         var images = [UIImage]()
@@ -63,7 +65,7 @@ playButton.center.x -= view.bounds.width
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+//        loadView()
         navigationController?.navigationBarHidden = true
         UIView.animateWithDuration(50.9, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: {
             self.backgroundImage.frame.origin.x -= 320
@@ -77,9 +79,10 @@ playButton.center.x -= view.bounds.width
         //        UIView.animateWithDuration(0.5, delay: 0.4, options: [], animations: {
         //            self.createButton.center.x -= self.view.bounds.width
         //            }, completion: nil)
+        
     }
     
-    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

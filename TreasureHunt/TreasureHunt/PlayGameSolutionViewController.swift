@@ -47,6 +47,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     var correctAnswer: String!
     
     
+
+    
     override func viewDidLoad() {
         
         
@@ -157,7 +159,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
-        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         
         
@@ -173,7 +175,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
-        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         
         
@@ -189,11 +191,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
-        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         
         self.presentViewController(alert, animated: true, completion: nil)
-        
+
+ 
     }
     
     func makePictureOld() {
@@ -345,6 +348,15 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+
+            
+//            if segue.identifier == "returnToMapView" {
+//                let playGameViewController = segue.destinationViewController as! PlayGameMapViewTableViewController
+//                
+//                playGameViewController.ridlleRecord = recordSelected
+//            }
+   
         
     }
     

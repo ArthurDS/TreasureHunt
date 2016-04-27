@@ -93,7 +93,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goToStartSegue", sender: self) })
         
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "Game Title"
@@ -191,9 +191,12 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     
     //segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+         if segue.identifier == "goToDetail" {
         let nav = segue.destinationViewController as!UINavigationController
         let createGameController = nav.viewControllers.first as! CreateOwnGameDetailsViewController
         createGameController.delegate = self
+        }
     }
 
 

@@ -187,21 +187,21 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
             
-            if isNearby {
-                
-                cell.userInteractionEnabled = true
-                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-                cell.finishedStamp?.alpha = 0
-                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-                // stel eventueel selectionstate in
-            }
-            else {
-                // geef de standaard kleur
-                
-                cell.userInteractionEnabled = false
-                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-                cell.finishedStamp?.alpha = 0
-            }
+//            if isNearby {
+//                
+//                cell.userInteractionEnabled = true
+//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+//                cell.finishedStamp?.alpha = 0
+//                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+//                // stel eventueel selectionstate in
+//            }
+//            else {
+//                // geef de standaard kleur
+//                
+//                cell.userInteractionEnabled = false
+//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+//                cell.finishedStamp?.alpha = 0
+//            }
             
             cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
             // Game
@@ -278,6 +278,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
 
     }
     
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let indexPath = tableView.indexPathForSelectedRow!
@@ -288,16 +291,18 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         
         
-        let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
+        if let firstRecord : CKRecord = self.riddleArrayByIDGame.first {
         
         let location = firstRecord.valueForKey("location")
+            
+        
         
         let lat = location?.coordinate.latitude
         let long = location?.coordinate.longitude
         
         self.setAnotation(lat!, longitude: long!)
         self.walkingRoute(lat!, longitude: long!)
-        
+        }
     }
     
     
