@@ -648,6 +648,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20150516_555778654c3bb" translatesAutoresizingMaskIntoConstraints="NO" id="huI-WV-qX7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="7wd-OZ-25X">
                                 <rect key="frame" x="25" y="75" width="271" height="157"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -713,13 +716,9 @@
                                     <action selector="answerButton4WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="Rsw-Cp-a5W"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="20150516_555778654c3bb" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-aj-Gwa">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="573"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GHb-Ew-kPh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="answerButton1" destination="Ixt-UJ-9Qk" id="KAt-UF-QiU"/>
