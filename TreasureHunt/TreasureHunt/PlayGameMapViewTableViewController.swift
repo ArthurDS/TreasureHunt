@@ -102,17 +102,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     func mapAnotation() {
         self.mapView.delegate = self
-        
-        
-        
         mapView.showsUserLocation = true
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        
     }
     
     func setAnotation(latitude: Double, longitude: Double) {
@@ -123,11 +116,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         currentLocation = locManager.location
         
         let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        
         let anotation = MKPointAnnotation()
         anotation.coordinate = location
-        
         
         mapView.addAnnotation(anotation)
     }
@@ -137,14 +127,12 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        
         if annotation.isKindOfClass(MKUserLocation) {
             return nil
         }
         
         let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
         
-        // Reuse the annotation if possible
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
         
         if annotationView == nil
@@ -153,9 +141,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             annotationView!.canShowCallout = true
             annotationView!.image = UIImage(named: "icon")
             annotationView!.rightCalloutAccessoryView = detailButton
-            
-            
-            
         }
         else
         {
@@ -182,7 +167,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         if section == 0 {
             return self.riddleArrayByIDGame.count
         }
@@ -232,8 +217,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         }
         
     }
-    
-    
     
     func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
