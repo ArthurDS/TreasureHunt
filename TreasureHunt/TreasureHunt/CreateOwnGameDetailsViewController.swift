@@ -16,15 +16,16 @@
  class CreateOwnGameDetailsViewController: UIViewController {
     
     var locationManager: CLLocationManager!
-
+    
     @IBOutlet weak var id_RiddleLabel: UILabel! // = id_Game
     @IBOutlet weak var summaryTextField: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
+   
     @IBOutlet weak var answer1Field: UITextField!
     @IBOutlet weak var answer1Field2: UITextField!
     @IBOutlet weak var answer1Field3: UITextField!
-    
     @IBOutlet weak var answer1Field4: UITextField!
+   
     @IBOutlet weak var AnswerSwitch1: UISwitch!
     @IBOutlet weak var AnswerSwitch2: UISwitch!
     @IBOutlet weak var AnswerSwitch3: UISwitch!
@@ -67,15 +68,12 @@
     
     func registerForKeyboardNotifications()
     {
-        //Adding notifies on keyboard appearing
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    
     func deregisterFromKeyboardNotifications()
     {
-        //Removing notifies on keyboard appearing
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -89,12 +87,9 @@
         self.view.frame.origin.y = 0
     }
     
-    
-    
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
-    
-       @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
+    @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
         if AnswerSwitch1.on {
             AnswerSwitch2.setOn(false, animated: true)
             AnswerSwitch3.setOn(false, animated: true)
@@ -161,7 +156,6 @@
     @IBAction func CancelButtonWasPressed(sender: AnyObject) {
         
         self.delegate?.addQuestionViewControllerCancelPressedViewController(self)
-        
     }
     
     @IBAction func saveButtonWasPressed(sender: AnyObject) {
@@ -176,14 +170,14 @@
             locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
             print("asset file url before: \(imageAsset.fileURL)")
         }
-
+        
         locRecord.setObject(answer1Field.text, forKey: "correctAnswer")
         locRecord.setObject(answer1Field2.text, forKey: "wrongAnswer1")
         locRecord.setObject(answer1Field3.text, forKey: "wrongAnswer2")
         locRecord.setObject(answer1Field4.text, forKey: "wrongAnswer3")
-
+        
         SwitchValue()
-
+        
         
         
         
@@ -210,11 +204,9 @@
     func saveImageLocally() { //om een file aanmaken
         
         let imageData: NSData = UIImageJPEGRepresentation(locationImage.image!, 0.8)!
-        
         let path = documentsDirectoryPath.stringByAppendingString("/" + tempImageName)
         
         imageURL = NSURL(fileURLWithPath: path)
-        
         imageData.writeToURL(imageURL!, atomically: true)
     }
     
@@ -222,6 +214,7 @@
     func switchIsChanged(mySwitch: UISwitch) -> Bool {
         if mySwitch.on {
             return true
+            
         } else {
             return false
         }
@@ -265,10 +258,9 @@
             
         }
     }
-    
-
-     }
-extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+ }
+ 
+ extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -280,15 +272,16 @@ extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, U
         
         let newImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         let imageContentMode = UIViewContentMode.ScaleAspectFit
-        saveImageLocally()
-        
         let beginImage = CIImage(image: newImage!)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
+        saveImageLocally()
+
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         locationImage.hidden = false
         dismissViewControllerAnimated(true, completion: nil)
         
         applyProcessing()
+        
     }
     
     func applyProcessing() {

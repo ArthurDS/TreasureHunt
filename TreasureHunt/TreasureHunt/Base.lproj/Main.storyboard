@@ -537,7 +537,7 @@
                     <navigationItem key="navigationItem" id="UQj-YS-WdO">
                         <barButtonItem key="rightBarButtonItem" title="Clues" id="JPG-Fv-1ZX">
                             <connections>
-                                <segue destination="JHn-GK-sQN" kind="show" id="1dp-Rc-r2L"/>
+                                <segue destination="JHn-GK-sQN" kind="show" identifier="cluesID" id="1dp-Rc-r2L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -589,14 +589,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
-                                <rect key="frame" x="25" y="81" width="120" height="59"/>
-                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
                                 <rect key="frame" x="25" y="153" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -616,6 +608,14 @@
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12231396322000101003Scale_of_justice_2.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-hH-3Mb">
                                 <rect key="frame" x="15" y="315" width="113" height="112"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
+                                <rect key="frame" x="25" y="81" width="120" height="59"/>
+                                <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -827,6 +827,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
+                                <rect key="frame" x="98" y="89" width="202" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -853,7 +856,7 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="id_RiddleLabel" destination="wV5-iJ-PuJ" id="1SL-we-7gV"/>
-                        <outlet property="locationImage" destination="HTJ-IY-UqM" id="Scl-qP-nOi"/>
+                        <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
@@ -913,24 +916,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-9R-hIC" userLabel="View2">
                                 <rect key="frame" x="49" y="411" width="240" height="63"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-wg-T06">
-                                        <rect key="frame" x="23" y="33" width="76" height="30"/>
-                                        <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ofg-v4-PCc"/>
-                                            <constraint firstAttribute="width" constant="76" id="rXd-V3-4fq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-yF-xgB">
-                                        <rect key="frame" x="136" y="33" width="77" height="30"/>
-                                        <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="77" id="H7d-7m-dcq"/>
-                                            <constraint firstAttribute="height" constant="30" id="UNB-7b-UTf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixt-UJ-9Qk">
                                         <rect key="frame" x="23" y="0.0" width="76" height="30"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -939,6 +924,12 @@
                                             <constraint firstAttribute="height" constant="30" id="Iq3-cx-Tjo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButton1WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="hWd-ah-w5m"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-iA-fWe">
                                         <rect key="frame" x="136" y="0.0" width="77" height="30"/>
@@ -948,6 +939,42 @@
                                             <constraint firstAttribute="width" constant="77" id="fMf-Ki-R38"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButton2WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="VbY-0k-Z7G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-wg-T06">
+                                        <rect key="frame" x="23" y="33" width="76" height="30"/>
+                                        <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ofg-v4-PCc"/>
+                                            <constraint firstAttribute="width" constant="76" id="rXd-V3-4fq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButton3WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="vBS-54-PKO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-yF-xgB">
+                                        <rect key="frame" x="136" y="33" width="77" height="30"/>
+                                        <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="H7d-7m-dcq"/>
+                                            <constraint firstAttribute="height" constant="30" id="UNB-7b-UTf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButton4WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="Rsw-Cp-a5W"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

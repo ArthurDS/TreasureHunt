@@ -34,6 +34,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     var textNamesArray : [String] = []
     var ridlleRecord : CKRecord!
     var answerRecord : CKRecord!
+    var cluesArray: [CKRecord] = []
     
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -256,6 +257,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer1CorrectMistify()
+        answerButton1.backgroundColor = UIColor.greenColor()
         
         
         if (checkAnswer(answerButton1) ) {
@@ -277,7 +279,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer2CorrectMistify()
-        
+        answerButton2.backgroundColor = UIColor.greenColor()
         
         if (checkAnswer(answerButton2)){
             addIfRiddleSolved()
@@ -298,7 +300,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer3CorrectMistify()
-        
+        answerButton3.backgroundColor = UIColor.greenColor()
         
         if (checkAnswer((answerButton3)!)){
             addIfRiddleSolved()
@@ -317,7 +319,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer4CorrectMistify()
-        
+        answerButton4.backgroundColor = UIColor.greenColor()
         
         if (checkAnswer(answerButton4!)) {
             addIfRiddleSolved()
@@ -333,10 +335,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "" {
-            let playGameSolutionViewController = segue.destinationViewController as! CluesViewController
-            
-        }
+        
     }
     
     
@@ -348,7 +347,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         else {
             return false
         }
-        //self.performSegueWithIdentifier("riddeID", sender: self)
     }
     
     func randomButton(){
@@ -361,8 +359,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         srandom(UInt32(NSDate().timeIntervalSince1970))
         
         for button in buttonArray{
+            
             let choice = random() % textNamesArray.count
-            //            print(choice)
             let textName =  textNamesArray[choice]
             
             button.setTitle(textName, forState: .Normal)
