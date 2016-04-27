@@ -169,7 +169,6 @@
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
 				BE72F6431CBBBED500976D47 /* LaunchScreen.storyboard */,
 				BE72F63B1CBBBED500976D47 /* Main.storyboard */,
-				BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */,
 				BE72F6411CBBBED500976D47 /* Assets.xcassets */,
 				BE72F6461CBBBED500976D47 /* Info.plist */,
 			);
@@ -179,6 +178,7 @@
 		BE9D4E3C1CC8CC2F00687594 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */,
 				BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */,
 				BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */,
 				BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */,
