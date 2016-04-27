@@ -419,13 +419,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iRN-fd-OQb">
-                            <rect key="frame" x="0.0" y="64" width="320" height="155"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Bjp-7H-mz4">
+                            <rect key="frame" x="0.0" y="64" width="320" height="210"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4k-X3-vow">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Ff-gFF">
+                                    <rect key="frame" x="205" y="8" width="107" height="30"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                    <state key="normal" title="Take Photo">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="ig0-jT-90k"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-la-gzG">
+                                    <rect key="frame" x="8" y="7" width="92" height="32"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                    <state key="normal" title="Camera Roll">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="PickpictureFromCameraRoll:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="yqA-AN-DLh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6D2-jw-Zr6">
-                                <rect key="frame" x="0.0" y="247" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="302" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6D2-jw-Zr6" id="acd-8j-yeD">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -441,16 +467,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="buS-sM-NCd">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="pN6-uv-UHR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nCi-Q4-K9S">
-                                <rect key="frame" x="16" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take Foto"/>
-                                <connections>
-                                    <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="bvt-FG-5qN"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="kVh-G0-LCS"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" systemItem="add" id="95U-DY-SnP">
                                 <connections>
@@ -472,7 +489,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gameImage" destination="iRN-fd-OQb" id="dDW-y3-qGF"/>
+                        <outlet property="cameraRollButton" destination="nwY-la-gzG" id="6es-vu-c2a"/>
+                        <outlet property="gameImage" destination="I4k-X3-vow" id="Dsj-3E-g8q"/>
+                        <outlet property="takePhotoButton" destination="15R-Ff-gFF" id="r7d-LP-eld"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyk-3q-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>

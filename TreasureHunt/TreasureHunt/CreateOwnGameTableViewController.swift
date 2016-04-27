@@ -15,9 +15,12 @@ import FillableLoaders
 class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
     let locationManager = LocationManager.sharedManager
 
-    @IBOutlet weak var mapView: MKMapView!
-    var imageURL: NSURL?
+    @IBOutlet weak var cameraRollButton: UIButton!
+    @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var imageURL: NSURL?
     var currentFilter: CIFilter!
     var context: CIContext!
     let tempImageName = "temp_image.jpg"
@@ -26,6 +29,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     var riddleArray : CKRecord!
     var gameArray : [CKRecord] = []
     var lastId : Int!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -88,16 +92,6 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
                 
                 self.title = newGame
                 // save  title in game in CK
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
             } else {
                 // user did not fill field
             }
@@ -125,12 +119,22 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            //access a la libairie de ton device
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
             imagePicker.allowsEditing = false
             presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func PickpictureFromCameraRoll(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.allowsEditing = false
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
     
     @IBAction func saveData(sender: AnyObject) {
         let identifier = NSUUID().UUIDString //format cle unique
@@ -151,10 +155,6 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         
         gameRecord.setValue(lastId + 1 , forKey: "id_Game")
         
-        
-        
-        
-        
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
@@ -163,28 +163,23 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             if (error != nil) {
                 print(error)
             }
-            
-            
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
-                
-                
             })
         })
-        
     }
     
     func saveImageLocally() { //om een file aanmaken
         
         let imageData: NSData = UIImageJPEGRepresentation(gameImage.image!, 0.8)!
-        
         let path = documentsDirectoryPath.stringByAppendingString("/" + tempImageName)
         
         imageURL = NSURL(fileURLWithPath: path)
-        
         imageData.writeToURL(imageURL!, atomically: true)
         
+        cameraRollButton.hidden = true
+        takePhotoButton.hidden = true
         
     }
 //    func numberOfGames() -> Int {
