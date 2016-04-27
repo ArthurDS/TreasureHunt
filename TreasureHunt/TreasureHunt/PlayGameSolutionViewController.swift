@@ -61,6 +61,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         navigationItem.titleView = UIImageView(image: image)
         self.navigationItem.setHidesBackButton(false, animated: false)
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
+        navigationController?.navigationBarHidden = false
+
         
         countdown()
         fillTheLabels()

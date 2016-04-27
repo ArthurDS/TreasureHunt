@@ -44,6 +44,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
+ navigationController?.navigationBarHidden = false
 
     }
     

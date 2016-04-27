@@ -41,6 +41,9 @@ class CluesViewController: UIViewController {
         hideTheButtons()
         createButtons()
         hideClues()
+        
+        navigationController?.navigationBarHidden = false
+
     }
 
     override func didReceiveMemoryWarning() {
