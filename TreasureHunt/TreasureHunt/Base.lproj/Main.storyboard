@@ -426,20 +426,18 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4k-X3-vow">
                                     <rect key="frame" x="56" y="0.0" width="204" height="139"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Ff-gFF">
-                                    <rect key="frame" x="201" y="8" width="111" height="30"/>
-                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                    <state key="normal" title="Take Photo">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Ff-gFF">
+                                    <rect key="frame" x="191" y="37" width="102" height="95"/>
+                                    <state key="normal" title="Take Photo" image="Photo-Video-Camera-icon">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
                                     <connections>
                                         <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="ig0-jT-90k"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-la-gzG">
-                                    <rect key="frame" x="8" y="7" width="92" height="32"/>
-                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                                    <state key="normal" title="Camera Roll">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-la-gzG">
+                                    <rect key="frame" x="25" y="37" width="99" height="96"/>
+                                    <state key="normal" title="Camera Roll" image="Photo-Video-Camera-icon">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -449,6 +447,18 @@
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IrE-9Y-fqF">
                                     <rect key="frame" x="8" y="141" width="304" height="239"/>
                                 </mapView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Library " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-Gj-imV">
+                                    <rect key="frame" x="25" y="13" width="117" height="21"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-w2-XIv">
+                                    <rect key="frame" x="191" y="13" width="102" height="21"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -495,6 +505,8 @@
                         <outlet property="cameraRollButton" destination="nwY-la-gzG" id="6es-vu-c2a"/>
                         <outlet property="gameImage" destination="I4k-X3-vow" id="Dsj-3E-g8q"/>
                         <outlet property="mapView" destination="IrE-9Y-fqF" id="Isk-9a-7CK"/>
+                        <outlet property="photoCameraLabel" destination="e1i-w2-XIv" id="b0g-PE-Mwb"/>
+                        <outlet property="photoLibraryLabel" destination="aI2-Gj-imV" id="aCR-Pu-SCd"/>
                         <outlet property="takePhotoButton" destination="15R-Ff-gFF" id="r7d-LP-eld"/>
                     </connections>
                 </tableViewController>
@@ -566,34 +578,16 @@
                                     <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3u-xC-8Zn">
-                                <rect key="frame" x="11" y="405" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knf-d0-X5Q">
-                                <rect key="frame" x="11" y="443" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQN-IZ-QFF">
-                                <rect key="frame" x="11" y="481" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-qW-AGY">
-                                <rect key="frame" x="10" y="521" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3u-xC-8Zn">
+                                <rect key="frame" x="11" y="405" width="77" height="21"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riddle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
                                 <rect key="frame" x="10" y="273" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckX-qx-gEa">
@@ -611,12 +605,6 @@
                                     <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id_riddle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV5-iJ-PuJ">
-                                <rect key="frame" x="11" y="302" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
                                 <rect key="frame" x="98" y="89" width="202" height="128"/>
                             </imageView>
@@ -655,7 +643,6 @@
                         <outlet property="answer1Field2" destination="mtc-hE-qBn" id="jjQ-ov-TdP"/>
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
-                        <outlet property="id_RiddleLabel" destination="wV5-iJ-PuJ" id="1SL-we-7gV"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
@@ -891,6 +878,7 @@
         <image name="Bible-And-Cross" width="350" height="285"/>
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
+        <image name="Photo-Video-Camera-icon" width="256" height="256"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
         <image name="finished" width="1070" height="1090"/>
         <image name="hands" width="174" height="174"/>
