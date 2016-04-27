@@ -30,6 +30,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var userLocation: CLLocation!
     
     var riddlesSolvedArray: [String] = []
+    var riddlesSolvedWrongArray: [String] = []
     
     var gameIsPlayed: [Int] = []
 
@@ -47,7 +48,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-
     func addGameInfo(title: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         let identifier = NSUUID().UUIDString

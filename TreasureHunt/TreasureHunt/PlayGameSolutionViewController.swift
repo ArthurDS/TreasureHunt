@@ -49,10 +49,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     override func viewDidLoad() {
         
-        
-        
-        
-        
         super.viewDidLoad()
         
         clock = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(PlayGameSolutionViewController.countdown), userInfo: nil, repeats: true)
@@ -62,6 +58,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.navigationItem.setHidesBackButton(false, animated: false)
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
         navigationController?.navigationBarHidden = true
+        createAllRiddlesSolvedArray()
+
 
         
         countdown()
@@ -70,6 +68,11 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         rotateClock()
         makePictureOld()
         randomButton()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        createAllRiddlesSolvedArray()
     }
     
     
@@ -217,7 +220,17 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     func addIfRiddleSolved() {
         self.locationManager.riddlesSolvedArray.append(ridlleRecord.valueForKey("nameLocation") as! String)
+        print("--------------------------------")
         print(locationManager.riddlesSolvedArray)
+        print("--------------------------------")
+    }
+    
+    func addIfRiddleAnswerWrong() {
+        self.locationManager.riddlesSolvedWrongArray.append(ridlleRecord.valueForKey("nameLocation") as! String)
+        print("--------------------------------")
+        print(locationManager.riddlesSolvedWrongArray)
+        print("--------------------------------")
+        
     }
     
     func makeButtonsInactiveAfterAnswering() {
@@ -271,6 +284,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             
         }
         else {
+            addIfRiddleAnswerWrong()
             print("Wrong!!!!")
             answerButton1.backgroundColor = UIColor.redColor()
             AnsweredWrong()
@@ -293,6 +307,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             print("this is the correctAnswer")
         }
         else {
+            addIfRiddleAnswerWrong()
             print("Wrong!!!!")
             AnsweredWrong()
             answerButton2.backgroundColor = UIColor.redColor()
@@ -317,8 +332,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             print("Wrong!!!!")
             AnsweredWrong()
             answerButton3.backgroundColor = UIColor.redColor()
-
-        }
+            addIfRiddleAnswerWrong()
+ }
         navigationController?.navigationBarHidden = false
 
     }
@@ -336,6 +351,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         }
             
         else  {
+            addIfRiddleAnswerWrong()
             print("Wrong!!!!")
             answerButton4.backgroundColor = UIColor.redColor()
             AnsweredWrong()
@@ -344,10 +360,19 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func createAllRiddlesSolvedArray(){
         
+        let allRiddlesSolvedArray = locationManager.riddlesSolvedArray + locationManager.riddlesSolvedWrongArray
+        print("****************************************")
+        print(allRiddlesSolvedArray)
+        print("****************************************")
+
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+
+    }
     
     func checkAnswer(myButton: UIButton) -> Bool {
         if (myButton.titleLabel?.text == correctAnswer)

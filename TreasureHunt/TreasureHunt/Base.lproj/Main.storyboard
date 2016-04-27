@@ -350,21 +350,21 @@
                                 <rect key="frame" x="-16" y="124" width="310" height="258"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
-                                <rect key="frame" x="174" y="81" width="120" height="59"/>
+                                <rect key="frame" x="169" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
-                                <rect key="frame" x="174" y="153" width="120" height="59"/>
+                                <rect key="frame" x="169" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
-                                <rect key="frame" x="25" y="153" width="120" height="59"/>
+                                <rect key="frame" x="25" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -383,13 +383,19 @@
                                 <rect key="frame" x="15" y="315" width="113" height="112"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNE-0r-ZzA">
-                                <rect key="frame" x="25" y="81" width="120" height="59"/>
+                                <rect key="frame" x="25" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So Purrlock, who do you think the killer is?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-38-18n">
+                                <rect key="frame" x="13" y="72" width="295" height="49"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

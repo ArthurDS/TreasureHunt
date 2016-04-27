@@ -152,6 +152,7 @@ class CluesViewController: UIViewController {
 
     }
     func mistifyButtons() {
+    
     }
     
     func ShowTheButtons() {
@@ -167,8 +168,6 @@ class CluesViewController: UIViewController {
         
         answerButton4.hidden = false
         answerButton4.userInteractionEnabled = true
-        
-        
     }
     
 
