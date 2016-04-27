@@ -18,11 +18,12 @@ class PickGameTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBarHidden = false
+
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.backgroundView = UIImageView(image: UIImage(named: "woodboard"))
-        self.navigationItem.backBarButtonItem?.action
         
-               fetchGame()
+         fetchGame()
 
     }
     

@@ -36,6 +36,8 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         currentFilter = CIFilter(name: "CISepiaTone")
         lastId = 2
         print(lastId)
+        navigationController?.navigationBarHidden = false
+
         
         
        

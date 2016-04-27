@@ -37,6 +37,8 @@ class StartGameViewController: UIViewController {
             images.append(UIImage(named: catAnimationArray[i])!)
         }
         
+        navigationController?.navigationBarHidden = true
+
         playButton.layer.cornerRadius = 20
         createButton.layer.cornerRadius = 20
         playButton.layer.borderWidth = 2
@@ -54,13 +56,15 @@ class StartGameViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        playButton.center.x -= view.bounds.width
+        navigationController?.navigationBarHidden = true
+playButton.center.x -= view.bounds.width
         createButton.center.x -= view.bounds.width
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        navigationController?.navigationBarHidden = true
         UIView.animateWithDuration(50.9, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: {
             self.backgroundImage.frame.origin.x -= 320
             }, completion: { (finished: Bool) in

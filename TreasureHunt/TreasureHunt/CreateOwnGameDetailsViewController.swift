@@ -47,9 +47,9 @@
         
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
-        
+        navigationController?.navigationBarHidden = false
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
         
     }
