@@ -714,90 +714,50 @@
                                 <rect key="frame" x="74" y="444" width="174" height="174"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-9R-hIC" userLabel="View2">
-                                <rect key="frame" x="49" y="411" width="240" height="63"/>
+                                <rect key="frame" x="13" y="391" width="299" height="83"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixt-UJ-9Qk">
-                                        <rect key="frame" x="23" y="0.0" width="76" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6J-xZ-giL">
+                                        <rect key="frame" x="8" y="-5" width="130" height="39"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="76" id="BL8-qD-hFB"/>
-                                            <constraint firstAttribute="height" constant="30" id="Iq3-cx-Tjo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
                                         <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="answerButton1WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="hWd-ah-w5m"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-iA-fWe">
-                                        <rect key="frame" x="136" y="0.0" width="77" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wl-L9-U9T">
+                                        <rect key="frame" x="8" y="43" width="130" height="39"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Rjb-Mh-hrU"/>
-                                            <constraint firstAttribute="width" constant="77" id="fMf-Ki-R38"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
                                         <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="answerButton2WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="VbY-0k-Z7G"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mty-wg-T06">
-                                        <rect key="frame" x="23" y="33" width="76" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-bp-OZZ">
+                                        <rect key="frame" x="161" y="43" width="130" height="39"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ofg-v4-PCc"/>
-                                            <constraint firstAttribute="width" constant="76" id="rXd-V3-4fq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
                                         <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="answerButton3WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="vBS-54-PKO"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAI-yF-xgB">
-                                        <rect key="frame" x="136" y="33" width="77" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAE-GD-Myh">
+                                        <rect key="frame" x="161" y="-4" width="130" height="39"/>
                                         <color key="backgroundColor" red="0.72175675630569458" green="0.55235975980758667" blue="0.086569376289844513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="77" id="H7d-7m-dcq"/>
-                                            <constraint firstAttribute="height" constant="30" id="UNB-7b-UTf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="19"/>
                                         <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="answerButton4WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="Rsw-Cp-a5W"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="C7w-iA-fWe" firstAttribute="leading" secondItem="Ixt-UJ-9Qk" secondAttribute="trailing" constant="37" id="GTE-op-17q"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="firstBaseline" secondItem="C7w-iA-fWe" secondAttribute="firstBaseline" id="Ge8-2F-eq2"/>
-                                    <constraint firstItem="mty-wg-T06" firstAttribute="top" secondItem="Ixt-UJ-9Qk" secondAttribute="bottom" constant="3" id="In3-km-Heg"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="leading" secondItem="mty-wg-T06" secondAttribute="leading" id="JNJ-9F-jMr"/>
-                                    <constraint firstAttribute="height" constant="63" id="K6k-vy-FFV"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="leading" secondItem="2Vd-9R-hIC" secondAttribute="leading" constant="23" id="KpQ-UM-hiT"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="top" secondItem="C7w-iA-fWe" secondAttribute="top" id="U7U-Wy-GTB"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="top" secondItem="2Vd-9R-hIC" secondAttribute="top" id="cO1-EZ-z3t"/>
-                                    <constraint firstItem="kAI-yF-xgB" firstAttribute="leading" secondItem="C7w-iA-fWe" secondAttribute="leading" id="g56-d4-ooa"/>
-                                    <constraint firstItem="kAI-yF-xgB" firstAttribute="top" secondItem="mty-wg-T06" secondAttribute="top" id="lkd-yz-BSY"/>
-                                    <constraint firstItem="kAI-yF-xgB" firstAttribute="firstBaseline" secondItem="mty-wg-T06" secondAttribute="firstBaseline" id="lyT-6k-fFA"/>
-                                    <constraint firstItem="Ixt-UJ-9Qk" firstAttribute="baseline" secondItem="C7w-iA-fWe" secondAttribute="baseline" id="r9p-63-QKn"/>
-                                    <constraint firstItem="kAI-yF-xgB" firstAttribute="baseline" secondItem="mty-wg-T06" secondAttribute="baseline" id="uqJ-Z0-bRN"/>
-                                    <constraint firstAttribute="width" constant="240" id="wNR-tC-TSz"/>
+                                    <constraint firstAttribute="height" constant="83" id="K6k-vy-FFV"/>
+                                    <constraint firstAttribute="width" constant="299" id="wNR-tC-TSz"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG" userLabel="summaryLabel">
-                                <rect key="frame" x="26" y="250" width="270" height="150"/>
+                                <rect key="frame" x="26" y="250" width="270" height="135"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="32T-0p-0pg"/>
+                                    <constraint firstAttribute="height" constant="135" id="32T-0p-0pg"/>
                                     <constraint firstAttribute="width" constant="270" id="9Qt-5j-Pjy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -808,14 +768,14 @@
                         <constraints>
                             <constraint firstItem="k43-7E-6HG" firstAttribute="centerX" secondItem="7wd-OZ-25X" secondAttribute="centerX" id="1of-hu-atW"/>
                             <constraint firstItem="7wd-OZ-25X" firstAttribute="centerX" secondItem="2lA-XZ-UMx" secondAttribute="centerX" id="9cr-gO-kbE"/>
-                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="top" secondItem="k43-7E-6HG" secondAttribute="bottom" constant="11" id="BBi-pB-gwQ"/>
+                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="top" secondItem="k43-7E-6HG" secondAttribute="bottom" constant="6" id="BBi-pB-gwQ"/>
                             <constraint firstItem="7wd-OZ-25X" firstAttribute="leading" secondItem="EtJ-gV-0Kv" secondAttribute="trailing" constant="-53" id="H2O-6v-xxA"/>
-                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="centerX" secondItem="2lA-XZ-UMx" secondAttribute="centerX" constant="9" id="Il9-a3-v9m"/>
+                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="centerX" secondItem="2lA-XZ-UMx" secondAttribute="centerX" constant="2.5" id="Il9-a3-v9m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tWr-aj-Gwa" secondAttribute="trailing" constant="-20" id="Je9-aB-Wu6"/>
                             <constraint firstItem="7wd-OZ-25X" firstAttribute="top" secondItem="EtJ-gV-0Kv" secondAttribute="bottom" constant="-41" id="Jv5-31-ug3"/>
                             <constraint firstItem="k43-7E-6HG" firstAttribute="top" secondItem="7wd-OZ-25X" secondAttribute="bottom" constant="8" id="K5V-b1-u5H"/>
                             <constraint firstAttribute="bottomMargin" secondItem="tWr-aj-Gwa" secondAttribute="bottom" constant="-5" id="KUB-Lf-RVx"/>
-                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="centerY" secondItem="2lA-XZ-UMx" secondAttribute="centerY" constant="158.5" id="KeC-Fj-Eos"/>
+                            <constraint firstItem="2Vd-9R-hIC" firstAttribute="centerY" secondItem="2lA-XZ-UMx" secondAttribute="centerY" constant="148.5" id="KeC-Fj-Eos"/>
                             <constraint firstItem="tWr-aj-Gwa" firstAttribute="top" secondItem="mGt-Nn-07I" secondAttribute="bottom" id="MKb-wL-5b3"/>
                             <constraint firstItem="XAP-Wr-tlY" firstAttribute="leading" secondItem="7wd-OZ-25X" secondAttribute="trailing" constant="-49" id="Oru-oe-ckT"/>
                             <constraint firstItem="u6O-SO-qGv" firstAttribute="top" secondItem="2Vd-9R-hIC" secondAttribute="bottom" constant="8" id="Oyh-hd-hkv"/>
@@ -830,10 +790,10 @@
                     <navigationItem key="navigationItem" id="GHb-Ew-kPh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="answerButton1" destination="Ixt-UJ-9Qk" id="KAt-UF-QiU"/>
-                        <outlet property="answerButton2" destination="C7w-iA-fWe" id="WV1-6g-hdu"/>
-                        <outlet property="answerButton3" destination="mty-wg-T06" id="3YF-2C-ykT"/>
-                        <outlet property="answerButton4" destination="kAI-yF-xgB" id="pEG-gT-4aW"/>
+                        <outlet property="answerButton1" destination="s6J-xZ-giL" id="OQy-0v-ggL"/>
+                        <outlet property="answerButton2" destination="nAE-GD-Myh" id="bfs-O7-uk8"/>
+                        <outlet property="answerButton3" destination="5wl-L9-U9T" id="P2C-Hf-Bhe"/>
+                        <outlet property="answerButton4" destination="fyk-bp-OZZ" id="JEh-Qu-Ehd"/>
                         <outlet property="clockImage" destination="u6O-SO-qGv" id="k91-xX-CiT"/>
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
