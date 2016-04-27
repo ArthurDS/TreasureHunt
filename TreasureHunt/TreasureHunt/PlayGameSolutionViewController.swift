@@ -34,6 +34,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     var textNamesArray : [String] = []
     var ridlleRecord : CKRecord!
     var answerRecord : CKRecord!
+    var cluesArray: [CKRecord] = []
     
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -333,10 +334,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "" {
-            let playGameSolutionViewController = segue.destinationViewController as! CluesViewController
-            
-        }
+
+        
     }
     
     

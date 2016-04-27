@@ -282,7 +282,11 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
             let indexPath = tableView.indexPathForSelectedRow
             let recordSelected : CKRecord = riddleArrayByIDGame[(indexPath?.row)!]
+            
             playGameViewController.ridlleRecord = recordSelected
+        }
+        else if segue.identifier == "cluesiD" {
+            let playGameViewController = segue.destinationViewController as! CluesViewController
         }
     }
     
