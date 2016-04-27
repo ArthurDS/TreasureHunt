@@ -230,7 +230,9 @@
                             <outlet property="delegate" destination="INZ-dP-uBd" id="YnQ-1D-1bE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0y3-xE-cRU"/>
+                    <navigationItem key="navigationItem" id="0y3-xE-cRU">
+                        <barButtonItem key="backBarButtonItem" title="Quit" id="V6U-6J-ySA"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCZ-yy-TAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,13 +419,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iRN-fd-OQb">
-                            <rect key="frame" x="0.0" y="64" width="320" height="155"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Bjp-7H-mz4">
+                            <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4k-X3-vow">
+                                    <rect key="frame" x="56" y="0.0" width="204" height="139"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Ff-gFF">
+                                    <rect key="frame" x="201" y="8" width="111" height="30"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                    <state key="normal" title="Take Photo">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="ig0-jT-90k"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-la-gzG">
+                                    <rect key="frame" x="8" y="7" width="92" height="32"/>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                    <state key="normal" title="Camera Roll">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="PickpictureFromCameraRoll:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="yqA-AN-DLh"/>
+                                    </connections>
+                                </button>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IrE-9Y-fqF">
+                                    <rect key="frame" x="8" y="141" width="304" height="239"/>
+                                </mapView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6D2-jw-Zr6">
-                                <rect key="frame" x="0.0" y="247" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="464" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6D2-jw-Zr6" id="acd-8j-yeD">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -439,16 +470,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="buS-sM-NCd">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="pN6-uv-UHR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nCi-Q4-K9S">
-                                <rect key="frame" x="16" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take Foto"/>
-                                <connections>
-                                    <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="bvt-FG-5qN"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="kVh-G0-LCS"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" systemItem="add" id="95U-DY-SnP">
                                 <connections>
@@ -470,7 +492,10 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gameImage" destination="iRN-fd-OQb" id="dDW-y3-qGF"/>
+                        <outlet property="cameraRollButton" destination="nwY-la-gzG" id="6es-vu-c2a"/>
+                        <outlet property="gameImage" destination="I4k-X3-vow" id="Dsj-3E-g8q"/>
+                        <outlet property="mapView" destination="IrE-9Y-fqF" id="Isk-9a-7CK"/>
+                        <outlet property="takePhotoButton" destination="15R-Ff-gFF" id="r7d-LP-eld"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyk-3q-O52" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -576,18 +601,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
-                                <rect key="frame" x="5" y="187" width="85" height="30"/>
-                                <state key="normal" title="Take Picture"/>
-                                <connections>
-                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
-                                <rect key="frame" x="11" y="82" width="72" height="86"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <rect key="frame" x="0.0" y="72" width="99" height="86"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <state key="normal" title="CameraRoll">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
@@ -602,6 +620,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
                                 <rect key="frame" x="98" y="89" width="202" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
+                                <rect key="frame" x="0.0" y="166" width="99" height="30"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
