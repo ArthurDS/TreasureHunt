@@ -20,9 +20,8 @@ class PickGameTableViewController: UITableViewController {
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.backgroundView = UIImageView(image: UIImage(named: "woodboard"))
-        self.navigationItem.backBarButtonItem?.action
         
-               fetchGame()
+         fetchGame()
 
     }
     
