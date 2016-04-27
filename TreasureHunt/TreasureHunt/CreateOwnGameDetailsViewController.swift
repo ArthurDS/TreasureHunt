@@ -16,7 +16,8 @@
  class CreateOwnGameDetailsViewController: UIViewController {
     
     var locationManager: CLLocationManager!
-    
+
+    @IBOutlet weak var id_RiddleLabel: UILabel! // = id_Game
     @IBOutlet weak var summaryTextField: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var answer1Field: UITextField!
@@ -93,33 +94,7 @@
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
     
-    //--- Take Photo from Camera ---//
-    //    @IBAction func takePhotoFromCamera(sender: AnyObject)
-    //    {
-    //        self.presentCamera()
-    //    }
-    
-    //    func presentCamera()
-    //    {
-    //
-    //        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-    //        {
-    //            print("Button capture")
-    //
-    //            cameraUI = UIImagePickerController()
-    //            cameraUI.delegate = self
-    //            cameraUI.sourceType = UIImagePickerControllerSourceType.Camera;
-    //            cameraUI.mediaTypes = [kUTTypeImage as String]
-    //            cameraUI.allowsEditing = false
-    //
-    //            self.presentViewController(cameraUI, animated: true, completion: nil)
-    //        }
-    //        else
-    //        {
-    //        }
-    //    }
-    
-    @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
+       @IBAction func AnswerSwitch1ValueChanged(sender: AnyObject) {
         if AnswerSwitch1.on {
             AnswerSwitch2.setOn(false, animated: true)
             AnswerSwitch3.setOn(false, animated: true)
@@ -193,10 +168,6 @@
         let identifier = NSUUID().UUIDString //format cle unique
         let locID = CKRecordID(recordName : identifier)
         let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
-        // let identifierAnswer = NSUUID().UUIDString //format cle unique
-        // let answerID = CKRecordID(recordName : identifier)
-        // let ansewerRecord = CKRecord(recordType: "Answer", recordID: locID)
-        // set summary in CK
         locRecord.setObject(summaryTextField.text, forKey: "summary")
         
         // set Image in CK
@@ -211,9 +182,12 @@
         locRecord.setObject(answer1Field3.text, forKey: "wrongAnswer2")
         locRecord.setObject(answer1Field4.text, forKey: "wrongAnswer3")
 
-        
         SwitchValue()
 
+        
+        
+        
+        
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
@@ -292,48 +266,9 @@
         }
     }
     
-    
-    //    func setPhoto() {
-    //
-    //        if let url = imageURL {
-    //
-    //            let identifier = NSUUID().UUIDString
-    //            let photoID = CKRecordID(recordName: identifier)
-    //            let pictureRecord = CKRecord(recordType: "Location", recordID: photoID)
-    //
-    //            let imageAsset = CKAsset(fileURL: url)
-    //            pictureRecord.setObject(imageAsset, forKey: "photo")
-    //
-    //        }
-    //
-    //    }
-    
-    //    func saveImageLocally() { //om een file aanmaken
-    //
-    //        let imageData: NSData = UIImageJPEGRepresentation(locationImage.image!, 0.8)!
-    //
-    //        let path = documentsDirectoryPath.stringByAppendingString(tempImageName)
-    //
-    //        imageURL = NSURL(fileURLWithPath: path)
-    //
-    //        imageData.writeToURL(imageURL!, atomically: true)
-    //
-    //
-    //    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+
      }
-     */
-    
- }
- extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)

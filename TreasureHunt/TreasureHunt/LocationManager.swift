@@ -54,6 +54,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         gameRecord.setObject(title, forKey: "title")
     }
+//    func lastIdGame(){
+//        let identifier = NSUUID().UUIDString
+//        let gameID = CKRecordID(recordName: identifier)
+//        let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
+//         for record in
+//        
+//    }
     
     func addLocation(uniqueRiddleID: Int, summary: String, imageURL: NSURL?, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
@@ -148,8 +155,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    
-
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
         
         
