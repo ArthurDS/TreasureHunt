@@ -15,6 +15,8 @@ import FillableLoaders
 class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
     let locationManager = LocationManager.sharedManager
 
+    @IBOutlet weak var photoCameraLabel: UILabel!
+    @IBOutlet weak var photoLibraryLabel: UILabel!
     @IBOutlet weak var cameraRollButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
@@ -174,6 +176,8 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         
         cameraRollButton.hidden = true
         takePhotoButton.hidden = true
+        photoCameraLabel.hidden = true
+        photoLibraryLabel.hidden = true
         
     }
 //    func numberOfGames() -> Int {
