@@ -35,6 +35,7 @@
     @IBOutlet weak var AnswerSwitch4: UISwitch!
     
    
+    @IBOutlet weak var scrollView: UIScrollView!
     var imageURL: NSURL?
     let tempImageName = "temp_image.jpg"
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
@@ -56,7 +57,8 @@
         print("+++++++++okokok++++++++++++" + String(idGameForRiddle))
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
-        
+        scrollView.contentSize=CGSizeMake(320,1000)
+
     }
     
     override func didReceiveMemoryWarning() {
