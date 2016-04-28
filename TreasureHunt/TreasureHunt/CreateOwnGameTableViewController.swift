@@ -17,8 +17,6 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     let locationManager = LocationManager.sharedManager
     
     @IBOutlet weak var idGameField: UITextField!
-    @IBOutlet weak var photoCameraLabel: UILabel!
-    @IBOutlet weak var photoLibraryLabel: UILabel!
     @IBOutlet weak var cameraRollButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
@@ -114,13 +112,16 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+
+
+    
     override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         
         return UITableViewCellEditingStyle.Delete
     }
     
     func addGameTitleAlert() {
-        alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a                                         game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a\n                    game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
         
         let yourImage = UIImage(named: "hudson2")
         var imageView = UIImageView(frame: CGRectMake(-20,-10, 140, 115))
@@ -235,8 +236,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         
         cameraRollButton.hidden = true
         takePhotoButton.hidden = true
-        photoCameraLabel.hidden = true
-        photoLibraryLabel.hidden = true
+
         
     }
     //    func numberOfGames() -> Int {

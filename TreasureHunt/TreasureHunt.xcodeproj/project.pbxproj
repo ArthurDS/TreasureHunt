@@ -28,6 +28,7 @@
 		BE9D4E3B1CC8CC2400687594 /* PickGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */; };
 		BEAD7CC61CCF5CA200CCAB5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */; };
 		BEB21DAF1CD0BBCF00FF343A /* CreateRiddleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */; };
+		BEB21DB11CD2067400FF343A /* TutorialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB21DB01CD2067400FF343A /* TutorialTableViewCell.swift */; };
 		BEBD808D1CCE328600455162 /* CluesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD808C1CCE328600455162 /* CluesViewController.swift */; };
 		BECE3C7F1CBCDBB80011AFC6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7B1CBCDBB80011AFC6 /* Location.swift */; };
 		BECE3C801CBCDBB80011AFC6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */; };
@@ -83,6 +84,7 @@
 		BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGameTableViewCell.swift; sourceTree = "<group>"; };
 		BEAD7CC71CCF5CA200CCAB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRiddleTableViewCell.swift; sourceTree = "<group>"; };
+		BEB21DB01CD2067400FF343A /* TutorialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialTableViewCell.swift; sourceTree = "<group>"; };
 		BEBD808C1CCE328600455162 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
 		BECE3C7B1CBCDBB80011AFC6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */,
 				BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */,
 				BEEEFD051CC661A000A7467D /* RiddleTableViewCell.swift */,
+				BEB21DB01CD2067400FF343A /* TutorialTableViewCell.swift */,
 				BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */,
 			);
 			name = CustomCells;
@@ -364,6 +367,7 @@
 				BECE3C811CBCDBB80011AFC6 /* Person.swift in Sources */,
 				BE72F6401CBBBED500976D47 /* TreasureHunt.xcdatamodeld in Sources */,
 				BE336B0B1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift in Sources */,
+				BEB21DB11CD2067400FF343A /* TutorialTableViewCell.swift in Sources */,
 				BE27BBE71CCE4BBA00B1F8DC /* DeductionTableViewCell.swift in Sources */,
 				BE7569161CC64E270057DD5B /* CreateOwnGameTableViewController.swift in Sources */,
 			);
