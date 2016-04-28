@@ -45,9 +45,26 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         navigationItem.titleView = UIImageView(image: image)
         navigationController?.navigationBarHidden = false
         self.locationManager.riddlesSolvedArray.removeAll()
-        
     }
-
+    
+    func goToEndGame() {
+        let alert = UIAlertController(title: "Endgame:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
+        let yourImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("endGameID", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        self.presentViewController(alert, animated: true, completion: nil)
+   }
+    
+    func endGame() {
+        
+        if tableView.numberOfRowsInSection(0) == 0 {
+        tableView.reloadData()
+        goToEndGame()
+        }
+    }
     
     func searchAllRiddlesForIdGame(){
         let idGame = gameSelected.valueForKey("id_Game") as? Int
@@ -65,17 +82,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
-        
-        
+        endGame()
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
-
-    }
-    
-    
+}
     func userLocationChanged(notification: NSNotification) {
         
         var currentInRange: [CKRecord] = []
@@ -95,13 +108,8 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             self.tableView.reloadData()
             
             recordsInRange = currentInRange
-            
-            
         }
-        
     }
-    
-    
     
     func mapAnotation() {
         self.mapView.delegate = self
@@ -109,7 +117,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     override func viewDidAppear(animated: Bool) {
-
     }
     
     func setAnotation(latitude: Double, longitude: Double) {
@@ -185,22 +192,22 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
             
-            if isNearby {
-                
-                cell.userInteractionEnabled = true
-                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-                cell.finishedStamp?.alpha = 0
-                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-                // stel eventueel selectionstate in
-            }
-            else {
-                // geef de standaard kleur
-                
-                cell.userInteractionEnabled = false
-                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-                cell.finishedStamp?.alpha = 0
-            }
-            
+//            if isNearby {
+//                
+//                cell.userInteractionEnabled = true
+//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+//                cell.finishedStamp?.alpha = 0
+//                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+//                // stel eventueel selectionstate in
+//            }
+//            else {
+//                // geef de standaard kleur
+//                
+//                cell.userInteractionEnabled = false
+//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+//                cell.finishedStamp?.alpha = 0
+//            }
+        
             cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
             // Game
             cell.gameTitleLabel?.text = ridRecord.valueForKey("game_description") as? String

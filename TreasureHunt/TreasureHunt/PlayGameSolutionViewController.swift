@@ -61,6 +61,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         correctAnswer = (ridlleRecord.valueForKey("correctAnswer") as? String)!
         navigationController?.navigationBarHidden = true
         createAllRiddlesSolvedArray()
+    
 
 
         
@@ -107,27 +108,12 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         handsImage.layer.removeAllAnimations()
     }
     
-    func goToEndGame() {
-        let alert = UIAlertController(title: "Endgame:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let yourImage = UIImage(named: "catson")
-        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
-        imageView.image = yourImage
-        alert.view.addSubview(imageView)
-        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
-        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
-        
-        
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
+
     
     
     func allRiddlesSolved(){
-        if self.locationManager.allRiddlesSolvedArray.count == 4 {
-            goToEndGame()
-        }
+//        if self.locationManager.allRiddlesSolvedArray.count == 4 {
+//        }
     }
 
     

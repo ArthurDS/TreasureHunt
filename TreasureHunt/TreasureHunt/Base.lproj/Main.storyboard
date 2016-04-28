@@ -322,6 +322,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="mdg-si-bt2" id="Dn1-uY-LgO"/>
+                        <segue destination="JHn-GK-sQN" kind="show" identifier="endGameID" id="g28-yg-Pfr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -906,4 +907,7 @@
         <image name="tape" width="195" height="138"/>
         <image name="wallpaper" width="570" height="380"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="g28-yg-Pfr"/>
+    </inferredMetricsTieBreakers>
 </document>
