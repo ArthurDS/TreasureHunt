@@ -64,6 +64,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
                 riddleArrayByIDGame.append(record)
                 
             }
+            print(riddleArray.count)
         }
     }
 
