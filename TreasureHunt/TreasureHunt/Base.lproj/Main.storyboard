@@ -469,11 +469,16 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="n°" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lHL-na-U1h">
+                                    <rect key="frame" x="258" y="0.0" width="62" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="6D2-jw-Zr6" customClass="CreateRiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameID" rowHeight="83" id="6D2-jw-Zr6" customClass="CreateRiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="464" width="320" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6D2-jw-Zr6" id="acd-8j-yeD">
@@ -529,6 +534,7 @@
                     <connections>
                         <outlet property="cameraRollButton" destination="nwY-la-gzG" id="6es-vu-c2a"/>
                         <outlet property="gameImage" destination="I4k-X3-vow" id="Dsj-3E-g8q"/>
+                        <outlet property="idGameField" destination="lHL-na-U1h" id="AdN-3r-50H"/>
                         <outlet property="mapView" destination="IrE-9Y-fqF" id="Isk-9a-7CK"/>
                         <outlet property="photoCameraLabel" destination="e1i-w2-XIv" id="b0g-PE-Mwb"/>
                         <outlet property="photoLibraryLabel" destination="aI2-Gj-imV" id="aCR-Pu-SCd"/>
@@ -645,6 +651,12 @@
                                     <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXN-NW-F3V">
+                                <rect key="frame" x="10" y="311" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93148298210000002" blue="0.20629944629999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -670,6 +682,7 @@
                         <outlet property="answer1Field2" destination="mtc-hE-qBn" id="jjQ-ov-TdP"/>
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
+                        <outlet property="idLabel" destination="JXN-NW-F3V" id="5s2-Bu-VuZ"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>

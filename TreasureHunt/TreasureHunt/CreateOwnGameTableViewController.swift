@@ -14,7 +14,8 @@ import FillableLoaders
 
 class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
     let locationManager = LocationManager.sharedManager
-
+    
+    @IBOutlet weak var idGameField: UITextField!
     @IBOutlet weak var photoCameraLabel: UILabel!
     @IBOutlet weak var photoLibraryLabel: UILabel!
     @IBOutlet weak var cameraRollButton: UIButton!
@@ -31,28 +32,71 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     var riddleArray : [CKRecord] = []
     var gameArray : [CKRecord] = []
     var lastId : Int!
-    
+    var gameSelected : CKRecord!
+    var gameIdent : Int!
+    var riddleArrayByIDGame: [CKRecord] = []
     override func viewDidLoad() {
         
-        super.viewDidLoad()
+   super.viewDidLoad()
         
         fetchAllGames()
+        fetchAllRiddlesPerID()
         addGameTitleAlert()
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
-        lastId = 2
-        print(lastId)
+        //searchAllRiddlesForIdGame()
+        lastId = gameArray.count
+        print("count element \(lastId)")
         navigationController?.navigationBarHidden = false
+        //let idGame : Int
+        gameIdent = Int(idGameField.text!)
         
     }
+    func searchAllRiddlesForIdGame(){
+        //let idGame = gameSelected.valueForKey("id_Game") as? Int
+        
+        
+        for record in riddleArray{
+            
+            if record.valueForKey("id_Riddle") as? Int == gameIdent {
+                riddleArrayByIDGame.append(record)
+                
+            }
+        }
+    }
+
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameArray.count
+     // if (let gameIdent ==
+        return riddleArrayByIDGame.count
     }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("GameID", forIndexPath: indexPath) as! CreateRiddleTableViewCell
+//        let identifier = NSUUID().UUIDString //format cle unique
+//        let gameID = CKRecordID(recordName : identifier)
+//        let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
+        
+        let riddleRecord: CKRecord = riddleArrayByIDGame[indexPath.row]
+        let riddleTitle = riddleRecord.valueForKey("nameLocation") as? String
+       // print(riddleTitle)
+        
+        
+        for riddle in riddleArrayByIDGame {
+            let idRiddle = riddleRecord.valueForKey("id_Riddle") as? Int
+            if (gameIdent == idRiddle){
+                cell.locationLabel.text = riddleTitle
+            }
+        }
+        
+        return cell
+    }
+    
+    
     
     func addQuestionViewControllerCancelPressedViewController(viewController: CreateOwnGameDetailsViewController) {
         
@@ -60,6 +104,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     }
     
     func addQuestionViewControllerSavePressed(viewController: CreateOwnGameDetailsViewController) {
+        
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -93,7 +138,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             }
         }
         
-         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goToStartSegue", sender: self) })
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goToStartSegue", sender: self) })
         
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "Game Title"
@@ -107,6 +152,15 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         self.presentViewController(alert, animated: true, completion: nil)
         
         
+    }
+    func countIdGame()-> Int{
+        var countRecord = 0
+        
+        for record in gameArray {
+            gameArray.append(record)
+            let countRecord = countRecord + 1
+        }
+        return countRecord
     }
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
@@ -148,9 +202,9 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         }
         
         // save idGame
-        
-        gameRecord.setValue(lastId + 1 , forKey: "id_Game")
-        
+        //self.locationManager.createdGameID = Int(idGameField.text!)!
+        //gameRecord.setValue(lastId + 1 , forKey: "id_Game")
+        gameRecord.setValue(Int(idGameField.text!), forKey: "id_Game") 
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
@@ -180,27 +234,75 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         photoLibraryLabel.hidden = true
         
     }
-//    func numberOfGames() -> Int {
-//        var nb : Int = 0
-//        for record in gameArray{
-//            nb += 1
-//            
-//        }
-//        return nb
-//    }
+    //    func numberOfGames() -> Int {
+    //        var nb : Int = 0
+    //        for record in gameArray{
+    //            nb += 1
+    //
+    //        }
+    //        return nb
+    //    }
     
     //segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-         if segue.identifier == "goToDetail" {
-        let nav = segue.destinationViewController as!UINavigationController
-        let createGameController = nav.viewControllers.first as! CreateOwnGameDetailsViewController
-        createGameController.delegate = self
+        if segue.identifier == "goToDetail" {
+            let nav = segue.destinationViewController as!UINavigationController
+            let createGameController = nav.viewControllers.first as! CreateOwnGameDetailsViewController
+            
+            createGameController.delegate = self
+            let idGame = Int(self.idGameField.text!)
+            createGameController.idGameForRiddle = idGame
+        }
+    }
+    
+    
+    func fetchAllGames() {
+        
+        
+        
+        //Games opvragen
+        
+        let container = CKContainer.defaultContainer()
+        
+        let publicDatabase = container.publicCloudDatabase
+        
+        let predicate = NSPredicate(value: true) // used to filter: true -> show all
+        
+        
+        
+        let query = CKQuery(recordType: "Game", predicate: predicate)//maak een cloudKit Query
+        
+        
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error != nil {
+                
+                print(error)
+                
+            }
+                
+            else {
+                
+                print(results)
+                
+                self.gameArray = results!
+                // self.locArray.append(results)
+                
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    // completionHandler(records: results, error: error)
+                    self.tableView.reloadData()
+                })
+                
+            }
+            
+            
         }
     }
 
 
-func fetchAllGames() {
+func fetchAllRiddlesPerID() {
     
     
     
@@ -214,7 +316,7 @@ func fetchAllGames() {
     
     
     
-    let query = CKQuery(recordType: "Game", predicate: predicate)//maak een cloudKit Query
+    let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
     
     
     
@@ -228,22 +330,24 @@ func fetchAllGames() {
         else {
             
             print(results)
-            
-            self.gameArray = results!
+                       self.riddleArray = results!
             // self.locArray.append(results)
+            
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                // completionHandler(records: results, error: error)
+                                self.tableView.reloadData()
+                                self.searchAllRiddlesForIdGame()
 
+
+            })
+            
+        }
         
-        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-           // completionHandler(records: results, error: error)
-        })
         
     }
-    
-    
 }
 }
-}
-
 
 
 extension CreateOwnGameTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
