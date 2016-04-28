@@ -12,6 +12,7 @@ import CloudKit
 import QuartzCore
 import FillableLoaders
 
+
 class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
     let locationManager = LocationManager.sharedManager
     
@@ -22,6 +23,9 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    
+    
     
     var imageURL: NSURL?
     var currentFilter: CIFilter!
@@ -115,10 +119,10 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     }
     
     func addGameTitleAlert() {
-        alert = UIAlertController(title: "Catson:", message: "Before we can create a game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a                                         game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
         
-        let yourImage = UIImage(named: "catson")
-        var imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        let yourImage = UIImage(named: "hudson2")
+        var imageView = UIImageView(frame: CGRectMake(-20,-10, 140, 115))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
         

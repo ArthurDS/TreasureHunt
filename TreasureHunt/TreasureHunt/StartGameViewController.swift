@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 func delay(seconds seconds: Double, completion:()->()) {
     let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
@@ -28,10 +29,28 @@ class StartGameViewController: UIViewController {
     
     @IBAction func unWindToStart(segue: UIStoryboardSegue) {}
     
+    
+    var bombSoundEffect: AVAudioPlayer!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var catAnimationArray = ["giphy-0", "giphy-1", "giphy-2", "giphy-3", "giphy-4", "giphy-5", "giphy-6", "giphy-7", "giphy-8", "giphy-9", "giphy-10", "giphy-11", "giphy-12"]
+        
+        let path = NSBundle.mainBundle().pathForResource("Sherlock Holmes.mp3", ofType:nil)!
+        let url = NSURL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            bombSoundEffect = sound
+            sound.play()
+        } catch {
+            // couldn't load file :(
+        }
+        
+        
         
         var images = [UIImage]()
         

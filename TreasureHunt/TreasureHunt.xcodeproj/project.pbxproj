@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		217C9ED8C0239C4783B07052 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E766A349415DF6E9FE707F /* Pods_TreasureHunt.framework */; };
+		BE1372CF1CD20E600004D843 /* Sherlock Holmes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE1372CE1CD20E600004D843 /* Sherlock Holmes.mp3 */; };
+		BE1372D11CD2166A0004D843 /* CatsOverture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE1372D01CD2166A0004D843 /* CatsOverture.mp3 */; };
 		BE139B0B1CBE2F840025F9D9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */; };
 		BE27BBE71CCE4BBA00B1F8DC /* DeductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */; };
 		BE336B061CC60E9700B2BFDB /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE336B051CC60E9700B2BFDB /* StartGameViewController.swift */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		5B0E2A27BA626B6DB4F316D5 /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
 		6298F75DFF686824FD0C2E66 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
+		BE1372CE1CD20E600004D843 /* Sherlock Holmes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sherlock Holmes.mp3"; sourceTree = "<group>"; };
+		BE1372D01CD2166A0004D843 /* CatsOverture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CatsOverture.mp3; sourceTree = "<group>"; };
 		BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TreasureHunt.entitlements; sourceTree = "<group>"; };
 		BE139B0A1CBE2F840025F9D9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BE27BBE61CCE4BBA00B1F8DC /* DeductionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeductionTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +66,9 @@
 		BE336B0A1CC6113B00B2BFDB /* PlayGameSolutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameSolutionViewController.swift; sourceTree = "<group>"; };
 		BE336B101CC6184400B2BFDB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BE4709991CBE443C00B395DC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BE6DA4371CD0F3D2007D14DD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BE6DA4381CD0F3D2007D14DD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		BE6DA4391CD0F3E1007D14DD /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE72F6341CBBBED500976D47 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE72F6371CBBBED500976D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE72F63C1CBBBED500976D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,9 +82,6 @@
 		BE91BCF61CD0D810000C01A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		BE9D4E3A1CC8CC2400687594 /* PickGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGameTableViewCell.swift; sourceTree = "<group>"; };
 		BEAD7CC71CCF5CA200CCAB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BEAD7CCA1CCF671100CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
-		BEAD7CCB1CCF671200CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		BEAD7CCC1CCF671200CCAB5C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRiddleTableViewCell.swift; sourceTree = "<group>"; };
 		BEBD808C1CCE328600455162 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
 		BECE3C7B1CBCDBB80011AFC6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE1372D21CD216760004D843 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				BE1372D01CD2166A0004D843 /* CatsOverture.mp3 */,
+				BE1372CE1CD20E600004D843 /* Sherlock Holmes.mp3 */,
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
 		BE336B071CC60F3D00B2BFDB /* NewViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BE1372D21CD216760004D843 /* music */,
 				BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */,
 				BE336B071CC60F3D00B2BFDB /* NewViewControllers */,
 				BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */,
@@ -269,6 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1372CF1CD20E600004D843 /* Sherlock Holmes.mp3 in Resources */,
+				BE1372D11CD2166A0004D843 /* CatsOverture.mp3 in Resources */,
 				BE72F6451CBBBED500976D47 /* LaunchScreen.storyboard in Resources */,
 				BEAD7CC61CCF5CA200CCAB5C /* Localizable.strings in Resources */,
 				BE72F6421CBBBED500976D47 /* Assets.xcassets in Resources */,
@@ -360,8 +376,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE72F63C1CBBBED500976D47 /* Base */,
-				BEAD7CCA1CCF671100CCAB5C /* nl */,
 				BE91BCF61CD0D810000C01A9 /* en */,
+				BE6DA4381CD0F3D2007D14DD /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -370,7 +386,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE72F6441CBBBED500976D47 /* Base */,
-				BEAD7CCB1CCF671200CCAB5C /* nl */,
+				BE6DA4371CD0F3D2007D14DD /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -379,7 +395,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BEAD7CC71CCF5CA200CCAB5C /* en */,
-				BEAD7CCC1CCF671200CCAB5C /* nl */,
+				BE6DA4391CD0F3E1007D14DD /* nl */,
 			);
 			name = Localizable.strings;
 			path = ..;
@@ -484,7 +500,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,7 +521,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.embur.TreasureHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
