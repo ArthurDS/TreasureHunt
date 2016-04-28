@@ -45,7 +45,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         navigationItem.titleView = UIImageView(image: image)
         navigationController?.navigationBarHidden = false
         self.locationManager.riddlesSolvedArray.removeAll()
+
     }
+
     
     func searchAllRiddlesForIdGame(){
         let idGame = gameSelected.valueForKey("id_Game") as? Int
@@ -70,7 +72,9 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+
     }
+    
     
     func userLocationChanged(notification: NSNotification) {
         
@@ -105,6 +109,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     override func viewDidAppear(animated: Bool) {
+
     }
     
     func setAnotation(latitude: Double, longitude: Double) {
@@ -217,6 +222,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
     }
     
+     
     func walkingRoute(latitude: Double, longitude: Double) {
         let request = MKDirectionsRequest()
         
@@ -393,6 +399,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     self.mapAnotation()
                     self.setAnotation(lat!, longitude: long!)
                     self.walkingRoute(lat!, longitude: long!)
+           
                     
                 })
             }

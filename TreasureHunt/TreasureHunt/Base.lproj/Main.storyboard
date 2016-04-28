@@ -394,16 +394,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-MA-XR4">
-                                <rect key="frame" x="85" y="238" width="150" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                <state key="normal" title="Don't click me!!!!">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="WhyDidYouPressMe:" destination="JHn-GK-sQN" eventType="touchUpInside" id="kdi-Ap-ygc"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So Purrlock, who do you think the killer is?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-38-18n">
+                                <rect key="frame" x="13" y="72" width="295" height="49"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -707,14 +703,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tape" translatesAutoresizingMaskIntoConstraints="NO" id="XAP-Wr-tlY">
                                 <rect key="frame" x="247" y="190" width="73" height="62"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
-                                <rect key="frame" x="113" y="482" width="97" height="97"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
                                 <rect key="frame" x="112" y="482" width="97" height="97"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
+                                <rect key="frame" x="113" y="482" width="97" height="97"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG" userLabel="summaryLabel">
-                                <rect key="frame" x="26" y="236" width="270" height="150"/>
+                                <rect key="frame" x="26" y="240" width="270" height="151"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -767,10 +763,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="answerButton1" destination="s6J-xZ-giL" id="OQy-0v-ggL"/>
-                        <outlet property="answerButton2" destination="nAE-GD-Myh" id="bfs-O7-uk8"/>
-                        <outlet property="answerButton3" destination="5wl-L9-U9T" id="P2C-Hf-Bhe"/>
-                        <outlet property="answerButton4" destination="fyk-bp-OZZ" id="JEh-Qu-Ehd"/>
+                        <outlet property="answerButton1" destination="Ixt-UJ-9Qk" id="Z3i-PB-i3L"/>
+                        <outlet property="answerButton2" destination="C7w-iA-fWe" id="40Q-U0-Gh7"/>
+                        <outlet property="answerButton3" destination="mty-wg-T06" id="Za6-jT-pXS"/>
+                        <outlet property="answerButton4" destination="kAI-yF-xgB" id="KGu-HV-8Ig"/>
                         <outlet property="clockImage" destination="u6O-SO-qGv" id="k91-xX-CiT"/>
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>
