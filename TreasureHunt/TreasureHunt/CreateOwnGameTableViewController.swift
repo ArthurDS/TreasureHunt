@@ -22,8 +22,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     
-    
-    
+    //var unikIdGame : CKRecord! = nil
     
     var imageURL: NSURL?
     var currentFilter: CIFilter!
@@ -33,39 +32,43 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     var alert : UIAlertController!
     var riddleArray : [CKRecord] = []
     var gameArray : [CKRecord] = []
-    var lastId : Int!
+    //var lastId : Int!
     var gameSelected : CKRecord!
-    var gameIdent : Int!
+    //var gameIdent : Int!
     var riddleArrayByIDGame: [CKRecord] = []
+    var number: Int32! = nil
     override func viewDidLoad() {
         
-   super.viewDidLoad()
+        super.viewDidLoad()
         
+        
+
         fetchAllGames()
         fetchAllRiddlesPerID()
         addGameTitleAlert()
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         //searchAllRiddlesForIdGame()
-        lastId = gameArray.count
-        print("count element \(lastId)")
+       // lastId = gameArray.count
+        //print("count element \(lastId)")
         navigationController?.navigationBarHidden = false
         //let idGame : Int
-        gameIdent = Int(idGameField.text!)
+        //gameIdent = Int(idGameField.text!)
         
     }
+    
     func searchAllRiddlesForIdGame(){
-        //let idGame = gameSelected.valueForKey("id_Game") as? Int
-        
-        
-        for record in riddleArray{
-            
-            if record.valueForKey("id_Riddle") as? Int == gameIdent {
-                riddleArrayByIDGame.append(record)
-                
-            }
-            print(riddleArray.count)
-        }
+//       // let idGame = gameSelected.valueForKey("id_Game") as? Int
+//        
+//        
+//        for record in riddleArray{
+//            
+//            if record.valueForKey("id_Riddle") as? Int == idGame {
+//                riddleArrayByIDGame.append(record)
+//                
+//            }
+//           // print(riddleArray.count)
+//        }
     }
 
     
@@ -87,11 +90,12 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         let riddleRecord: CKRecord = riddleArrayByIDGame[indexPath.row]
         let riddleTitle = riddleRecord.valueForKey("nameLocation") as? String
        // print(riddleTitle)
+        let idGame = gameSelected.valueForKey("id_Game") as? Int
+
         
-        
-        for riddle in riddleArrayByIDGame {
+        for _ in riddleArrayByIDGame {
             let idRiddle = riddleRecord.valueForKey("id_Riddle") as? Int
-            if (gameIdent == idRiddle){
+            if (idGame == idRiddle){
                 cell.locationLabel.text = riddleTitle
             }
         }
@@ -124,7 +128,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a\n                    game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
         
         let yourImage = UIImage(named: "hudson2")
-        var imageView = UIImageView(frame: CGRectMake(-20,-10, 140, 115))
+        let imageView = UIImageView(frame: CGRectMake(-20,-10, 140, 115))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
         
@@ -134,7 +138,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
                 NSUserDefaults.standardUserDefaults().setObject(field.text, forKey: "")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 let newGame = String(self.alert.textFields![0].text!)
-                print("the game is  ******************************\(newGame)")
+              //  print("the game is  ******************************\(newGame)")
                 
                 
                 self.title = newGame
@@ -204,13 +208,20 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         if let url = self.imageURL {
             let imageAsset = CKAsset(fileURL: url)
             gameRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
-            print("asset file url before: \(imageAsset.fileURL)")
+            //print("asset file url before: \(imageAsset.fileURL)")
         }
         
         // save idGame
-        //self.locationManager.createdGameID = Int(idGameField.text!)!
         //gameRecord.setValue(lastId + 1 , forKey: "id_Game")
-        gameRecord.setValue(Int(idGameField.text!), forKey: "id_Game") 
+        //gameRecord.setValue(Int(idGameField.text!), forKey: "id_Game")
+        //        let recordID = CKRecordID()
+//        unikIdGame = CKRecord(recordType: "Game", recordID:  recordID)
+//        let a = unikIdGame.description
+//        print("*************************  +\(a)")
+        //save unik id_Game
+        
+          number = Int32(arc4random() % 1000000)
+        gameRecord.setValue(Int(number), forKey: "id_Game")
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
@@ -256,7 +267,8 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             let createGameController = nav.viewControllers.first as! CreateOwnGameDetailsViewController
             
             createGameController.delegate = self
-            let idGame = Int(self.idGameField.text!)
+            //let idGame = Int(self.idGameField.text!)
+            let idGame = Int32(self.number)
             createGameController.idGameForRiddle = idGame
         }
     }
@@ -352,6 +364,9 @@ func fetchAllRiddlesPerID() {
         
     }
 }
+    
+    
+    
 }
 
 
