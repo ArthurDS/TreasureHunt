@@ -443,7 +443,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Ff-gFF">
                                     <rect key="frame" x="191" y="37" width="102" height="95"/>
                                     <state key="normal" title="Take Photo" image="Photo-Video-Camera-icon">
-                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="PresentCamera:" destination="8mZ-Ho-Ww5" eventType="touchUpInside" id="ig0-jT-90k"/>
@@ -470,7 +470,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-w2-XIv">
                                     <rect key="frame" x="191" y="13" width="102" height="21"/>
                                     <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -490,7 +490,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEX-1z-LIb">
                                             <rect key="frame" x="42" y="8" width="237" height="66"/>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -516,9 +516,9 @@
                                     <segue destination="oLr-7s-F5G" kind="show" identifier="goToDetail" id="F5X-kI-QoT"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="Msv-WU-wzO">
+                            <barButtonItem width="100" style="plain" id="Msv-WU-wzO">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fgO-dL-UAA">
-                                    <rect key="frame" x="231" y="12" width="37" height="19"/>
+                                    <rect key="frame" x="208" y="12" width="60" height="19"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Save"/>
                                     <connections>
@@ -710,9 +710,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-SO-qGv">
                                 <rect key="frame" x="113" y="482" width="97" height="97"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
-                                <rect key="frame" x="112" y="482" width="97" height="97"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k43-7E-6HG" userLabel="summaryLabel">
                                 <rect key="frame" x="26" y="236" width="270" height="150"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
@@ -762,15 +759,18 @@
                                     <action selector="answerButton4WasPressed:" destination="woW-it-Dac" eventType="touchUpInside" id="Rsw-Cp-a5W"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands" translatesAutoresizingMaskIntoConstraints="NO" id="P6c-uH-bPI">
+                                <rect key="frame" x="112" y="482" width="97" height="97"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="answerButton1" destination="s6J-xZ-giL" id="OQy-0v-ggL"/>
-                        <outlet property="answerButton2" destination="nAE-GD-Myh" id="bfs-O7-uk8"/>
-                        <outlet property="answerButton3" destination="5wl-L9-U9T" id="P2C-Hf-Bhe"/>
-                        <outlet property="answerButton4" destination="fyk-bp-OZZ" id="JEh-Qu-Ehd"/>
+                        <outlet property="answerButton1" destination="Ixt-UJ-9Qk" id="tAu-KV-NYo"/>
+                        <outlet property="answerButton2" destination="C7w-iA-fWe" id="Cyj-nY-x92"/>
+                        <outlet property="answerButton3" destination="mty-wg-T06" id="ELW-cR-MYr"/>
+                        <outlet property="answerButton4" destination="kAI-yF-xgB" id="aOY-Dw-OEd"/>
                         <outlet property="clockImage" destination="u6O-SO-qGv" id="k91-xX-CiT"/>
                         <outlet property="handsImage" destination="P6c-uH-bPI" id="Hrw-sp-al0"/>
                         <outlet property="locationImageView" destination="7wd-OZ-25X" id="Z2h-wM-qYo"/>

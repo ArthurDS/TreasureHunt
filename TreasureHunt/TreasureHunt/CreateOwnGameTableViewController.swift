@@ -12,6 +12,7 @@ import CloudKit
 import QuartzCore
 import FillableLoaders
 
+
 class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
     let locationManager = LocationManager.sharedManager
 
@@ -21,6 +22,9 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    
+    
     
     var imageURL: NSURL?
     var currentFilter: CIFilter!

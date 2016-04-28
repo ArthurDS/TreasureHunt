@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import AVFoundation
 
 class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate {
     
@@ -29,7 +30,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     @IBOutlet weak var clockImage: UIImageView!
     
-    
+     var bombSoundEffect: AVAudioPlayer!
     
     var textNamesArray : [String] = []
     var ridlleRecord : CKRecord!
@@ -45,7 +46,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     var timer = 180
     let kAnimationKey = "rotation"
     var correctAnswer: String!
-    
     
 
     
@@ -87,6 +87,19 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             animate.fromValue = 0.0
             animate.toValue = Float(M_PI * 10.0)
             handsImage.layer.addAnimation(animate, forKey: kAnimationKey)
+            
+            
+            let path = NSBundle.mainBundle().pathForResource("CatsOverture.mp3", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            
+            do {
+                let sound = try AVAudioPlayer(contentsOfURL: url)
+                bombSoundEffect = sound
+                sound.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
         }
     }
     
@@ -363,7 +376,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func createAllRiddlesSolvedArray() {
     
 
             
@@ -380,11 +393,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         print("****************************************")
 
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
 
-    }
     
     func checkAnswer(myButton: UIButton) -> Bool {
         if (myButton.titleLabel?.text == correctAnswer)
