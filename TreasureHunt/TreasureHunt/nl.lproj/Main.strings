@@ -1,12 +1,12 @@
 
+/* Class = "UIButton"; normalTitle = "Take Photo"; ObjectID = "15R-Ff-gFF"; */
+"15R-Ff-gFF.normalTitle" = "Neem een foto";
+
 /* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "4ab-cG-yVb"; */
-"4ab-cG-yVb.normalTitle" = "Start spel";
+"4ab-cG-yVb.normalTitle" = "Start een spel";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "95U-DY-SnP"; */
 "95U-DY-SnP.title" = "Element";
-
-/* Class = "UILabel"; text = "Description"; ObjectID = "GDi-yl-Clh"; */
-"GDi-yl-Clh.text" = "Beschrijving";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Gga-CR-7KJ"; */
 "Gga-CR-7KJ.normalTitle" = "Knop";
@@ -15,43 +15,34 @@
 "HjV-tB-v6O.text" = "Raadsel";
 
 /* Class = "UIBarButtonItem"; title = "Clues"; ObjectID = "JPG-Fv-1ZX"; */
-"JPG-Fv-1ZX.title" = "Aanwijzing";
+"JPG-Fv-1ZX.title" = "Aanwijzingen";
 
 /* Class = "UIButton"; normalTitle = "Take Picture"; ObjectID = "M8a-nY-Aaa"; */
-"M8a-nY-Aaa.normalTitle" = "Neem foto";
+"M8a-nY-Aaa.normalTitle" = "Neem een foto";
 
-/* Class = "UISegmentedControl"; N7x-Zm-rRR.segmentTitles[0] = "ON FOOT"; ObjectID = "N7x-Zm-rRR"; */
-"N7x-Zm-rRR.segmentTitles[0]" = "TE VOET";
+/* Class = "UIButton"; normalTitle = "Don't click me!!!!"; ObjectID = "Pn3-MA-XR4"; */
+"Pn3-MA-XR4.normalTitle" = "Klik me niet aan!!!!";
 
-/* Class = "UISegmentedControl"; N7x-Zm-rRR.segmentTitles[1] = "BY CAR"; ObjectID = "N7x-Zm-rRR"; */
-"N7x-Zm-rRR.segmentTitles[1]" = "MET DE WAGEN";
+/* Class = "UILabel"; text = "Answers"; ObjectID = "S3u-xC-8Zn"; */
+"S3u-xC-8Zn.text" = "Antwoorden";
 
-/* Class = "UILabel"; text = "Answer 1"; ObjectID = "S3u-xC-8Zn"; */
-"S3u-xC-8Zn.text" = "Antwoord 1";
-
-/* Class = "UILabel"; text = "TimeStamp"; ObjectID = "SfX-Cv-XwK"; */
-"SfX-Cv-XwK.text" = "TimeStamp";
-
-/* Class = "UILabel"; text = "Beschrijving"; ObjectID = "U7S-X9-XrD"; */
-"U7S-X9-XrD.text" = "Beschrijving";
+/* Class = "UIBarButtonItem"; title = "Quit"; ObjectID = "V6U-6J-ySA"; */
+"V6U-6J-ySA.title" = "Ga terug";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Xal-BO-LdV"; */
 "Xal-BO-LdV.normalTitle" = "Knop";
 
-/* Class = "UILabel"; text = "Deduction"; ObjectID = "Xd1-HY-VGf"; */
-"Xd1-HY-VGf.text" = "Deduction";
-
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Y4e-qD-yds"; */
 "Y4e-qD-yds.title" = "Annuleer";
 
-/* Class = "UIButton"; normalTitle = "Add Location"; ObjectID = "ae3-6Y-BdQ"; */
-"ae3-6Y-BdQ.normalTitle" = "Voeg Locatie toe";
-
-/* Class = "UILabel"; text = "Datum"; ObjectID = "cX6-HO-618"; */
-"cX6-HO-618.text" = "Datum";
+/* Class = "UILabel"; text = "Library "; ObjectID = "aI2-Gj-imV"; */
+"aI2-Gj-imV.text" = "Bibliotheek ";
 
 /* Class = "UIButton"; normalTitle = "Create game"; ObjectID = "cya-cP-gsn"; */
 "cya-cP-gsn.normalTitle" = "Creëer een spel";
+
+/* Class = "UILabel"; text = "Camera"; ObjectID = "e1i-w2-XIv"; */
+"e1i-w2-XIv.text" = "Camera";
 
 /* Class = "UILabel"; text = "The Old Town Hall"; ObjectID = "eU3-9u-eaU"; */
 "eU3-9u-eaU.text" = "The Old Town Hall";
@@ -59,8 +50,8 @@
 /* Class = "UILabel"; text = "The Curse of the Socialist Mayor"; ObjectID = "efF-wY-8k2"; */
 "efF-wY-8k2.text" = "De vloek van socialist Mayor";
 
-/* Class = "UILabel"; text = "Answer 3"; ObjectID = "fQN-IZ-QFF"; */
-"fQN-IZ-QFF.text" = "Antwoord 3";
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "fgO-dL-UAA"; */
+"fgO-dL-UAA.normalTitle" = "Bewaar";
 
 /* Class = "UILabel"; text = "Game"; ObjectID = "fjm-6l-eT3"; */
 "fjm-6l-eT3.text" = "Spel";
@@ -68,11 +59,8 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gNE-0r-ZzA"; */
 "gNE-0r-ZzA.normalTitle" = "Knop";
 
-/* Class = "UILabel"; text = "Answer 4"; ObjectID = "ghx-qW-AGY"; */
-"ghx-qW-AGY.text" = "Antwoord 4";
-
-/* Class = "UILabel"; text = "Answer 2"; ObjectID = "knf-d0-X5Q"; */
-"knf-d0-X5Q.text" = "Antwoord 2";
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "kVh-G0-LCS"; */
+"kVh-G0-LCS.title" = "Terug";
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "koi-XA-D4W"; */
 "koi-XA-D4W.title" = "Bewaar";
@@ -81,16 +69,13 @@
 "lyV-zi-c4r.normalTitle" = "Knop";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "m9J-as-EQD"; */
-"m9J-as-EQD.text" = "Naam";
+"m9J-as-EQD.text" = "Label";
 
-/* Class = "UIButton"; normalTitle = "Camera"; ObjectID = "nGY-Ek-rST"; */
-"nGY-Ek-rST.normalTitle" = "Camera";
+/* Class = "UIButton"; normalTitle = "Camera Roll"; ObjectID = "nwY-la-gzG"; */
+"nwY-la-gzG.normalTitle" = "Camera Rol";
 
 /* Class = "UIButton"; normalTitle = "CameraRoll"; ObjectID = "tYi-rs-D6I"; */
-"tYi-rs-D6I.normalTitle" = "CameraRoll";
+"tYi-rs-D6I.normalTitle" = "Camera Rol";
 
-/* Class = "UILabel"; text = "UserName"; ObjectID = "vJj-Uh-48R"; */
-"vJj-Uh-48R.text" = "Gebruikersnaam";
-
-/* Class = "UILabel"; text = "Description"; ObjectID = "w8w-Up-5q9"; */
-"w8w-Up-5q9.text" = "Beschrijving";
+/* Class = "UILabel"; text = "Label"; ObjectID = "zEX-1z-LIb"; */
+"zEX-1z-LIb.text" = "Label";
