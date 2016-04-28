@@ -61,7 +61,11 @@ class CluesViewController: UIViewController {
         }
     }
 
-    
+    override func viewDidAppear(animated: Bool) {
+        if self.locationManager.riddleArrayByIdGame.isEmpty {
+            ShowTheButtons()
+        }
+    }
     
     func createButtons() {
        

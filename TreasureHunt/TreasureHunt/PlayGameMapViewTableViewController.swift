@@ -24,7 +24,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     var gameSelected : CKRecord!
     var singleRiddle: CKRecord!
     var riddleArray: [CKRecord] = []
-    var riddleArrayByIDGame: [CKRecord] = []
+
     let location = CLLocationManager()
     var isInitialized = false
     var playedGameArray: [CKRecord] = []
@@ -38,13 +38,14 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+               super.viewDidLoad()
         fetchLocation()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         let image = UIImage(named: "sherlockmini")
         navigationItem.titleView = UIImageView(image: image)
         navigationController?.navigationBarHidden = false
         self.locationManager.riddlesSolvedArray.removeAll()
+        
     }
     
     func goToEndGame() {
@@ -69,11 +70,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     func searchAllRiddlesForIdGame(){
         let idGame = gameSelected.valueForKey("id_Game") as? Int
         
+
+
         
         for record in riddleArray{
             
             if record.valueForKey("id_Riddle") as? Int == idGame {
-                riddleArrayByIDGame.append(record)
+                self.locationManager.riddleArrayByIdGame.append(record)
                 
             }
         }
@@ -82,7 +85,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlayGameMapViewTableViewController.userLocationChanged(_:)), name: LocationManagerDidUpdateLocation, object: nil)
-        endGame()
+
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -93,7 +96,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         var currentInRange: [CKRecord] = []
         
-        for record in self.riddleArrayByIDGame {
+        for record in self.locationManager.riddleArrayByIdGame {
             
             if locationManager.isNearRecord(record)   {
                 
@@ -117,6 +120,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     override func viewDidAppear(animated: Bool) {
+   endGame()
     }
     
     func setAnotation(latitude: Double, longitude: Double) {
@@ -179,7 +183,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-            return self.riddleArrayByIDGame.count
+            return self.locationManager.riddleArrayByIdGame.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -188,7 +192,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
             
-            let ridRecord : CKRecord = riddleArrayByIDGame[indexPath.row]
+            let ridRecord : CKRecord = self.locationManager.riddleArrayByIdGame[indexPath.row]
             
             let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
             
@@ -266,7 +270,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         if segue.identifier == "riddleID" {
             let playGameViewController = segue.destinationViewController as! PlayGameSolutionViewController
             let indexPath = tableView.indexPathForSelectedRow
-            let recordSelected : CKRecord = riddleArrayByIDGame[(indexPath?.row)!]
+            let recordSelected : CKRecord = self.locationManager.riddleArrayByIdGame[(indexPath?.row)!]
             
             playGameViewController.ridlleRecord = recordSelected
         }
@@ -288,13 +292,13 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         
         let indexPath = tableView.indexPathForSelectedRow!
         
-        riddleArrayByIDGame.removeAtIndex(indexPath.row)
+        self.locationManager.riddleArrayByIdGame.removeAtIndex(indexPath.row)
 
         
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         
         
-        if let firstRecord : CKRecord = self.riddleArrayByIDGame.first {
+        if let firstRecord : CKRecord =  self.locationManager.riddleArrayByIdGame.first {
         
         let location = firstRecord.valueForKey("location")
             
@@ -382,9 +386,10 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     
                     loader.removeLoader()
                     
+                    self.locationManager.riddleArrayByIdGame.removeAll()
                     self.searchAllRiddlesForIdGame()
                     
-                    let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
+                    let firstRecord : CKRecord =  self.locationManager.riddleArrayByIdGame.first!
                     
                     let location = firstRecord.valueForKey("location")
                     
