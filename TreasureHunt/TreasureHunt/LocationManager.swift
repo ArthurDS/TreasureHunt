@@ -32,6 +32,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var riddlesSolvedArray: [String] = []
     var riddlesSolvedWrongArray: [String] = []
     
+    var allRiddlesSolvedArray: [String] = []
+    
     var gameIsPlayed: [Int] = []
 
     private override init() {

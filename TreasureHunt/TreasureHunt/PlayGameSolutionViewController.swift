@@ -107,6 +107,30 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         handsImage.layer.removeAllAnimations()
     }
     
+    func goToEndGame() {
+        let alert = UIAlertController(title: "Endgame:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let yourImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    func allRiddlesSolved(){
+        if self.locationManager.allRiddlesSolvedArray.count == 4 {
+            goToEndGame()
+        }
+    }
+
+    
     func createButtons() {
         
         answerButton1.layer.cornerRadius = 20
@@ -285,6 +309,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     @IBAction func answerButton1WasPressed(sender: AnyObject) {
+        allRiddlesSolved()
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer1CorrectMistify()
@@ -295,7 +320,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             addIfRiddleSolved()
             makeButtonsInactiveAfterAnswering()
             AnsweredCorrectly()
-            
+
             print("this is the correctAnswer")
             
         }
@@ -304,12 +329,14 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             print("Wrong!!!!")
             answerButton1.backgroundColor = UIColor.redColor()
             AnsweredWrong()
+
         }
         navigationController?.navigationBarHidden = false
 
     }
     
     @IBAction func answerButton2WasPressed(sender: AnyObject) {
+        allRiddlesSolved()
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer2CorrectMistify()
@@ -319,7 +346,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             addIfRiddleSolved()
             makeButtonsInactiveAfterAnswering()
             AnsweredCorrectly()
-            
+
             print("this is the correctAnswer")
         }
         else {
@@ -334,6 +361,7 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     }
     
     @IBAction func answerButton3WasPressed(sender: AnyObject) {
+        allRiddlesSolved()
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer3CorrectMistify()
@@ -341,20 +369,26 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
         if (checkAnswer((answerButton3)!)){
             addIfRiddleSolved()
+
             AnsweredCorrectly()
+
             print("this is the correctAnswer")
         }
         else {
             print("Wrong!!!!")
+ 
             AnsweredWrong()
             answerButton3.backgroundColor = UIColor.redColor()
+          
             addIfRiddleAnswerWrong()
+            
  }
         navigationController?.navigationBarHidden = false
 
     }
     
     @IBAction func answerButton4WasPressed(sender: AnyObject) {
+        allRiddlesSolved()
         makeButtonsInactiveAfterAnswering()
         stopRotatingClock()
         Answer4CorrectMistify()
@@ -362,7 +396,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         
         if (checkAnswer(answerButton4!)) {
             addIfRiddleSolved()
+
             AnsweredCorrectly()
+
             print("this is the correctAnswer")
         }
             
@@ -370,7 +406,9 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
             addIfRiddleAnswerWrong()
             print("Wrong!!!!")
             answerButton4.backgroundColor = UIColor.redColor()
+
             AnsweredWrong()
+
         }
         navigationController?.navigationBarHidden = false
 
@@ -386,7 +424,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
 //                playGameViewController.ridlleRecord = recordSelected
 //            }
    
-        
         let allRiddlesSolvedArray = locationManager.riddlesSolvedArray + locationManager.riddlesSolvedWrongArray
         print("****************************************")
         print(allRiddlesSolvedArray)

@@ -126,9 +126,10 @@ class CluesViewController: UIViewController {
             Clue4.hidden = false
             Clue5.hidden = false
             ShowTheButtons()
+            
             //niet vergeten te verzetten naar juiste button is pressed of zoiets
-
-            //
+            //self.locationManager.gameIsPlayed.append(gameRecord)
+            
         default:
             break
         }
@@ -168,14 +169,11 @@ class CluesViewController: UIViewController {
         
         answerButton4.hidden = false
         answerButton4.userInteractionEnabled = true
-        
-            self.locationManager.gameIsPlayed.append(gameRecord)
+
     }
     
 
-    @IBAction func WhyDidYouPressMe(sender: AnyObject) {
-    self.locationManager.gameIsPlayed.append(gameRecord)
-    }
+
     
     func fetchRiddles() {
         let container = CKContainer.defaultContainer()
