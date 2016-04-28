@@ -322,6 +322,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="mdg-si-bt2" id="Dn1-uY-LgO"/>
+                        <segue destination="JHn-GK-sQN" kind="show" identifier="endGameID" id="g28-yg-Pfr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vs-Hj-GWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -570,7 +571,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orange-flowers-texture-wallpaper-3" translatesAutoresizingMaskIntoConstraints="NO" id="NH4-oB-TYR">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16s-oG-DO5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="736"/>
                             </imageView>
                             <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
@@ -716,12 +717,13 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
+                        <outlet property="scrollView" destination="16s-oG-DO5" id="LcM-4K-p5y"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="1314"/>
+            <point key="canvasLocation" x="1900" y="1198"/>
         </scene>
         <!--Play Game Solution View Controller-->
         <scene sceneID="vZm-eM-3vO">
@@ -893,4 +895,7 @@
         <image name="tape" width="195" height="138"/>
         <image name="wallpaper" width="570" height="380"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="g28-yg-Pfr"/>
+    </inferredMetricsTieBreakers>
 </document>

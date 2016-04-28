@@ -178,9 +178,9 @@
 		BE72F6361CBBBED500976D47 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				BE336B071CC60F3D00B2BFDB /* NewViewControllers */,
 				BE1372D21CD216760004D843 /* music */,
 				BEAD7CC81CCF5CA200CCAB5C /* Localizable.strings */,
-				BE336B071CC60F3D00B2BFDB /* NewViewControllers */,
 				BE139B091CBE2F690025F9D9 /* TreasureHunt.entitlements */,
 				BECE3C731CBBD04F0011AFC6 /* CoreData */,
 				BE72F6371CBBBED500976D47 /* AppDelegate.swift */,
