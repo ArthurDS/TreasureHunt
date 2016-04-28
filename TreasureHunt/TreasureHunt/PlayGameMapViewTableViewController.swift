@@ -45,7 +45,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         navigationItem.titleView = UIImageView(image: image)
         navigationController?.navigationBarHidden = false
         self.locationManager.riddlesSolvedArray.removeAll()
-
+        
     }
 
     
@@ -173,7 +173,6 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
             return self.riddleArrayByIDGame.count
-
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -378,7 +377,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
                     
                     self.searchAllRiddlesForIdGame()
                     
-                    let firstRecord : CKRecord = self.riddleArray.first!
+                    let firstRecord : CKRecord = self.riddleArrayByIDGame.first!
                     
                     let location = firstRecord.valueForKey("location")
                     
