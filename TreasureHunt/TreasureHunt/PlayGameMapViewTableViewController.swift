@@ -171,19 +171,14 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
+
             return self.riddleArrayByIDGame.count
-        }
-        if section == 1 {
-            return 1
-        }
-        return 1
+
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
+
             
             let cell = tableView.dequeueReusableCellWithIdentifier("riddleID", forIndexPath: indexPath) as! RiddleTableViewCell
             
@@ -191,21 +186,21 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             let isNearby = LocationManager.sharedManager.isNearRecord(ridRecord)
             
-//            if isNearby {
-//                
-//                cell.userInteractionEnabled = true
-//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-//                cell.finishedStamp?.alpha = 0
-//                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
-//                // stel eventueel selectionstate in
-//            }
-//            else {
-//                // geef de standaard kleur
-//                
-//                cell.userInteractionEnabled = false
-//                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-//                cell.finishedStamp?.alpha = 0
-//            }
+            if isNearby {
+                
+                cell.userInteractionEnabled = true
+                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+                cell.finishedStamp?.alpha = 0
+                // bijvoorbeeld geef cell een andere kleur (bijvoorbeeld)
+                // stel eventueel selectionstate in
+            }
+            else {
+                // geef de standaard kleur
+                
+                cell.userInteractionEnabled = false
+                cell.mistyLayer?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+                cell.finishedStamp?.alpha = 0
+            }
             
             cell.locationTitleLabel?.text =  ridRecord.valueForKey("nameLocation") as? String
             // Game
@@ -213,12 +208,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
             
             return cell
             
-        }
-        else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("deductionCell", forIndexPath: indexPath) as! DeductionTableViewCell
-            
-            return cell
-        }
+
         
     }
     
