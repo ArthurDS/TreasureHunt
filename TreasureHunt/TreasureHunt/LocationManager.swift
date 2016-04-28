@@ -67,6 +67,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //        
 //    }
     
+    
     func addLocation(uniqueRiddleID: Int, summary: String, imageURL: NSURL?, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
         
         // Universal Unique Identifier (e.g. social security number)
