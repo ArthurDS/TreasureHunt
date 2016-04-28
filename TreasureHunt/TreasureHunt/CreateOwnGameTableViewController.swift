@@ -64,13 +64,16 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+
+
+    
     override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         
         return UITableViewCellEditingStyle.Delete
     }
     
     func addGameTitleAlert() {
-        alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a                                         game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert = UIAlertController(title: "         Ms Hudson:", message: "                           Before we can create a\n                    game, we need a snazzy title.", preferredStyle: UIAlertControllerStyle.Alert)
         
         let yourImage = UIImage(named: "hudson2")
         var imageView = UIImageView(frame: CGRectMake(-20,-10, 140, 115))
