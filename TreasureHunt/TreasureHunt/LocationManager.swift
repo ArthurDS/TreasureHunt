@@ -34,6 +34,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var allRiddlesSolvedArray: [String] = []
     
+    var riddleArrayByIdGame: [CKRecord] = []
     
     var gameIsPlayed: [Int] = []
 
