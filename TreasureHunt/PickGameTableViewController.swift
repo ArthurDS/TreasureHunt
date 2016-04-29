@@ -13,6 +13,7 @@ import FillableLoaders
 class PickGameTableViewController: UITableViewController {
         let locationManager = LocationManager.sharedManager
     var gameArray: [CKRecord] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +22,9 @@ class PickGameTableViewController: UITableViewController {
 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.backgroundView = UIImageView(image: UIImage(named: "woodboard"))
-        
-         fetchGame()
 
+         fetchGame()
+        fetchLocation()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -77,6 +78,41 @@ class PickGameTableViewController: UITableViewController {
         return cell
     }
     
+    func fetchLocation() {//location opvragen
+        
+        
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true) //
+        let query = CKQuery(recordType: "Riddles", predicate: predicate)//maak een cloudKit Query
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error != nil {
+                print(error)
+            }
+            else {
+
+                
+                print(results)
+                
+                self.locationManager.riddleArrayByIdGame = results!
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    self.tableView.hidden = false
+                    self.tableView.reloadData()
+                    
+
+                    
+
+        
+                    
+                    
+                })
+            }
+        }
+    }
+
+    
     
     
     func fetchGame() {
@@ -126,7 +162,7 @@ class PickGameTableViewController: UITableViewController {
 
         
         let myPath = bezier2Path.CGPath
-        var loader = WavesLoader.showLoaderWithPath(myPath)
+        let loader = WavesLoader.showLoaderWithPath(myPath)
         loader.loaderColor = UIColor.redColor()
 
         
@@ -147,6 +183,7 @@ class PickGameTableViewController: UITableViewController {
                     self.tableView.hidden = false
                     self.tableView.reloadData()
                     loader.removeLoader()
+                    self.locationManager.riddleArrayByIdGame = self.gameArray
                 })
 
             }

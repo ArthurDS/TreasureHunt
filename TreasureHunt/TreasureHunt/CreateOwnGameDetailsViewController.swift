@@ -14,13 +14,15 @@
  
  
  class CreateOwnGameDetailsViewController: UIViewController {
+    let locationManager = LocationManager.sharedManager
+
+      // var locationManager: CLLocationManager!
     
-    var locationManager: CLLocationManager!
-    
-    @IBOutlet weak var id_RiddleLabel: UILabel! // = id_Game
+   
     @IBOutlet weak var summaryTextField: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
    
+    
     @IBOutlet weak var answer1Field: UITextField!
     @IBOutlet weak var answer1Field2: UITextField!
     @IBOutlet weak var answer1Field3: UITextField!
@@ -31,10 +33,13 @@
     @IBOutlet weak var AnswerSwitch3: UISwitch!
     @IBOutlet weak var AnswerSwitch4: UISwitch!
     
+   
+    @IBOutlet weak var scrollView: UIScrollView!
     var imageURL: NSURL?
     let tempImageName = "temp_image.jpg"
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
     
+    var  idGameForRiddle : Int32!
     
     var delegate: addQuestionViewControllerDelegatee?
     
@@ -48,10 +53,11 @@
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationController?.navigationBarHidden = false
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
-        
+        scrollView.contentSize=CGSizeMake(320,1000)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,7 +169,8 @@
         let locID = CKRecordID(recordName : identifier)
         let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
         locRecord.setObject(summaryTextField.text, forKey: "summary")
-        
+        //id
+        locRecord.setObject(Int(idGameForRiddle), forKey: ("id_Riddle"))
         // set Image in CK
         if let url = imageURL {
             let imageAsset = CKAsset(fileURL: url)
@@ -258,6 +265,14 @@
             
         }
     }
+  //  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let playgameController = segue.destinationViewController as! CreateOwnGameTableViewController
+//        let indexSelected =
+//        let selectedGame = gameArray[(indexSelected?.row)!]
+//        
+//        playgameController.gameSelected = selectedGame
+//    }
+//
  }
  
  extension CreateOwnGameDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
