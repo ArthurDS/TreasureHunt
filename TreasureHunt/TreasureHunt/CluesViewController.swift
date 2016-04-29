@@ -193,6 +193,7 @@ class CluesViewController: UIViewController {
     
     func ShowTheButtons() {
         
+
         answerButton1.hidden = false
         answerButton1.userInteractionEnabled = true
         
@@ -319,7 +320,7 @@ class CluesViewController: UIViewController {
     }
     
     
-    
+    }
     
     
     /*

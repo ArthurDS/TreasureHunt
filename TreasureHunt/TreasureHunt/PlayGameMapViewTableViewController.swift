@@ -278,7 +278,15 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
         if segue.identifier == "clueID" {
             let playGameViewController = segue.destinationViewController as! CluesViewController
            let currentGame =  gameSelected.valueForKey("id_Game") as? Int
+            let rightAnswer = gameSelected.valueForKey("rightAnswer") as? String
+            let wrongAnswer1 = gameSelected.valueForKey("wrongAnswer1") as? String
+            let wrongAnswer2 = gameSelected.valueForKey("wrongAnswer2") as? String
+            let wrongAnswer3 = gameSelected.valueForKey("wrongAnswer3") as? String
             playGameViewController.gameRecord = currentGame
+            playGameViewController.rightAnswer = rightAnswer
+            playGameViewController.wrongAnswer1 = wrongAnswer1
+            playGameViewController.wrongAnswer2 = wrongAnswer2
+            playGameViewController.wrongAnswer3 = wrongAnswer3
         }
         
         

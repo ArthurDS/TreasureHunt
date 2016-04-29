@@ -136,7 +136,8 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         answerButton4.layer.cornerRadius = 20
         answerButton4.layer.borderWidth = 2
         answerButton4.layer.borderColor = UIColor.blackColor().CGColor
-        answerButton4.setTitle(ridlleRecord.valueForKey("wrongAnswer3")as? String, forState: .Normal)            }
+        answerButton4.setTitle(ridlleRecord.valueForKey("wrongAnswer3")as? String, forState: .Normal)
+    }
     
     func fillTheLabels() {
         let img = ridlleRecord.valueForKey("photo") as? CKAsset
