@@ -49,7 +49,7 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     func goToEndGame() {
-        let alert = UIAlertController(title: "Endgame:", message: "                     Ready for the finale Purrlock?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Endgame:", message: "             Ready for the finale Purrlock?", preferredStyle: UIAlertControllerStyle.Alert)
         let yourImage = UIImage(named: "catson")
         let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage

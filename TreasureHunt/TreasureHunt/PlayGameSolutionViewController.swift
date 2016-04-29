@@ -62,9 +62,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         self.navigationItem.setHidesBackButton(true, animated: true)
         createAllRiddlesSolvedArray()
         
-        
-        
-        
         countdown()
         fillTheLabels()
         createButtons()
@@ -398,8 +395,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     func createAllRiddlesSolvedArray() {
         
-        
-        
         //            if segue.identifier == "returnToMapView" {
         //                let playGameViewController = segue.destinationViewController as! PlayGameMapViewTableViewController
         //
@@ -412,7 +407,6 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
         print("****************************************")
         
     }
-    
     
     func checkAnswer(myButton: UIButton) -> Bool {
         if (myButton.titleLabel?.text == correctAnswer)

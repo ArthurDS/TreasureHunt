@@ -236,6 +236,41 @@ class CluesViewController: UIViewController {
         }
     }
     
+    func endAnswerCorrect() {
+        
+        let alert = UIAlertController(title: "Congratulations", message: "You succesfully solved the murder", preferredStyle: .Alert)
+        let catsonImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = catsonImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Thank You Catson!!!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("backToPickGameID", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func endAnswerWrong() {
+        
+        let alert = UIAlertController(title: "Oooooh No", message: "You twat, he got away!", preferredStyle: .Alert)
+        let catsonImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = catsonImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Get lost Catson!!!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("backToPickGameID", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func goToEndGame() {
+        let alert = UIAlertController(title: "Endgame:", message: "             Ready for the finale Purrlock?", preferredStyle: UIAlertControllerStyle.Alert)
+        let yourImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "To the Endgame!!!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("endGameID", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func fetchClues() {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase

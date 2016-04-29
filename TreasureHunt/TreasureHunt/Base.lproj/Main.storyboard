@@ -142,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickGameID" rowHeight="150" id="1f8-da-bKt" customClass="PickGameTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1f8-da-bKt" id="2tT-oU-CQP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
@@ -251,13 +251,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="mdg-si-bt2">
-                            <rect key="frame" x="0.0" y="64" width="320" height="205"/>
+                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" id="mdg-si-bt2">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="71" id="xLI-zx-lfN" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="297" width="320" height="71"/>
+                                <rect key="frame" x="0.0" y="233" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLI-zx-lfN" id="4PT-Pa-MXL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -417,6 +417,7 @@
                         <outlet property="answerButton3" destination="Xal-BO-LdV" id="xg9-1d-0kx"/>
                         <outlet property="answerButton4" destination="Gga-CR-7KJ" id="XY0-tA-FXH"/>
                         <outlet property="questionLabel" destination="7vp-38-18n" id="dlz-wM-y6b"/>
+                        <segue destination="INZ-dP-uBd" kind="show" identifier="backToPickGameID" id="3Be-0c-8rW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nw-Yv-TrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -915,6 +916,7 @@
         <image name="wallpaper" width="570" height="380"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="3Be-0c-8rW"/>
         <segue reference="g28-yg-Pfr"/>
     </inferredMetricsTieBreakers>
 </document>
