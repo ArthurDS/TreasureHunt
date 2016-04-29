@@ -143,7 +143,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickGameID" rowHeight="150" id="1f8-da-bKt" customClass="PickGameTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1f8-da-bKt" id="2tT-oU-CQP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
