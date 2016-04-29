@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-W6-EpV">
-                                <rect key="frame" x="0.0" y="1" width="696" height="568"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Grand-Victorian-Row-Homes-Scenic-Backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-W6-EpV">
+                                <rect key="frame" x="-681" y="1" width="1000" height="568"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="696" id="tu2-uo-X17"/>
                                 </constraints>
@@ -360,6 +360,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="answerButton2WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="yvw-hY-Cfc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
                                 <rect key="frame" x="169" y="205" width="120" height="59"/>
@@ -367,6 +370,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="answerButton4WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="Oc7-f7-ZXm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
                                 <rect key="frame" x="25" y="205" width="120" height="59"/>
@@ -374,6 +380,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="answerButton3WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="TVh-ql-CHn"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12065628201889940800mystica_Hammer.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
                                 <rect key="frame" x="147" y="417" width="95" height="58"/>
@@ -394,6 +403,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="answerButton1WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="Fli-EP-OHT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So Purrlock, who do you think the killer is?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-38-18n">
                                 <rect key="frame" x="13" y="72" width="295" height="49"/>
@@ -892,6 +904,9 @@
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
+        <image name="cameraIcon" width="69" height="69"/>
+        <image name="darkroom" width="991" height="337"/>
+        <image name="fileicon" width="69" height="69"/>
         <image name="finished" width="1070" height="1090"/>
         <image name="frame1" width="800" height="605"/>
         <image name="hands" width="174" height="174"/>

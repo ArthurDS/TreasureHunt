@@ -30,12 +30,17 @@ class StartGameViewController: UIViewController {
     @IBAction func unWindToStart(segue: UIStoryboardSegue) {}
     
     
+
+    
     var bombSoundEffect: AVAudioPlayer!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBarHidden = true
+
 
         var catAnimationArray = ["giphy-0", "giphy-1", "giphy-2", "giphy-3", "giphy-4", "giphy-5", "giphy-6", "giphy-7", "giphy-8", "giphy-9", "giphy-10", "giphy-11", "giphy-12"]
         
@@ -82,24 +87,27 @@ playButton.center.x -= view.bounds.width
         createButton.center.x -= view.bounds.width
     }
     
+
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        loadView()
-        navigationController?.navigationBarHidden = true
         UIView.animateWithDuration(50.9, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: {
             self.backgroundImage.frame.origin.x -= 320
             }, completion: { (finished: Bool) in
-                print("Animation Ended!")
+                self.backgroundImage.frame.origin.x += 320
         });
+//        loadView()
+
         
-        //        UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
-        //            self.playButton.center.x -= self.view.bounds.width
-        //            }, completion: nil)
-        //        UIView.animateWithDuration(0.5, delay: 0.4, options: [], animations: {
-        //            self.createButton.center.x -= self.view.bounds.width
-        //            }, completion: nil)
+//                UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
+//                    self.playButton.center.x -= self.view.bounds.width
+//                    }, completion: nil)
+//                UIView.animateWithDuration(0.5, delay: 0.4, options: [], animations: {
+//                    self.createButton.center.x -= self.view.bounds.width
+//                    }, completion: nil)
         
     }
+    
     
 
     

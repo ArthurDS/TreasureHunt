@@ -16,6 +16,13 @@ class CluesViewController: UIViewController {
     var riddleArray: [CKRecord] = []
     var clueArray: [CKRecord] = []
     var clueArrayByID: [CKRecord] = []
+    var endGameArray : [CKRecord] = []
+    var textNamesArray: [String] = []
+    var currentGame: CKRecord!
+    var rightAnswer: String!
+    var wrongAnswer1: String!
+    var wrongAnswer2: String!
+    var wrongAnswer3: String!
     
     var clueRecord: CKRecord!
     var gameRecord: Int!
@@ -41,7 +48,6 @@ class CluesViewController: UIViewController {
         hideTheButtons()
         createButtons()
         hideClues()
-        
         navigationController?.navigationBarHidden = false
 
     }
@@ -60,10 +66,48 @@ class CluesViewController: UIViewController {
             }
         }
     }
+    
+
+    
+
+    func AnsweredCorrectly() {
+        let alert = UIAlertController(title: "Catson:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let yourImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    func AnsweredWrong() {
+        let alert = UIAlertController(title: "Catson:", message: "               I'm sorry Purlock, you              probably just have a dog day", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let yourImage = UIImage(named: "catson")
+        let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
+        imageView.image = yourImage
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("goBackSegue", sender: self) }))
+        alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
+
+
 
     override func viewDidAppear(animated: Bool) {
         if self.locationManager.riddleArrayByIdGame.isEmpty {
             ShowTheButtons()
+            navigationController?.navigationBarHidden = true
+            createAnswers()
         }
     }
     
@@ -162,6 +206,7 @@ class CluesViewController: UIViewController {
     
     func ShowTheButtons() {
         
+
         answerButton1.hidden = false
         answerButton1.userInteractionEnabled = true
         
@@ -202,6 +247,171 @@ class CluesViewController: UIViewController {
         }
     }
     
+    func makeButtonsInactiveAfterAnswering() {
+        answerButton1.userInteractionEnabled = false
+        answerButton2.userInteractionEnabled = false
+        answerButton3.userInteractionEnabled = false
+        answerButton4.userInteractionEnabled = false
+    }
+    
+    func Answer1CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer2CorrectMistify() {
+        answerButton1.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer3CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton1.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    func Answer4CorrectMistify() {
+        answerButton2.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton1.alpha = 0.5
+    }
+    
+    func timesUpMistify() {
+        answerButton1.alpha = 0.5
+        answerButton2.alpha = 0.5
+        answerButton3.alpha = 0.5
+        answerButton4.alpha = 0.5
+    }
+    
+    @IBAction func answerButton1WasPressed(sender: AnyObject) {
+
+        makeButtonsInactiveAfterAnswering()
+        Answer1CorrectMistify()
+        answerButton1.backgroundColor = UIColor.greenColor()
+        
+        
+        if (checkAnswer(answerButton1) ) {
+            makeButtonsInactiveAfterAnswering()
+            AnsweredCorrectly()
+            
+            print("this is the correctAnswer")
+            
+        }
+        else {
+            print("Wrong!!!!")
+            answerButton1.backgroundColor = UIColor.redColor()
+            AnsweredWrong()
+            
+        }
+        navigationController?.navigationBarHidden = false
+        
+    }
+    
+    @IBAction func answerButton2WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+        Answer2CorrectMistify()
+        answerButton2.backgroundColor = UIColor.greenColor()
+        
+        if (checkAnswer(answerButton2)){
+            makeButtonsInactiveAfterAnswering()
+            AnsweredCorrectly()
+            
+            print("this is the correctAnswer")
+        }
+        else {
+            print("Wrong!!!!")
+            AnsweredWrong()
+            answerButton2.backgroundColor = UIColor.redColor()
+            
+        }
+        navigationController?.navigationBarHidden = false
+        
+    }
+    
+    @IBAction func answerButton3WasPressed(sender: AnyObject) {
+        makeButtonsInactiveAfterAnswering()
+         Answer3CorrectMistify()
+        answerButton3.backgroundColor = UIColor.greenColor()
+        
+        if (checkAnswer((answerButton3)!)){
+
+            
+            AnsweredCorrectly()
+            
+            print("this is the correctAnswer")
+        }
+        else {
+            print("Wrong!!!!")
+            
+            AnsweredWrong()
+            answerButton3.backgroundColor = UIColor.redColor()
+            
+
+            
+        }
+        navigationController?.navigationBarHidden = false
+        
+    }
+    
+    @IBAction func answerButton4WasPressed(sender: AnyObject) {
+
+        makeButtonsInactiveAfterAnswering()
+ 
+        Answer4CorrectMistify()
+        answerButton4.backgroundColor = UIColor.greenColor()
+        
+        if (checkAnswer(answerButton4!)) {
+
+            
+            AnsweredCorrectly()
+            
+            print("this is the correctAnswer")
+        }
+            
+        else  {
+
+            print("Wrong!!!!")
+            answerButton4.backgroundColor = UIColor.redColor()
+            
+            AnsweredWrong()
+            
+        }
+        navigationController?.navigationBarHidden = false
+        
+    }
+    
+    func checkAnswer(myButton: UIButton) -> Bool {
+        if (myButton.titleLabel?.text == rightAnswer)
+        {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func createAnswers() {
+        
+        let textName1 = "The Judge"
+        let textName2 = "The Carpenter"
+        let textName3 = "The Priest"
+        let textName4 = "MC Hammer"
+        let buttonArray = [answerButton1,answerButton2,answerButton3,answerButton4]
+        textNamesArray = [textName1,textName2,textName3,textName4]
+        srandom(UInt32(NSDate().timeIntervalSince1970))
+        
+        for button in buttonArray{
+            
+            let choice = random() % textNamesArray.count
+            let textName =  textNamesArray[choice]
+            
+            button.setTitle(textName, forState: .Normal)
+            textNamesArray.removeAtIndex(choice)
+            
+        }
+    }
+
+
+
     func fetchClues() {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
@@ -227,7 +437,7 @@ class CluesViewController: UIViewController {
 
     
     
-    
+    }
     
     
     /*
@@ -240,4 +450,4 @@ class CluesViewController: UIViewController {
     }
     */
 
-}
+
