@@ -582,14 +582,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wod-Lt-Jdl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e9s-jo-EZ6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-if-ecK">
-                                <rect key="frame" x="0.0" y="64" width="320" height="736"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="836"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange-flowers-texture-wallpaper-3" translatesAutoresizingMaskIntoConstraints="NO" id="rat-JS-tXH">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="836"/>
+                                    </imageView>
                                     <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
-                                        <rect key="frame" x="9" y="8" width="301" height="196"/>
+                                        <rect key="frame" x="12" y="122" width="301" height="196"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-jf-VdS">
                                                 <rect key="frame" x="98" y="57" width="195" height="131"/>
@@ -624,11 +627,6 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
                                                 <rect key="frame" x="114" y="73" width="163" height="99"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nameLocation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V5T-gh-6bv">
-                                                <rect key="frame" x="102" y="-10" width="97" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -637,7 +635,7 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-xZ-8fZ">
-                                        <rect key="frame" x="9" y="212" width="300" height="174"/>
+                                        <rect key="frame" x="12" y="331" width="300" height="174"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I guess your riddle has to come here, but then again I'm catsolutely clueless." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
                                                 <rect key="frame" x="83" y="86" width="209" height="94"/>
@@ -662,7 +660,7 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-L5-qOL">
-                                        <rect key="frame" x="10" y="393" width="300" height="311"/>
+                                        <rect key="frame" x="10" y="517" width="300" height="311"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_final" translatesAutoresizingMaskIntoConstraints="NO" id="ELa-5C-s6E">
                                                 <rect key="frame" x="182" y="178" width="118" height="133"/>
@@ -728,19 +726,44 @@
                                             <constraint firstAttribute="width" constant="300" id="LpR-qA-V6h"/>
                                         </constraints>
                                     </view>
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laa-tY-eTj">
+                                        <rect key="frame" x="12" y="8" width="301" height="106"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-mY-WzP">
+                                                <rect key="frame" x="8" y="62" width="285" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First things first. Give this location an intriguiging name." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzH-Dl-lod">
+                                                <rect key="frame" x="8" y="13" width="285" height="39"/>
+                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rat-JS-tXH" firstAttribute="centerX" secondItem="TUd-L5-qOL" secondAttribute="centerX" id="0uE-cl-9Pv"/>
+                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="top" secondItem="laa-tY-eTj" secondAttribute="bottom" constant="8" symbolic="YES" id="4kV-SD-cBi"/>
                                     <constraint firstAttribute="width" constant="320" id="6lH-KK-Zqa"/>
-                                    <constraint firstAttribute="bottom" secondItem="TUd-L5-qOL" secondAttribute="bottom" constant="32" id="Qlb-ez-wbQ"/>
-                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="top" constant="8" id="SGb-Fr-BM8"/>
-                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="9" id="etO-Rd-EAQ"/>
-                                    <constraint firstItem="TUd-L5-qOL" firstAttribute="top" secondItem="1Ii-xZ-8fZ" secondAttribute="bottom" constant="7" id="iZw-2e-Yyp"/>
-                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="top" secondItem="WBm-hf-p8R" secondAttribute="bottom" constant="8" id="kMJ-4B-dqj"/>
-                                    <constraint firstAttribute="trailing" secondItem="WBm-hf-p8R" secondAttribute="trailing" constant="11" id="ktq-xB-TSR"/>
+                                    <constraint firstItem="laa-tY-eTj" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="top" constant="8" id="856-0z-0Fv"/>
+                                    <constraint firstItem="laa-tY-eTj" firstAttribute="leading" secondItem="WBm-hf-p8R" secondAttribute="leading" id="Fh9-Ut-OXM"/>
+                                    <constraint firstItem="laa-tY-eTj" firstAttribute="trailing" secondItem="WBm-hf-p8R" secondAttribute="trailing" id="MGT-Lo-3a9"/>
+                                    <constraint firstAttribute="bottom" secondItem="TUd-L5-qOL" secondAttribute="bottom" constant="8" id="Qlb-ez-wbQ"/>
+                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="top" constant="122" id="SGb-Fr-BM8"/>
+                                    <constraint firstItem="rat-JS-tXH" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" id="W6N-U8-hUh"/>
+                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="12" id="etO-Rd-EAQ"/>
+                                    <constraint firstItem="rat-JS-tXH" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="top" id="hdR-F8-ggJ"/>
+                                    <constraint firstItem="TUd-L5-qOL" firstAttribute="top" secondItem="1Ii-xZ-8fZ" secondAttribute="bottom" constant="12" id="iZw-2e-Yyp"/>
+                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="top" secondItem="WBm-hf-p8R" secondAttribute="bottom" constant="13" id="kMJ-4B-dqj"/>
+                                    <constraint firstAttribute="trailing" secondItem="WBm-hf-p8R" secondAttribute="trailing" constant="7" id="ktq-xB-TSR"/>
                                     <constraint firstItem="TUd-L5-qOL" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="10" id="qeD-sJ-dRF"/>
-                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="9" id="sFY-XX-KSi"/>
-                                    <constraint firstAttribute="trailing" secondItem="TUd-L5-qOL" secondAttribute="trailing" constant="11" id="yP4-RA-IiO"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Ii-xZ-8fZ" secondAttribute="trailing" constant="12" id="z8S-pr-mp6"/>
+                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="12" id="sFY-XX-KSi"/>
+                                    <constraint firstItem="rat-JS-tXH" firstAttribute="centerY" secondItem="1Ii-xZ-8fZ" secondAttribute="centerY" id="uvQ-Vw-piE"/>
+                                    <constraint firstAttribute="trailing" secondItem="TUd-L5-qOL" secondAttribute="trailing" constant="10" id="yP4-RA-IiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Ii-xZ-8fZ" secondAttribute="trailing" constant="8" id="z8S-pr-mp6"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -773,7 +796,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="900"/>
                     <connections>
                         <outlet property="AnswerSwitch1" destination="yuF-N6-umm" id="ls4-ZM-1pp"/>
                         <outlet property="AnswerSwitch2" destination="1gx-NJ-iEN" id="uL9-ZG-5Rf"/>
@@ -784,7 +807,7 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
-                        <outlet property="nameLocationField" destination="V5T-gh-6bv" id="UbN-nu-czR"/>
+                        <outlet property="nameLocationField" destination="cSA-mY-WzP" id="it9-Vd-Wz7"/>
                         <outlet property="scrollView" destination="bBY-if-ecK" id="EMX-HK-JUV"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
@@ -995,9 +1018,9 @@
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
-        <image name="cameraIcon" width="994" height="480"/>
+        <image name="cameraIcon" width="69" height="69"/>
         <image name="darkroom" width="991" height="337"/>
-        <image name="fileicon" width="994" height="480"/>
+        <image name="fileicon" width="69" height="69"/>
         <image name="finished" width="1070" height="1090"/>
         <image name="frame1" width="800" height="605"/>
         <image name="hands" width="174" height="174"/>
