@@ -18,6 +18,7 @@
 
       // var locationManager: CLLocationManager!
     
+    @IBOutlet weak var nameLocationField: UITextField!
    
     @IBOutlet weak var summaryTextField: UITextView!
     @IBOutlet weak var locationImage: UIImageView!
@@ -35,6 +36,7 @@
     
    
     @IBOutlet weak var scrollView: UIScrollView!
+    
     var imageURL: NSURL?
     let tempImageName = "temp_image.jpg"
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
@@ -177,7 +179,11 @@
             locRecord.setValue(imageAsset, forKey: "photo")//imageAsset, forKey: "photo")
             print("asset file url before: \(imageAsset.fileURL)")
         }
-        
+        //add nameLocation
+        locRecord.setObject(nameLocationField.text, forKey: "nameLocation")
+        //addCurrent Location
+        let myLocation = locationManager.userLocation
+        locRecord.setObject(myLocation, forKey: "location")
         locRecord.setObject(answer1Field.text, forKey: "correctAnswer")
         locRecord.setObject(answer1Field2.text, forKey: "wrongAnswer1")
         locRecord.setObject(answer1Field3.text, forKey: "wrongAnswer2")

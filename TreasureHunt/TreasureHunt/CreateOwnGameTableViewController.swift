@@ -11,9 +11,9 @@ import MapKit
 import CloudKit
 import QuartzCore
 import FillableLoaders
+import CoreLocation
 
-
-class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee {
+class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee,CLLocationManagerDelegate{
     let locationManager = LocationManager.sharedManager
     
     @IBOutlet weak var idGameField: UITextField!
@@ -37,6 +37,8 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     //var gameIdent : Int!
     var riddleArrayByIDGame: [CKRecord] = []
     var number: Int32! = nil
+    var myLocation : CLLocationCoordinate2D!
+   // let location = CLLocationManager()
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -83,9 +85,9 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameID", forIndexPath: indexPath) as! CreateRiddleTableViewCell
-//        let identifier = NSUUID().UUIDString //format cle unique
-//        let gameID = CKRecordID(recordName : identifier)
-//        let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
+        let identifier = NSUUID().UUIDString //format cle unique
+        let gameID = CKRecordID(recordName : identifier)
+        let gameRecord = CKRecord(recordType: "Game", recordID: gameID)
         
         let riddleRecord: CKRecord = riddleArrayByIDGame[indexPath.row]
         let riddleTitle = riddleRecord.valueForKey("nameLocation") as? String
@@ -96,8 +98,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         for _ in riddleArrayByIDGame {
             let idRiddle = riddleRecord.valueForKey("id_Riddle") as? Int
             if (idGame == idRiddle){
-                cell.locationLabel.text = riddleTitle
-            }
+                cell.locationLabel.text = riddleTitle            }
         }
         
         return cell
@@ -163,15 +164,15 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         
         
     }
-    func countIdGame()-> Int{
-        var countRecord = 0
-        
-        for record in gameArray {
-            gameArray.append(record)
-            let countRecord = countRecord + 1
-        }
-        return countRecord
-    }
+//    func countIdGame()-> Int{
+//        var countRecord = 0
+//        
+//        for record in gameArray {
+//            gameArray.append(record)
+//            let countRecord = countRecord + 1
+//        }
+//        return countRecord
+//    }
     var cameraUI: UIImagePickerController! = UIImagePickerController()
     
     @IBAction func PresentCamera(sender: AnyObject) {
@@ -211,17 +212,30 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             //print("asset file url before: \(imageAsset.fileURL)")
         }
         
+        
         // save idGame
         //gameRecord.setValue(lastId + 1 , forKey: "id_Game")
         //gameRecord.setValue(Int(idGameField.text!), forKey: "id_Game")
         //        let recordID = CKRecordID()
-//        unikIdGame = CKRecord(recordType: "Game", recordID:  recordID)
-//        let a = unikIdGame.description
-//        print("*************************  +\(a)")
+        //        unikIdGame = CKRecord(recordType: "Game", recordID:  recordID)
+        //        let a = unikIdGame.description
+        //        print("*************************  +\(a)")
         //save unik id_Game
         
-          number = Int32(arc4random() % 1000000)
+        number = Int32(arc4random() % 1000000)
         gameRecord.setValue(Int(number), forKey: "id_Game")
+        //add Location
+
+        print("========================\(locationManager.userLocation)")
+//        let latitudeUser  = LocationManager.sharedManager.userLocation!.coordinate.longitude
+//
+//        let longitudeUser  = LocationManager.sharedManager.userLocation!.coordinate.longitude
+//
+//         myLocation = CLLocationCoordinate2D(latitude: latitudeUser,longitude: longitudeUser)
+
+        
+        
+
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase		// iclou.iblur.Demo
         
