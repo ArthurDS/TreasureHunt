@@ -16,8 +16,7 @@
  class CreateOwnGameDetailsViewController: UIViewController {
     let locationManager = LocationManager.sharedManager
 
-    @IBOutlet weak var idLabel: UILabel!
-   // var locationManager: CLLocationManager!
+      // var locationManager: CLLocationManager!
     
    
     @IBOutlet weak var summaryTextField: UITextView!
@@ -40,7 +39,8 @@
     let tempImageName = "temp_image.jpg"
     let documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] //as NSString
     
-      var  idGameForRiddle : Int!
+    var  idGameForRiddle : Int32!
+    
     var delegate: addQuestionViewControllerDelegatee?
     
     var context: CIContext!
@@ -53,8 +53,7 @@
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
         navigationController?.navigationBarHidden = false
-        self.idLabel.text = String(idGameForRiddle)
-        print("+++++++++okokok++++++++++++" + String(idGameForRiddle))
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateOwnGameDetailsViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
         scrollView.contentSize=CGSizeMake(320,1000)
@@ -170,7 +169,8 @@
         let locID = CKRecordID(recordName : identifier)
         let locRecord = CKRecord(recordType: "Riddles", recordID: locID)
         locRecord.setObject(summaryTextField.text, forKey: "summary")
-        locRecord.setObject(Int(idLabel.text!), forKey: ("id_Riddle"))
+        //id
+        locRecord.setObject(Int(idGameForRiddle), forKey: ("id_Riddle"))
         // set Image in CK
         if let url = imageURL {
             let imageAsset = CKAsset(fileURL: url)
