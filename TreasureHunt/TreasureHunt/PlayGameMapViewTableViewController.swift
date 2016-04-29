@@ -49,12 +49,12 @@ class PlayGameMapViewTableViewController: UITableViewController, CLLocationManag
     }
     
     func goToEndGame() {
-        let alert = UIAlertController(title: "Endgame:", message: "                     Gee Mittens Purlock,    this is absocatly correct", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Endgame:", message: "                     Ready for the finale Purrlock?", preferredStyle: UIAlertControllerStyle.Alert)
         let yourImage = UIImage(named: "catson")
         let imageView = UIImageView(frame: CGRectMake(-20, -40, 100, 140))
         imageView.image = yourImage
         alert.view.addSubview(imageView)
-        alert.addAction(UIAlertAction(title: "Shut up Catson!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("endGameID", sender: self) }))
+        alert.addAction(UIAlertAction(title: "To the Endgame!!!", style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("endGameID", sender: self) }))
         alert.view.tintColor = UIColor(red: 0.582, green: 0.4196, blue: 0, alpha: 1.0)
         self.presentViewController(alert, animated: true, completion: nil)
    }
