@@ -592,13 +592,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-if-ecK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-if-ecK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="836"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange-flowers-texture-wallpaper-3" translatesAutoresizingMaskIntoConstraints="NO" id="rat-JS-tXH">
+                                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="orange-flowers-texture-wallpaper-3" translatesAutoresizingMaskIntoConstraints="NO" id="rat-JS-tXH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="836"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
                                         <rect key="frame" x="12" y="122" width="301" height="196"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-jf-VdS">
@@ -641,7 +641,7 @@
                                             <constraint firstAttribute="height" constant="196" id="ZZe-fD-b60"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-xZ-8fZ">
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-xZ-8fZ">
                                         <rect key="frame" x="12" y="331" width="300" height="174"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I guess your riddle has to come here, but then again I'm catsolutely clueless." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
@@ -666,7 +666,7 @@
                                             <constraint firstAttribute="height" constant="174" id="JjM-Y2-OHy"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-L5-qOL">
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-L5-qOL">
                                         <rect key="frame" x="10" y="517" width="300" height="311"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_final" translatesAutoresizingMaskIntoConstraints="NO" id="ELa-5C-s6E">
@@ -733,7 +733,7 @@
                                             <constraint firstAttribute="width" constant="300" id="LpR-qA-V6h"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laa-tY-eTj">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laa-tY-eTj">
                                         <rect key="frame" x="12" y="8" width="301" height="106"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-mY-WzP">
@@ -744,7 +744,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First things first. Give this location an intriguiging name." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzH-Dl-lod">
                                                 <rect key="frame" x="8" y="13" width="285" height="39"/>
                                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -809,12 +809,13 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
+                        <outlet property="nameLocationField" destination="cSA-mY-WzP" id="NUU-L7-Chl"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-Ah-ktc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="1319"/>
+            <point key="canvasLocation" x="1900" y="1364"/>
         </scene>
         <!--Play Game Solution View Controller-->
         <scene sceneID="vZm-eM-3vO">

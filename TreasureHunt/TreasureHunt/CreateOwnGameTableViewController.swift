@@ -13,10 +13,10 @@ import QuartzCore
 import FillableLoaders
 import CoreLocation
 
-class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee,CLLocationManagerDelegate{
+class CreateOwnGameTableViewController: UITableViewController, addQuestionViewControllerDelegatee,CLLocationManagerDelegate,MKMapViewDelegate{
     let locationManager = LocationManager.sharedManager
     
-    @IBOutlet weak var idGameField: UITextField!
+    
     @IBOutlet weak var cameraRollButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var gameImage: UIImageView!
@@ -32,49 +32,94 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
     var alert : UIAlertController!
     var riddleArray : [CKRecord] = []
     var gameArray : [CKRecord] = []
-    //var lastId : Int!
     var gameSelected : CKRecord!
-    //var gameIdent : Int!
+    
     var riddleArrayByIDGame: [CKRecord] = []
     var number: Int32! = nil
     var myLocation : CLLocationCoordinate2D!
+    var idGame : Int32 = 0
    // let location = CLLocationManager()
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        
+        if idGame == 0 {
+            
+        }
+        else {
+            fetchAllRiddlesPerID()
+        }
 
         fetchAllGames()
-        fetchAllRiddlesPerID()
+        
         addGameTitleAlert()
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
-        //searchAllRiddlesForIdGame()
-       // lastId = gameArray.count
-        //print("count element \(lastId)")
         navigationController?.navigationBarHidden = false
-        //let idGame : Int
-        //gameIdent = Int(idGameField.text!)
-        
+                
     }
     
     func searchAllRiddlesForIdGame(){
-//       // let idGame = gameSelected.valueForKey("id_Game") as? Int
-//        
-//        
-//        for record in riddleArray{
-//            
-//            if record.valueForKey("id_Riddle") as? Int == idGame {
-//                riddleArrayByIDGame.append(record)
-//                
-//            }
-//           // print(riddleArray.count)
-//        }
+        
+        
+        
+        for record in riddleArray{
+            
+            if record.valueForKey("id_Riddle")as? Int32 == idGame {
+                riddleArrayByIDGame.append(record)
+                
+            }
+           // print(riddleArray.count)
+        }
     }
-
+    func mapAnotation() {
+        self.mapView.delegate = self
+        mapView.showsUserLocation = true
+    }
+    func setAnotation(latitude: Double, longitude: Double) {
+        
+        let locManager = CLLocationManager() // kan nu via manager
+        locManager.requestWhenInUseAuthorization()
+        var currentLocation = CLLocation!()
+        currentLocation = locManager.location
+        
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = location
+        
+        mapView.addAnnotation(anotation)
+    }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
+        
+        
+        
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin")
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "icon")
+           // annotationView!.rightCalloutAccessoryView = detailButton
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
+       
+
+       override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
@@ -95,12 +140,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
         let idGame = gameSelected.valueForKey("id_Game") as? Int
 
         
-        for _ in riddleArrayByIDGame {
-            let idRiddle = riddleRecord.valueForKey("id_Riddle") as? Int
-            if (idGame == idRiddle){
-                cell.locationLabel.text = riddleTitle            }
-        }
-        
+        cell.locationLabel.text = riddleTitle         
         return cell
     }
     
@@ -282,7 +322,7 @@ class CreateOwnGameTableViewController: UITableViewController, addQuestionViewCo
             
             createGameController.delegate = self
             //let idGame = Int(self.idGameField.text!)
-            let idGame = Int32(self.number)
+            idGame = Int32(self.number)
             createGameController.idGameForRiddle = idGame
         }
     }
