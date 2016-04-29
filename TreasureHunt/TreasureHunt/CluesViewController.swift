@@ -52,6 +52,8 @@ class CluesViewController: UIViewController {
         navigationController?.navigationBarHidden = false
         questionLabel.hidden = true
         
+        print("========================\(gameRecord)")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -344,6 +346,7 @@ class CluesViewController: UIViewController {
     @IBAction func answerButton1WasPressed(sender: AnyObject) {
 
         makeButtonsInactiveAfterAnswering()
+        self.locationManager.gameIsPlayed.append(gameRecord)
 
         Answer1CorrectMistify()
         answerButton1.backgroundColor = UIColor.greenColor()
@@ -371,7 +374,7 @@ class CluesViewController: UIViewController {
     @IBAction func answerButton2WasPressed(sender: AnyObject) {
 
         makeButtonsInactiveAfterAnswering()
-
+        self.locationManager.gameIsPlayed.append(gameRecord)
         Answer2CorrectMistify()
         answerButton2.backgroundColor = UIColor.greenColor()
         
@@ -396,7 +399,7 @@ class CluesViewController: UIViewController {
     @IBAction func answerButton3WasPressed(sender: AnyObject) {
 
         makeButtonsInactiveAfterAnswering()
-
+        self.locationManager.gameIsPlayed.append(1)
         Answer3CorrectMistify()
         answerButton3.backgroundColor = UIColor.greenColor()
         
@@ -423,7 +426,7 @@ class CluesViewController: UIViewController {
     @IBAction func answerButton4WasPressed(sender: AnyObject) {
 
         makeButtonsInactiveAfterAnswering()
-
+        self.locationManager.gameIsPlayed.append(gameRecord)
         Answer4CorrectMistify()
         answerButton4.backgroundColor = UIColor.greenColor()
         
