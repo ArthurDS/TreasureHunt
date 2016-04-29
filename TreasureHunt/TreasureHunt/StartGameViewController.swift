@@ -74,6 +74,22 @@ class StartGameViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        let path = NSBundle.mainBundle().pathForResource("Sherlock Holmes.mp3", ofType:nil)!
+        let url = NSURL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            bombSoundEffect = sound
+            sound.stop()
+        } catch {
+            // couldn't load file :(
+        }
+
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

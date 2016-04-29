@@ -105,6 +105,24 @@ class PlayGameSolutionViewController: UIViewController,CLLocationManagerDelegate
     
     func stopRotatingClock() {
         handsImage.layer.removeAllAnimations()
+        
+       
+            
+            let path = NSBundle.mainBundle().pathForResource("CatsOverture.mp3", ofType:nil)!
+            let url = NSURL(fileURLWithPath: path)
+            
+            do {
+                let sound = try AVAudioPlayer(contentsOfURL: url)
+                bombSoundEffect = sound
+                sound.stop()
+            } catch {
+                // couldn't load file :(
+            }
+            
+     
+
+        
+        
     }
     
     func goToEndGame() {
