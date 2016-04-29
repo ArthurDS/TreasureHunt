@@ -482,7 +482,7 @@
                                             <rect key="frame" x="15" y="2" width="290" height="119"/>
                                             <string key="text">Ow meow, you really made a mess didn't you... Let me help you a bit to clean this up. First add a picture. You can take one in The Dark Room or choose one from your Library. </string>
                                             <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson" translatesAutoresizingMaskIntoConstraints="NO" id="lpW-yg-eCX">
@@ -496,7 +496,7 @@
                                     <outlet property="tutorialTextLabel" destination="ZyR-Ki-6aa" id="NkT-GB-1Hr"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="773" selectionStyle="default" indentationWidth="10" rowHeight="83" id="txo-HG-3yf" customClass="CreateRiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="773" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameID" rowHeight="83" id="txo-HG-3yf" customClass="CreateRiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="655" width="320" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="txo-HG-3yf" id="Bmr-fs-R5W">
@@ -571,127 +571,180 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16s-oG-DO5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-if-ecK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="736"/>
-                            </imageView>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
-                                <rect key="frame" x="11" y="76" width="301" height="196"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-xZ-8fZ">
-                                <rect key="frame" x="11" y="280" width="300" height="174"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I guess your riddle has to come here, but then again I'm catsolutely clueless." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
-                                <rect key="frame" x="93" y="367" width="209" height="94"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_clueless" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-bG-mrc">
-                                <rect key="frame" x="12" y="312" width="95" height="113"/>
-                            </imageView>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-L5-qOL">
-                                <rect key="frame" x="12" y="461" width="300" height="311"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_final" translatesAutoresizingMaskIntoConstraints="NO" id="ELa-5C-s6E">
-                                <rect key="frame" x="197" y="636" width="118" height="133"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ML1-jN-N12">
-                                <rect key="frame" x="36" y="472" width="203" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtc-hE-qBn">
-                                <rect key="frame" x="36" y="512" width="203" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsI-sc-Ppk">
-                                <rect key="frame" x="36" y="552" width="203" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckX-qx-gEa">
-                                <rect key="frame" x="36" y="592" width="203" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
-                                <rect key="frame" x="253" y="472" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.68130360589611672" blue="0.9522152286947706" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
-                                <rect key="frame" x="253" y="512" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="AnswerSwitch2ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="1Px-hE-ugr"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
-                                <rect key="frame" x="253" y="551" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="AnswerSwitch3ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="nOD-NM-bKQ"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
-                                <rect key="frame" x="253" y="592" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
-                                </connections>
-                            </switch>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-jf-VdS">
-                                <rect key="frame" x="107" y="131" width="195" height="131"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_painting" translatesAutoresizingMaskIntoConstraints="NO" id="AL6-wE-3yH">
-                                <rect key="frame" x="126" y="147" width="163" height="99"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
-                                <rect key="frame" x="126" y="147" width="163" height="99"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Even a Diva like me can't be on every picture. Please select a picture or take one." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaZ-c8-pG5">
-                                <rect key="frame" x="26" y="80" width="281" height="63"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
-                                <rect key="frame" x="36" y="204" width="47" height="44"/>
-                                <state key="normal" image="cameraIcon">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
-                                <rect key="frame" x="36" y="151" width="47" height="49"/>
-                                <state key="normal" image="fileicon">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lqa-O1-Qaw">
-                                <rect key="frame" x="93" y="287" width="209" height="94"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last but not least, your answers go here. Make sure you select the correct answer and everything will be absolutely purrfect." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-9O-aZG">
-                                <rect key="frame" x="36" y="627" width="171" height="139"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-hf-p8R">
+                                        <rect key="frame" x="9" y="8" width="301" height="196"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-jf-VdS">
+                                                <rect key="frame" x="98" y="57" width="195" height="131"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-nY-Aaa">
+                                                <rect key="frame" x="25" y="128" width="47" height="44"/>
+                                                <state key="normal" image="cameraIcon">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="PresentCamera:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="8ms-cl-sMA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYi-rs-D6I">
+                                                <rect key="frame" x="25" y="73" width="47" height="49"/>
+                                                <state key="normal" image="fileicon">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="CameraRollPicture:" destination="Ypf-2x-IHU" eventType="touchUpInside" id="eUH-Af-QOy"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Even a Diva like me can't be on every picture. Please select a picture or take one." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaZ-c8-pG5">
+                                                <rect key="frame" x="12" y="8" width="281" height="63"/>
+                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_painting" translatesAutoresizingMaskIntoConstraints="NO" id="AL6-wE-3yH">
+                                                <rect key="frame" x="114" y="73" width="163" height="99"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLJ-2M-u9u">
+                                                <rect key="frame" x="114" y="73" width="163" height="99"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nameLocation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V5T-gh-6bv">
+                                                <rect key="frame" x="102" y="-10" width="97" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="301" id="IxE-Xt-2JZ"/>
+                                            <constraint firstAttribute="height" constant="196" id="ZZe-fD-b60"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-xZ-8fZ">
+                                        <rect key="frame" x="9" y="212" width="300" height="174"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I guess your riddle has to come here, but then again I'm catsolutely clueless." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjV-tB-v6O">
+                                                <rect key="frame" x="83" y="86" width="209" height="94"/>
+                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_clueless" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-bG-mrc">
+                                                <rect key="frame" x="0.0" y="30" width="95" height="113"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lqa-O1-Qaw">
+                                                <rect key="frame" x="83" y="8" width="209" height="94"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="4ES-QR-H1c"/>
+                                            <constraint firstAttribute="height" constant="174" id="JjM-Y2-OHy"/>
+                                        </constraints>
+                                    </view>
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-L5-qOL">
+                                        <rect key="frame" x="10" y="393" width="300" height="311"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hudson_final" translatesAutoresizingMaskIntoConstraints="NO" id="ELa-5C-s6E">
+                                                <rect key="frame" x="182" y="178" width="118" height="133"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last but not least, your answers go here. Make sure you select the correct answer and everything will be absolutely purrfect." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-9O-aZG">
+                                                <rect key="frame" x="24" y="164" width="171" height="139"/>
+                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ML1-jN-N12">
+                                                <rect key="frame" x="24" y="8" width="203" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtc-hE-qBn">
+                                                <rect key="frame" x="24" y="48" width="203" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsI-sc-Ppk">
+                                                <rect key="frame" x="24" y="88" width="203" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckX-qx-gEa">
+                                                <rect key="frame" x="24" y="128" width="203" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-N6-umm">
+                                                <rect key="frame" x="241" y="8" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="0.68130360589611672" blue="0.9522152286947706" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="AnswerSwitch1ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="i4o-ei-3Xr"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-NJ-iEN">
+                                                <rect key="frame" x="241" y="48" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="AnswerSwitch2ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="1Px-hE-ugr"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-X6-kzq">
+                                                <rect key="frame" x="241" y="87" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="AnswerSwitch3ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="nOD-NM-bKQ"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-1C-saK">
+                                                <rect key="frame" x="241" y="128" width="51" height="31"/>
+                                                <color key="onTintColor" red="1" green="0.68130360590000005" blue="0.95221522869999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="AnswerSwitch4ValueChanged:" destination="Ypf-2x-IHU" eventType="valueChanged" id="JWW-1j-usz"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="311" id="3wt-OT-wt5"/>
+                                            <constraint firstAttribute="width" constant="300" id="LpR-qA-V6h"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6lH-KK-Zqa"/>
+                                    <constraint firstAttribute="bottom" secondItem="TUd-L5-qOL" secondAttribute="bottom" constant="32" id="Qlb-ez-wbQ"/>
+                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="top" constant="8" id="SGb-Fr-BM8"/>
+                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="9" id="etO-Rd-EAQ"/>
+                                    <constraint firstItem="TUd-L5-qOL" firstAttribute="top" secondItem="1Ii-xZ-8fZ" secondAttribute="bottom" constant="7" id="iZw-2e-Yyp"/>
+                                    <constraint firstItem="1Ii-xZ-8fZ" firstAttribute="top" secondItem="WBm-hf-p8R" secondAttribute="bottom" constant="8" id="kMJ-4B-dqj"/>
+                                    <constraint firstAttribute="trailing" secondItem="WBm-hf-p8R" secondAttribute="trailing" constant="11" id="ktq-xB-TSR"/>
+                                    <constraint firstItem="TUd-L5-qOL" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="10" id="qeD-sJ-dRF"/>
+                                    <constraint firstItem="WBm-hf-p8R" firstAttribute="leading" secondItem="bBY-if-ecK" secondAttribute="leading" constant="9" id="sFY-XX-KSi"/>
+                                    <constraint firstAttribute="trailing" secondItem="TUd-L5-qOL" secondAttribute="trailing" constant="11" id="yP4-RA-IiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Ii-xZ-8fZ" secondAttribute="trailing" constant="12" id="z8S-pr-mp6"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bBY-if-ecK" secondAttribute="trailing" id="2v3-vo-DPj"/>
+                            <constraint firstItem="bBY-if-ecK" firstAttribute="leading" secondItem="e9s-jo-EZ6" secondAttribute="leading" id="Clh-xv-507"/>
+                            <constraint firstAttribute="trailing" secondItem="bBY-if-ecK" secondAttribute="trailing" id="IMl-ie-y5H"/>
+                            <constraint firstItem="wod-Lt-Jdl" firstAttribute="top" secondItem="bBY-if-ecK" secondAttribute="bottom" id="ey7-7M-cbd"/>
+                            <constraint firstItem="bBY-if-ecK" firstAttribute="top" secondItem="V8a-uy-0zE" secondAttribute="bottom" id="vGh-8d-mYs"/>
+                            <constraint firstItem="bBY-if-ecK" firstAttribute="centerX" secondItem="e9s-jo-EZ6" secondAttribute="centerX" id="y8A-kJ-Jih"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2v3-vo-DPj"/>
+                                <exclude reference="Clh-xv-507"/>
+                                <exclude reference="IMl-ie-y5H"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="4oy-qE-uYn">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Y4e-qD-yds">
@@ -717,7 +770,8 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
-                        <outlet property="scrollView" destination="16s-oG-DO5" id="LcM-4K-p5y"/>
+                        <outlet property="nameLocationField" destination="V5T-gh-6bv" id="UbN-nu-czR"/>
+                        <outlet property="scrollView" destination="bBY-if-ecK" id="EMX-HK-JUV"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
