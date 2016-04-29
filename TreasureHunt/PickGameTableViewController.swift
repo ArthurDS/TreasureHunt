@@ -162,7 +162,7 @@ class PickGameTableViewController: UITableViewController {
 
         
         let myPath = bezier2Path.CGPath
-        var loader = WavesLoader.showLoaderWithPath(myPath)
+        let loader = WavesLoader.showLoaderWithPath(myPath)
         loader.loaderColor = UIColor.redColor()
 
         
