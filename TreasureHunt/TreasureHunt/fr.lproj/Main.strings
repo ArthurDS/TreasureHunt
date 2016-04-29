@@ -1,0 +1,63 @@
+
+/* Class = "UIButton"; normalTitle = "Take Photo"; ObjectID = "15R-Ff-gFF"; */
+"15R-Ff-gFF.normalTitle" = "Prendre une photo ";
+
+/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "4ab-cG-yVb"; */
+"4ab-cG-yVb.normalTitle" = "Jouer";
+
+/* Class = "UILabel"; text = "So Purrlock, who do you think the killer is?"; ObjectID = "7vp-38-18n"; */
+"7vp-38-18n.text" = "Alors Purrlock, qui pensez-vous  être le tueur?";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "95U-DY-SnP"; */
+"95U-DY-SnP.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dws-Cg-KOT"; */
+"Dws-Cg-KOT.text" = "Label";
+
+/* Class = "UILabel"; text = "Even a Diva like me can't be on every picture. Please select a picture or take one."; ObjectID = "FaZ-c8-pG5"; */
+"FaZ-c8-pG5.text" = "Even a Diva like me can't be on every picture. Please select a picture or take one.";
+
+/* Class = "UILabel"; text = "I guess your riddle has to come here, but then again I'm catsolutely clueless."; ObjectID = "HjV-tB-v6O"; */
+"HjV-tB-v6O.text" = "I guess your riddle has to come here, but then again I'm catsolutely clueless.";
+
+/* Class = "UIBarButtonItem"; title = "Clues"; ObjectID = "JPG-Fv-1ZX"; */
+"JPG-Fv-1ZX.title" = "Indices";
+
+/* Class = "UILabel"; text = "Last but not least, your answers go here. Make sure you select the correct answer and everything will be absolutely purrfect."; ObjectID = "Q9G-9O-aZG"; */
+"Q9G-9O-aZG.text" = "Last but not least, your answers go here. Make sure you select the correct answer and everything will be absolutely purrfect.";
+
+/* Class = "UIBarButtonItem"; title = "Quit"; ObjectID = "V6U-6J-ySA"; */
+"V6U-6J-ySA.title" = "Quitter";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Y4e-qD-yds"; */
+"Y4e-qD-yds.title" = "Annuler";
+
+/* Class = "UILabel"; text = "Ow meow, you really made a mess didn't you... Let me help you a bit to clean this up. First add a picture. You can take one in The Dark Room or choose one from your Library. "; ObjectID = "ZyR-Ki-6aa"; */
+"ZyR-Ki-6aa.text" = "Ow meow, you really made a mess didn't you... Let me help you a bit to clean this up. First add a picture. You can take one in The Dark Room or choose one from your Library. ";
+
+/* Class = "UIButton"; normalTitle = "Create game"; ObjectID = "cya-cP-gsn"; */
+"cya-cP-gsn.normalTitle" = "Créer un jeu";
+
+/* Class = "UILabel"; text = "The Old Town Hall"; ObjectID = "eU3-9u-eaU"; */
+"eU3-9u-eaU.text" = "The Old Town Hall";
+
+/* Class = "UILabel"; text = "The Curse of the Socialist Mayor"; ObjectID = "efF-wY-8k2"; */
+"efF-wY-8k2.text" = "The Curse of the Socialist Mayor";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "fgO-dL-UAA"; */
+"fgO-dL-UAA.normalTitle" = "Sauver";
+
+/* Class = "UILabel"; text = "Game"; ObjectID = "fjm-6l-eT3"; */
+"fjm-6l-eT3.text" = "Jeu";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "kVh-G0-LCS"; */
+"kVh-G0-LCS.title" = "Retour";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "koi-XA-D4W"; */
+"koi-XA-D4W.title" = "Sauver";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "m9J-as-EQD"; */
+"m9J-as-EQD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Camera Roll"; ObjectID = "nwY-la-gzG"; */
+"nwY-la-gzG.normalTitle" = "Camera Roll";

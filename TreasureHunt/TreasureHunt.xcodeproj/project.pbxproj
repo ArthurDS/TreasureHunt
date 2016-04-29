@@ -86,6 +86,9 @@
 		BEB21DAE1CD0BBCE00FF343A /* CreateRiddleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRiddleTableViewCell.swift; sourceTree = "<group>"; };
 		BEB21DB01CD2067400FF343A /* TutorialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialTableViewCell.swift; sourceTree = "<group>"; };
 		BEBD808C1CCE328600455162 /* CluesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CluesViewController.swift; sourceTree = "<group>"; };
+		BEC81ECF1CD362A7006C990D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BEC81ED01CD362A7006C990D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		BEC81ED11CD362A7006C990D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BECE3C7B1CBCDBB80011AFC6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BECE3C7C1CBCDBB80011AFC6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BECE3C7D1CBCDBB80011AFC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -270,6 +273,7 @@
 				en,
 				Base,
 				nl,
+				fr,
 			);
 			mainGroup = BE72F62B1CBBBED500976D47;
 			productRefGroup = BE72F6351CBBBED500976D47 /* Products */;
@@ -382,6 +386,7 @@
 				BE72F63C1CBBBED500976D47 /* Base */,
 				BE91BCF61CD0D810000C01A9 /* en */,
 				BE6DA4381CD0F3D2007D14DD /* nl */,
+				BEC81ED01CD362A7006C990D /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 			children = (
 				BE72F6441CBBBED500976D47 /* Base */,
 				BE6DA4371CD0F3D2007D14DD /* nl */,
+				BEC81ECF1CD362A7006C990D /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 			children = (
 				BEAD7CC71CCF5CA200CCAB5C /* en */,
 				BE6DA4391CD0F3E1007D14DD /* nl */,
+				BEC81ED11CD362A7006C990D /* fr */,
 			);
 			name = Localizable.strings;
 			path = ..;
