@@ -10,16 +10,20 @@ import UIKit
 import CloudKit
 
 class CluesViewController: UIViewController {
-
+    
     let locationManager = LocationManager.sharedManager
-
+    
     var riddleArray: [CKRecord] = []
     var clueArray: [CKRecord] = []
     var clueArrayByID: [CKRecord] = []
+    var endGameArray: [CKRecord] = []
+    var textNamesArray: [String] = []
     
     var clueRecord: CKRecord!
     var gameRecord: Int!
     
+    
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
@@ -41,11 +45,13 @@ class CluesViewController: UIViewController {
         hideTheButtons()
         createButtons()
         hideClues()
+        fetchEndgame()
         
         navigationController?.navigationBarHidden = false
-
+        questionLabel.hidden = true
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -60,15 +66,40 @@ class CluesViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         if self.locationManager.riddleArrayByIdGame.isEmpty {
             ShowTheButtons()
+            createAnswers()
         }
     }
     
+    func createAnswers() {
+        
+        for answer in endGameArray {
+            
+            let rightAnswer = answer.valueForKey("RightAnswer") as? String
+            let wrogAnswer1 = answer.valueForKey("WrongAnswer1") as? String
+            let wrogAnswer2 = answer.valueForKey("WrongAnswer1") as? String
+            let wrogAnswer3 = answer.valueForKey("WrongAnswer1") as? String
+            
+            let answerButtonArray = [answerButton1, answerButton2, answerButton3, answerButton4]
+            textNamesArray = [rightAnswer!, wrogAnswer1!, wrogAnswer2!, wrogAnswer3!]
+            
+            srandom(UInt32(NSDate().timeIntervalSince1970))
+            
+            for answerButton in answerButtonArray {
+                let choice = random() % textNamesArray.count
+                let endGame = textNamesArray[choice]
+                
+                answerButton.setTitle(endGame, forState: .Normal)
+                textNamesArray.removeAtIndex(choice)
+            }
+        }
+        
+    }
     func createButtons() {
-       
+        
         answerButton1.layer.cornerRadius = 20
         answerButton1.layer.borderWidth = 2
         answerButton1.layer.borderColor = UIColor.blackColor().CGColor
@@ -138,7 +169,7 @@ class CluesViewController: UIViewController {
             break
         }
         
-       
+        
     }
     
     
@@ -148,16 +179,16 @@ class CluesViewController: UIViewController {
         
         answerButton2.hidden = true
         answerButton2.userInteractionEnabled = false
-
+        
         answerButton3.hidden = true
         answerButton3.userInteractionEnabled = false
-
+        
         answerButton4.hidden = true
         answerButton4.userInteractionEnabled = false
-
+        
     }
     func mistifyButtons() {
-    
+        
     }
     
     func ShowTheButtons() {
@@ -173,11 +204,14 @@ class CluesViewController: UIViewController {
         
         answerButton4.hidden = false
         answerButton4.userInteractionEnabled = true
-
+        
+        questionLabel.hidden = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
     }
     
-
-
+    
+    
     
     func fetchRiddles() {
         let container = CKContainer.defaultContainer()
@@ -194,7 +228,7 @@ class CluesViewController: UIViewController {
                 print(results)
                 self.riddleArray = results!
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-
+                    
                 })
                 
             }
@@ -217,27 +251,50 @@ class CluesViewController: UIViewController {
                 print(results)
                 self.clueArray = results!
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-
+                    
                 })
                 self.searchAllCluesForIdGame()
             }
             
         }
     }
-
+    
+    func fetchEndgame() {//location opvragen
+        
+        
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true) //
+        let query = CKQuery(recordType: "Endgame", predicate: predicate)//maak een cloudKit Query
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error != nil {
+                print(error)
+            }
+            else {
+                
+                print(results)
+                
+                self.endGameArray = results!
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                })
+            }
+        }
+    }
     
     
     
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

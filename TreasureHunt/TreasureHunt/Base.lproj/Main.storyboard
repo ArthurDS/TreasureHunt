@@ -416,6 +416,7 @@
                         <outlet property="answerButton2" destination="lyV-zi-c4r" id="ZMF-En-Gv1"/>
                         <outlet property="answerButton3" destination="Xal-BO-LdV" id="xg9-1d-0kx"/>
                         <outlet property="answerButton4" destination="Gga-CR-7KJ" id="XY0-tA-FXH"/>
+                        <outlet property="questionLabel" destination="7vp-38-18n" id="dlz-wM-y6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nw-Yv-TrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -892,6 +893,9 @@
         <image name="E3928637-04D0-4A9C-9A60-8CC5AE7883A2" width="994" height="480"/>
         <image name="Grand-Victorian-Row-Homes-Scenic-Backdrop" width="994" height="480"/>
         <image name="Wood_kitchen_table_built" width="1040" height="678"/>
+        <image name="cameraIcon" width="69" height="69"/>
+        <image name="darkroom" width="991" height="337"/>
+        <image name="fileicon" width="69" height="69"/>
         <image name="finished" width="1070" height="1090"/>
         <image name="frame1" width="800" height="605"/>
         <image name="hands" width="174" height="174"/>

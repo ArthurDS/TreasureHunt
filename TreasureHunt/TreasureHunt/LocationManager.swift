@@ -42,6 +42,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         super.init()
         
         if (CLLocationManager.locationServicesEnabled())
+       
         {
             locationManager = CLLocationManager()
             locationManager.delegate = self
@@ -67,6 +68,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //         for record in
 //        
 //    }
+    
+    func addEndGame(rightAnswer: String, wrongAnswer1: String, wrongAnswer2: String, wrongAnswer3: String, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
+        
+        let identifier = NSUUID().UUIDString
+        let endGameID = CKRecordID(recordName: identifier)
+        let endGameRecord = CKRecord(recordType: "Endgame", recordID: endGameID)
+        
+        endGameRecord.setObject(rightAnswer, forKey: "RightAnswer")
+        endGameRecord.setObject(wrongAnswer1, forKey: "WrongAnswer1")
+        endGameRecord.setObject(wrongAnswer2, forKey: "WrongAnswer2")
+        endGameRecord.setObject(wrongAnswer3, forKey: "WrongAnswer3")
+    }
     
     
     func addLocation(uniqueRiddleID: Int, summary: String, imageURL: NSURL?, completionHandler: (record: CKRecord?, error: NSError?) -> Void) {
@@ -147,6 +160,21 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func fetchEndGameAnswers(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
+        
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Endgame", predicate: predicate)
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(records: results, error: error)
+            })
+        }
+    }
+    
     func fetchClues(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
         
         let container = CKContainer.defaultContainer()
@@ -174,7 +202,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
     }
     
-    
     func isNearRecord(record: CKRecord) -> Bool {
         
         guard userLocation != nil else {
@@ -182,11 +209,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
      
         let recordLocation = record["location"] as! CLLocation
-        
         let distance = userLocation.distanceFromLocation(recordLocation)
-        
         let result = distance < 20 ? true : false
-        
         
         return result
         
