@@ -190,20 +190,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func fetchEndGameAnswers(completionHandler: (records: [CKRecord]?, error: NSError?) -> Void) {
-        
-        let container = CKContainer.defaultContainer()
-        let publicDatabase = container.publicCloudDatabase
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Endgame", predicate: predicate)
-        
-        publicDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(records: results, error: error)
-            })
-        }
-    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
         

@@ -142,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickGameID" rowHeight="150" id="1f8-da-bKt" customClass="PickGameTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1f8-da-bKt" id="2tT-oU-CQP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
@@ -251,13 +251,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.97151682859999999" blue="0.90913167220000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" id="mdg-si-bt2">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
+                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="mdg-si-bt2">
+                            <rect key="frame" x="0.0" y="64" width="320" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riddleID" rowHeight="71" id="xLI-zx-lfN" customClass="RiddleTableViewCell" customModule="TreasureHunt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="233" width="320" height="71"/>
+                                <rect key="frame" x="0.0" y="297" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLI-zx-lfN" id="4PT-Pa-MXL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -357,31 +357,31 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyV-zi-c4r">
                                 <rect key="frame" x="169" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="answerButton2WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="yvw-hY-Cfc"/>
+                                    <action selector="answerButton2WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="WyZ-Y9-I6v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-CR-7KJ">
                                 <rect key="frame" x="169" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="answerButton4WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="Oc7-f7-ZXm"/>
+                                    <action selector="answerButton4WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="jgi-rI-X1i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xal-BO-LdV">
                                 <rect key="frame" x="25" y="205" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="answerButton3WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="TVh-ql-CHn"/>
+                                    <action selector="answerButton3WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="uA5-NR-feM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12065628201889940800mystica_Hammer.svg.hi" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-TD-Q0X">
@@ -400,11 +400,11 @@
                                 <rect key="frame" x="25" y="138" width="120" height="59"/>
                                 <color key="backgroundColor" red="0.75037484219999995" green="0.54502465889999996" blue="0.27900731880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="answerButton1WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="Fli-EP-OHT"/>
+                                    <action selector="answerButton1WasPressed:" destination="JHn-GK-sQN" eventType="touchUpInside" id="adi-lu-2cv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="So Purrlock, who do you think the killer is?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-38-18n">
@@ -728,7 +728,6 @@
                         <outlet property="answer1Field3" destination="tsI-sc-Ppk" id="Yfu-mk-fQR"/>
                         <outlet property="answer1Field4" destination="ckX-qx-gEa" id="nNz-bz-hWj"/>
                         <outlet property="locationImage" destination="bLJ-2M-u9u" id="Q4w-T9-HRw"/>
-                        <outlet property="scrollView" destination="16s-oG-DO5" id="LcM-4K-p5y"/>
                         <outlet property="summaryTextField" destination="Lqa-O1-Qaw" id="oIH-9R-YG6"/>
                     </connections>
                 </viewController>
@@ -907,7 +906,7 @@
         <image name="wallpaper" width="570" height="380"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Be-0c-8rW"/>
+        <segue reference="DdK-PA-IvU"/>
         <segue reference="g28-yg-Pfr"/>
     </inferredMetricsTieBreakers>
 </document>
